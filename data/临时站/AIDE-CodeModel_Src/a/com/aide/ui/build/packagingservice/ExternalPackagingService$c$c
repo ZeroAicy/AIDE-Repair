@@ -1,0 +1,209 @@
+.class Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$c;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Ljava/util/concurrent/Callable;
+
+
+# annotations
+.annotation runtime Labcd/cy;
+    clazz = -0x2054183f59656b10L
+    container = -0x2054183f59656b10L
+    user = true
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "c"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/concurrent/Callable<",
+        "Ljava/lang/Void;",
+        ">;"
+    }
+.end annotation
+
+
+# static fields
+.field private static synthetic DW:Z
+    .annotation runtime Labcd/fy;
+    .end annotation
+.end field
+
+.field private static synthetic FH:Z
+    .annotation runtime Labcd/gy;
+    .end annotation
+.end field
+
+
+# instance fields
+.field private j6:Ljava/util/List;
+    .annotation runtime Labcd/dy;
+        field = 0x94298fb440c6e0fL
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$d;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 1
+
+    const-class v0, Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$c;
+
+    invoke-static {v0}, Labcd/iy;->Zo(Ljava/lang/Class;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c;Ljava/util/List;)V
+    .registers 10
+    .annotation runtime Labcd/ey;
+        method = -0x1e757360511c550L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$d;",
+            ">;)V"
+        }
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$c;->DW:Z
+
+    if-eqz v0, :cond_0
+
+    const-wide v0, 0x16f5077ebe78bfbL
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2, p1, p2}, Labcd/iy;->EQ(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p2, p0, Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$c;->j6:Ljava/util/List;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$c;->FH:Z
+
+    if-eqz v1, :cond_1
+
+    const-wide v2, 0x16f5077ebe78bfbL
+
+    const/4 v4, 0x0
+
+    move-object v1, v0
+
+    move-object v5, p1
+
+    move-object v6, p2
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->Mr(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v0
+.end method
+
+
+# virtual methods
+.method public bridge synthetic call()Ljava/lang/Object;
+    .registers 2
+    .annotation runtime Labcd/ey;
+        method = -0x154fb4cb3789c28cL
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$c;->j6()Ljava/lang/Void;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public j6()Ljava/lang/Void;
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0x154fb4cb3789c28cL
+    .end annotation
+
+    const-wide v0, -0x1093094e6d92c620L
+
+    :try_start_0
+    sget-boolean v2, Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$c;->DW:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    iget-object v2, p0, Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$c;->j6:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$d;
+
+    invoke-virtual {v3}, Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$d;->Mr()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Lcom/aide/ui/build/packagingservice/ExternalPackagingService$c$c;->FH:Z
+
+    if-eqz v3, :cond_2
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_2
+    goto :goto_2
+
+    :goto_1
+    throw v2
+
+    :goto_2
+    goto :goto_1
+.end method

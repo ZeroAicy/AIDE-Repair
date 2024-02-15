@@ -1,0 +1,597 @@
+.class Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;
+.super Landroid/widget/BaseAdapter;
+
+
+# annotations
+.annotation runtime Labcd/cy;
+    clazz = -0xdd92151d14e33cbL
+    container = -0xdd92151d14e33cbL
+    user = true
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/aide/ui/marketing/WhatsNewDialog;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "PromotedAppListAdapter"
+.end annotation
+
+
+# static fields
+.field private static synthetic FH:Z
+    .annotation runtime Labcd/fy;
+    .end annotation
+.end field
+
+.field private static synthetic Hw:Z
+    .annotation runtime Labcd/gy;
+    .end annotation
+.end field
+
+
+# instance fields
+.field private DW:Landroid/content/Context;
+    .annotation runtime Labcd/dy;
+        field = -0x2af50a28b2079a7bL
+    .end annotation
+.end field
+
+.field private j6:Lcom/aide/ui/marketing/a$a;
+    .annotation runtime Labcd/dy;
+        field = -0x19ed9d4a2e8fe695L
+    .end annotation
+.end field
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 1
+
+    const-class v0, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;
+
+    invoke-static {v0}, Labcd/iy;->Zo(Ljava/lang/Class;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;)V
+    .registers 11
+    .annotation runtime Labcd/ey;
+        method = -0x12c412f0114b0c0L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x294d1a43f8feec8L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->FH:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
+
+    iput-object p1, p0, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->DW:Landroid/content/Context;
+
+    sget-object v3, Lcom/aide/ui/marketing/a;->j6:[Lcom/aide/ui/marketing/a$a;
+
+    array-length v4, v3
+
+    const/4 v5, 0x0
+
+    :goto_0
+    if-ge v5, v4, :cond_2
+
+    aget-object v6, v3, v5
+
+    iget-object v7, v6, Lcom/aide/ui/marketing/a$a;->DW:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
+
+    iput-object v6, p0, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->j6:Lcom/aide/ui/marketing/a$a;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_1
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->Hw:Z
+
+    if-eqz v4, :cond_3
+
+    invoke-static {v3, v1, v2, v0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_3
+    goto :goto_2
+
+    :goto_1
+    throw v3
+
+    :goto_2
+    goto :goto_1
+.end method
+
+
+# virtual methods
+.method public getCount()I
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0xddbb1f262c83bb4L
+    .end annotation
+
+    const-wide v0, 0x2d3fb8efbdc9df8L
+
+    :try_start_0
+    sget-boolean v2, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->FH:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const/4 v0, 0x2
+
+    return v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->Hw:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public getItem(I)Ljava/lang/Object;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0xb5d1c98b8d5df3dL
+    .end annotation
+
+    const-wide v0, -0x2d45ab3b0769d77L
+
+    :try_start_0
+    sget-boolean v2, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->FH:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->u7(JLjava/lang/Object;I)V
+
+    :cond_0
+    iget-object p1, p0, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->j6:Lcom/aide/ui/marketing/a$a;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->Hw:Z
+
+    if-eqz v3, :cond_1
+
+    new-instance v3, Ljava/lang/Integer;
+
+    invoke-direct {v3, p1}, Ljava/lang/Integer;-><init>(I)V
+
+    invoke-static {v2, v0, v1, p0, v3}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public getItemId(I)J
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0xe435d9b14231dc4L
+    .end annotation
+
+    const-wide v0, -0x3f3d8b6f756d850L
+
+    :try_start_0
+    sget-boolean v2, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->FH:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->u7(JLjava/lang/Object;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    int-to-long v0, p1
+
+    return-wide v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->Hw:Z
+
+    if-eqz v3, :cond_1
+
+    new-instance v3, Ljava/lang/Integer;
+
+    invoke-direct {v3, p1}, Ljava/lang/Integer;-><init>(I)V
+
+    invoke-static {v2, v0, v1, p0, v3}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    .registers 14
+    .annotation runtime Labcd/ey;
+        method = 0x260fc98665bf4bc3L
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->FH:Z
+
+    if-eqz v0, :cond_0
+
+    const-wide v1, -0x1c2f69b994f3e793L
+
+    new-instance v4, Ljava/lang/Integer;
+
+    invoke-direct {v4, p1}, Ljava/lang/Integer;-><init>(I)V
+
+    move-object v3, p0
+
+    move-object v5, p2
+
+    move-object v6, p3
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->we(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    const/4 v0, 0x0
+
+    if-nez p2, :cond_1
+
+    iget-object v1, p0, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->DW:Landroid/content/Context;
+
+    invoke-static {v1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v1
+
+    const v2, 0x7f0a0013
+
+    invoke-virtual {v1, v2, p3, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :cond_1
+    move-object v1, p2
+
+    :goto_0
+    const v2, 0x7f0801a7
+
+    const v3, 0x7f0801a6
+
+    const v4, 0x7f0801a8
+
+    const v5, 0x7f0801a5
+
+    const v6, 0x7f0801a4
+
+    const/16 v7, 0x8
+
+    if-nez p1, :cond_5
+
+    invoke-virtual {v1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TextView;
+
+    const-string v8, "What\'s new"
+
+    invoke-virtual {v6, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v6, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/ImageView;
+
+    iget-object v6, p0, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->j6:Lcom/aide/ui/marketing/a$a;
+
+    iget v6, v6, Lcom/aide/ui/marketing/a$a;->j6:I
+
+    invoke-virtual {v5, v6}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    invoke-virtual {v5, v0}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/TextView;
+
+    iget-object v5, p0, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->j6:Lcom/aide/ui/marketing/a$a;
+
+    iget-object v5, v5, Lcom/aide/ui/marketing/a$a;->FH:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v4, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
+    iget-object v4, p0, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->j6:Lcom/aide/ui/marketing/a$a;
+
+    iget-object v4, v4, Lcom/aide/ui/marketing/a$a;->Hw:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v3, v7}, Landroid/widget/TextView;->setVisibility(I)V
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/TextView;
+
+    iget-object v3, p0, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->j6:Lcom/aide/ui/marketing/a$a;
+
+    iget-object v4, p0, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->DW:Landroid/content/Context;
+
+    invoke-virtual {v3, v4}, Lcom/aide/ui/marketing/a$a;->j6(Landroid/content/Context;)Ljava/util/List;
+
+    move-result-object v3
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "New in "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v5, p0, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->DW:Landroid/content/Context;
+
+    invoke-static {v5}, Lcom/aide/ui/marketing/WhatsNewDialog;->j6(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v5, ":<br/>"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    :goto_1
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v6
+
+    if-ge v5, v6, :cond_4
+
+    invoke-interface {v3, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/String;
+
+    const/16 v7, 0x3a
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v7
+
+    if-lez v7, :cond_2
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "<b>"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v7, v7, 0x1
+
+    invoke-virtual {v6, v0, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v9, "</b>"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    :cond_2
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v6
+
+    add-int/lit8 v6, v6, -0x1
+
+    if-ge v5, v6, :cond_3
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, "<br/>"
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    :cond_3
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_1
+
+    :cond_4
+    invoke-static {v4}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_2
+
+    :cond_5
+    invoke-virtual {v1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TextView;
+
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setVisibility(I)V
+
+    invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/ImageView;
+
+    const v6, 0x7f070003
+
+    invoke-virtual {v5, v6}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    invoke-virtual {v5, v0}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/TextView;
+
+    const-string v5, "Probelytics"
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v4, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
+    const-string v4, "Realtime automatic analytics"
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v3, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    invoke-virtual {v0, v7}, Landroid/widget/TextView;->setVisibility(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_2
+    return-object v1
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Lcom/aide/ui/marketing/WhatsNewDialog$PromotedAppListAdapter;->Hw:Z
+
+    if-eqz v1, :cond_6
+
+    const-wide v2, -0x1c2f69b994f3e793L
+
+    new-instance v5, Ljava/lang/Integer;
+
+    invoke-direct {v5, p1}, Ljava/lang/Integer;-><init>(I)V
+
+    move-object v1, v0
+
+    move-object v4, p0
+
+    move-object v6, p2
+
+    move-object v7, p3
+
+    invoke-static/range {v1 .. v7}, Labcd/iy;->U2(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_6
+    goto :goto_4
+
+    :goto_3
+    throw v0
+
+    :goto_4
+    goto :goto_3
+.end method

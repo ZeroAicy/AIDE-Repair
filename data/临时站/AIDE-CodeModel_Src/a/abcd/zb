@@ -1,0 +1,351 @@
+.class public Labcd/zb;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Labcd/fg;
+.implements Labcd/bg;
+
+
+# annotations
+.annotation runtime Labcd/cy;
+    clazz = 0x8e769c07900c709L
+    container = 0x8e769c07900c709L
+    user = true
+.end annotation
+
+
+# static fields
+.field private static synthetic DW:Z
+    .annotation runtime Labcd/gy;
+    .end annotation
+.end field
+
+.field private static synthetic j6:Z
+    .annotation runtime Labcd/fy;
+    .end annotation
+.end field
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 1
+
+    const-class v0, Labcd/zb;
+
+    invoke-static {v0}, Labcd/iy;->Zo(Ljava/lang/Class;)V
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0x2acd02e9c2a03d08L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x60c29829f0f3f0ffL
+
+    :try_start_0
+    sget-boolean v3, Labcd/zb;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Labcd/zb;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+
+# virtual methods
+.method public DW(Z)Z
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0xf359b14e9bb18bbL
+    .end annotation
+
+    const-wide v0, 0xb5e04a1361f629fL
+
+    :try_start_0
+    sget-boolean v2, Labcd/zb;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->Ws(JLjava/lang/Object;Z)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/f;->Ws()Labcd/we;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Labcd/we;->FH()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-static {v2}, Labcd/ag;->sh(Ljava/lang/String;)Z
+
+    move-result p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez p1, :cond_1
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p1, 0x0
+
+    :goto_0
+    return p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/zb;->DW:Z
+
+    if-eqz v3, :cond_2
+
+    new-instance v3, Ljava/lang/Boolean;
+
+    invoke-direct {v3, p1}, Ljava/lang/Boolean;-><init>(Z)V
+
+    invoke-static {v2, v0, v1, p0, v3}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_2
+    throw v2
+.end method
+
+.method public FH()I
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0x24b7fcbc63108a03L
+    .end annotation
+
+    const-wide v0, 0x42a555d12c8bd3bL
+
+    :try_start_0
+    sget-boolean v2, Labcd/zb;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const v0, 0x7f0800b2
+
+    return v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/zb;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public getName()Ljava/lang/String;
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = 0x24af772309b506b7L
+    .end annotation
+
+    const-wide v0, 0x622d8779353ef0dL
+
+    :try_start_0
+    sget-boolean v2, Labcd/zb;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    const-string v0, "文件 - 重命名"
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/zb;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public isEnabled()Z
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = 0x2faff351853fcae7L
+    .end annotation
+
+    const-wide v0, 0x190e16d89368b5a1L
+
+    :try_start_0
+    sget-boolean v2, Labcd/zb;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v2}, Labcd/zb;->DW(Z)Z
+
+    move-result v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/zb;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public run()Z
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = -0x1a9db6bc9dd08f67L
+    .end annotation
+
+    const-wide v0, 0x14d252f5adcf5bbfL
+
+    :try_start_0
+    sget-boolean v2, Labcd/zb;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/f;->Ws()Labcd/we;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Labcd/we;->FH()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Labcd/ag;->er(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {}, Lcom/aide/ui/f;->rN()Lcom/aide/ui/MainActivity;
+
+    move-result-object v4
+
+    const v5, 0x7f0d05e0
+
+    const v6, 0x7f0d05de
+
+    new-instance v7, Labcd/zb$a;
+
+    invoke-direct {v7, p0, v2}, Labcd/zb$a;-><init>(Labcd/zb;Ljava/lang/String;)V
+
+    invoke-static {v4, v5, v6, v3, v7}, Lcom/aide/common/m;->XL(Landroid/app/Activity;IILjava/lang/String;Lcom/aide/common/x;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/zb;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public v5()Lcom/aide/common/k;
+    .registers 7
+    .annotation runtime Labcd/ey;
+        method = -0x4a166b189bbe6040L
+    .end annotation
+
+    const-wide v0, -0x3c58af54cfa44734L
+
+    :try_start_0
+    sget-boolean v2, Labcd/zb;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v2, Lcom/aide/common/k;
+
+    const/16 v3, 0x2e
+
+    const/4 v4, 0x1
+
+    const/4 v5, 0x0
+
+    invoke-direct {v2, v3, v5, v4, v5}, Lcom/aide/common/k;-><init>(IZZZ)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v2
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/zb;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method

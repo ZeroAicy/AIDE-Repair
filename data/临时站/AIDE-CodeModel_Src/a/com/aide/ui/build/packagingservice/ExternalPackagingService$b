@@ -1,0 +1,33 @@
+.class interface abstract Lcom/aide/ui/build/packagingservice/ExternalPackagingService$b;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation runtime Labcd/cy;
+    clazz = 0x1524f43b824d4010L
+    container = 0x1524f43b824d4010L
+    user = true
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/aide/ui/build/packagingservice/ExternalPackagingService;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x60a
+    name = "b"
+.end annotation
+
+
+# virtual methods
+.method public abstract DW(Ljava/lang/String;)Ljava/lang/String;
+    .annotation runtime Labcd/ey;
+        method = -0x1b35eae4d9bd04a9L
+    .end annotation
+.end method
+
+.method public abstract j6(Ljava/lang/String;)Z
+    .annotation runtime Labcd/ey;
+        method = 0x7df3df6c727c2d5L
+    .end annotation
+.end method

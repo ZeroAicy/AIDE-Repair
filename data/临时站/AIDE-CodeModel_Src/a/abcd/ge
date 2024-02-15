@@ -1,0 +1,3394 @@
+.class public Labcd/ge;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Labcd/yd;
+
+
+# annotations
+.annotation runtime Labcd/cy;
+    clazz = 0x26c5315b62558560L
+    container = 0x26c5315b62558560L
+    user = true
+.end annotation
+
+
+# static fields
+.field private static synthetic DW:Z
+    .annotation runtime Labcd/gy;
+    .end annotation
+.end field
+
+.field private static synthetic j6:Z
+    .annotation runtime Labcd/fy;
+    .end annotation
+.end field
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 1
+
+    const-class v0, Labcd/ge;
+
+    invoke-static {v0}, Labcd/iy;->Zo(Ljava/lang/Class;)V
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0xb73c03d27e155e8L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x56f7a4ce990c308L
+
+    :try_start_0
+    sget-boolean v3, Labcd/ge;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Labcd/ge;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+.method public static I(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = -0x1119812e7ed0e7a1L
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Labcd/ge;->j6:Z
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    const-wide v2, -0x189dc2101fff9cfbL
+
+    invoke-static {v2, v3, v1, p0, p1}, Labcd/iy;->EQ(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {p0}, Labcd/ge;->dx(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    array-length v2, v0
+
+    const/4 v3, 0x0
+
+    :goto_0
+    if-ge v3, v2, :cond_2
+
+    aget-object v4, v0, v3
+
+    invoke-static {v4, p1}, Labcd/ag;->nw(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    invoke-static {v4, p1}, Labcd/ag;->BT(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const/16 v1, 0x2f
+
+    const/16 v2, 0x2e
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+
+    move-result-object p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object p0
+
+    :cond_1
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return-object v1
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Labcd/ge;->DW:Z
+
+    if-eqz v1, :cond_3
+
+    const-wide v2, -0x189dc2101fff9cfbL
+
+    const/4 v4, 0x0
+
+    move-object v1, v0
+
+    move-object v5, p0
+
+    move-object v6, p1
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->Mr(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_3
+    goto :goto_2
+
+    :goto_1
+    throw v0
+
+    :goto_2
+    goto :goto_1
+.end method
+
+.method public static Mz(Ljava/lang/String;Z)Ljava/lang/String;
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = -0x33937382e509748L
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Labcd/ge;->j6:Z
+
+    if-eqz v0, :cond_0
+
+    const-wide v0, 0x7a7afd08553c004L
+
+    const/4 v2, 0x0
+
+    new-instance v3, Ljava/lang/Boolean;
+
+    invoke-direct {v3, p1}, Ljava/lang/Boolean;-><init>(Z)V
+
+    invoke-static {v0, v1, v2, p0, v3}, Labcd/iy;->EQ(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {p0, p1}, Labcd/ge;->vJ(Ljava/lang/String;Z)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "/dex/jars"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object p0
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Labcd/ge;->DW:Z
+
+    if-eqz v1, :cond_1
+
+    const-wide v2, 0x7a7afd08553c004L
+
+    const/4 v4, 0x0
+
+    new-instance v6, Ljava/lang/Boolean;
+
+    invoke-direct {v6, p1}, Ljava/lang/Boolean;-><init>(Z)V
+
+    move-object v1, v0
+
+    move-object v5, p0
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->Mr(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v0
+.end method
+
+.method private Qq()Z
+    .registers 13
+    .annotation runtime Labcd/ey;
+        method = -0x1666151b39606950L
+    .end annotation
+
+    const-wide v0, 0xe56de66187cd820L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Labcd/hf;->gW()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Labcd/ge;->dx(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v2
+
+    array-length v3, v2
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    :goto_0
+    if-ge v5, v3, :cond_2
+
+    aget-object v7, v2, v5
+
+    invoke-direct {p0}, Labcd/ge;->x9()I
+
+    move-result v8
+
+    const/4 v9, 0x1
+
+    new-array v10, v9, [Ljava/lang/String;
+
+    const-string v11, ".java"
+
+    aput-object v11, v10, v4
+
+    invoke-static {v7, v8, v10}, Labcd/ag;->J8(Ljava/lang/String;I[Ljava/lang/String;)I
+
+    move-result v7
+
+    add-int/2addr v6, v7
+
+    invoke-direct {p0}, Labcd/ge;->x9()I
+
+    move-result v7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-lt v6, v7, :cond_1
+
+    return v9
+
+    :cond_1
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return v4
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_3
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_3
+    goto :goto_2
+
+    :goto_1
+    throw v2
+
+    :goto_2
+    goto :goto_1
+.end method
+
+.method public static Sf(Ljava/lang/String;Z)Ljava/lang/String;
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = -0x46c4cc27506b7bf0L
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Labcd/ge;->j6:Z
+
+    if-eqz v0, :cond_0
+
+    const-wide v0, 0x60525f4aeee4e42cL
+
+    const/4 v2, 0x0
+
+    new-instance v3, Ljava/lang/Boolean;
+
+    invoke-direct {v3, p1}, Ljava/lang/Boolean;-><init>(Z)V
+
+    invoke-static {v0, v1, v2, p0, v3}, Labcd/iy;->EQ(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {p0, p1}, Labcd/ge;->vJ(Ljava/lang/String;Z)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "/dex/classes.dex.zip"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object p0
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Labcd/ge;->DW:Z
+
+    if-eqz v1, :cond_1
+
+    const-wide v2, 0x60525f4aeee4e42cL
+
+    const/4 v4, 0x0
+
+    new-instance v6, Ljava/lang/Boolean;
+
+    invoke-direct {v6, p1}, Ljava/lang/Boolean;-><init>(Z)V
+
+    move-object v1, v0
+
+    move-object v5, p0
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->Mr(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v0
+.end method
+
+.method public static ca(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = 0x2a0ed3955c80fb80L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;>;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/lang/String;"
+        }
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Labcd/ge;->j6:Z
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    const-wide v2, -0x953404f3a40cac4L
+
+    invoke-static {v2, v3, v1, p0, p1}, Labcd/iy;->EQ(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {p0}, Labcd/ge;->sG(Ljava/util/Map;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    array-length v2, v0
+
+    const/4 v3, 0x0
+
+    :goto_0
+    if-ge v3, v2, :cond_2
+
+    aget-object v4, v0, v3
+
+    invoke-static {v4, p1}, Labcd/ag;->nw(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    invoke-static {v4, p1}, Labcd/ag;->BT(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const/16 v1, 0x2f
+
+    const/16 v2, 0x2e
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+
+    move-result-object p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object p0
+
+    :cond_1
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return-object v1
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Labcd/ge;->DW:Z
+
+    if-eqz v1, :cond_3
+
+    const-wide v2, -0x953404f3a40cac4L
+
+    const/4 v4, 0x0
+
+    move-object v1, v0
+
+    move-object v5, p0
+
+    move-object v6, p1
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->Mr(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_3
+    goto :goto_2
+
+    :goto_1
+    throw v0
+
+    :goto_2
+    goto :goto_1
+.end method
+
+.method public static cb(Ljava/lang/String;)[Ljava/lang/String;
+    .registers 8
+    .annotation runtime Labcd/ey;
+        method = -0x30d5be10f8bfb104L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x1fee557c590bcc98L
+
+    :try_start_0
+    sget-boolean v3, Labcd/ge;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0, p0}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v4, Labcd/vd;
+
+    invoke-direct {v4}, Labcd/vd;-><init>()V
+
+    invoke-static {p0}, Labcd/ge;->g3(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Labcd/wd;->j6(Ljava/lang/String;)Labcd/wd;
+
+    move-result-object v4
+
+    check-cast v4, Labcd/vd;
+
+    iget-object v4, v4, Labcd/vd;->Zo:Ljava/util/List;
+
+    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_1
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Labcd/vd$a;
+
+    invoke-virtual {v5}, Labcd/vd$a;->FH()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    invoke-virtual {v5, p0}, Labcd/vd$a;->VH(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {v3, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_2
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    new-array v4, v4, [Ljava/lang/String;
+
+    invoke-interface {v3, v4}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, [Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Labcd/ge;->DW:Z
+
+    if-eqz v4, :cond_3
+
+    invoke-static {v3, v1, v2, v0, p0}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_3
+    goto :goto_2
+
+    :goto_1
+    throw v3
+
+    :goto_2
+    goto :goto_1
+.end method
+
+.method public static dx(Ljava/lang/String;)[Ljava/lang/String;
+    .registers 8
+    .annotation runtime Labcd/ey;
+        method = -0x1186e789f005015L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, -0x4957e90c4ef8431bL
+
+    :try_start_0
+    sget-boolean v3, Labcd/ge;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0, p0}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v4, Labcd/vd;
+
+    invoke-direct {v4}, Labcd/vd;-><init>()V
+
+    invoke-static {p0}, Labcd/ge;->g3(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Labcd/wd;->j6(Ljava/lang/String;)Labcd/wd;
+
+    move-result-object v4
+
+    check-cast v4, Labcd/vd;
+
+    iget-object v4, v4, Labcd/vd;->Zo:Ljava/util/List;
+
+    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_1
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Labcd/vd$a;
+
+    invoke-virtual {v5}, Labcd/vd$a;->Zo()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    invoke-virtual {v5, p0}, Labcd/vd$a;->VH(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {v3, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_2
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    new-array v4, v4, [Ljava/lang/String;
+
+    invoke-interface {v3, v4}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, [Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Labcd/ge;->DW:Z
+
+    if-eqz v4, :cond_3
+
+    invoke-static {v3, v1, v2, v0, p0}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_3
+    goto :goto_2
+
+    :goto_1
+    throw v3
+
+    :goto_2
+    goto :goto_1
+.end method
+
+.method public static ef(Ljava/lang/String;Z)Ljava/lang/String;
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = -0x1b0e0b53595dd248L
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Labcd/ge;->j6:Z
+
+    if-eqz v0, :cond_0
+
+    const-wide v0, -0x3c3fcd04e59e61e4L
+
+    const/4 v2, 0x0
+
+    new-instance v3, Ljava/lang/Boolean;
+
+    invoke-direct {v3, p1}, Ljava/lang/Boolean;-><init>(Z)V
+
+    invoke-static {v0, v1, v2, p0, v3}, Labcd/iy;->EQ(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {p0, p1}, Labcd/ge;->vJ(Ljava/lang/String;Z)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "/dex"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object p0
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Labcd/ge;->DW:Z
+
+    if-eqz v1, :cond_1
+
+    const-wide v2, -0x3c3fcd04e59e61e4L
+
+    const/4 v4, 0x0
+
+    new-instance v6, Ljava/lang/Boolean;
+
+    invoke-direct {v6, p1}, Ljava/lang/Boolean;-><init>(Z)V
+
+    move-object v1, v0
+
+    move-object v5, p0
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->Mr(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v0
+.end method
+
+.method public static g3(Ljava/lang/String;)Ljava/lang/String;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0x798331c3c3c36d50L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x235ae0550e17ae54L
+
+    :try_start_0
+    sget-boolean v3, Labcd/ge;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0, p0}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, "/.classpath"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object p0
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Labcd/ge;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0, p0}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+.method public static sG(Ljava/util/Map;)[Ljava/lang/String;
+    .registers 10
+    .annotation runtime Labcd/ey;
+        method = 0x4082753ce7401f48L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;>;)[",
+            "Ljava/lang/String;"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0xcf0410099c5ce20L
+
+    :try_start_0
+    sget-boolean v3, Labcd/ge;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0, p0}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-interface {p0}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_1
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/String;
+
+    new-instance v6, Labcd/vd;
+
+    invoke-direct {v6}, Labcd/vd;-><init>()V
+
+    invoke-static {v5}, Labcd/ge;->g3(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Labcd/wd;->j6(Ljava/lang/String;)Labcd/wd;
+
+    move-result-object v6
+
+    check-cast v6, Labcd/vd;
+
+    iget-object v6, v6, Labcd/vd;->Zo:Ljava/util/List;
+
+    invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    :cond_2
+    :goto_0
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Labcd/vd$a;
+
+    invoke-virtual {v7}, Labcd/vd$a;->Zo()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    invoke-virtual {v7, v5}, Labcd/vd$a;->VH(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {v3, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_3
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    new-array v4, v4, [Ljava/lang/String;
+
+    invoke-interface {v3, v4}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v4
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Labcd/ge;->DW:Z
+
+    if-eqz v4, :cond_4
+
+    invoke-static {v3, v1, v2, v0, p0}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_4
+    goto :goto_2
+
+    :goto_1
+    throw v3
+
+    :goto_2
+    goto :goto_1
+.end method
+
+.method public static vJ(Ljava/lang/String;Z)Ljava/lang/String;
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = -0x39a5cecab6a2b7bbL
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Labcd/ge;->j6:Z
+
+    if-eqz v0, :cond_0
+
+    const-wide v0, 0x12fb5dbca4f9e2cfL
+
+    const/4 v2, 0x0
+
+    new-instance v3, Ljava/lang/Boolean;
+
+    invoke-direct {v3, p1}, Ljava/lang/Boolean;-><init>(Z)V
+
+    invoke-static {v0, v1, v2, p0, v3}, Labcd/iy;->EQ(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    new-instance v0, Labcd/vd;
+
+    invoke-direct {v0}, Labcd/vd;-><init>()V
+
+    invoke-static {p0}, Labcd/ge;->g3(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Labcd/wd;->j6(Ljava/lang/String;)Labcd/wd;
+
+    move-result-object v0
+
+    check-cast v0, Labcd/vd;
+
+    iget-object v0, v0, Labcd/vd;->Zo:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_1
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Labcd/vd$a;
+
+    invoke-virtual {v1}, Labcd/vd$a;->Hw()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v1, p0}, Labcd/vd$a;->VH(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz p1, :cond_2
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "/debug"
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_2
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "/release"
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_3
+    if-eqz p1, :cond_4
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "/bin/debug"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_4
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "/bin/release"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object p0
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Labcd/ge;->DW:Z
+
+    if-eqz v1, :cond_5
+
+    const-wide v2, 0x12fb5dbca4f9e2cfL
+
+    const/4 v4, 0x0
+
+    new-instance v6, Ljava/lang/Boolean;
+
+    invoke-direct {v6, p1}, Ljava/lang/Boolean;-><init>(Z)V
+
+    move-object v1, v0
+
+    move-object v5, p0
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->Mr(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_5
+    goto :goto_1
+
+    :goto_0
+    throw v0
+
+    :goto_1
+    goto :goto_0
+.end method
+
+.method private x9()I
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0x1606cf78ef23f28bL
+    .end annotation
+
+    const-wide v0, 0x4a8dcfc58dbb05bL
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const/4 v0, 0x2
+
+    return v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+
+# virtual methods
+.method public BT(Ljava/lang/String;)Ljava/util/List;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0x13266a4d83036367L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    const-wide v0, 0x55604e8476dea03L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    return-object p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public DW(Z)V
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0x243884cd706f8228L
+    .end annotation
+
+    const-wide v0, 0x5aea03b03ab5de4cL
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->Ws(JLjava/lang/Object;Z)V
+
+    :cond_0
+    sget-object v2, Lcom/aide/ui/build/c;->DW:Lcom/aide/ui/build/java/a;
+
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Labcd/hf;->er()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, p1, v3}, Lcom/aide/ui/build/java/a;->XL(ZLjava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    new-instance v3, Ljava/lang/Boolean;
+
+    invoke-direct {v3, p1}, Ljava/lang/Boolean;-><init>(Z)V
+
+    invoke-static {v2, v0, v1, p0, v3}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public EQ()Z
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = -0x7e9965fa4691040L
+    .end annotation
+
+    const-wide v0, -0xf80510592c80a0L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/f;->ca()Z
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    if-eqz v2, :cond_1
+
+    return v3
+
+    :cond_1
+    invoke-static {}, Lcom/aide/ui/f;->a8()Labcd/af;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Labcd/af;->Ws()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    return v3
+
+    :cond_2
+    invoke-static {}, Lcom/aide/ui/f;->rN()Lcom/aide/ui/MainActivity;
+
+    move-result-object v2
+
+    const-string v4, "AllowSavingOneJavaFileInNonPremium"
+
+    const/4 v5, 0x2
+
+    new-array v5, v5, [D
+
+    const-wide/high16 v6, 0x3ff0000000000000L
+
+    aput-wide v6, v5, v3
+
+    const-wide/16 v6, 0x0
+
+    const/4 v3, 0x1
+
+    aput-wide v6, v5, v3
+
+    invoke-static {v2, v4, v5}, Labcd/c0;->Ws(Landroid/content/Context;Ljava/lang/String;[D)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    invoke-direct {p0}, Labcd/ge;->Qq()Z
+
+    move-result v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return v0
+
+    :cond_3
+    return v3
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_4
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_4
+    throw v2
+.end method
+
+.method public FH(Ljava/lang/String;)Z
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0xc588499edf957f9L
+    .end annotation
+
+    const-wide v0, -0x1bdc78aa9a8c0009L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, ".jar"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Labcd/hf;->gW()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Labcd/ge;->cb(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez p1, :cond_1
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p1, 0x0
+
+    :goto_0
+    return p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_2
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_2
+    throw v2
+.end method
+
+.method public Hw()Z
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0x1fa877d78d5fc63L
+    .end annotation
+
+    const-wide v0, -0x62643af89a34adc5L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public J0(Ljava/lang/String;)V
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = 0xb6da8c0e6eba451L
+    .end annotation
+
+    const-wide v0, 0x1b801fe446a07167L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Labcd/hf;->gW()Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v3, Labcd/vd;
+
+    invoke-direct {v3}, Labcd/vd;-><init>()V
+
+    invoke-static {v2}, Labcd/ge;->g3(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Labcd/wd;->j6(Ljava/lang/String;)Labcd/wd;
+
+    move-result-object v3
+
+    check-cast v3, Labcd/vd;
+
+    iget-object v3, v3, Labcd/vd;->Zo:Ljava/util/List;
+
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_1
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Labcd/vd$a;
+
+    invoke-virtual {v5}, Labcd/vd$a;->FH()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    invoke-virtual {v5, v2}, Labcd/vd$a;->VH(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    invoke-interface {v3, v5}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    :cond_2
+    invoke-static {v2}, Labcd/ge;->g3(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2, v3}, Labcd/vd;->Hw(Ljava/lang/String;Ljava/util/List;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_3
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_3
+    goto :goto_1
+
+    :goto_0
+    throw v2
+
+    :goto_1
+    goto :goto_0
+.end method
+
+.method public J8()Z
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0x596c1bcd2aba3c63L
+    .end annotation
+
+    const-wide v0, 0x54e4663ee3468ab3L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public KD(Ljava/lang/String;)I
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0xbfe8d4808485b18L
+    .end annotation
+
+    const-wide v0, -0xf0705906415db80L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const p1, 0x7f0d002e
+
+    return p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public Mr()V
+    .registers 7
+    .annotation runtime Labcd/ey;
+        method = -0x61c37b24587dfe0L
+    .end annotation
+
+    const-wide v0, -0x3793a76ee56660L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/f;->a8()Labcd/af;
+
+    move-result-object v2
+
+    invoke-static {}, Lcom/aide/ui/f;->rN()Lcom/aide/ui/MainActivity;
+
+    move-result-object v3
+
+    const v4, 0x7f0d0611
+
+    const-string v5, "large_project"
+
+    invoke-virtual {v2, v3, v4, v5}, Labcd/af;->cn(Landroid/app/Activity;ILjava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public P8(Ljava/lang/String;Ljava/lang/String;)V
+    .registers 10
+    .annotation runtime Labcd/ey;
+        method = -0x31cdfcbaa76401ebL
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Labcd/ge;->j6:Z
+
+    if-eqz v0, :cond_0
+
+    const-wide v0, 0x41762115ef57c73L
+
+    invoke-static {v0, v1, p0, p1, p2}, Labcd/iy;->EQ(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Labcd/ge;->DW:Z
+
+    if-eqz v1, :cond_1
+
+    const-wide v2, 0x41762115ef57c73L
+
+    move-object v1, v0
+
+    move-object v4, p0
+
+    move-object v5, p1
+
+    move-object v6, p2
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->Mr(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v0
+.end method
+
+.method public QX()Ljava/lang/String;
+    .registers 10
+    .annotation runtime Labcd/ey;
+        method = -0xe6d68385701619cL
+    .end annotation
+
+    const-string v0, "<br/><br/>"
+
+    const-wide v1, 0x14c5d1555d3096b8L
+
+    :try_start_0
+    sget-boolean v3, Labcd/ge;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "<b>Java Project:</b><br/><br/>"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Labcd/hf;->gW()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "<i>Library JARs:</i><br/><br/>"
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Labcd/hf;->gW()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Labcd/ge;->cb(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v4
+
+    array-length v5, v4
+
+    if-nez v5, :cond_1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "&lt;none&gt;<br/><br/>"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_1
+
+    :cond_1
+    array-length v5, v4
+
+    const/4 v6, 0x0
+
+    :goto_0
+    if-ge v6, v5, :cond_3
+
+    aget-object v7, v4, v6
+
+    invoke-static {v7}, Labcd/ag;->gn(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_2
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "(NOT FOUND) "
+
+    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    :cond_2
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    move-object v0, v3
+
+    :goto_1
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_4
+
+    invoke-static {v0, v1, v2, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_4
+    goto :goto_3
+
+    :goto_2
+    throw v0
+
+    :goto_3
+    goto :goto_2
+.end method
+
+.method public SI(Ljava/lang/String;Lcom/aide/common/x;)V
+    .registers 10
+    .annotation runtime Labcd/ey;
+        method = 0x14dd386ca6d70df3L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Lcom/aide/common/x<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Labcd/ge;->j6:Z
+
+    if-eqz v0, :cond_0
+
+    const-wide v0, -0x19c0b18998b1bb3bL
+
+    invoke-static {v0, v1, p0, p1, p2}, Labcd/iy;->EQ(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {p1, p2}, Labcd/fe;->DW(Ljava/lang/String;Lcom/aide/common/x;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Labcd/ge;->DW:Z
+
+    if-eqz v1, :cond_1
+
+    const-wide v2, -0x19c0b18998b1bb3bL
+
+    move-object v1, v0
+
+    move-object v4, p0
+
+    move-object v5, p1
+
+    move-object v6, p2
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->Mr(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v0
+.end method
+
+.method public U2(Ljava/lang/String;Ljava/util/Map;Ljava/util/List;)V
+    .registers 12
+    .annotation runtime Labcd/ey;
+        method = 0x241d41e33f73488fL
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;>;",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Labcd/ge;->j6:Z
+
+    if-eqz v0, :cond_0
+
+    const-wide v1, -0x551183aad3f48dbfL
+
+    move-object v3, p0
+
+    move-object v4, p1
+
+    move-object v5, p2
+
+    move-object v6, p3
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->we(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-interface {p2, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-interface {p3, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Labcd/ge;->DW:Z
+
+    if-eqz v1, :cond_1
+
+    const-wide v2, -0x551183aad3f48dbfL
+
+    move-object v1, v0
+
+    move-object v4, p0
+
+    move-object v5, p1
+
+    move-object v6, p2
+
+    move-object v7, p3
+
+    invoke-static/range {v1 .. v7}, Labcd/iy;->U2(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v0
+.end method
+
+.method public VH()[Labcd/gf$c;
+    .registers 19
+    .annotation runtime Labcd/ey;
+        method = -0x116c176d12d1a1ffL
+    .end annotation
+
+    move-object/from16 v13, p0
+
+    const-wide v14, 0xfb25bf62f6372dfL
+
+    :try_start_0
+    sget-boolean v0, Labcd/ge;->j6:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-static {v14, v15, v13}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v0, Labcd/gf$d;
+
+    const/4 v3, 0x3
+
+    const-string v4, "Java Application"
+
+    const-string v5, "Java"
+
+    const-string v6, "MyJavaConsoleApp"
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    const-string v9, "com.aide.ui"
+
+    const-string v10, "JAVA"
+
+    const-string v11, "course_java"
+
+    invoke-static {}, Lcom/aide/ui/f;->ca()Z
+
+    move-result v1
+
+    const/16 v16, 0x0
+
+    const/4 v12, 0x1
+
+    if-nez v1, :cond_2
+
+    sget-object v1, Lcom/aide/ui/f;->P8:Ljava/lang/String;
+
+    const-string v2, "com.aide.ui"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const/16 v17, 0x0
+
+    goto :goto_1
+
+    :cond_2
+    :goto_0
+    const/16 v17, 0x1
+
+    :goto_1
+    move-object v1, v0
+
+    move-object/from16 v2, p0
+
+    const/4 v14, 0x1
+
+    move/from16 v12, v17
+
+    invoke-direct/range {v1 .. v12}, Labcd/gf$d;-><init>(Labcd/yd;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+
+    new-array v8, v14, [Labcd/gf$c;
+
+    new-instance v9, Labcd/gf$c;
+
+    const-string v2, "Java Application"
+
+    const v4, 0x7f07007b
+
+    const-string v5, "JavaConsole.zip"
+
+    new-array v6, v14, [Ljava/lang/String;
+
+    const-string v1, "Main.java"
+
+    aput-object v1, v6, v16
+
+    const/4 v7, 0x0
+
+    move-object v1, v9
+
+    move-object v3, v0
+
+    invoke-direct/range {v1 .. v7}, Labcd/gf$c;-><init>(Ljava/lang/String;Labcd/gf$d;ILjava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v9, v8, v16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v8
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Labcd/ge;->DW:Z
+
+    if-eqz v1, :cond_3
+
+    const-wide v1, 0xfb25bf62f6372dfL
+
+    invoke-static {v0, v1, v2, v13}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_3
+    throw v0
+.end method
+
+.method public Ws()Lcom/aide/engine/EngineSolution;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0x1460f895b5c8d4b8L
+    .end annotation
+
+    const-wide v0, -0x35bcf52253e73de0L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    const/4 v2, 0x0
+
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Labcd/hf;->XL()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Labcd/hf;->gW()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4, v3, v2}, Labcd/ee;->DW(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/aide/engine/EngineSolution;
+
+    move-result-object v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public XL()Ljava/util/List;
+    .registers 10
+    .annotation runtime Labcd/ey;
+        method = 0x28f1f355118bf240L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/aide/ui/trainer/c$c;",
+            ">;"
+        }
+    .end annotation
+
+    const-wide v0, -0x184e695661ec4f18L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    const/4 v2, 0x1
+
+    new-array v3, v2, [Lcom/aide/ui/trainer/c$c;
+
+    new-instance v4, Lcom/aide/ui/trainer/c$c;
+
+    const-string v5, "course_java"
+
+    const/4 v6, 0x2
+
+    new-array v6, v6, [Ljava/lang/String;
+
+    const-string v7, "com.aide.ui"
+
+    const/4 v8, 0x0
+
+    aput-object v7, v6, v8
+
+    const-string v7, "com.aide.trainer.java"
+
+    aput-object v7, v6, v2
+
+    invoke-direct {v4, v5, v2, v6}, Lcom/aide/ui/trainer/c$c;-><init>(Ljava/lang/String;I[Ljava/lang/String;)V
+
+    aput-object v4, v3, v8
+
+    invoke-static {v3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public Zo(Ljava/lang/String;)Z
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0x4b9c98e204950480L
+    .end annotation
+
+    const-wide v0, 0x25d8a17fe6e451b8L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {p1}, Labcd/fe;->j6(Ljava/lang/String;)Z
+
+    move-result p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public a8(Ljava/lang/String;)Z
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0x2b737403d6541f6fL
+    .end annotation
+
+    const-wide v0, -0x17057962b01320f9L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Labcd/hf;->gW()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Labcd/ge;->cb(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public aM(Ljava/lang/String;)Z
+    .registers 10
+    .annotation runtime Labcd/ey;
+        method = -0x12b6c43be7cb505bL
+    .end annotation
+
+    const-wide v0, -0x14db8a4a4e409451L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Labcd/hf;->BT()Ljava/util/Map;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    const/4 v4, 0x1
+
+    if-eqz v3, :cond_2
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    invoke-static {v3, p1}, Labcd/ag;->nw(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    return v4
+
+    :cond_2
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Labcd/hf;->gW()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Labcd/ge;->dx(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v2
+
+    array-length v3, v2
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    :goto_0
+    if-ge v6, v3, :cond_4
+
+    aget-object v7, v2, v6
+
+    invoke-static {v7, p1}, Labcd/ag;->nw(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v7, :cond_3
+
+    return v4
+
+    :cond_3
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    return v5
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_5
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_5
+    goto :goto_2
+
+    :goto_1
+    throw v2
+
+    :goto_2
+    goto :goto_1
+.end method
+
+.method public cn(Ljava/util/List;Z)V
+    .registers 10
+    .annotation runtime Labcd/ey;
+        method = 0x79e4c5c82d1898L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;Z)V"
+        }
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Labcd/ge;->j6:Z
+
+    if-eqz v0, :cond_0
+
+    const-wide v0, 0x3b852804065b915cL
+
+    new-instance v2, Ljava/lang/Boolean;
+
+    invoke-direct {v2, p2}, Ljava/lang/Boolean;-><init>(Z)V
+
+    invoke-static {v0, v1, p0, p1, v2}, Labcd/iy;->EQ(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Labcd/ge;->DW:Z
+
+    if-eqz v1, :cond_1
+
+    const-wide v2, 0x3b852804065b915cL
+
+    new-instance v6, Ljava/lang/Boolean;
+
+    invoke-direct {v6, p2}, Ljava/lang/Boolean;-><init>(Z)V
+
+    move-object v1, v0
+
+    move-object v4, p0
+
+    move-object v5, p1
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->Mr(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v0
+.end method
+
+.method public ei(Ljava/lang/String;)V
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0x31c05913452c2800L
+    .end annotation
+
+    const-wide v0, -0x30185d60ecfdfe74L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public er(Ljava/lang/String;)Z
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0x62f111ba16944298L
+    .end annotation
+
+    const-wide v0, 0xe0f85d2d18fb800L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {p1}, Labcd/ge;->g3(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Labcd/ag;->gn(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "/AndroidManifest.xml"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Labcd/ag;->gn(Ljava/lang/String;)Z
+
+    move-result p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez p1, :cond_1
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p1, 0x0
+
+    :goto_0
+    return p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_2
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_2
+    throw v2
+.end method
+
+.method public gW()Z
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = 0x2e1c8ca0719eb59L
+    .end annotation
+
+    const-wide v0, 0x454522326e9c2dfL
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public gn()V
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0x5cb22942fba60d8L
+    .end annotation
+
+    const-wide v0, -0xcbd6be7c56780L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public j3(Ljava/lang/String;)Z
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0x4615503e9b2ff3b0L
+    .end annotation
+
+    const-wide v0, -0x4312856350494c30L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/f;->ca()Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    sget-object v2, Lcom/aide/ui/f;->P8:Ljava/lang/String;
+
+    const-string v3, "com.aide.ui"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    sget-object v2, Lcom/aide/ui/f;->P8:Ljava/lang/String;
+
+    const-string v3, "com.aide.trainer.java"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz p1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p1, 0x0
+
+    goto :goto_1
+
+    :cond_2
+    :goto_0
+    const/4 p1, 0x1
+
+    :goto_1
+    return p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_3
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_3
+    throw v2
+.end method
+
+.method public j6()V
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = 0x5a4ac94619c44a69L
+    .end annotation
+
+    const-wide v0, 0x15f10b36abc7bf6fL
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public lg()Z
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0x412e16ab0f13a0c1L
+    .end annotation
+
+    const-wide v0, 0x38a59ac34cc25df9L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    return v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public nw(Ljava/lang/String;)V
+    .registers 10
+    .annotation runtime Labcd/ey;
+        method = -0x328a062a096d0823L
+    .end annotation
+
+    const-wide v0, -0x2f92461f4bf6802dL
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Labcd/hf;->gW()Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v3, Labcd/vd;
+
+    invoke-direct {v3}, Labcd/vd;-><init>()V
+
+    invoke-static {v2}, Labcd/ge;->g3(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Labcd/wd;->j6(Ljava/lang/String;)Labcd/wd;
+
+    move-result-object v3
+
+    check-cast v3, Labcd/vd;
+
+    iget-object v3, v3, Labcd/vd;->Zo:Ljava/util/List;
+
+    new-instance v4, Labcd/vd$a;
+
+    const-string v5, "lib"
+
+    invoke-static {v2, p1}, Labcd/ag;->lp(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    invoke-direct {v4, v5, v6, v7}, Labcd/vd$a;-><init>(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    invoke-static {v2}, Labcd/ge;->g3(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2, v3}, Labcd/vd;->Hw(Ljava/lang/String;Ljava/util/List;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public rN(Ljava/lang/String;)I
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0x4fd22a9e5a0e1c8L
+    .end annotation
+
+    const-wide v0, -0x16448bc4f0704ecL
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {p1}, Labcd/fe;->Hw(Ljava/lang/String;)I
+
+    move-result p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public ro(Ljava/lang/String;)Ljava/util/List;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0x388b7b4b004e7ea1L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    const-wide v0, -0x2438e03bd20aa357L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    return-object p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public sh(Ljava/lang/String;)Ljava/lang/String;
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = -0x123ead0c569c420L
+    .end annotation
+
+    const-string v0, "/"
+
+    const-wide v1, -0x6156b66ce23e5110L
+
+    :try_start_0
+    sget-boolean v3, Labcd/ge;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Labcd/hf;->BT()Ljava/util/Map;
+
+    move-result-object v3
+
+    invoke-static {v3}, Labcd/ge;->sG(Ljava/util/Map;)[Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    :cond_1
+    array-length v0, v3
+
+    const/4 v4, 0x0
+
+    :goto_0
+    if-ge v4, v0, :cond_3
+
+    aget-object v5, v3, v4
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Labcd/ag;->gn(Ljava/lang/String;)Z
+
+    move-result v6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v6, :cond_2
+
+    return-object v5
+
+    :cond_2
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    const/4 p1, 0x0
+
+    return-object p1
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_4
+
+    invoke-static {v0, v1, v2, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_4
+    goto :goto_2
+
+    :goto_1
+    throw v0
+
+    :goto_2
+    goto :goto_1
+.end method
+
+.method public tp(Ljava/lang/String;)Ljava/lang/String;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0x8ea1ad8e3365618L
+    .end annotation
+
+    const-wide v0, -0x159d19b785c217c0L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-virtual {p0, p1}, Labcd/ge;->j3(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const-string p1, "com.aide.ui"
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object p1
+
+    :cond_1
+    const/4 p1, 0x0
+
+    return-object p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_2
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_2
+    throw v2
+.end method
+
+.method public u7(Ljava/lang/String;)Z
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0x411119e50d4f6c50L
+    .end annotation
+
+    const-wide v0, 0x362bd14a852ae520L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    return p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public v5(Ljava/lang/String;)Ljava/lang/String;
+    .registers 8
+    .annotation runtime Labcd/ey;
+        method = -0x18ba8a8cfbe95c88L
+    .end annotation
+
+    const-wide v0, -0x3c134566b333d2c0L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/f;->P8()Labcd/hf;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Labcd/hf;->BT()Ljava/util/Map;
+
+    move-result-object v2
+
+    invoke-static {p1}, Labcd/ag;->gW(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Labcd/ge;->ca(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    if-nez v2, :cond_1
+
+    return-object p1
+
+    :cond_1
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const/16 v4, 0x2e
+
+    const/16 v5, 0x2f
+
+    invoke-virtual {v2, v4, v5}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "/"
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {p1}, Labcd/ag;->er(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_2
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_2
+    throw v2
+.end method
+
+.method public vy(Ljava/lang/String;)Z
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0xdeebb4dbc201f68L
+    .end annotation
+
+    const-wide v0, 0x18203f0352d84c40L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    return p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public we(Ljava/lang/String;)I
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0x18a2d9c2d3d2f791L
+    .end annotation
+
+    const-wide v0, 0x1745e60c93331d41L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-static {p1}, Labcd/fe;->FH(Ljava/lang/String;)I
+
+    move-result p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return p1
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method
+
+.method public yS()Ljava/lang/String;
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0x4120bc7d8658b8L
+    .end annotation
+
+    const-wide v0, 0x5c9029304a8c8514L
+
+    :try_start_0
+    sget-boolean v2, Labcd/ge;->j6:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    const-string v0, "com.aide.ui"
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v2
+
+    sget-boolean v3, Labcd/ge;->DW:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v2
+.end method

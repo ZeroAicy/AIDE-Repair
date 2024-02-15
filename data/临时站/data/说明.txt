@@ -1,0 +1,23 @@
+jetifier
+独立的 Jetifier 工具可将依赖于Support支持库的库迁移为依赖于等效的 AndroidX 软件包。该工具可让您直接迁移单个库
+
+需要配置好JDK然后把环境配置一下
+
+用法
+如需处理库，请传递当前库的路径以及该工具应创建的输出文件的路径。Jetifier 支持 JAR、AAR 和 ZIP 文件，包括嵌套归档。
+
+./jetifier-standalone.bat -i <source-library> -o <output-library>
+
+可以互相转换
+
+
+-i, --input <path>	是	输入库（JAR、AAR 或 ZIP）的路径
+-o, --output <path>	是	输出文件的路径。如果该文件已存在，jetifier 会覆盖它。
+-c, --config <path>	否	可选自定义配置文件的路径。
+-l, --log <level>	否	日志记录级别。允许的值有：
+错误
+警告
+信息
+详细
+如果未指定，则默认为“警告”。
+-r	否	以反向模式运行（“de-jetification”）。

@@ -1,0 +1,106 @@
+Lcom/aide/ui/services/ProjectService; -> Lcom/aide/ui/services/ProjectService;
+	CU() -> reloadingProject
+Lcom/aide/ui/project/AndroidProjectSupport; -> Lcom/aide/ui/project/AndroidProjectSupport;
+	kQ(Ljava/lang/String;Ljava/lang/String;) -> getProjectPackageName
+Lcom/aide/ui/App; -> Lcom/aide/ui/App;
+	we() -> getEngineService
+	a8() -> getLicenseService
+	aM() -> getNavigateService
+	BT() -> getTemplateService
+	cn() -> getUpdateNotifyService
+	getNativeCodeSupportService() -> getDownloadService
+
+Lcom/aide/ui/services/NativeCodeSupportService$s; -> Lcom/aide/ui/services/DownloadService$Task;
+Lcom/aide/ui/services/NativeCodeSupportService$g; -> Lcom/aide/ui/services/DownloadService$DocsRunnable;
+Lcom/aide/ui/services/NativeCodeSupportService$q$a; -> Lcom/aide/ui/services/DownloadService$MavenLibrariesCallable$Callback;
+Lcom/aide/ui/services/NativeCodeSupportService$q; -> Lcom/aide/ui/services/DownloadService$MavenLibrariesCallable;
+	v5 -> downloadService
+	j6 -> activity
+	DW -> callbackRunnable
+	FH -> mavenDependencyList
+	Hw -> remoteRepositoryList
+
+Lcom/aide/ui/services/NativeCodeSupportService$k; -> Lcom/aide/ui/services/DownloadService$MavenLibrariesRunnable;
+	qp -> downloadService
+	WB -> activity
+	mb -> mavenDependencyList
+	jw -> remoteRepositoryList
+	fY -> callbackRunnable
+	
+Lcom/aide/ui/services/NativeCodeSupportService; -> Lcom/aide/ui/services/DownloadService;
+	DW -> executorService
+	FH -> task
+	Zo -> taskTitle
+	J8(Lcom/aide/ui/services/NativeCodeSupportService;) -> getExecutorService
+	tp(Lcom/aide/ui/services/NativeCodeSupportService;) -> getTask
+	we(Lcom/aide/ui/services/NativeCodeSupportService;Lcom/aide/ui/services/NativeCodeSupportService$s;) -> setTask
+	J0(Lcom/aide/ui/services/NativeCodeSupportService;Ljava/lang/String;) -> setTaskTitle
+	gW() -> getTaskTitle
+	vJ(Landroid/app/Activity;) -> downloadDocs
+	KD(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/Runnable;) -> runTask
+	gn(Lcom/aide/ui/services/DownloadService;Ljava/lang/String;Ljava/lang/String;Z) -> downloadFile
+	
+Lcom/aide/ui/services/MavenService; -> Lcom/aide/ui/services/MavenService;
+	nw() -> refresh
+	FH() -> resetDepPathMap
+	ei() -> resetDepMap
+	rN(Lcom/aide/ui/util/BuildGradle$RemoteRepository;Lcom/aide/ui/util/BuildGradle$MavenDependency;) -> getMetadataUrl
+	lg(Lcom/aide/ui/util/BuildGradle$RemoteRepository;Lcom/aide/ui/util/BuildGradle$MavenDependency;) -> getMetadataPath
+	aM(Lcom/aide/ui/util/BuildGradle$RemoteRepository;Lcom/aide/ui/util/BuildGradle$MavenDependency;Ljava/lang/String;Ljava/lang/String;) -> getArtifactUrl
+	XL(Lcom/aide/ui/util/BuildGradle$RemoteRepository;Lcom/aide/ui/util/BuildGradle$MavenDependency;Ljava/lang/String;Ljava/lang/String;) -> getArtifactPath
+	rN(Ljava/lang/String;Ljava/lang/String;Z) -> downloadFile
+	v5(Lcom/aide/ui/util/BuildGradle$MavenDependency;)V -> resolvingMavenDependency
+	
+Labcd/af; -> Lcom/aide/ui/services/LicenseService;
+Lcom/aide/codemodel/api/Type; -> Lcom/aide/codemodel/api/Type;
+	sy() -> getSemantic
+Lcom/aide/ui/project/AndroidProjectSupport; -> Lcom/aide/ui/project/AndroidProjectSupport;
+	k2(Ljava/lang/String;) -> getProjectMavenDependencyList
+
+Labcd/u1; -> Lcom/aide/codemodel/api/Member;
+Labcd/k1; -> Lcom/aide/codemodel/api/ClassType;
+Labcd/j1; -> Lcom/aide/codemodel/api/ArrayType;
+Labcd/z1; -> Lcom/aide/codemodel/api/Namespace;
+Labcd/v1; -> Lcom/aide/codemodel/api/MethodParameterType;
+Labcd/b2; -> Lcom/aide/codemodel/api/ParameterType;
+Labcd/a2; -> Lcom/aide/codemodel/api/ParameterizedType;
+Labcd/w1; -> Lcom/aide/codemodel/api/MethodParameterTypeVariable;
+Labcd/c2; -> Lcom/aide/codemodel/api/PointerType;
+Labcd/d2; -> Lcom/aide/codemodel/api/PrimitiveType;
+
+
+Labcd/n1; -> Lcom/aide/codemodel/api/Entity;
+	cn() -> isType
+	gW() -> isMember
+	er() -> isClassType
+	rN() -> isArrayType
+	P8() -> isNamespace
+	BT() -> isMethodParameterType
+	nw() -> isParameterType
+	ei() -> isParameterizedType
+	vy() -> isMethodParameterTypeVariable
+	SI() -> isPointerType
+	KD() -> isPrimitiveType
+
+Lcom/aide/codemodel/api/abstraction/Syntax; -> Lcom/aide/codemodel/api/abstraction/Syntax;
+	BT(I) -> isBlock
+	yO(I) -> isMemberDeclaration
+	rN(I) -> isFieldDeclaration
+	J0(I) -> isMethodDeclaration
+	J8(I) -> isClassDeclaration
+	gW(I) -> isExpression
+	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
+	
+Lcom/aide/codemodel/api/SyntaxTree; -> Lcom/aide/codemodel/api/SyntaxTree;
+	hp(I) -> isClassDeclaration
+	br(I) -> getClassDeclarationNode
+	XX(II) -> getClassDeclarationNode
+	q7(I) -> getMemberDeclarationNode
+	Z1(II) -> getMemberDeclarationNode
+	xg(I) -> isChangedExpressionNode
+	
+	sM(IIIII) -> getReadExpressionNodeAt
+	containsPositionExt(III) -> containsPosition
+	gn(III) -> containsPositionExt
+	
+	

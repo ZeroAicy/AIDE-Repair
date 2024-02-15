@@ -1,0 +1,1882 @@
+.class public Lcom/aide/ui/build/android/m;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation runtime Labcd/cy;
+    clazz = 0x70568fcf3d992fL
+    container = 0x70568fcf3d992fL
+    user = true
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/aide/ui/build/android/m$a;,
+        Lcom/aide/ui/build/android/m$b;
+    }
+.end annotation
+
+
+# static fields
+.field private static synthetic DW:Z
+    .annotation runtime Labcd/gy;
+    .end annotation
+.end field
+
+.field private static synthetic j6:Z
+    .annotation runtime Labcd/fy;
+    .end annotation
+.end field
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 1
+
+    const-class v0, Lcom/aide/ui/build/android/m;
+
+    invoke-static {v0}, Labcd/iy;->Zo(Ljava/lang/Class;)V
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0x170af1f6a1d14237L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, -0x175d88d820df7500L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+.method public static DW()V
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = -0x3c42e275d16e69a0L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x3962afbb75c9a75dL
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    :try_start_1
+    invoke-static {}, Lcom/aide/ui/build/android/m;->XL()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/io/File;
+
+    invoke-virtual {v4}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Labcd/ag;->VH(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v3, Ljava/io/File;
+
+    invoke-static {}, Labcd/ag;->U2()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Ljava/io/File;->listFiles()[Ljava/io/File;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_3
+
+    array-length v4, v3
+
+    const/4 v5, 0x0
+
+    :goto_1
+    if-ge v5, v4, :cond_3
+
+    aget-object v6, v3, v5
+
+    invoke-virtual {v6}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string v8, "ndksupport-"
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    invoke-virtual {v6}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Labcd/ag;->VH(Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_2
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v3
+
+    :try_start_2
+    invoke-static {v3}, Lcom/aide/common/e;->v5(Ljava/lang/Throwable;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_3
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_4
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_4
+    goto :goto_3
+
+    :goto_2
+    throw v3
+
+    :goto_3
+    goto :goto_2
+.end method
+
+.method public static EQ()Ljava/lang/String;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0xe9982b33258e48L
+    .end annotation
+
+    const-string v0, "com.aide.ndk"
+
+    const/4 v1, 0x0
+
+    const-wide v2, 0x6ce00f79466563e7L
+
+    :try_start_0
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v4, :cond_0
+
+    invoke-static {v2, v3, v1}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {}, Labcd/ag;->vy()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v5, "/Android/obb/"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v5, "/main."
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->J8()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, "."
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, ".obb"
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v0, v2, v3, v1}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v0
+.end method
+
+.method public static FH()Ljava/io/File;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0x22e7e884a863bdL
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, -0x5d2fb6d4964a53e0L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/io/File;
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->we()Ljava/io/File;
+
+    move-result-object v4
+
+    const-string v5, "bin"
+
+    invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+.method private static Hw()Ljava/io/File;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0xfe51cea68c023L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, -0x59e8112862a57900L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/io/File;
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->we()Ljava/io/File;
+
+    move-result-object v4
+
+    const-string v5, ".installed"
+
+    invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+.method private static J0()Ljava/lang/String;
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0x23027e20d952db9dL
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0xc860fe444200384L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "ndksupport-"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->QX()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+.method private static J8()I
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = 0x10e174c15e1253bfL
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x2a04cfb0e575d78cL
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v4, 0x1a
+
+    if-ge v3, v4, :cond_2
+
+    sget-object v3, Lcom/aide/engine/service/Native;->j6:Lcom/aide/engine/service/Native;
+
+    invoke-virtual {v3}, Lcom/aide/engine/service/Native;->isX86()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const v0, 0x65b3c446
+
+    goto :goto_0
+
+    :cond_1
+    const v0, 0x65b3c445
+
+    :goto_0
+    return v0
+
+    :cond_2
+    sget-object v3, Lcom/aide/engine/service/Native;->j6:Lcom/aide/engine/service/Native;
+
+    invoke-virtual {v3}, Lcom/aide/engine/service/Native;->isX86()Z
+
+    move-result v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v0, :cond_3
+
+    const v0, 0x65f03104
+
+    goto :goto_1
+
+    :cond_3
+    const v0, 0x65f03103
+
+    :goto_1
+    return v0
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_4
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_4
+    throw v3
+.end method
+
+.method public static Mr()Z
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = 0x4e3690b2d4a0a010L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, -0x19c4f130f2a97cf7L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v4, 0x1d
+
+    if-lt v3, v4, :cond_1
+
+    invoke-static {}, Lcom/aide/ui/f;->VH()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/aide/ui/build/android/m;->v5(Landroid/content/Context;)Lcom/aide/ui/build/android/m$a;
+
+    move-result-object v3
+
+    sget-object v4, Lcom/aide/ui/build/android/m$a;->jw:Lcom/aide/ui/build/android/m$a;
+
+    if-eq v3, v4, :cond_1
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_1
+    invoke-static {}, Lcom/aide/ui/build/android/m;->Hw()Ljava/io/File;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/io/File;->isFile()Z
+
+    move-result v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return v0
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_2
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_2
+    throw v3
+.end method
+
+.method private static QX()I
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0xf6153817abc0290L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x1f500f113131ca61L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    sget-object v3, Lcom/aide/engine/service/Native;->j6:Lcom/aide/engine/service/Native;
+
+    invoke-virtual {v3}, Lcom/aide/engine/service/Native;->isX86()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const v3, 0x65f03102
+
+    goto :goto_0
+
+    :cond_1
+    const v3, 0x65f03101
+
+    :goto_0
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/16 v1, 0x1a
+
+    if-lt v0, v1, :cond_2
+
+    add-int/lit8 v3, v3, 0x2
+
+    :cond_2
+    return v3
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_3
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_3
+    throw v3
+.end method
+
+.method public static U2()V
+    .registers 12
+    .annotation runtime Labcd/ey;
+        method = 0x5ba3a797e913fe61L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x3c94f3819d837e8L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/16 v4, 0x1d
+
+    if-lt v3, v4, :cond_7
+
+    :try_start_1
+    invoke-static {}, Lcom/aide/ui/f;->VH()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    const-string v4, "com.aide.ndk29"
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, v4, v5}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v3
+
+    iget-object v3, v3, Landroid/content/pm/ApplicationInfo;->nativeLibraryDir:Ljava/lang/String;
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->FH()Ljava/io/File;
+
+    move-result-object v4
+
+    new-instance v6, Ljava/io/File;
+
+    const-string v7, "busybox"
+
+    invoke-direct {v6, v4, v7}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    invoke-virtual {v6}, Ljava/io/File;->exists()Z
+
+    move-result v4
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Landroid/system/ErrnoException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const-string v7, " could not be deleted"
+
+    if-eqz v4, :cond_2
+
+    :try_start_2
+    invoke-virtual {v6}, Ljava/io/File;->delete()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v3, Ljava/io/IOException;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_2
+    :goto_0
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v8, "/libbusybox.so"
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v6}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/system/Os;->symlink(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v4, Ljava/io/File;
+
+    invoke-direct {v4, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4}, Ljava/io/File;->listFiles()[Ljava/io/File;
+
+    move-result-object v3
+
+    array-length v4, v3
+
+    :goto_1
+    if-ge v5, v4, :cond_7
+
+    aget-object v6, v3, v5
+
+    invoke-virtual {v6}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string v9, "lib"
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_6
+
+    invoke-virtual {v6}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string v9, ".so"
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_6
+
+    const-string v8, "libbusybox.so"
+
+    invoke-virtual {v6}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    goto/16 :goto_2
+
+    :cond_3
+    invoke-virtual {v6}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v6}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/String;->length()I
+
+    move-result v9
+
+    const/4 v10, 0x3
+
+    sub-int/2addr v9, v10
+
+    invoke-virtual {v8, v10, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string v9, "_x_"
+
+    const-string v10, "/"
+
+    invoke-virtual {v8, v9, v10}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v8
+
+    new-instance v9, Ljava/io/File;
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->tp()Ljava/io/File;
+
+    move-result-object v10
+
+    invoke-direct {v9, v10, v8}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v11, "Resymlinking "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v11, " to "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v9}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Lcom/aide/common/e;->DW(Ljava/lang/String;)V
+
+    invoke-virtual {v9}, Ljava/io/File;->exists()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_5
+
+    invoke-virtual {v9}, Ljava/io/File;->delete()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_4
+
+    invoke-virtual {v6}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v9}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v6, v8}, Landroid/system/Os;->symlink(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_4
+    new-instance v3, Ljava/io/IOException;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_5
+    new-instance v3, Ljava/io/IOException;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v5, " does not exist"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+    :try_end_2
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Landroid/system/ErrnoException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_6
+    :goto_2
+    add-int/lit8 v5, v5, 0x1
+
+    goto/16 :goto_1
+
+    :catch_0
+    move-exception v3
+
+    :try_start_3
+    new-instance v4, Ljava/io/IOException;
+
+    invoke-direct {v4, v3}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v4
+
+    :catch_1
+    move-exception v3
+
+    new-instance v4, Ljava/io/IOException;
+
+    invoke-direct {v4, v3}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v4
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :cond_7
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_8
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_8
+    goto :goto_4
+
+    :goto_3
+    throw v3
+
+    :goto_4
+    goto :goto_3
+.end method
+
+.method public static VH(Ljava/lang/String;I)Ljava/util/List;
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = -0x204d33676974cb40L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "I)",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v0, :cond_0
+
+    const-wide v0, -0xfa01e6480b748c5L
+
+    const/4 v2, 0x0
+
+    new-instance v3, Ljava/lang/Integer;
+
+    invoke-direct {v3, p1}, Ljava/lang/Integer;-><init>(I)V
+
+    invoke-static {v0, v1, v2, p0, v3}, Labcd/iy;->EQ(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->aM()Ljava/io/File;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->u7()Ljava/io/File;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    if-lez v1, :cond_1
+
+    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_1
+    const/4 v1, 0x1
+
+    if-le p1, v1, :cond_2
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "-j"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_2
+    invoke-static {}, Lcom/aide/ui/f;->Sf()Z
+
+    move-result v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const-string v2, "NDK_KNOWN_ARCHS=arm x86"
+
+    const-string v3, "NDK_KNOWN_ABIS=armeabi-v7a armeabi-v7a-hard armeabi x86"
+
+    if-eqz v1, :cond_3
+
+    :try_start_1
+    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    const-string v1, "HOST_ARCH=x86"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_3
+    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    const-string v1, "HOST_ARCH=arm"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :goto_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "APP_PIE_REQUIRED="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->j3()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "SHELL="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->aM()Ljava/io/File;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    const-string v1, "TARGET_AR=$(TOOLCHAIN_PREFIX)ar"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    const-string v1, "host-install=cp $1 $2"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v1, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v1, :cond_4
+
+    const-wide v2, -0xfa01e6480b748c5L
+
+    const/4 v4, 0x0
+
+    new-instance v6, Ljava/lang/Integer;
+
+    invoke-direct {v6, p1}, Ljava/lang/Integer;-><init>(I)V
+
+    move-object v1, v0
+
+    move-object v5, p0
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->Mr(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_4
+    throw v0
+.end method
+
+.method public static Ws(Landroid/content/Context;)Lcom/aide/ui/build/android/m$b;
+    .registers 7
+    .annotation runtime Labcd/ey;
+        method = 0x60c2ee5fd0465588L
+    .end annotation
+
+    const-string v0, "com.aide.ndk"
+
+    const/4 v1, 0x0
+
+    const-wide v2, -0x11dcd20b814a08e9L
+
+    :try_start_0
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v4, :cond_0
+
+    invoke-static {v2, v3, v1, p0}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v0, v5}, Landroid/content/pm/PackageManager;->checkSignatures(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez v4, :cond_4
+
+    :try_start_1
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    const/16 v5, 0x80
+
+    invoke-virtual {v4, v0, v5}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object v0
+
+    iget v4, v0, Landroid/content/pm/PackageInfo;->versionCode:I
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->QX()I
+
+    move-result v5
+
+    if-ge v4, v5, :cond_1
+
+    sget-object p0, Lcom/aide/ui/build/android/m$b;->mb:Lcom/aide/ui/build/android/m$b;
+
+    return-object p0
+
+    :cond_1
+    iget v0, v0, Landroid/content/pm/PackageInfo;->versionCode:I
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->QX()I
+
+    move-result v4
+
+    if-le v0, v4, :cond_2
+
+    sget-object p0, Lcom/aide/ui/build/android/m$b;->jw:Lcom/aide/ui/build/android/m$b;
+
+    return-object p0
+
+    :cond_2
+    invoke-static {}, Lcom/aide/ui/build/android/m;->EQ()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Labcd/ag;->KD(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    sget-object p0, Lcom/aide/ui/build/android/m$b;->fY:Lcom/aide/ui/build/android/m$b;
+
+    return-object p0
+
+    :cond_3
+    sget-object p0, Lcom/aide/ui/build/android/m$b;->qp:Lcom/aide/ui/build/android/m$b;
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    return-object p0
+
+    :catch_0
+    :cond_4
+    :try_start_2
+    sget-object p0, Lcom/aide/ui/build/android/m$b;->WB:Lcom/aide/ui/build/android/m$b;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    return-object p0
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_5
+
+    invoke-static {v0, v2, v3, v1, p0}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_5
+    throw v0
+.end method
+
+.method private static XL()Ljava/util/List;
+    .registers 10
+    .annotation runtime Labcd/ey;
+        method = 0x462cd442da5173b8L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Ljava/io/File;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, -0x2ae53e975c78711L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v4, Ljava/io/File;
+
+    invoke-static {}, Labcd/ag;->yS()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4}, Ljava/io/File;->listFiles()[Ljava/io/File;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    array-length v5, v4
+
+    const/4 v6, 0x0
+
+    :goto_0
+    if-ge v6, v5, :cond_2
+
+    aget-object v7, v4, v6
+
+    invoke-virtual {v7}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string v9, "ndksupport-"
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    invoke-virtual {v7}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->J0()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_1
+
+    invoke-interface {v3, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_1
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_3
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_3
+    goto :goto_2
+
+    :goto_1
+    throw v3
+
+    :goto_2
+    goto :goto_1
+.end method
+
+.method private static Zo()I
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = 0x1a4b57c6a0fc1145L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, -0x2519c1e5c38d5e30L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    const/4 v0, 0x7
+
+    return v0
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+.method private static aM()Ljava/io/File;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0x351864ac9c464ab0L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x2e427947b1b42d1dL
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/io/File;
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->FH()Ljava/io/File;
+
+    move-result-object v4
+
+    const-string v5, "ash"
+
+    invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+.method public static gn()Ljava/util/Map;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0x2b9112e0f1080fc0L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0xc68344a59618c21L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/util/HashMap;
+
+    invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
+
+    const-string v4, "PATH"
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->FH()Ljava/io/File;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {v3, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+.method private static j3()Z
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = 0x4747ac51f6ed7c6bL
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x412058ba107f30f4L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/16 v1, 0x15
+
+    if-lt v0, v1, :cond_1
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_2
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_2
+    throw v3
+.end method
+
+.method public static j6()Z
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = 0x3f84b502319d634L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, -0x19a0cc784564a945L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    invoke-static {}, Lcom/aide/ui/build/android/m;->XL()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    return v0
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+.method public static tp()Ljava/io/File;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0x225b1aa0d8d728b3L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x8ed9ea171987748L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/io/File;
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->we()Ljava/io/File;
+
+    move-result-object v4
+
+    const-string v5, "android-ndk-aide"
+
+    invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+.method private static u7()Ljava/io/File;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0x5ed770bc195a32f0L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, -0x513d1ddff58b5527L
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/io/File;
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->tp()Ljava/io/File;
+
+    move-result-object v4
+
+    const-string v5, "ndk-build"
+
+    invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
+
+.method public static v5(Landroid/content/Context;)Lcom/aide/ui/build/android/m$a;
+    .registers 7
+    .annotation runtime Labcd/ey;
+        method = 0x11d5943aee601133L
+    .end annotation
+
+    const-string v0, "com.aide.ndk29"
+
+    const/4 v1, 0x0
+
+    const-wide v2, 0x7c0469f0c2822b00L
+
+    :try_start_0
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v4, :cond_0
+
+    invoke-static {v2, v3, v1, p0}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v0, v5}, Landroid/content/pm/PackageManager;->checkSignatures(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez v4, :cond_2
+
+    :try_start_1
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    const/16 v5, 0x80
+
+    invoke-virtual {v4, v0, v5}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/pm/PackageInfo;->versionCode:I
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->Zo()I
+
+    move-result v4
+
+    if-ge v0, v4, :cond_1
+
+    sget-object p0, Lcom/aide/ui/build/android/m$a;->mb:Lcom/aide/ui/build/android/m$a;
+
+    return-object p0
+
+    :cond_1
+    sget-object p0, Lcom/aide/ui/build/android/m$a;->jw:Lcom/aide/ui/build/android/m$a;
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    return-object p0
+
+    :catch_0
+    :cond_2
+    :try_start_2
+    sget-object p0, Lcom/aide/ui/build/android/m$a;->WB:Lcom/aide/ui/build/android/m$a;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    return-object p0
+
+    :catchall_0
+    move-exception v0
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_3
+
+    invoke-static {v0, v2, v3, v1, p0}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_3
+    throw v0
+.end method
+
+.method public static we()Ljava/io/File;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0x311b3e1892730a8L
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const-wide v1, 0x5880803d7135ec4dL
+
+    :try_start_0
+    sget-boolean v3, Lcom/aide/ui/build/android/m;->j6:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v1, v2, v0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_0
+    new-instance v3, Ljava/io/File;
+
+    invoke-static {}, Labcd/ag;->yS()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {}, Lcom/aide/ui/build/android/m;->J0()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    sget-boolean v4, Lcom/aide/ui/build/android/m;->DW:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-static {v3, v1, v2, v0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1
+    throw v3
+.end method
