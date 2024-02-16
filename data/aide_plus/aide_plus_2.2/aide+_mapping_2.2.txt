@@ -90,7 +90,13 @@ Lcom/aide/codemodel/api/abstraction/Syntax; -> Lcom/aide/codemodel/api/abstracti
 	J8(I) -> isClassDeclaration
 	gW(I) -> isExpression
 	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
+	DW(I) -> getTokenLength
+	aj(I) -> isBooleanLiteral
+	nw(I) -> isOperator 
+	sG(I) -> isSeparator
 	
+	
+
 Lcom/aide/codemodel/api/SyntaxTree; -> Lcom/aide/codemodel/api/SyntaxTree;
 	hp(I) -> isClassDeclaration
 	br(I) -> getClassDeclarationNode
@@ -98,9 +104,22 @@ Lcom/aide/codemodel/api/SyntaxTree; -> Lcom/aide/codemodel/api/SyntaxTree;
 	q7(I) -> getMemberDeclarationNode
 	Z1(II) -> getMemberDeclarationNode
 	xg(I) -> isChangedExpressionNode
-	
+	e3() -> getNamespaceNodePairs
 	sM(IIIII) -> getReadExpressionNodeAt
 	containsPositionExt(III) -> containsPosition
 	gn(III) -> containsPositionExt
+	eU() -> getModel
+	jw()  -> getImportNodePairs
+	om(I) -> isParameters
 	
 	
+	
+	
+Lcom/aide/codemodel/api/Entity; -> Lcom/aide/codemodel/api/Entity;
+	Hw() -> getEnclosingClassType
+	
+	
+	
+	
+	
+Labcd/a6; -> Lcom/aide/codemodel/language/java/JavaFormatOption;
