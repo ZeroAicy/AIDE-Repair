@@ -39,10 +39,11 @@ import org.jf.util.CollectionUtils;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import android.app.Activity;
 
 public abstract class BaseMethodReference extends BaseReference implements MethodReference {
     @Override
-    public int hashCode() {
+    public int hashCode() {Activity m;
         int hashCode = getDefiningClass().hashCode();
         hashCode = hashCode*31 + getName().hashCode();
         hashCode = hashCode*31 + getReturnType().hashCode();

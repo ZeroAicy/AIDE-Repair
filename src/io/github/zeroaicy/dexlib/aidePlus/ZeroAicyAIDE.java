@@ -1,14 +1,21 @@
 package io.github.zeroaicy.dexlib.aidePlus;
+
+import android.app.Activity;
+import android.view.Window;
+import android.view.WindowManager;
 import io.github.zeroaicy.dexlib.analysis.DexFileAnalyzer;
 import io.github.zeroaicy.dexlib.analysis.RevertDexFromMappingText;
 import io.github.zeroaicy.dexlib.analysis.RevertMappingData;
 import io.github.zeroaicy.dexlib.analysis.RewriterClassData;
 import io.github.zeroaicy.dexlib.rewriter2.RewriteDexFileContainer;
 import io.github.zeroaicy.tools.files.OpenFile;
+import io.github.zeroaicy.util.ContextUtil;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Set;
 import org.jf.dexlib2.DexFileFactory;
 import org.jf.dexlib2.Opcodes;
@@ -17,11 +24,6 @@ import org.jf.dexlib2.iface.ClassDef;
 import org.jf.dexlib2.iface.DexFile;
 import org.jf.dexlib2.iface.Method;
 import org.jf.dexlib2.iface.MultiDexContainer;
-import io.github.zeroaicy.util.ContextUtil;
-import android.view.WindowManager;
-import java.util.Scanner;
-import android.view.Window;
-import android.app.Activity;
 
 public class ZeroAicyAIDE{
 
@@ -29,16 +31,17 @@ public class ZeroAicyAIDE{
 	private static void aide_plus() throws IOException{
 		//修复分析
 		aide_plus aide_plus = 
-		aide_plus_tools.getAidePlus("2.2");
+			aide_plus_tools.getAidePlus("2.2");
 		aide_plus.run();
 		System.out.println("完成");
 	}
-	
+
 	public static void main(String[] args) throws IOException{
 
 		//method2();
 
 		//sort();
+		
 		aide_plus();
 
 		//method();
@@ -53,6 +56,8 @@ public class ZeroAicyAIDE{
 		 /*/
 		删除();
 		//*/
+
+		Paths.get("");
 	}
 
 	private static void sort(){
