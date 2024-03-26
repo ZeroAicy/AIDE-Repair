@@ -7,6 +7,21 @@ import java.util.List;
 import java.util.Map;
 
 public class 合并RevertMappingData{
+	public static void main(String[] args){
+		sort();
+		
+		System.out.println("结束");
+	}
+	/**
+	 * 排序
+	 */
+	private static void sort(){
+
+		String v = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.2/aide+_mapping_2.2.txt";
+		//v = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_1/备份[封存]/aide+_mapping_output_1.txt";
+		RevertDexFromMappingText.writeRevertMappingData(v, new RevertMappingData(v));
+
+	}
 	public static void main3(String[] args){
 		
 		List<String> mappingList = new ArrayList<>();

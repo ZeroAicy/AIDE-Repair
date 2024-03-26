@@ -57,8 +57,21 @@ Lcom/aide/codemodel/api/Type; -> Lcom/aide/codemodel/api/Type;
 Lcom/aide/ui/project/AndroidProjectSupport; -> Lcom/aide/ui/project/AndroidProjectSupport;
 	k2(Ljava/lang/String;) -> getProjectMavenDependencyList
 
+Lcom/aide/codemodel/api/callback/HighlighterCallback; -> Lcom/aide/codemodel/api/callback/HighlighterCallback;
+	u7(Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/SyntaxTreeSytles;) -> addSyntaxTreeSytles
+
 Labcd/u1; -> Lcom/aide/codemodel/api/Member;
+	Q6() -> isAbstract
+	BR() -> loadSyntax
+	sG() -> data
+Labcd/u1$b; -> Lcom/aide/codemodel/api/Member$Data;
+	DW -> syntaxLoaded
+	
+	
+
 Labcd/k1; -> Lcom/aide/codemodel/api/ClassType;
+	J8 -> file
+	VH() -> getFile
 Labcd/j1; -> Lcom/aide/codemodel/api/ArrayType;
 Labcd/z1; -> Lcom/aide/codemodel/api/Namespace;
 Labcd/v1; -> Lcom/aide/codemodel/api/MethodParameterType;
@@ -67,7 +80,6 @@ Labcd/a2; -> Lcom/aide/codemodel/api/ParameterizedType;
 Labcd/w1; -> Lcom/aide/codemodel/api/MethodParameterTypeVariable;
 Labcd/c2; -> Lcom/aide/codemodel/api/PointerType;
 Labcd/d2; -> Lcom/aide/codemodel/api/PrimitiveType;
-
 
 Labcd/n1; -> Lcom/aide/codemodel/api/Entity;
 	cn() -> isType
@@ -81,29 +93,53 @@ Labcd/n1; -> Lcom/aide/codemodel/api/Entity;
 	vy() -> isMethodParameterTypeVariable
 	SI() -> isPointerType
 	KD() -> isPrimitiveType
-
+	Hw() -> getEnclosingClassType
+	XL() -> getLanguage
+	gn() -> getFullyQualifiedNameString
+	lg() -> getNameString
+	tp() -> getHTMLString
+	aM() -> getModifiers
+	
+	
+	
+Lcom/aide/codemodel/api/abstraction/CodeRenderer; -> Lcom/aide/codemodel/api/abstraction/CodeRenderer;
+	Hw(Labcd/n1;) -> getFullyQualifiedNameString
+	j6(Labcd/n1;) -> getNameString
+	DW(Labcd/n1;) -> getHTMLString
+	
 Lcom/aide/codemodel/api/abstraction/Syntax; -> Lcom/aide/codemodel/api/abstraction/Syntax;
 	BT(I) -> isBlock
 	yO(I) -> isMemberDeclaration
 	rN(I) -> isFieldDeclaration
 	J0(I) -> isMethodDeclaration
 	J8(I) -> isClassDeclaration
+	isClassDeclaration(I) ->  isTypeIdentifier
 	gW(I) -> isExpression
-	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
 	DW(I) -> getTokenLength
 	aj(I) -> isBooleanLiteral
 	nw(I) -> isOperator 
 	sG(I) -> isSeparator
+	SI(I) -> isClassBody
+	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
+	kQ(Lcom/aide/codemodel/api/SyntaxTree;) -> getImportEndLine
+	lp(I) -> isDocComment
+	j6(I) -> isComment
 	
 	
-
+Lcom/aide/codemodel/api/Model; -> Lcom/aide/codemodel/api/Model;
+	Mr -> errorTable
+	XL -> syntaxTreeSpace
 Lcom/aide/codemodel/api/SyntaxTree; -> Lcom/aide/codemodel/api/SyntaxTree;
-	hp(I) -> isClassDeclaration
+	hp(I) -> isClassDeclarationNode
+	cc(I) -> isMethodDeclarationNode
+	Hl(I) -> isFieldDeclarationNode
+	isFieldDeclarationNode(I) -> isMethodOrClassOrFieldDeclarationNode
+	
+	xg(I) -> isChangedExpressionNode
 	br(I) -> getClassDeclarationNode
 	XX(II) -> getClassDeclarationNode
 	q7(I) -> getMemberDeclarationNode
 	Z1(II) -> getMemberDeclarationNode
-	xg(I) -> isChangedExpressionNode
 	e3() -> getNamespaceNodePairs
 	sM(IIIII) -> getReadExpressionNodeAt
 	containsPositionExt(III) -> containsPosition
@@ -111,17 +147,56 @@ Lcom/aide/codemodel/api/SyntaxTree; -> Lcom/aide/codemodel/api/SyntaxTree;
 	eU() -> getModel
 	jw()  -> getImportNodePairs
 	om(I) -> isParameters
-	
-	
-	
-	
-Lcom/aide/codemodel/api/Entity; -> Lcom/aide/codemodel/api/Entity;
-	Hw() -> getEnclosingClassType
+	hz() -> getFile
+	sG(I) -> getAttrType
+	PT(I) -> hasAttrType
+	ro(I) -> getAttrInvocationType
+	MP(I) -> hasAttrInvocationType
+	QO(IIII) -> getReadExpressionNodeAt
+	QX(IILcom/aide/codemodel/api/Entity;) -> declareAttrReferenceKind
+	dx(I) -> getAttrTarget
+	zh(I) -> getLeftSisterNode
+	vy(IZ[IIIIII) -> declareNode
+	BT(IZ[IIIII) -> declareNode
+	Bx(III) -> getTokenNodeAt
+	fN(IIIII) -> getSyntaxTagNodeAt
+	Gj(IIIIII) -> getSyntaxTagNodeAt
+	mb() -> getImportEndLine
+	kf(IIIII) -> getMethodNodeAt
+
+Lcom/aide/codemodel/api/o1$a; -> Lcom/aide/codemodel/api/EntitySpace$FileInfo;
+
+Lcom/aide/codemodel/api/EntitySpace; -> Lcom/aide/codemodel/api/EntitySpace;
+	aq(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I) -> getClasstype
+	Z1(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;) -> getFileInfo
+	j6 -> fileSpace
+	ye(Lcom/aide/codemodel/api/Entity;) -> getID
 	
 Lcom/aide/codemodel/api/FileSpace; -> Lcom/aide/codemodel/api/FileSpace;
 	P8(Lcom/aide/codemodel/api/FileEntry;) -> getID
+	Ws(Lcom/aide/codemodel/api/FileEntry;) -> getAssembly
+	Mr(Lcom/aide/codemodel/api/FileEntry;) -> getDebugOutputPath
+	U2(Lcom/aide/codemodel/api/FileEntry;) -> getReleaseOutputPath
+	ef(Lcom/aide/codemodel/api/FileEntry;) -> getTargetVersion
+	nw(Lcom/aide/codemodel/api/abstraction/Language;) -> getLanguageID
+	er(I) -> getCodeModel
+	ro(Lcom/aide/codemodel/api/FileEntry;) -> getCodeModelWrapper
 	
 	
+	
+Lcom/aide/codemodel/api/FileSpace$a; -> Lcom/aide/codemodel/api/FileSpace$Assembly;
+	Zo -> targetVersion
+	gn(Lcom/aide/codemodel/api/FileSpace$a;) -> getTargetVersion
+	Hw -> debugOutputPath
+	Hw(Lcom/aide/codemodel/api/FileSpace$a;) -> getDebugOutputPath
+	v5 -> releaseOutputPath
+	v5(Lcom/aide/codemodel/api/FileSpace$a;) -> getReleaseOutputPath
+	
+	
+	
+	
+Lcom/aide/codemodel/api/collections/FunctionOfIntInt; -> Lcom/aide/codemodel/api/collections/FunctionOfIntInt;
+	v5(I) -> get
 Lcom/aide/codemodel/api/collections/SetOfFileEntry$b; -> Lcom/aide/codemodel/api/collections/SetOfFileEntry$Iterator;
 	DW() -> init
 	FH() -> nextKey
@@ -137,12 +212,17 @@ Lcom/aide/codemodel/api/collections/SetOfFileEntry;
 	j6 -> iterator
 	EQ(Lcom/aide/codemodel/api/FileEntry;) -> remove
 	
-	
 Labcd/a6; -> Lcom/aide/codemodel/language/java/JavaFormatOption;
 
 
 Labcd/e3; -> Lcom/aide/codemodel/api/collections/HashtableOfInt;
 
+Lcom/aide/codemodel/language/java/JavaCompiler; -> Lcom/aide/codemodel/language/java/JavaCompiler;
+	Zo -> model
+	Hw -> entitySpace
+	v5 -> javaLanguage
+	
+	
 Lcom/aide/engine/service/CodeAnalysisEngineService; -> Lcom/aide/engine/service/CodeAnalysisEngineService;
 	mb -> navigationListener
 	tp(Lcom/aide/engine/service/CodeAnalysisEngineService;) -> getEngine
@@ -174,7 +254,9 @@ Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl
 	SO(Lcom/aide/engine/service/INavigationListener;) -> setNavigationListener
 	nx(Lcom/aide/engine/service/IGotoSymbolListener;) -> setGotoSymbolListener
 	Ft(Lcom/aide/engine/service/IUsageSearcherListener;) -> setUsageSearcherListener
-	
+Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl$d; -> Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl$d;
+	j6 -> fileHighlightings
+	DW -> mIHighlightingListener
 
 Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	Z3(Lcom/aide/engine/EngineSolution;) -> setEngineSolution
@@ -189,7 +271,7 @@ Lcom/aide/engine/e; -> Lcom/aide/engine/ICodeModelsFactory;
 	DW() -> getID
 	FH(Lcom/aide/codemodel/api/Model;Ljava/util/List;) -> makeCodeModels
 	
-Lcom/aide/engine/f0; -> Lcom/aide/engine/IUsageSearcherListener2;
+Lcom/aide/engine/f0; -> Lcom/aide/engine/UsageSearcherListener;
 Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl$f; -> Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl$UsageSearcherListener2Impl;
 
 Labcd/l4; -> Lcom/aide/ui/tools/ThreadFactory;
@@ -249,7 +331,6 @@ Lcom/aide/ui/views/editor/Graphics; -> Lcom/aide/ui/views/editor/Graphics;
 Labcd/kg; -> Lcom/aide/ui/views/editor/Position;
 	j6 -> line
 	DW() -> getLine
-	
 	DW -> column
 	j6() -> getColumn
 	
@@ -258,7 +339,7 @@ Lcom/aide/ui/views/editor/Caret; -> Lcom/aide/ui/views/editor/Caret;
 	u7(Z) -> setCaretBlinks
 	DW -> mOConsole
 	j6 -> caretTimer
-	this.Hw -> caretBlinks
+	Hw -> caretBlinks
 	v5() -> cancel
 	gn() -> createTimer
 	Zo(Lcom/aide/ui/views/editor/OConsole;) -> setOConsole
@@ -288,7 +369,7 @@ Lcom/aide/ui/views/editor/OConsole;->Lcom/aide/ui/views/editor/OConsole;
 	Fd -> setWarningColor
 	Jl -> caretColumn
 	iW -> caretLine
-	fY() -> hasFocus
+	fY() -> hasFocusWrapper
 	ei(Lcom/aide/ui/views/editor/CaretMoveListener;) -> addCaretMoveListener
 	aX -> selectionVisibility
 	kf() -> getSelectionVisibility
@@ -327,8 +408,9 @@ Lcom/aide/ui/views/editor/OConsole;->Lcom/aide/ui/views/editor/OConsole;
 	AL -> spaceCharWidth
 	eU -> caret
 
-	
+
 Lcom/aide/ui/views/editor/EditorModel; -> Lcom/aide/ui/views/editor/EditorModel;
+
 Lcom/aide/ui/views/editor/Model; -> Lcom/aide/ui/views/editor/Model;
 	ei() -> getLineCount
 	SI(I) -> getColumnCount
@@ -337,7 +419,7 @@ Lcom/aide/ui/views/editor/Model; -> Lcom/aide/ui/views/editor/Model;
 	VH(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
 	J8(I[C) -> readLineText
 	
-	
+
 Lcom/aide/common/KeyStrokeDetector; -> Lcom/aide/common/KeyStrokeDetector;
 	gn -> rightShiftPhysical
 	Zo(Lcom/aide/common/KeyStrokeDetector;) -> getRightShiftPhysical
@@ -345,27 +427,31 @@ Lcom/aide/common/KeyStrokeDetector; -> Lcom/aide/common/KeyStrokeDetector;
 	v5(Lcom/aide/common/KeyStrokeDetector;) -> getLeftShiftPhysical
 	EQ -> isSoftKeyboard
 	Hw(Lcom/aide/common/KeyStrokeDetector;) -> isSoftKeyboard
+	J0 -> context
 	j6 -> leftAlt
 	DW -> rightAlt
 	FH -> leftShift
 	Hw -> rightShift
 	v5 -> leftCtrl
 	Zo -> rightCtrl
-	XL(I) -> isLeftCtrlPressed
 	we -> keyCharacterMap
+	aM() -> isCtrl
+	XL(I) -> isLeftCtrlPressed
 	u7(Lcom/aide/common/KeyStrokeDetector;Landroid/view/KeyCharacterMap;) -> setKeyCharacterMap
 	gn(Lcom/aide/common/KeyStrokeDetector;) -> getKeyCharacterMap
-	J0 -> context
 	tp(Lcom/aide/common/KeyStrokeDetector;) -> getContext
-	aM() -> isCtrl
-	er(ILandroid/view/KeyEvent;Lcom/aide/common/KeyStrokeDetector$KeyStrokeHandler;) -> onKeyDown
-	yS(ILandroid/view/KeyEvent;Lcom/aide/common/KeyStrokeDetector$KeyStrokeHandler;) -> onKeyUp
 	rN(Landroid/content/Context;) -> onConfigChange
-	Ws(IZ) -> onMetaKeysDown
-	QX(IZ) -> onMetaKeysUp
 	J8(Lcom/aide/common/KeyStroke;) -> onKeyStroke
 	EQ(Landroid/view/View;Lcom/aide/common/KeyStrokeDetector$KeyStrokeHandler;) -> createInputConnection
+	Ws(IZ) -> onMetaKeysDown
+	QX(IZ) -> onMetaKeysUp
+	a8(ILandroid/view/KeyEvent;) -> onKeyDown
+	lg(ILandroid/view/KeyEvent;) -> onKeyUp
+	er(ILandroid/view/KeyEvent;Lcom/aide/common/KeyStrokeDetector$KeyStrokeHandler;) -> onKeyDown
+	yS(ILandroid/view/KeyEvent;Lcom/aide/common/KeyStrokeDetector$KeyStrokeHandler;) -> onKeyUp
+	Mr(ILandroid/view/KeyEvent;) -> makeKeyStroke
 	
+
 Lcom/aide/common/KeyStroke; -> Lcom/aide/common/KeyStroke;
 	DW -> keyCode
 	FH() -> getKeyCode

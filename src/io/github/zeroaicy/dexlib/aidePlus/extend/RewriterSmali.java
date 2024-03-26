@@ -15,7 +15,7 @@ import io.github.zeroaicy.dexlib.aidePlus.extend.RewriterSmali.Field;
 import io.github.zeroaicy.dexlib.aidePlus.extend.RewriterSmali.Method;
 
 public class RewriterSmali{
-	
+
 	public static void rewriter(String input_src_dir, String output_src_dir, String mappingFilePath){
 		Map<String, List<String>> smaliLinesMap = new HashMap<>();
 
@@ -32,7 +32,7 @@ public class RewriterSmali{
 			}
 			smaliLinesMap.put(className, smaliLines);
 		}
-		
+
 		RevertMappingData revertMappingData = new RevertMappingData(mappingFilePath);
 		Map<String, RewriterClassData> rewriterClassDataMap = revertMappingData.getRewriterClassDataMap();
 
@@ -64,7 +64,7 @@ public class RewriterSmali{
 						}
 					}
 				}
-				
+
 				//字段名
 				Map<String, RewriterClassData.FieldData> fieldDatas = rewriterClassData.getFieldDatas();
 				if ( fieldDatas != null ){
@@ -84,12 +84,12 @@ public class RewriterSmali{
 				}
 				//类名[在修改类引用时会替换]
 				String renamed = rewriterClassData.getRenamed();
-				if( !oldClassName.equals(renamed)){
+				if ( !oldClassName.equals(renamed) ){
 					smaliLinesMap.remove(oldClassName);
 					smaliLinesMap.put(renamed, curSmaliLines);
 					System.out.println("更改类名 " + oldClassName + " -> " + rewriterClassData.getRenamed());					
 				}
-				
+
 				//自身字段名及方法名修改时才需要排序
 				//此时需要对 字段 方法重新排序
 				//字段排序规则 字段名+返回类型[前者相同时考虑后者]
@@ -326,16 +326,17 @@ public class RewriterSmali{
 		Collections.sort(virtualMethods);
 		if ( !staticFields.isEmpty() ){
 			newLines.add("# static fields");
-			
+
 			for ( Field field : staticFields ){
 				newLines.addAll(field.lines);
 				newLines.add("");
 			}
-			if( ! instanceFields.isEmpty()
+			if ( ! instanceFields.isEmpty()
 				|| ! directMethods.isEmpty()
-				|| ! virtualMethods.isEmpty()){
+				|| ! virtualMethods.isEmpty() ){
 				newLines.add("");
-			}else{
+			}
+			else{
 				newLines.remove(newLines.size() - 1);
 			}
 
@@ -346,27 +347,29 @@ public class RewriterSmali{
 				newLines.addAll(field.lines);
 				newLines.add("");
 			}
-			if( ! directMethods.isEmpty()
-				|| ! virtualMethods.isEmpty()){
+			if ( ! directMethods.isEmpty()
+				|| ! virtualMethods.isEmpty() ){
 				newLines.add("");
-			}else{
+			}
+			else{
 				newLines.remove(newLines.size() - 1);
 			}
 		}
-		
+
 		if ( !directMethods.isEmpty() ){
 			newLines.add("# direct methods");
 			for ( Method method : directMethods ){
 				newLines.addAll(method.lines);
 				newLines.add("");
 			}
-			if( ! virtualMethods.isEmpty()){
+			if ( ! virtualMethods.isEmpty() ){
 				newLines.add("");
-			}else{
+			}
+			else{
 				newLines.remove(newLines.size() - 1);
 			}
 		}
-		
+
 		if ( !virtualMethods.isEmpty() ){
 			newLines.add("# virtual methods");
 			for ( Method method : virtualMethods ){
@@ -420,8 +423,8 @@ public class RewriterSmali{
 
 				int methodTypeStrat = parametersEnd + 1;
 				int methodTypeEnd = fristLine.length();
-				while ( isBlankSpace(fristLine.charAt(methodTypeEnd - 1)) 
-					   && methodTypeEnd > 0 ){
+				while ( methodTypeEnd > 0 
+					   && isBlankSpace(fristLine.charAt(methodTypeEnd - 1)) ){
 					methodTypeEnd--;
 				}
 				String methodType = fristLine.substring(methodTypeStrat, methodTypeEnd);
@@ -442,12 +445,12 @@ public class RewriterSmali{
 		final int size = curSmaliLines.size();
 		while ( index < size ){
 			String line = curSmaliLines.get(index);
-			
+
 			if ( line.startsWith(".field ") ){
 				break;
 			}
-			if( line.length() == 0 ){
-				if( index + 1 >= size){
+			if ( line.length() == 0 ){
+				if ( index + 1 >= size ){
 					break;
 				}
 				String nextLine = curSmaliLines.get(index + 1);
@@ -470,8 +473,8 @@ public class RewriterSmali{
 			int fieldNameEnd = fristLine.lastIndexOf(':');
 			if ( fieldNameEnd > 0 ){
 				int fieldNameStart = fieldNameEnd;
-				while ( !isBlankSpace(fristLine.charAt(fieldNameStart - 1)) 
-					   && fieldNameEnd > 0 ){
+				while ( fieldNameEnd > 0
+					   && !isBlankSpace(fristLine.charAt(fieldNameStart - 1)) ){
 					fieldNameStart--;
 				}
 
@@ -479,8 +482,8 @@ public class RewriterSmali{
 
 				int fieldTypeStrat = fieldNameEnd + 1;
 				int fieldTypeEnd = fristLine.length();
-				while ( isBlankSpace(fristLine.charAt(fieldTypeEnd - 1)) 
-					   && fieldNameEnd > 0 ){
+				while ( fieldNameEnd > 0 
+					   && isBlankSpace(fristLine.charAt(fieldTypeEnd - 1)) ){
 					fieldTypeEnd--;
 				}
 				String fieldType = fristLine.substring(fieldTypeStrat, fieldTypeEnd);

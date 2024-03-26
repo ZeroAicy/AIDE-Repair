@@ -6648,7 +6648,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, p0}, Lcom/aide/common/KeyStrokeDetector;->rN(Landroid/content/Context;)V
+    invoke-virtual {v2, p0}, Lcom/aide/common/KeyStrokeDetector;->onConfigChange(Landroid/content/Context;)V
 
     .line 3
     invoke-virtual {p0}, Lcom/aide/ui/MainActivity;->setHasEmbeddedTabs()V
@@ -7981,7 +7981,7 @@
     :cond_11
     iget-object v0, p0, Lcom/aide/ui/MainActivity;->fY:Lcom/aide/common/KeyStrokeDetector;
 
-    invoke-virtual {v0, p1, p2}, Lcom/aide/common/KeyStrokeDetector;->a8(ILandroid/view/KeyEvent;)V
+    invoke-virtual {v0, p1, p2}, Lcom/aide/common/KeyStrokeDetector;->onKeyDown(ILandroid/view/KeyEvent;)V
 
     .line 2
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyDown(ILandroid/view/KeyEvent;)Z
@@ -8052,7 +8052,7 @@
     :cond_1c
     iget-object v0, p0, Lcom/aide/ui/MainActivity;->fY:Lcom/aide/common/KeyStrokeDetector;
 
-    invoke-virtual {v0, p1, p2}, Lcom/aide/common/KeyStrokeDetector;->lg(ILandroid/view/KeyEvent;)V
+    invoke-virtual {v0, p1, p2}, Lcom/aide/common/KeyStrokeDetector;->onKeyUp(ILandroid/view/KeyEvent;)V
 
     .line 3
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyUp(ILandroid/view/KeyEvent;)Z

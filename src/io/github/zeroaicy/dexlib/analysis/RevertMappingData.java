@@ -15,7 +15,7 @@ import java.util.*;
 
 //还原Mapping数据
 public class RevertMappingData{
-    
+
 	private String mappingFilePath;
 
 	//相反的
@@ -47,52 +47,53 @@ public class RevertMappingData{
 	public void shrink(){
 		Set<String> removeKeys = new HashSet<>();
 		Map<String, RewriterClassData> rewriterClassDataMap = getRewriterClassDataMap();
-		
+
 		for ( Map.Entry<String, RewriterClassData> entry : rewriterClassDataMap.entrySet() ){
 			RewriterClassData rewriterClassData  = entry.getValue();
 			rewriterClassData.shrink();
-			if( rewriterClassData.notChange()){
+			if ( rewriterClassData.notChange() ){
 				removeKeys.add(entry.getKey());
 			}
 		}
-		
+
 		//移除
-		for( String key : removeKeys){
+		for ( String key : removeKeys ){
 			rewriterClassDataMap.remove(key);
 		}
 	}
+	
 	/**
 	 * 合并RevertMappingData
 	 * 需要注意需要按照版本顺序依次调用此函数
 	 * 并且被传入RevertMappingData会被修改
 	 */
 	public void merge(List<RevertMappingData> nextVerRevMapData){
-		for( RevertMappingData revertMappingData : nextVerRevMapData){
+		for ( RevertMappingData revertMappingData : nextVerRevMapData ){
 			merge(revertMappingData);
 		}
 	}
 	public void merge(RevertMappingData nextVerRevMapData){
 		//主RewriterClassDataMap，所有改变都集中在此
 		Map<String, RewriterClassData> curClassDataMap = this.getRewriterClassDataMap();
-		
+
 		Map<String, RewriterClassData> nextVerClassDataMap = nextVerRevMapData.getRewriterClassDataMap();
 		{
 			//需要把nextVerRevMapData中方法签名，还原成当前版本的类[参数签名类]
-			
+
 			//遍历当前revertMappingData的类
 			for ( RewriterClassData nextVerClassData : nextVerRevMapData.getRewriterClassDataMap().values() ){
 				if ( !nextVerClassData.hasMethodData() ){
 					//没有方法
 					continue;
 				}
-				
+
 				//遍历类中的方法
 				//合并方法
 				Map<String, RewriterClassData.MethodData> nextVerMethodDataMap = nextVerClassData.getMethodDataMap();
 				List<RewriterClassData.MethodData> methodDatas = new ArrayList<RewriterClassData.MethodData>(nextVerMethodDataMap.values());
 				//置空
 				nextVerMethodDataMap.clear();
-				
+
 				for ( RewriterClassData.MethodData methodData : methodDatas ){
 					//替换方法签名
 					String paramSignature = methodData.parametersSignature;
@@ -126,7 +127,7 @@ public class RevertMappingData{
 			//添加并合并rewriterClassData字段
 			if ( curClassData.hasFieldData() ){
 				Map<String, RewriterClassData.FieldData> nextVerFieldDatas = nextVerClassData.getFieldDatas();
-				
+
 				//遍历curClassData中字段，查询是否有重新修改的
 				for ( RewriterClassData.FieldData curFieldData : curClassData.getFieldDatas().values() ){
 					String nextVerFieldConfusevt = curFieldData.renamed;
@@ -142,12 +143,12 @@ public class RevertMappingData{
 			if ( nextVerClassData.hasFieldData() ){
 				//剩下的都是curClassData没有修改的
 				Map<String, RewriterClassData.FieldData> nextVerFieldDatas = nextVerClassData.getFieldDatas();
-				
+
 				for ( RewriterClassData.FieldData nextVerFieldData :  nextVerFieldDatas.values() ){
 					curClassData.addField(nextVerFieldData.confusevt, nextVerFieldData.renamed);
 				}					
 			}
-			
+
 			//重新修改的
 			if ( curClassData.hasMethodData() ){
 				//合并方法
@@ -167,7 +168,7 @@ public class RevertMappingData{
 			if ( nextVerClassData.hasMethodData() ){
 				//不冲突的部分可以直接添加
 				for ( RewriterClassData.MethodData methodData : nextVerClassData.getMethodDataMap().values() ){
-					if( curClassData.getMethodData(methodData.methodSignature) == null){
+					if ( curClassData.getMethodData(methodData.methodSignature) == null ){
 						curClassData.addMethodData(methodData);
 					}
 				}
@@ -269,7 +270,7 @@ public class RevertMappingData{
 		System.out.println(packageNameConfusevt);
 		System.out.println(packageNameRenamed);
 		System.out.println(isReAll);
-		
+
 		System.out.println();
 
 		RewriterPackageNameData rewriterPackageNameData = this.rewriterPackageDataMap.get(packageNameConfusevt);
@@ -301,8 +302,8 @@ public class RevertMappingData{
 		//confusevt在line的endIndex
 		int confusevtEnd = separatorPosition;
 		//去除separatorPosition前的空格
-		while ( isBlankSpace(line.charAt(confusevtEnd - 1)) 
-			   && confusevtEnd < lineLength ){
+		while ( confusevtEnd < lineLength
+			   && isBlankSpace(line.charAt(confusevtEnd - 1)) ){
 			confusevtEnd--;
 		}
 		// 截取confusevt
@@ -318,15 +319,15 @@ public class RevertMappingData{
 		}
 		int renamedStart = separatorPosition + "->".length();
 		//使得original没有空格
-		while ( isBlankSpace(line.charAt(renamedStart)) 
-			   && renamedStart < lineLength ){
+		while ( renamedStart < lineLength &&
+			   isBlankSpace(line.charAt(renamedStart)) ){
 			renamedStart++;
 		}
 
 		int renamedEnd = line.length();
 		//使得original结尾没有空格
-		while ( isBlankSpace(line.charAt(renamedEnd - 1)) 
-			   && renamedEnd > 0 ){
+		while ( renamedEnd > 0
+			   && isBlankSpace(line.charAt(renamedEnd - 1)) ){
 			renamedEnd--;
 		}
 
@@ -375,14 +376,14 @@ public class RevertMappingData{
 				}
 				int renamedStart = separatorPosition + "->".length();
 				//使得original没有空格
-				while ( isBlankSpace(line.charAt(renamedStart)) 
-					   && renamedStart < lineLength ){
+				while ( renamedStart < lineLength
+					   && isBlankSpace(line.charAt(renamedStart)) ){
 					renamedStart++;
 				}
 				//重命名后的包名
 				int renamedEnd = line.length();
-				while ( isBlankSpace(line.charAt(renamedEnd - 1)) 
-					   && renamedEnd < lineLength ){
+				while ( renamedEnd < lineLength
+					   && isBlankSpace(line.charAt(renamedEnd - 1)) ){
 					renamedEnd--;
 				}
 				String original = line.substring(renamedStart, renamedEnd);
@@ -391,8 +392,8 @@ public class RevertMappingData{
 				//重命名前的包名
 				int confusevtEnd = separatorPosition;
 				//去除separatorPosition前的空格
-				while ( isBlankSpace(line.charAt(confusevtEnd - 1)) 
-					   && confusevtEnd < lineLength ){
+				while ( confusevtEnd < lineLength
+					   && isBlankSpace(line.charAt(confusevtEnd - 1)) ){
 					confusevtEnd--;
 				}
 				boolean isReAll = false;
@@ -433,12 +434,12 @@ public class RevertMappingData{
 			int renamedEnd = lineLength;
 
 			//使得original没有空格
-			while ( isBlankSpace(line.charAt(renamedStart)) 
-				   && renamedStart < lineLength ){
+			while ( renamedStart < lineLength
+				   && isBlankSpace(line.charAt(renamedStart)) ){
 				renamedStart++;
 			}
-			while ( isBlankSpace(line.charAt(renamedEnd - 1)) 
-				   && renamedEnd > 0 ){
+			while ( renamedEnd > 0
+				   && isBlankSpace(line.charAt(renamedEnd - 1)) ){
 				renamedEnd--;
 			}
 
@@ -447,8 +448,8 @@ public class RevertMappingData{
 
 			int confusevtEnd = separatorPosition;
 			//去除separatorPosition前的空格
-			while ( isBlankSpace(line.charAt(confusevtEnd - 1)) 
-				   && confusevtEnd < lineLength ){
+			while ( confusevtEnd < lineLength
+				   && isBlankSpace(line.charAt(confusevtEnd - 1)) ){
 				confusevtEnd--;
 			}
 			for ( int end = confusevtEnd; end > 0; end-- ){

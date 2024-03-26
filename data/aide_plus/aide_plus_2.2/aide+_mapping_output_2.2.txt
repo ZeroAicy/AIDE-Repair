@@ -1,4 +1,11 @@
 Labcd/j1; -> Lcom/aide/codemodel/api/ArrayType;
+	Hw() -> getEnclosingClassType
+	VH() -> getFile
+	gn() -> getFullyQualifiedNameString
+	tp() -> getHTMLString
+	XL() -> getLanguage
+	aM() -> getModifiers
+	lg() -> getNameString
 	sy() -> getSemantic
 	rN() -> isArrayType
 	er() -> isClassType
@@ -14,6 +21,14 @@ Labcd/j1; -> Lcom/aide/codemodel/api/ArrayType;
 Labcd/k1$a; -> Lcom/aide/codemodel/api/ClassType$a;
 Labcd/k1$b; -> Lcom/aide/codemodel/api/ClassType$b;
 Labcd/k1; -> Lcom/aide/codemodel/api/ClassType;
+	J8 -> file
+	Hw() -> getEnclosingClassType
+	VH() -> getFile
+	gn() -> getFullyQualifiedNameString
+	tp() -> getHTMLString
+	XL() -> getLanguage
+	aM() -> getModifiers
+	lg() -> getNameString
 	sy() -> getSemantic
 	rN() -> isArrayType
 	er() -> isClassType
@@ -26,9 +41,14 @@ Labcd/k1; -> Lcom/aide/codemodel/api/ClassType;
 	SI() -> isPointerType
 	KD() -> isPrimitiveType
 	cn() -> isType
-Lcom/aide/codemodel/api/Entity; -> Lcom/aide/codemodel/api/Entity;
-	Hw() -> getEnclosingClassType
 Labcd/n1; -> Lcom/aide/codemodel/api/Entity;
+	Hw() -> getEnclosingClassType
+	VH() -> getFile
+	gn() -> getFullyQualifiedNameString
+	tp() -> getHTMLString
+	XL() -> getLanguage
+	aM() -> getModifiers
+	lg() -> getNameString
 	rN() -> isArrayType
 	er() -> isClassType
 	gW() -> isMember
@@ -40,12 +60,42 @@ Labcd/n1; -> Lcom/aide/codemodel/api/Entity;
 	SI() -> isPointerType
 	KD() -> isPrimitiveType
 	cn() -> isType
+Lcom/aide/codemodel/api/o1$a; -> Lcom/aide/codemodel/api/EntitySpace$FileInfo;
+Lcom/aide/codemodel/api/EntitySpace; -> Lcom/aide/codemodel/api/EntitySpace;
+	j6 -> fileSpace
+	aq(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I) -> getClasstype
+	Z1(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;) -> getFileInfo
+	ye(Lcom/aide/codemodel/api/Entity;) -> getID
+Lcom/aide/codemodel/api/FileSpace$a; -> Lcom/aide/codemodel/api/FileSpace$Assembly;
+	Hw -> debugOutputPath
+	v5 -> releaseOutputPath
+	Zo -> targetVersion
+	Hw(Lcom/aide/codemodel/api/FileSpace$a;) -> getDebugOutputPath
+	v5(Lcom/aide/codemodel/api/FileSpace$a;) -> getReleaseOutputPath
+	gn(Lcom/aide/codemodel/api/FileSpace$a;) -> getTargetVersion
 Lcom/aide/codemodel/api/FileSpace; -> Lcom/aide/codemodel/api/FileSpace;
+	Ws(Lcom/aide/codemodel/api/FileEntry;) -> getAssembly
+	er(I) -> getCodeModel
+	ro(Lcom/aide/codemodel/api/FileEntry;) -> getCodeModelWrapper
+	Mr(Lcom/aide/codemodel/api/FileEntry;) -> getDebugOutputPath
 	P8(Lcom/aide/codemodel/api/FileEntry;) -> getID
+	nw(Lcom/aide/codemodel/api/abstraction/Language;) -> getLanguageID
+	U2(Lcom/aide/codemodel/api/FileEntry;) -> getReleaseOutputPath
+	ef(Lcom/aide/codemodel/api/FileEntry;) -> getTargetVersion
+Labcd/u1$b; -> Lcom/aide/codemodel/api/Member$Data;
+	DW -> syntaxLoaded
 Labcd/u1$a; -> Lcom/aide/codemodel/api/Member$a;
-Labcd/u1$b; -> Lcom/aide/codemodel/api/Member$b;
 Labcd/u1$c; -> Lcom/aide/codemodel/api/Member$c;
 Labcd/u1; -> Lcom/aide/codemodel/api/Member;
+	sG() -> data
+	Hw() -> getEnclosingClassType
+	VH() -> getFile
+	gn() -> getFullyQualifiedNameString
+	tp() -> getHTMLString
+	XL() -> getLanguage
+	aM() -> getModifiers
+	lg() -> getNameString
+	Q6() -> isAbstract
 	rN() -> isArrayType
 	er() -> isClassType
 	gW() -> isMember
@@ -57,7 +107,15 @@ Labcd/u1; -> Lcom/aide/codemodel/api/Member;
 	SI() -> isPointerType
 	KD() -> isPrimitiveType
 	cn() -> isType
+	BR() -> loadSyntax
 Labcd/v1; -> Lcom/aide/codemodel/api/MethodParameterType;
+	Hw() -> getEnclosingClassType
+	VH() -> getFile
+	gn() -> getFullyQualifiedNameString
+	tp() -> getHTMLString
+	XL() -> getLanguage
+	aM() -> getModifiers
+	lg() -> getNameString
 	sy() -> getSemantic
 	rN() -> isArrayType
 	er() -> isClassType
@@ -71,6 +129,13 @@ Labcd/v1; -> Lcom/aide/codemodel/api/MethodParameterType;
 	KD() -> isPrimitiveType
 	cn() -> isType
 Labcd/w1; -> Lcom/aide/codemodel/api/MethodParameterTypeVariable;
+	Hw() -> getEnclosingClassType
+	VH() -> getFile
+	gn() -> getFullyQualifiedNameString
+	tp() -> getHTMLString
+	XL() -> getLanguage
+	aM() -> getModifiers
+	lg() -> getNameString
 	sy() -> getSemantic
 	rN() -> isArrayType
 	er() -> isClassType
@@ -84,6 +149,13 @@ Labcd/w1; -> Lcom/aide/codemodel/api/MethodParameterTypeVariable;
 	KD() -> isPrimitiveType
 	cn() -> isType
 Labcd/z1; -> Lcom/aide/codemodel/api/Namespace;
+	Hw() -> getEnclosingClassType
+	VH() -> getFile
+	gn() -> getFullyQualifiedNameString
+	tp() -> getHTMLString
+	XL() -> getLanguage
+	aM() -> getModifiers
+	lg() -> getNameString
 	rN() -> isArrayType
 	er() -> isClassType
 	gW() -> isMember
@@ -96,6 +168,13 @@ Labcd/z1; -> Lcom/aide/codemodel/api/Namespace;
 	KD() -> isPrimitiveType
 	cn() -> isType
 Labcd/b2; -> Lcom/aide/codemodel/api/ParameterType;
+	Hw() -> getEnclosingClassType
+	VH() -> getFile
+	gn() -> getFullyQualifiedNameString
+	tp() -> getHTMLString
+	XL() -> getLanguage
+	aM() -> getModifiers
+	lg() -> getNameString
 	sy() -> getSemantic
 	rN() -> isArrayType
 	er() -> isClassType
@@ -109,6 +188,13 @@ Labcd/b2; -> Lcom/aide/codemodel/api/ParameterType;
 	KD() -> isPrimitiveType
 	cn() -> isType
 Labcd/a2; -> Lcom/aide/codemodel/api/ParameterizedType;
+	Hw() -> getEnclosingClassType
+	VH() -> getFile
+	gn() -> getFullyQualifiedNameString
+	tp() -> getHTMLString
+	XL() -> getLanguage
+	aM() -> getModifiers
+	lg() -> getNameString
 	sy() -> getSemantic
 	rN() -> isArrayType
 	er() -> isClassType
@@ -122,6 +208,13 @@ Labcd/a2; -> Lcom/aide/codemodel/api/ParameterizedType;
 	KD() -> isPrimitiveType
 	cn() -> isType
 Labcd/c2; -> Lcom/aide/codemodel/api/PointerType;
+	Hw() -> getEnclosingClassType
+	VH() -> getFile
+	gn() -> getFullyQualifiedNameString
+	tp() -> getHTMLString
+	XL() -> getLanguage
+	aM() -> getModifiers
+	lg() -> getNameString
 	sy() -> getSemantic
 	rN() -> isArrayType
 	er() -> isClassType
@@ -135,6 +228,13 @@ Labcd/c2; -> Lcom/aide/codemodel/api/PointerType;
 	KD() -> isPrimitiveType
 	cn() -> isType
 Labcd/d2; -> Lcom/aide/codemodel/api/PrimitiveType;
+	Hw() -> getEnclosingClassType
+	VH() -> getFile
+	gn() -> getFullyQualifiedNameString
+	tp() -> getHTMLString
+	XL() -> getLanguage
+	aM() -> getModifiers
+	lg() -> getNameString
 	sy() -> getSemantic
 	rN() -> isArrayType
 	er() -> isClassType
@@ -150,18 +250,44 @@ Labcd/d2; -> Lcom/aide/codemodel/api/PrimitiveType;
 Lcom/aide/codemodel/api/SyntaxTree; -> Lcom/aide/codemodel/api/SyntaxTree;
 	containsPositionExt(III) -> containsPosition
 	gn(III) -> containsPositionExt
+	QX(IILcom/aide/codemodel/api/Entity;) -> declareAttrReferenceKind
+	BT(IZ[IIIII) -> declareNode
+	vy(IZ[IIIIII) -> declareNode
+	ro(I) -> getAttrInvocationType
+	dx(I) -> getAttrTarget
+	sG(I) -> getAttrType
 	br(I) -> getClassDeclarationNode
 	XX(II) -> getClassDeclarationNode
+	hz() -> getFile
+	mb() -> getImportEndLine
 	jw() -> getImportNodePairs
+	zh(I) -> getLeftSisterNode
 	q7(I) -> getMemberDeclarationNode
 	Z1(II) -> getMemberDeclarationNode
+	kf(IIIII) -> getMethodNodeAt
 	eU() -> getModel
 	e3() -> getNamespaceNodePairs
+	QO(IIII) -> getReadExpressionNodeAt
 	sM(IIIII) -> getReadExpressionNodeAt
+	fN(IIIII) -> getSyntaxTagNodeAt
+	Gj(IIIIII) -> getSyntaxTagNodeAt
+	Bx(III) -> getTokenNodeAt
+	MP(I) -> hasAttrInvocationType
+	PT(I) -> hasAttrType
 	xg(I) -> isChangedExpressionNode
-	hp(I) -> isClassDeclaration
+	hp(I) -> isClassDeclarationNode
+	Hl(I) -> isFieldDeclarationNode
+	cc(I) -> isMethodDeclarationNode
+	isFieldDeclarationNode(I) -> isMethodOrClassOrFieldDeclarationNode
 	om(I) -> isParameters
 Lcom/aide/codemodel/api/Type; -> Lcom/aide/codemodel/api/Type;
+	Hw() -> getEnclosingClassType
+	VH() -> getFile
+	gn() -> getFullyQualifiedNameString
+	tp() -> getHTMLString
+	XL() -> getLanguage
+	aM() -> getModifiers
+	lg() -> getNameString
 	sy() -> getSemantic
 	rN() -> isArrayType
 	er() -> isClassType
@@ -174,11 +300,17 @@ Lcom/aide/codemodel/api/Type; -> Lcom/aide/codemodel/api/Type;
 	SI() -> isPointerType
 	KD() -> isPrimitiveType
 	cn() -> isType
+Lcom/aide/codemodel/api/abstraction/CodeRenderer; -> Lcom/aide/codemodel/api/abstraction/CodeRenderer;
+	Hw(Labcd/n1;) -> getFullyQualifiedNameString
+	DW(Labcd/n1;) -> getHTMLString
+	j6(Labcd/n1;) -> getNameString
 Lcom/aide/codemodel/api/abstraction/Syntax; -> Lcom/aide/codemodel/api/abstraction/Syntax;
+	kQ(Lcom/aide/codemodel/api/SyntaxTree;) -> getImportEndLine
 	DW(I) -> getTokenLength
 	BT(I) -> isBlock
 	aj(I) -> isBooleanLiteral
 	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
+	SI(I) -> isClassBody
 	J8(I) -> isClassDeclaration
 	gW(I) -> isExpression
 	rN(I) -> isFieldDeclaration
@@ -186,6 +318,11 @@ Lcom/aide/codemodel/api/abstraction/Syntax; -> Lcom/aide/codemodel/api/abstracti
 	J0(I) -> isMethodDeclaration
 	nw(I) -> isOperator
 	sG(I) -> isSeparator
+	isClassDeclaration(I) -> isTypeIdentifier
+Lcom/aide/codemodel/api/callback/HighlighterCallback; -> Lcom/aide/codemodel/api/callback/HighlighterCallback;
+	u7(Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/SyntaxTreeSytles;) -> addSyntaxTreeSytles
+Lcom/aide/codemodel/api/collections/FunctionOfIntInt; -> Lcom/aide/codemodel/api/collections/FunctionOfIntInt;
+	v5(I) -> get
 Labcd/e3$a; -> Lcom/aide/codemodel/api/collections/HashtableOfInt$a;
 Labcd/e3$b; -> Lcom/aide/codemodel/api/collections/HashtableOfInt$b;
 Labcd/e3; -> Lcom/aide/codemodel/api/collections/HashtableOfInt;
@@ -194,10 +331,12 @@ Lcom/aide/codemodel/api/collections/SetOfFileEntry$b; -> Lcom/aide/codemodel/api
 	DW() -> init
 	FH() -> nextKey
 Lcom/aide/codemodel/language/cpp/CppSyntax; -> Lcom/aide/codemodel/language/cpp/CppSyntax;
+	kQ(Lcom/aide/codemodel/api/SyntaxTree;) -> getImportEndLine
 	DW(I) -> getTokenLength
 	BT(I) -> isBlock
 	aj(I) -> isBooleanLiteral
 	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
+	SI(I) -> isClassBody
 	J8(I) -> isClassDeclaration
 	gW(I) -> isExpression
 	rN(I) -> isFieldDeclaration
@@ -205,11 +344,14 @@ Lcom/aide/codemodel/language/cpp/CppSyntax; -> Lcom/aide/codemodel/language/cpp/
 	J0(I) -> isMethodDeclaration
 	nw(I) -> isOperator
 	sG(I) -> isSeparator
+	isClassDeclaration(I) -> isTypeIdentifier
 Lcom/aide/codemodel/language/css/CssSyntax; -> Lcom/aide/codemodel/language/css/CssSyntax;
+	kQ(Lcom/aide/codemodel/api/SyntaxTree;) -> getImportEndLine
 	DW(I) -> getTokenLength
 	BT(I) -> isBlock
 	aj(I) -> isBooleanLiteral
 	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
+	SI(I) -> isClassBody
 	J8(I) -> isClassDeclaration
 	gW(I) -> isExpression
 	rN(I) -> isFieldDeclaration
@@ -217,11 +359,14 @@ Lcom/aide/codemodel/language/css/CssSyntax; -> Lcom/aide/codemodel/language/css/
 	J0(I) -> isMethodDeclaration
 	nw(I) -> isOperator
 	sG(I) -> isSeparator
+	isClassDeclaration(I) -> isTypeIdentifier
 Lcom/aide/codemodel/language/dtd/DtdSyntax; -> Lcom/aide/codemodel/language/dtd/DtdSyntax;
+	kQ(Lcom/aide/codemodel/api/SyntaxTree;) -> getImportEndLine
 	DW(I) -> getTokenLength
 	BT(I) -> isBlock
 	aj(I) -> isBooleanLiteral
 	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
+	SI(I) -> isClassBody
 	J8(I) -> isClassDeclaration
 	gW(I) -> isExpression
 	rN(I) -> isFieldDeclaration
@@ -229,11 +374,14 @@ Lcom/aide/codemodel/language/dtd/DtdSyntax; -> Lcom/aide/codemodel/language/dtd/
 	J0(I) -> isMethodDeclaration
 	nw(I) -> isOperator
 	sG(I) -> isSeparator
+	isClassDeclaration(I) -> isTypeIdentifier
 Lcom/aide/codemodel/language/java/JSharpCommentsSyntax; -> Lcom/aide/codemodel/language/java/JSharpCommentsSyntax;
+	kQ(Lcom/aide/codemodel/api/SyntaxTree;) -> getImportEndLine
 	DW(I) -> getTokenLength
 	BT(I) -> isBlock
 	aj(I) -> isBooleanLiteral
 	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
+	SI(I) -> isClassBody
 	J8(I) -> isClassDeclaration
 	gW(I) -> isExpression
 	rN(I) -> isFieldDeclaration
@@ -241,12 +389,23 @@ Lcom/aide/codemodel/language/java/JSharpCommentsSyntax; -> Lcom/aide/codemodel/l
 	J0(I) -> isMethodDeclaration
 	nw(I) -> isOperator
 	sG(I) -> isSeparator
+	isClassDeclaration(I) -> isTypeIdentifier
+Lcom/aide/codemodel/language/java/JavaCodeRenderer; -> Lcom/aide/codemodel/language/java/JavaCodeRenderer;
+	Hw(Labcd/n1;) -> getFullyQualifiedNameString
+	DW(Labcd/n1;) -> getHTMLString
+	j6(Labcd/n1;) -> getNameString
+Lcom/aide/codemodel/language/java/JavaCompiler; -> Lcom/aide/codemodel/language/java/JavaCompiler;
+	Hw -> entitySpace
+	v5 -> javaLanguage
+	Zo -> model
 Labcd/a6; -> Lcom/aide/codemodel/language/java/JavaFormatOption;
 Lcom/aide/codemodel/language/java/JavaSyntax; -> Lcom/aide/codemodel/language/java/JavaSyntax;
+	kQ(Lcom/aide/codemodel/api/SyntaxTree;) -> getImportEndLine
 	DW(I) -> getTokenLength
 	BT(I) -> isBlock
 	aj(I) -> isBooleanLiteral
 	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
+	SI(I) -> isClassBody
 	J8(I) -> isClassDeclaration
 	gW(I) -> isExpression
 	rN(I) -> isFieldDeclaration
@@ -254,11 +413,18 @@ Lcom/aide/codemodel/language/java/JavaSyntax; -> Lcom/aide/codemodel/language/ja
 	J0(I) -> isMethodDeclaration
 	nw(I) -> isOperator
 	sG(I) -> isSeparator
+	isClassDeclaration(I) -> isTypeIdentifier
+Lcom/aide/codemodel/language/js/JavaScriptCodeRenderer; -> Lcom/aide/codemodel/language/js/JavaScriptCodeRenderer;
+	Hw(Labcd/n1;) -> getFullyQualifiedNameString
+	DW(Labcd/n1;) -> getHTMLString
+	j6(Labcd/n1;) -> getNameString
 Lcom/aide/codemodel/language/js/JavaScriptCommentsSyntax; -> Lcom/aide/codemodel/language/js/JavaScriptCommentsSyntax;
+	kQ(Lcom/aide/codemodel/api/SyntaxTree;) -> getImportEndLine
 	DW(I) -> getTokenLength
 	BT(I) -> isBlock
 	aj(I) -> isBooleanLiteral
 	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
+	SI(I) -> isClassBody
 	J8(I) -> isClassDeclaration
 	gW(I) -> isExpression
 	rN(I) -> isFieldDeclaration
@@ -266,11 +432,14 @@ Lcom/aide/codemodel/language/js/JavaScriptCommentsSyntax; -> Lcom/aide/codemodel
 	J0(I) -> isMethodDeclaration
 	nw(I) -> isOperator
 	sG(I) -> isSeparator
+	isClassDeclaration(I) -> isTypeIdentifier
 Lcom/aide/codemodel/language/js/JavaScriptSyntax; -> Lcom/aide/codemodel/language/js/JavaScriptSyntax;
+	kQ(Lcom/aide/codemodel/api/SyntaxTree;) -> getImportEndLine
 	DW(I) -> getTokenLength
 	BT(I) -> isBlock
 	aj(I) -> isBooleanLiteral
 	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
+	SI(I) -> isClassBody
 	J8(I) -> isClassDeclaration
 	gW(I) -> isExpression
 	rN(I) -> isFieldDeclaration
@@ -278,11 +447,14 @@ Lcom/aide/codemodel/language/js/JavaScriptSyntax; -> Lcom/aide/codemodel/languag
 	J0(I) -> isMethodDeclaration
 	nw(I) -> isOperator
 	sG(I) -> isSeparator
+	isClassDeclaration(I) -> isTypeIdentifier
 Lcom/aide/codemodel/language/xml/XmlSyntax; -> Lcom/aide/codemodel/language/xml/XmlSyntax;
+	kQ(Lcom/aide/codemodel/api/SyntaxTree;) -> getImportEndLine
 	DW(I) -> getTokenLength
 	BT(I) -> isBlock
 	aj(I) -> isBooleanLiteral
 	XX(Lcom/aide/codemodel/api/SyntaxTree;I) -> isChangedExpressionNode
+	SI(I) -> isClassBody
 	J8(I) -> isClassDeclaration
 	gW(I) -> isExpression
 	rN(I) -> isFieldDeclaration
@@ -290,6 +462,7 @@ Lcom/aide/codemodel/language/xml/XmlSyntax; -> Lcom/aide/codemodel/language/xml/
 	J0(I) -> isMethodDeclaration
 	nw(I) -> isOperator
 	sG(I) -> isSeparator
+	isClassDeclaration(I) -> isTypeIdentifier
 Lcom/aide/common/KeyStroke; -> Lcom/aide/common/KeyStroke;
 	v5 -> isAltPressed
 	Hw -> isCtrlPressed
@@ -321,13 +494,18 @@ Lcom/aide/common/KeyStrokeDetector; -> Lcom/aide/common/KeyStrokeDetector;
 	aM() -> isCtrl
 	XL(I) -> isLeftCtrlPressed
 	Hw(Lcom/aide/common/KeyStrokeDetector;) -> isSoftKeyboard
+	Mr(ILandroid/view/KeyEvent;) -> makeKeyStroke
 	rN(Landroid/content/Context;) -> onConfigChange
+	a8(ILandroid/view/KeyEvent;) -> onKeyDown
 	er(ILandroid/view/KeyEvent;Lcom/aide/common/KeyStrokeDetector$KeyStrokeHandler;) -> onKeyDown
 	J8(Lcom/aide/common/KeyStroke;) -> onKeyStroke
+	lg(ILandroid/view/KeyEvent;) -> onKeyUp
 	yS(ILandroid/view/KeyEvent;Lcom/aide/common/KeyStrokeDetector$KeyStrokeHandler;) -> onKeyUp
 	Ws(IZ) -> onMetaKeysDown
 	QX(IZ) -> onMetaKeysUp
 	u7(Lcom/aide/common/KeyStrokeDetector;Landroid/view/KeyCharacterMap;) -> setKeyCharacterMap
+Lcom/aide/engine/Engine$c$HighlighterCallback; -> Lcom/aide/engine/Engine$c$HighlighterCallback;
+	u7(Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/SyntaxTreeSytles;) -> addSyntaxTreeSytles
 Lcom/aide/engine/Engine$c; -> Lcom/aide/engine/Engine$c;
 	pN -> engine
 Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
@@ -339,11 +517,14 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 Lcom/aide/engine/e; -> Lcom/aide/engine/ICodeModelsFactory;
 	DW() -> getID
 	FH(Lcom/aide/codemodel/api/Model;Ljava/util/List;) -> makeCodeModels
-Lcom/aide/engine/f0; -> Lcom/aide/engine/IUsageSearcherListener2;
 Lcom/aide/engine/OpenFile; -> Lcom/aide/engine/OpenFile;
 	j6 -> charArray
 	DW -> length
+Lcom/aide/engine/f0; -> Lcom/aide/engine/UsageSearcherListener;
 Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl$f; -> Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl$UsageSearcherListener2Impl;
+Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl$d; -> Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl$d;
+	j6 -> fileHighlightings
+	DW -> mIHighlightingListener
 Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl; -> Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl;
 	fY -> codeAnalysisEngineService
 	jw -> engineSolution
@@ -530,7 +711,7 @@ Lcom/aide/ui/views/CodeEditText$EditorView; -> Lcom/aide/ui/views/CodeEditText$E
 	vJ() -> copySelectedText
 	jw() -> getInsertTabsAsSpaces
 	kf() -> getSelectionVisibility
-	fY() -> hasFocus
+	fY() -> hasFocusWrapper
 	Z1() -> isHidden
 Lcom/aide/ui/views/editor/AbstractModel; -> Lcom/aide/ui/views/editor/AbstractModel;
 	SI(I) -> getColumnCount
@@ -540,7 +721,7 @@ Lcom/aide/ui/views/editor/AbstractModel; -> Lcom/aide/ui/views/editor/AbstractMo
 	VH(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
 	J8(I[C) -> readLineText
 Lcom/aide/ui/views/editor/Caret; -> Lcom/aide/ui/views/editor/Caret;
-	this.Hw -> caretBlinks
+	Hw -> caretBlinks
 	j6 -> caretTimer
 	DW -> mOConsole
 	v5() -> cancel
@@ -635,7 +816,7 @@ Lcom/aide/ui/views/editor/OConsole; -> Lcom/aide/ui/views/editor/OConsole;
 	jw() -> getInsertTabsAsSpaces
 	kf() -> getSelectionVisibility
 	Eq(II) -> getTextColorKind
-	fY() -> hasFocus
+	fY() -> hasFocusWrapper
 	Z1() -> isHidden
 	Q6(II) -> isInSelectedRegion
 	Mz(I) -> readLineText
@@ -645,7 +826,7 @@ Lcom/aide/ui/views/editor/OEditor; -> Lcom/aide/ui/views/editor/OEditor;
 	vJ() -> copySelectedText
 	jw() -> getInsertTabsAsSpaces
 	kf() -> getSelectionVisibility
-	fY() -> hasFocus
+	fY() -> hasFocusWrapper
 	Z1() -> isHidden
 Labcd/kg; -> Lcom/aide/ui/views/editor/Position;
 	DW -> column

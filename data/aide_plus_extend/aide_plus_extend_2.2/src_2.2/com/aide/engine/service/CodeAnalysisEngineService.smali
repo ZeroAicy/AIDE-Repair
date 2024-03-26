@@ -14,7 +14,7 @@
     value = {
         Lcom/aide/engine/service/CodeAnalysisEngineService$d;,
         Lcom/aide/engine/service/CodeAnalysisEngineService$c;,
-        Lcom/aide/engine/service/CodeAnalysisEngineService$b;,
+        Lcom/aide/engine/service/CodeAnalysisEngineService$CodeModelsFactory;,
         Lcom/aide/engine/service/CodeAnalysisEngineService$a;,
         Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl;
     }
@@ -64,7 +64,7 @@
     .end annotation
 .end field
 
-.field private mb:Lcom/aide/engine/service/INavigationListener;
+.field private navigationListener:Lcom/aide/engine/service/INavigationListener;
     .annotation runtime Labcd/dy;
         field = -0x1f9b3b3873bf440fL
     .end annotation
@@ -113,11 +113,11 @@
     .line 3
     new-instance v3, Lcom/aide/engine/Engine;
 
-    new-instance v4, Lcom/aide/engine/service/CodeAnalysisEngineService$b;
+    new-instance v4, Lcom/aide/engine/service/CodeAnalysisEngineService$CodeModelsFactory;
 
-    invoke-direct {v4, p0}, Lcom/aide/engine/service/CodeAnalysisEngineService$b;-><init>(Lcom/aide/engine/service/CodeAnalysisEngineService;)V
+    invoke-direct {v4, p0}, Lcom/aide/engine/service/CodeAnalysisEngineService$CodeModelsFactory;-><init>(Lcom/aide/engine/service/CodeAnalysisEngineService;)V
 
-    invoke-direct {v3, v4}, Lcom/aide/engine/Engine;-><init>(Lcom/aide/engine/e;)V
+    invoke-direct {v3, v4}, Lcom/aide/engine/Engine;-><init>(Lcom/aide/engine/ICodeModelsFactory;)V
 
     iput-object v3, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->engine:Lcom/aide/engine/Engine;
 
@@ -155,67 +155,7 @@
     throw v3
 .end method
 
-.method static DW(Lcom/aide/engine/service/CodeAnalysisEngineService;)Lcom/aide/engine/service/IEngineListener;
-    .registers 1
-    .annotation runtime Labcd/ey;
-        method = 0xc627914aa095c17L
-    .end annotation
-
-    .line 1
-    iget-object p0, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->engineListener:Lcom/aide/engine/service/IEngineListener;
-
-    return-object p0
-.end method
-
-.method static FH(Lcom/aide/engine/service/CodeAnalysisEngineService;Lcom/aide/engine/service/IEngineListener;)Lcom/aide/engine/service/IEngineListener;
-    .registers 2
-    .annotation runtime Labcd/ey;
-        method = -0x63f23ab71820e47L
-    .end annotation
-
-    .line 1
-    iput-object p1, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->engineListener:Lcom/aide/engine/service/IEngineListener;
-
-    return-object p1
-.end method
-
-.method static Hw(Lcom/aide/engine/service/CodeAnalysisEngineService;)Lcom/aide/engine/service/IGotoSymbolListener;
-    .registers 1
-    .annotation runtime Labcd/ey;
-        method = 0xde715b24a17d150L
-    .end annotation
-
-    .line 1
-    iget-object p0, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->gotoSymbolListener:Lcom/aide/engine/service/IGotoSymbolListener;
-
-    return-object p0
-.end method
-
-.method static VH(Lcom/aide/engine/service/CodeAnalysisEngineService;Lcom/aide/engine/service/INavigationListener;)Lcom/aide/engine/service/INavigationListener;
-    .registers 2
-    .annotation runtime Labcd/ey;
-        method = 0x11a4839f26324b4dL
-    .end annotation
-
-    .line 1
-    iput-object p1, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->mb:Lcom/aide/engine/service/INavigationListener;
-
-    return-object p1
-.end method
-
-.method static Zo(Lcom/aide/engine/service/CodeAnalysisEngineService;)Lcom/aide/engine/service/INavigationListener;
-    .registers 1
-    .annotation runtime Labcd/ey;
-        method = -0xed8611ca07fce75L
-    .end annotation
-
-    .line 1
-    iget-object p0, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->mb:Lcom/aide/engine/service/INavigationListener;
-
-    return-object p0
-.end method
-
-.method static gn(Lcom/aide/engine/service/CodeAnalysisEngineService;)Lcom/aide/engine/service/ICodeCompletionListener;
+.method static getCodeCompletionListener(Lcom/aide/engine/service/CodeAnalysisEngineService;)Lcom/aide/engine/service/ICodeCompletionListener;
     .registers 1
     .annotation runtime Labcd/ey;
         method = -0xd63d4b315bd8338L
@@ -227,21 +167,7 @@
     return-object p0
 .end method
 
-.method private static j6(Ljava/lang/Object;ILandroid/app/Notification;)V
-    .registers 4
-
-    move-object v0, p0
-
-    check-cast v0, Lcom/aide/engine/service/CodeAnalysisEngineService;
-
-    invoke-virtual {v0, p1, p2}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
-
-    invoke-static {p0, p1, p2}, Labcd/iy;->P8(Ljava/lang/Object;ILandroid/app/Notification;)V
-
-    return-void
-.end method
-
-.method static tp(Lcom/aide/engine/service/CodeAnalysisEngineService;)Lcom/aide/engine/Engine;
+.method static getEngine(Lcom/aide/engine/service/CodeAnalysisEngineService;)Lcom/aide/engine/Engine;
     .registers 1
     .annotation runtime Labcd/ey;
         method = -0xbed506315a14cf9L
@@ -253,7 +179,43 @@
     return-object p0
 .end method
 
-.method static u7(Lcom/aide/engine/service/CodeAnalysisEngineService;Lcom/aide/engine/service/ICodeCompletionListener;)Lcom/aide/engine/service/ICodeCompletionListener;
+.method static getEngineListener(Lcom/aide/engine/service/CodeAnalysisEngineService;)Lcom/aide/engine/service/IEngineListener;
+    .registers 1
+    .annotation runtime Labcd/ey;
+        method = 0xc627914aa095c17L
+    .end annotation
+
+    .line 1
+    iget-object p0, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->engineListener:Lcom/aide/engine/service/IEngineListener;
+
+    return-object p0
+.end method
+
+.method static getGotoSymbolListener(Lcom/aide/engine/service/CodeAnalysisEngineService;)Lcom/aide/engine/service/IGotoSymbolListener;
+    .registers 1
+    .annotation runtime Labcd/ey;
+        method = 0xde715b24a17d150L
+    .end annotation
+
+    .line 1
+    iget-object p0, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->gotoSymbolListener:Lcom/aide/engine/service/IGotoSymbolListener;
+
+    return-object p0
+.end method
+
+.method static getNavigationListener(Lcom/aide/engine/service/CodeAnalysisEngineService;)Lcom/aide/engine/service/INavigationListener;
+    .registers 1
+    .annotation runtime Labcd/ey;
+        method = -0xed8611ca07fce75L
+    .end annotation
+
+    .line 1
+    iget-object p0, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->navigationListener:Lcom/aide/engine/service/INavigationListener;
+
+    return-object p0
+.end method
+
+.method static setCodeCompletionListener(Lcom/aide/engine/service/CodeAnalysisEngineService;Lcom/aide/engine/service/ICodeCompletionListener;)Lcom/aide/engine/service/ICodeCompletionListener;
     .registers 2
     .annotation runtime Labcd/ey;
         method = -0x120848240da92828L
@@ -265,7 +227,19 @@
     return-object p1
 .end method
 
-.method static v5(Lcom/aide/engine/service/CodeAnalysisEngineService;Lcom/aide/engine/service/IGotoSymbolListener;)Lcom/aide/engine/service/IGotoSymbolListener;
+.method static setEngineListener(Lcom/aide/engine/service/CodeAnalysisEngineService;Lcom/aide/engine/service/IEngineListener;)Lcom/aide/engine/service/IEngineListener;
+    .registers 2
+    .annotation runtime Labcd/ey;
+        method = -0x63f23ab71820e47L
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->engineListener:Lcom/aide/engine/service/IEngineListener;
+
+    return-object p1
+.end method
+
+.method static setGotoSymbolListener(Lcom/aide/engine/service/CodeAnalysisEngineService;Lcom/aide/engine/service/IGotoSymbolListener;)Lcom/aide/engine/service/IGotoSymbolListener;
     .registers 2
     .annotation runtime Labcd/ey;
         method = 0x62bc67a2efa231fL
@@ -275,6 +249,32 @@
     iput-object p1, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->gotoSymbolListener:Lcom/aide/engine/service/IGotoSymbolListener;
 
     return-object p1
+.end method
+
+.method static setNavigationListener(Lcom/aide/engine/service/CodeAnalysisEngineService;Lcom/aide/engine/service/INavigationListener;)Lcom/aide/engine/service/INavigationListener;
+    .registers 2
+    .annotation runtime Labcd/ey;
+        method = 0x11a4839f26324b4dL
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->navigationListener:Lcom/aide/engine/service/INavigationListener;
+
+    return-object p1
+.end method
+
+.method private static startForeground(Ljava/lang/Object;ILandroid/app/Notification;)V
+    .registers 4
+
+    move-object v0, p0
+
+    check-cast v0, Lcom/aide/engine/service/CodeAnalysisEngineService;
+
+    invoke-virtual {v0, p1, p2}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
+
+    invoke-static {p0, p1, p2}, Labcd/iy;->P8(Ljava/lang/Object;ILandroid/app/Notification;)V
+
+    return-void
 .end method
 
 
@@ -407,7 +407,7 @@
     const/16 v1, 0x26f5
 
     .line 12
-    invoke-static {p0, v1, v0}, Lcom/aide/engine/service/CodeAnalysisEngineService;->j6(Ljava/lang/Object;ILandroid/app/Notification;)V
+    invoke-static {p0, v1, v0}, Lcom/aide/engine/service/CodeAnalysisEngineService;->startForeground(Ljava/lang/Object;ILandroid/app/Notification;)V
 
     .line 13
     :cond_81
@@ -549,7 +549,7 @@
     .line 2
     iget-object v2, p0, Lcom/aide/engine/service/CodeAnalysisEngineService;->engine:Lcom/aide/engine/Engine;
 
-    invoke-virtual {v2}, Lcom/aide/engine/Engine;->wa()V
+    invoke-virtual {v2}, Lcom/aide/engine/Engine;->shutdown()V
 
     const/4 v2, 0x0
 

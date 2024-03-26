@@ -59,12 +59,6 @@
     .end annotation
 .end field
 
-.field private final Hw:Lcom/aide/codemodel/api/EntitySpace;
-    .annotation runtime Labcd/dy;
-        field = -0x29e6c3686f680be7L
-    .end annotation
-.end field
-
 .field private I:Z
     .annotation runtime Labcd/dy;
         field = 0x2472559dd91e2e21L
@@ -169,12 +163,6 @@
     .end annotation
 .end field
 
-.field private final Zo:Lcom/aide/codemodel/api/Model;
-    .annotation runtime Labcd/dy;
-        field = 0x2ac96b55fea0e480L
-    .end annotation
-.end field
-
 .field private a8:[C
     .annotation runtime Labcd/dy;
         field = 0x6248bd8ae30c3c1L
@@ -257,6 +245,12 @@
     .end annotation
 .end field
 
+.field private final entitySpace:Lcom/aide/codemodel/api/EntitySpace;
+    .annotation runtime Labcd/dy;
+        field = -0x29e6c3686f680be7L
+    .end annotation
+.end field
+
 .field private er:I
     .annotation runtime Labcd/dy;
         field = 0x139ee1e47baabd68L
@@ -293,6 +287,12 @@
     .end annotation
 .end field
 
+.field private final javaLanguage:Lcom/aide/codemodel/language/java/JavaLanguage;
+    .annotation runtime Labcd/dy;
+        field = -0x2cccee7ec119b455L
+    .end annotation
+.end field
+
 .field private lg:[C
     .annotation runtime Labcd/dy;
         field = 0x62497534ee2c6a0L
@@ -302,6 +302,12 @@
 .field private lp:Z
     .annotation runtime Labcd/dy;
         field = -0x3e74700056ebcdf0L
+    .end annotation
+.end field
+
+.field private final model:Lcom/aide/codemodel/api/Model;
+    .annotation runtime Labcd/dy;
+        field = 0x2ac96b55fea0e480L
     .end annotation
 .end field
 
@@ -366,12 +372,6 @@
             "Lcom/aide/codemodel/api/ClassType;",
             ">;"
         }
-    .end annotation
-.end field
-
-.field private final v5:Lcom/aide/codemodel/language/java/JavaLanguage;
-    .annotation runtime Labcd/dy;
-        field = -0x2cccee7ec119b455L
     .end annotation
 .end field
 
@@ -573,13 +573,13 @@
     .line 22
     iget-object v0, p1, Lcom/aide/codemodel/api/Model;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     .line 23
-    iput-object p1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iput-object p1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     .line 24
-    iput-object p2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->v5:Lcom/aide/codemodel/language/java/JavaLanguage;
+    iput-object p2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->javaLanguage:Lcom/aide/codemodel/language/java/JavaLanguage;
 
     .line 25
     new-instance v0, Labcd/j6;
@@ -598,7 +598,7 @@
     .line 27
     new-instance v0, Labcd/v3;
 
-    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-direct {v0, v1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
@@ -607,7 +607,7 @@
     .line 28
     new-instance v0, Labcd/v3;
 
-    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-direct {v0, v1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
@@ -616,7 +616,7 @@
     .line 29
     new-instance v0, Labcd/v3;
 
-    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-direct {v0, v1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
@@ -625,7 +625,7 @@
     .line 30
     new-instance v0, Labcd/v3;
 
-    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-direct {v0, v1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
@@ -634,7 +634,7 @@
     .line 31
     new-instance v0, Labcd/v3;
 
-    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-direct {v0, v1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
@@ -643,7 +643,7 @@
     .line 32
     new-instance v0, Labcd/v3;
 
-    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-direct {v0, v1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
@@ -905,7 +905,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v2, v2, Lcom/aide/codemodel/api/Model;->identifierSpace:Lcom/aide/codemodel/api/IdentifierSpace;
 
@@ -956,7 +956,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/Namespace;->gn()Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/Namespace;->getFullyQualifiedNameString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1282,7 +1282,7 @@
 
     .line 1
     :cond_29
-    iget-object v0, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v0, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v1, v0, Lcom/aide/codemodel/api/Model;->j3:Labcd/m1;
 
@@ -1386,7 +1386,7 @@
     check-cast v4, Lcom/aide/codemodel/api/Member;
 
     .line 10
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->aM()I
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->getModifiers()I
 
     move-result v5
 
@@ -1398,7 +1398,7 @@
     if-eqz v5, :cond_78
 
     .line 12
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v4
 
@@ -1421,7 +1421,7 @@
     .line 14
     iget-object v13, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    invoke-virtual/range {p3 .. p3}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p3 .. p3}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -1772,7 +1772,7 @@
     :cond_3c
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -1891,7 +1891,7 @@
     :try_start_24
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -2032,7 +2032,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v2, v2, Lcom/aide/codemodel/api/Model;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
@@ -2063,7 +2063,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/Namespace;->gn()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/Namespace;->getFullyQualifiedNameString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -2147,7 +2147,7 @@
 
     check-cast v0, Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->aM()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getModifiers()I
 
     move-result v0
 
@@ -2168,7 +2168,7 @@
 
     check-cast v0, Lcom/aide/codemodel/api/Member;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->aM()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getModifiers()I
 
     move-result v0
 
@@ -2422,7 +2422,7 @@
     :cond_11
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -2541,11 +2541,11 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/Entity;->gn()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/Entity;->getFullyQualifiedNameString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -2666,7 +2666,7 @@
     invoke-direct {v1, v2, v0}, Lcom/aide/codemodel/language/java/JavaCompiler;->oa(Lcom/aide/codemodel/api/Entity;Z)V
 
     .line 5
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/Entity;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/Entity;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v5
 
@@ -2855,7 +2855,7 @@
 
     .line 7
     :cond_30
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v4
 
@@ -2923,9 +2923,9 @@
 
     .line 1
     :cond_17
-    iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v2
 
@@ -2970,7 +2970,7 @@
     .line 6
     iget-object v6, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v6}, Lcom/aide/codemodel/api/ClassType;->aM()I
+    invoke-virtual {v6}, Lcom/aide/codemodel/api/ClassType;->getModifiers()I
 
     move-result v6
 
@@ -3481,7 +3481,7 @@
     if-eqz v3, :cond_1f2
 
     .line 63
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v3
 
@@ -3792,7 +3792,7 @@
     if-eqz v0, :cond_ca
 
     .line 16
-    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v0}, Lcom/aide/codemodel/api/EntitySpace;->q7()Lcom/aide/codemodel/api/Namespace;
 
@@ -3831,7 +3831,7 @@
 
     .line 20
     :cond_ac
-    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v1}, Lcom/aide/codemodel/api/EntitySpace;->q7()Lcom/aide/codemodel/api/Namespace;
 
@@ -3944,7 +3944,7 @@
 
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->VH()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v6
 
@@ -4061,7 +4061,7 @@
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
     .line 33
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->VH()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v6
 
@@ -4230,7 +4230,7 @@
     .line 47
     :cond_19e
     :try_start_19e
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
@@ -4433,7 +4433,7 @@
 
     if-eqz p3, :cond_245
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object p3
 
@@ -4444,11 +4444,11 @@
     if-eqz p3, :cond_245
 
     .line 64
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object p3
 
-    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object p3
 
@@ -4756,9 +4756,9 @@
     if-le v9, v10, :cond_78
 
     .line 9
-    iget-object v9, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v9, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v10
 
@@ -5041,7 +5041,7 @@
 
     .line 1
     :cond_c
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->VH()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v2
 
@@ -5049,11 +5049,11 @@
 
     if-eqz v2, :cond_65
 
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v2, v2, Lcom/aide/codemodel/api/Model;->fileSpace:Lcom/aide/codemodel/api/FileSpace;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->VH()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v4
 
@@ -5067,7 +5067,7 @@
 
     .line 2
     :cond_22
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->aM()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->getModifiers()I
 
     move-result v2
 
@@ -5128,7 +5128,7 @@
 
     .line 7
     :cond_4f
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v2
 
@@ -5151,7 +5151,7 @@
 
     .line 10
     :cond_60
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v2
     :try_end_64
@@ -5206,7 +5206,7 @@
 
     if-eqz v0, :cond_1a
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object p1
     :try_end_16
@@ -5298,7 +5298,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v4
 
@@ -5349,7 +5349,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v4
 
@@ -5517,7 +5517,7 @@
     .line 2
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v2
 
@@ -5646,9 +5646,9 @@
     if-le v9, v10, :cond_7f
 
     .line 7
-    iget-object v9, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v9, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v10
 
@@ -5714,7 +5714,7 @@
     invoke-direct {p0, p1, v8, v1}, Lcom/aide/codemodel/language/java/JavaCompiler;->sy(Lcom/aide/codemodel/api/SyntaxTree;IZ)V
 
     .line 16
-    invoke-virtual {p1, v8}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v8}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v8
 
@@ -5828,7 +5828,7 @@
 
     move-result v1
 
-    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -6153,7 +6153,7 @@
     move-result v1
 
     .line 6
-    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -6312,13 +6312,13 @@
     aget-object v2, v2, v3
 
     .line 4
-    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v3, v3, Lcom/aide/codemodel/api/Model;->j3:Labcd/m1;
 
     iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->VH()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v4
 
@@ -6449,7 +6449,7 @@
     if-eqz v0, :cond_36
 
     .line 2
-    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrValue(I)J
 
@@ -6496,7 +6496,7 @@
     .line 6
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -6507,7 +6507,7 @@
     if-eqz v0, :cond_5e
 
     .line 7
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -6528,7 +6528,7 @@
     move-result v0
 
     .line 10
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -6540,7 +6540,7 @@
     move-result v5
 
     .line 12
-    invoke-virtual {p1, v5}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v5}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v6
 
@@ -6599,7 +6599,7 @@
     .line 15
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -6610,7 +6610,7 @@
     if-eqz v0, :cond_bc
 
     .line 16
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -6628,7 +6628,7 @@
     :cond_c3
     iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v7
 
@@ -6788,7 +6788,7 @@
     iget-object v7, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
     .line 46
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v8
 
@@ -6809,7 +6809,7 @@
     iget-object v7, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
     .line 48
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v8
 
@@ -6825,7 +6825,7 @@
     :cond_176
     iget-object v7, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v8
 
@@ -6838,7 +6838,7 @@
     .line 50
     iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v7
 
@@ -7041,7 +7041,7 @@
     iget-object v7, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
     .line 78
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v8
 
@@ -7062,7 +7062,7 @@
     iget-object v7, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
     .line 80
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v8
 
@@ -7078,7 +7078,7 @@
     :cond_250
     iget-object v7, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v8
 
@@ -7091,7 +7091,7 @@
     .line 82
     iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v7
 
@@ -7386,7 +7386,7 @@
 
     .line 2
     :cond_14
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v2
 
@@ -7462,7 +7462,7 @@
 
     .line 11
     :cond_4f
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v4
 
@@ -7648,7 +7648,7 @@
     if-eqz v0, :cond_2a
 
     .line 5
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v0
 
@@ -7702,7 +7702,7 @@
     move-result v0
 
     .line 11
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -8014,7 +8014,7 @@
     iget-boolean v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->ca:Z
 
     .line 4
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v11
 
@@ -8660,7 +8660,7 @@
     check-cast p3, Lcom/aide/codemodel/api/Member;
 
     .line 44
-    invoke-virtual {p3}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p3}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object p3
 
@@ -8675,11 +8675,11 @@
 
     check-cast p3, Lcom/aide/codemodel/api/Member;
 
-    invoke-virtual {p3}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p3}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object p3
 
-    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object p3
 
@@ -9248,7 +9248,7 @@
     if-nez v1, :cond_a7
 
     .line 2
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -9272,7 +9272,7 @@
     :pswitch_4a  #0xe
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrValue(I)J
 
@@ -9290,7 +9290,7 @@
     :pswitch_5b  #0xd
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrValue(I)J
 
@@ -9306,7 +9306,7 @@
 
     .line 5
     :pswitch_6c  #0xb
-    iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrValue(I)J
 
@@ -9337,7 +9337,7 @@
     :cond_86
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrValue(I)J
 
@@ -9354,7 +9354,7 @@
     :pswitch_96  #0xc
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrValue(I)J
 
@@ -9370,13 +9370,13 @@
 
     .line 10
     :cond_a7
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->PT(I)Z
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->hasAttrType(I)Z
 
     move-result v1
 
     if-eqz v1, :cond_b4
 
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -9443,7 +9443,7 @@
     if-ne v1, v4, :cond_144
 
     .line 15
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -9491,7 +9491,7 @@
     check-cast v2, Lcom/aide/codemodel/api/Member;
 
     .line 22
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v3
 
@@ -9503,7 +9503,7 @@
     if-eqz v4, :cond_126
 
     .line 24
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v4
 
@@ -9546,7 +9546,7 @@
 
     .line 32
     :cond_144
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -9594,7 +9594,7 @@
     check-cast v2, Lcom/aide/codemodel/api/Member;
 
     .line 39
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v4
 
@@ -9659,7 +9659,7 @@
     if-ne v1, v2, :cond_1ba
 
     .line 48
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -9680,7 +9680,7 @@
 
     .line 50
     :cond_1ba
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -9754,7 +9754,7 @@
 
     move-result v1
 
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -9775,7 +9775,7 @@
     if-ge v3, v2, :cond_20e
 
     .line 60
-    iget-object v4, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v4, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v4, v1, v6}, Lcom/aide/codemodel/api/EntitySpace;->hz(Lcom/aide/codemodel/api/Type;I)Lcom/aide/codemodel/api/ArrayType;
 
@@ -9812,7 +9812,7 @@
 
     .line 65
     :pswitch_226  #0xac
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -9822,7 +9822,7 @@
     move-result v3
 
     .line 67
-    invoke-virtual {v10, v3}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v3}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v4
 
@@ -9832,7 +9832,7 @@
     move-result v5
 
     .line 69
-    invoke-virtual {v10, v5}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v5}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -9993,7 +9993,7 @@
     move-result v15
 
     .line 91
-    invoke-virtual {v10, v2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -10117,7 +10117,7 @@
     invoke-direct {v9, v10, v3, v7}, Lcom/aide/codemodel/language/java/JavaCompiler;->sy(Lcom/aide/codemodel/api/SyntaxTree;IZ)V
 
     .line 106
-    invoke-virtual {v10, v3}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v3}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v3
 
@@ -10139,7 +10139,7 @@
     invoke-direct {v9, v10, v5, v2}, Lcom/aide/codemodel/language/java/JavaCompiler;->sy(Lcom/aide/codemodel/api/SyntaxTree;IZ)V
 
     .line 110
-    invoke-virtual {v10, v5}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v5}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -10272,7 +10272,7 @@
     :try_start_3ae
     iget-object v8, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v14
 
@@ -10370,7 +10370,7 @@
     invoke-virtual {v8}, Labcd/j6;->hK()V
 
     .line 137
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v8
 
@@ -10475,7 +10475,7 @@
     invoke-virtual {v7}, Labcd/j6;->cT()V
 
     .line 156
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v7
 
@@ -10609,7 +10609,7 @@
 
     .line 178
     :cond_4cf
-    invoke-virtual {v10, v2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -10975,12 +10975,12 @@
 
     move-result v1
 
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
     .line 219
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -11062,12 +11062,12 @@
 
     move-result v1
 
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
     .line 229
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -11144,7 +11144,7 @@
 
     .line 240
     :cond_69e
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -11179,7 +11179,7 @@
     invoke-virtual {v3}, Labcd/j6;->hK()V
 
     .line 245
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v3
 
@@ -11215,7 +11215,7 @@
     invoke-direct {v9, v10, v2, v3, v12}, Lcom/aide/codemodel/language/java/JavaCompiler;->Mr(Lcom/aide/codemodel/api/SyntaxTree;Lcom/aide/codemodel/api/Type;Lcom/aide/codemodel/api/Type;Z)V
 
     .line 251
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v3
 
@@ -11224,7 +11224,7 @@
     if-nez v12, :cond_71d
 
     .line 252
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v3
 
@@ -11274,7 +11274,7 @@
     if-nez v12, :cond_71d
 
     .line 261
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v3
 
@@ -11340,7 +11340,7 @@
 
     .line 267
     :pswitch_74e  #0xa9
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -11349,7 +11349,7 @@
 
     move-result v2
 
-    invoke-virtual {v10, v2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -11437,7 +11437,7 @@
 
     move-result v1
 
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -11458,7 +11458,7 @@
     if-ge v7, v2, :cond_7bb
 
     .line 280
-    iget-object v3, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v3, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v3, v1, v6}, Lcom/aide/codemodel/api/EntitySpace;->hz(Lcom/aide/codemodel/api/Type;I)Lcom/aide/codemodel/api/ArrayType;
 
@@ -11504,7 +11504,7 @@
 
     move-result v1
 
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -11538,7 +11538,7 @@
 
     move-result v3
 
-    invoke-virtual {v10, v3}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v3}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v3
 
@@ -11553,7 +11553,7 @@
 
     move-result v1
 
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -11561,7 +11561,7 @@
 
     .line 290
     :cond_80b
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -11607,7 +11607,7 @@
     check-cast v2, Lcom/aide/codemodel/api/Member;
 
     .line 297
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v3
 
@@ -11619,7 +11619,7 @@
     if-eqz v4, :cond_843
 
     .line 299
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v4
 
@@ -11690,7 +11690,7 @@
     check-cast v2, Lcom/aide/codemodel/api/Member;
 
     .line 311
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v5
 
@@ -11862,12 +11862,12 @@
     invoke-direct {v9, v10, v1, v2, v4}, Lcom/aide/codemodel/language/java/JavaCompiler;->oY(Lcom/aide/codemodel/api/SyntaxTree;IILcom/aide/codemodel/api/Member;)V
 
     .line 333
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v5
 
     .line 334
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v6
 
@@ -11920,12 +11920,12 @@
     invoke-direct {v9, v10, v1, v2, v4}, Lcom/aide/codemodel/language/java/JavaCompiler;->oY(Lcom/aide/codemodel/api/SyntaxTree;IILcom/aide/codemodel/api/Member;)V
 
     .line 340
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v5
 
     .line 341
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v6
 
@@ -11963,7 +11963,7 @@
 
     move-result v3
 
-    invoke-virtual {v10, v3}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v3}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -11988,7 +11988,7 @@
     invoke-direct {v9, v10, v1, v2, v4}, Lcom/aide/codemodel/language/java/JavaCompiler;->oY(Lcom/aide/codemodel/api/SyntaxTree;IILcom/aide/codemodel/api/Member;)V
 
     .line 347
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v5
 
@@ -11999,7 +11999,7 @@
 
     move-result v2
 
-    invoke-virtual {v10, v2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v6
 
@@ -12069,7 +12069,7 @@
     if-ne v2, v5, :cond_9b7
 
     .line 355
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -12111,12 +12111,12 @@
     invoke-direct {v9, v10, v1, v2, v4}, Lcom/aide/codemodel/language/java/JavaCompiler;->oY(Lcom/aide/codemodel/api/SyntaxTree;IILcom/aide/codemodel/api/Member;)V
 
     .line 360
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v5
 
     .line 361
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v6
 
@@ -12221,12 +12221,12 @@
     invoke-direct {v9, v10, v1, v2, v3}, Lcom/aide/codemodel/language/java/JavaCompiler;->oY(Lcom/aide/codemodel/api/SyntaxTree;IILcom/aide/codemodel/api/Member;)V
 
     .line 373
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v5
 
     .line 374
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v4
 
@@ -12481,7 +12481,7 @@
     if-eqz v1, :cond_3e
 
     .line 3
-    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
@@ -12569,7 +12569,7 @@
     move-result v1
 
     .line 13
-    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -12707,7 +12707,7 @@
     move-result v0
 
     .line 3
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -12793,7 +12793,7 @@
     move-result v5
 
     .line 15
-    invoke-virtual {p1, v5}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v5}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v5
 
@@ -12863,7 +12863,7 @@
     move-result v4
 
     .line 24
-    invoke-virtual {p1, v4}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v4}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v4
 
@@ -13270,7 +13270,7 @@
     move-result v1
 
     .line 5
-    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -13479,7 +13479,7 @@
 
     .line 1
     :cond_18
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -13554,7 +13554,7 @@
 
     check-cast v4, Lcom/aide/codemodel/api/Member;
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v4
 
@@ -13579,7 +13579,7 @@
     if-eqz v5, :cond_72
 
     .line 12
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Entity;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Entity;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v5
 
@@ -13604,7 +13604,7 @@
     if-eqz v5, :cond_8e
 
     .line 16
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v4
 
@@ -13849,7 +13849,7 @@
     :goto_34
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v2
 
@@ -13867,7 +13867,7 @@
     invoke-direct {p0, v2}, Lcom/aide/codemodel/language/java/JavaCompiler;->g3(Lcom/aide/codemodel/api/ClassType;)V
 
     .line 12
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v2
     :try_end_49
@@ -13916,13 +13916,13 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v2, v2, Lcom/aide/codemodel/api/Model;->stopCallback:Lcom/aide/codemodel/api/callback/StopCallback;
 
     if-eqz v2, :cond_1e
 
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v2, v2, Lcom/aide/codemodel/api/Model;->stopCallback:Lcom/aide/codemodel/api/callback/StopCallback;
 
@@ -14144,7 +14144,7 @@
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/aide/codemodel/language/java/JavaCompiler;->KD(Lcom/aide/codemodel/api/SyntaxTree;IIZ)V
 
     .line 19
-    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrValue(I)J
 
@@ -14277,7 +14277,7 @@
     move-result v15
 
     .line 7
-    invoke-virtual {v5, v6}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v5, v6}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v14
 
@@ -14433,7 +14433,7 @@
     :try_start_20
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v5
 
@@ -14984,12 +14984,12 @@
     check-cast v1, Lcom/aide/codemodel/api/Member;
 
     .line 6
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
     .line 7
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -15015,7 +15015,7 @@
     if-ne v2, v3, :cond_5c
 
     .line 10
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -15065,12 +15065,12 @@
     check-cast v1, Lcom/aide/codemodel/api/Member;
 
     .line 18
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
     .line 19
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -15135,7 +15135,7 @@
 
     .line 1
     :cond_17
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -15194,7 +15194,7 @@
 
     check-cast v3, Lcom/aide/codemodel/api/Member;
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v3
 
@@ -15876,7 +15876,7 @@
     :cond_6e
     iget-object v3, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v6
 
@@ -16975,7 +16975,7 @@
 
     move-result v2
 
-    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v3, v3, Lcom/aide/codemodel/api/Model;->identifierSpace:Lcom/aide/codemodel/api/IdentifierSpace;
 
@@ -16988,7 +16988,7 @@
     if-ne v2, v3, :cond_4e
 
     .line 2
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v2
 
@@ -16996,7 +16996,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/Namespace;->gn()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/Namespace;->getFullyQualifiedNameString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -17205,7 +17205,7 @@
 
     .line 13
     :cond_7f
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->PT(I)Z
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->hasAttrType(I)Z
 
     move-result v0
 
@@ -17222,7 +17222,7 @@
     iget-object v0, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
     .line 14
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v4
 
@@ -17301,9 +17301,9 @@
 
     .line 16
     :goto_c9
-    iget-object v10, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v10, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v11
 
@@ -17316,7 +17316,7 @@
     move-result-wide v13
 
     .line 17
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -17350,7 +17350,7 @@
     :pswitch_f3  #0xe
     iget-object v0, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    iget-object v1, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v1, v10, v11}, Lcom/aide/codemodel/api/EntitySpace;->g3(J)D
 
@@ -17364,7 +17364,7 @@
     :pswitch_100  #0xd
     iget-object v0, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    iget-object v1, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v1, v10, v11}, Lcom/aide/codemodel/api/EntitySpace;->Mz(J)F
 
@@ -17378,7 +17378,7 @@
     :cond_10d
     iget-object v0, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    iget-object v1, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v1, v10, v11}, Lcom/aide/codemodel/api/EntitySpace;->ca(J)J
 
@@ -17391,7 +17391,7 @@
     :pswitch_119  #0xb, 0xc
     iget-object v0, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    iget-object v1, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v1, v10, v11}, Lcom/aide/codemodel/api/EntitySpace;->I(J)I
 
@@ -17403,13 +17403,13 @@
 
     .line 24
     :cond_126
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->PT(I)Z
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->hasAttrType(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_17d
 
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -17419,7 +17419,7 @@
 
     if-eqz v0, :cond_17d
 
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -17475,7 +17475,7 @@
     check-cast v0, Lcom/aide/codemodel/api/Member;
 
     .line 28
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
@@ -17488,7 +17488,7 @@
 
     iget v4, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->rN:I
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Entity;->lg()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Entity;->getNameString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -17498,7 +17498,7 @@
 
     .line 30
     :cond_17d
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->PT(I)Z
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->hasAttrType(I)Z
 
     move-result v0
     :try_end_181
@@ -17511,7 +17511,7 @@
     :try_start_185
     iget-object v0, v8, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v4
 
@@ -17519,7 +17519,7 @@
 
     move-result-object v0
 
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v4
 
@@ -17547,7 +17547,7 @@
 
     .line 33
     :cond_1a3
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->PT(I)Z
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->hasAttrType(I)Z
 
     move-result v0
 
@@ -17566,7 +17566,7 @@
 
     move-result v0
 
-    invoke-virtual {v7, v0}, Lcom/aide/codemodel/api/SyntaxTree;->PT(I)Z
+    invoke-virtual {v7, v0}, Lcom/aide/codemodel/api/SyntaxTree;->hasAttrType(I)Z
 
     move-result v0
 
@@ -17577,7 +17577,7 @@
 
     move-result v0
 
-    invoke-virtual {v7, v0}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v7, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -17826,7 +17826,7 @@
     invoke-direct {p0, p1, v7, v1}, Lcom/aide/codemodel/language/java/JavaCompiler;->sy(Lcom/aide/codemodel/api/SyntaxTree;IZ)V
 
     .line 19
-    invoke-virtual {p1, v7}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v7}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v7
 
@@ -17935,14 +17935,14 @@
 
     move-result v3
 
-    invoke-virtual {v5, v3}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v5, v3}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v3
 
     .line 5
     iget-object v4, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v6
 
@@ -17958,7 +17958,7 @@
     .line 7
     iget-object v4, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v6
 
@@ -18070,7 +18070,7 @@
     if-ne v14, v10, :cond_b3
 
     .line 22
-    iget-object v14, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v14, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v5, v13, v8}, Lcom/aide/codemodel/api/SyntaxTree;->getChildNode(II)I
 
@@ -18499,7 +18499,7 @@
 
     .line 59
     :try_start_1ee
-    iget-object v14, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v14, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     move/from16 v17, v2
 
@@ -18624,7 +18624,7 @@
     :cond_254
     iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v2
 
@@ -19627,9 +19627,9 @@
 
     .line 1
     :cond_17
-    iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v2
 
@@ -19777,7 +19777,7 @@
     :pswitch_9a  #0xe
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->br()J
 
@@ -19795,7 +19795,7 @@
     :pswitch_aa  #0xd
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->br()J
 
@@ -19813,7 +19813,7 @@
     :cond_ba
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->br()J
 
@@ -19830,7 +19830,7 @@
     :pswitch_c9  #0xb, 0xc
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->br()J
 
@@ -19854,7 +19854,7 @@
     if-eqz v2, :cond_e7
 
     .line 20
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v2
 
@@ -20055,7 +20055,7 @@
     invoke-virtual {v0, p2}, Labcd/j6;->XX(I)V
 
     .line 3
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v0
 
@@ -20138,7 +20138,7 @@
 
     .line 1
     :cond_c
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v0
 
@@ -20203,7 +20203,7 @@
     move-result v0
 
     .line 9
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -20357,11 +20357,11 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/Entity;->gn()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/Entity;->getFullyQualifiedNameString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -20447,13 +20447,13 @@
     aget-object v9, p4, v2
 
     .line 2
-    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v3, v3, Lcom/aide/codemodel/api/Model;->j3:Labcd/m1;
 
     iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->VH()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v4
 
@@ -20607,9 +20607,9 @@
 
     .line 1
     :cond_11
-    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -20633,7 +20633,7 @@
     iput v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->U2:I
 
     .line 3
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
@@ -20684,7 +20684,7 @@
     move-result v1
 
     .line 9
-    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -20794,14 +20794,14 @@
 
     move-result v6
 
-    invoke-virtual {p1, v6}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v6}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v6
 
     .line 20
     iget-object v7, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v8
 
@@ -21269,7 +21269,7 @@
     :goto_5d
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v2
 
@@ -21549,7 +21549,7 @@
     .line 6
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v2
 
@@ -21594,7 +21594,7 @@
     .line 10
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -21616,7 +21616,7 @@
     :try_start_7b
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -21663,7 +21663,7 @@
     .line 17
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -21676,7 +21676,7 @@
     .line 18
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -21695,7 +21695,7 @@
     .line 20
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -22477,7 +22477,7 @@
     if-eqz v1, :cond_69
 
     .line 5
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v3
 
@@ -22985,7 +22985,7 @@
     move-result v5
 
     .line 7
-    invoke-virtual {v8, v3}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v8, v3}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v3
 
@@ -23160,9 +23160,9 @@
 
     .line 1
     :cond_11
-    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -24152,7 +24152,7 @@
     move-result v0
 
     .line 5
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -24170,7 +24170,7 @@
     check-cast v1, Lcom/aide/codemodel/api/Member;
 
     .line 8
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -24188,7 +24188,7 @@
     check-cast v1, Lcom/aide/codemodel/api/Member;
 
     .line 11
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -24338,11 +24338,11 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/Entity;->gn()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/Entity;->getFullyQualifiedNameString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -24462,7 +24462,7 @@
 
     .line 1
     :cond_45
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v0
 
@@ -24680,7 +24680,7 @@
     if-eqz v6, :cond_136
 
     .line 29
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v10
 
@@ -24980,7 +24980,7 @@
     if-eqz v10, :cond_23b
 
     .line 62
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v10
 
@@ -25038,7 +25038,7 @@
     if-eqz v10, :cond_272
 
     .line 67
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v10
 
@@ -25090,7 +25090,7 @@
     if-nez v4, :cond_2a5
 
     .line 70
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v10
 
@@ -25150,7 +25150,7 @@
 
     if-eqz v10, :cond_2ea
 
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v10
 
@@ -25161,7 +25161,7 @@
     if-nez v10, :cond_2ea
 
     .line 74
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v10
 
@@ -25278,7 +25278,7 @@
     if-eqz v10, :cond_358
 
     .line 83
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v10
 
@@ -25544,7 +25544,7 @@
 
     .line 1
     :cond_14
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->aM()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getModifiers()I
 
     move-result v1
 
@@ -25555,7 +25555,7 @@
     if-eqz v1, :cond_2d
 
     .line 2
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
@@ -25663,7 +25663,7 @@
     aput-char v4, v2, v3
 
     .line 7
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v2
 
@@ -25753,7 +25753,7 @@
     move-result v3
 
     .line 5
-    invoke-virtual {p1, v2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v4
 
@@ -26122,15 +26122,15 @@
     .line 1
     :cond_11
     :try_start_11
-    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v0, v0, Lcom/aide/codemodel/api/Model;->fileSpace:Lcom/aide/codemodel/api/FileSpace;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/aide/codemodel/api/FileSpace;->ef(Lcom/aide/codemodel/api/FileEntry;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/aide/codemodel/api/FileSpace;->getTargetVersion(Lcom/aide/codemodel/api/FileEntry;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -26282,11 +26282,11 @@
 
     .line 37
     :goto_83
-    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v0, v0, Lcom/aide/codemodel/api/Model;->fileSpace:Lcom/aide/codemodel/api/FileSpace;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -26305,11 +26305,11 @@
 
     .line 38
     :goto_94
-    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v0, v0, Lcom/aide/codemodel/api/Model;->fileSpace:Lcom/aide/codemodel/api/FileSpace;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -26334,7 +26334,7 @@
     :try_start_a7
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v2
 
@@ -26450,7 +26450,7 @@
 
     .line 1
     :cond_15
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/Member;->aM()I
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/Member;->getModifiers()I
 
     move-result v1
 
@@ -26476,7 +26476,7 @@
     if-eqz v1, :cond_4a
 
     .line 4
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
@@ -26997,7 +26997,7 @@
 
     move-result v2
 
-    invoke-virtual {p1, v2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -27129,7 +27129,7 @@
     if-nez v3, :cond_f0
 
     .line 26
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -27479,7 +27479,7 @@
     .line 21
     iget-object v0, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -27595,7 +27595,7 @@
     .line 3
     iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v5
 
@@ -27736,7 +27736,7 @@
     .line 2
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -27872,9 +27872,9 @@
     if-le v8, v9, :cond_78
 
     .line 7
-    iget-object v8, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v8, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v9
 
@@ -27933,7 +27933,7 @@
     invoke-direct {p0, p1, v7, v1}, Lcom/aide/codemodel/language/java/JavaCompiler;->sy(Lcom/aide/codemodel/api/SyntaxTree;IZ)V
 
     .line 17
-    invoke-virtual {p1, v7}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v7}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v7
 
@@ -28066,7 +28066,7 @@
 
     .line 1
     :cond_11
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -28348,7 +28348,7 @@
     .line 21
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v2
 
@@ -28797,7 +28797,7 @@
     move-result v0
 
     .line 4
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -28911,7 +28911,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v2, v2, Lcom/aide/codemodel/api/Model;->identifierSpace:Lcom/aide/codemodel/api/IdentifierSpace;
 
@@ -28962,7 +28962,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/Namespace;->gn()Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/Namespace;->getFullyQualifiedNameString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -29062,9 +29062,9 @@
 
     .line 2
     :cond_32
-    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -29076,7 +29076,7 @@
 
     move-result v3
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/aide/codemodel/api/EntitySpace;->aq(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I)Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0, v1, v2, v3}, Lcom/aide/codemodel/api/EntitySpace;->getClasstype(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I)Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v0
 
@@ -29249,7 +29249,7 @@
 
     if-eqz v0, :cond_1a
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object p1
     :try_end_16
@@ -29342,7 +29342,7 @@
     move-result v3
 
     .line 4
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v4
 
@@ -29358,7 +29358,7 @@
     if-ne v2, v0, :cond_50
 
     .line 6
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v5
 
@@ -29369,7 +29369,7 @@
 
     move-result v7
 
-    invoke-virtual {p1, v7}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v7}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v7
 
@@ -29408,7 +29408,7 @@
     move-result-object v9
 
     .line 12
-    invoke-virtual {p1, v8}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v8}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v10
 
@@ -29473,7 +29473,7 @@
     move-result v2
 
     .line 21
-    invoke-virtual {p1, v2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v4
 
@@ -29548,7 +29548,7 @@
 
     .line 31
     :goto_d1
-    invoke-virtual {p1, v5}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v5}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v8
 
@@ -29750,11 +29750,11 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/Entity;->gn()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/Entity;->getFullyQualifiedNameString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -30735,7 +30735,7 @@
 
     .line 1
     :cond_15
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/Member;->aM()I
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/Member;->getModifiers()I
 
     move-result v1
 
@@ -30761,7 +30761,7 @@
     if-eqz v1, :cond_4a
 
     .line 4
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
@@ -31778,7 +31778,7 @@
     move-result v15
 
     .line 13
-    invoke-virtual {v5, v9}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v5, v9}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v14
 
@@ -31822,7 +31822,7 @@
     invoke-direct {v7, v5, v9, v13}, Lcom/aide/codemodel/language/java/JavaCompiler;->sy(Lcom/aide/codemodel/api/SyntaxTree;IZ)V
 
     .line 19
-    invoke-virtual {v5, v9}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v5, v9}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v10
 
@@ -32138,7 +32138,7 @@
     move-result v4
 
     .line 54
-    invoke-virtual {v5, v4}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v5, v4}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v4
 
@@ -32239,7 +32239,7 @@
     move-result v10
 
     .line 62
-    invoke-virtual {v5, v9}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v5, v9}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v11
 
@@ -33159,7 +33159,7 @@
 
     move-result v3
 
-    invoke-virtual {v5, v3}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v5, v3}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -33411,7 +33411,7 @@
 
     iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->vy:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->dx(I)I
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrTarget(I)I
 
     move-result v4
 
@@ -33448,7 +33448,7 @@
 
     iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->BT:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->dx(I)I
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrTarget(I)I
 
     move-result v4
 
@@ -33648,7 +33648,7 @@
 
     if-eqz v3, :cond_710
 
-    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v5, v2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrValue(I)J
 
@@ -34074,7 +34074,7 @@
 
     move-result v14
 
-    invoke-virtual {v5, v14}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v5, v14}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v14
 
@@ -34083,7 +34083,7 @@
 
     move-result v15
 
-    invoke-virtual {v5, v15}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v5, v15}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v15
 
@@ -34368,7 +34368,7 @@
     move v9, v12
 
     .line 352
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v10
 
@@ -34383,7 +34383,7 @@
     move/from16 v22, v8
 
     .line 353
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v8
 
@@ -34544,7 +34544,7 @@
     .line 370
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v8
 
@@ -34723,7 +34723,7 @@
     .line 396
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v8
 
@@ -34892,7 +34892,7 @@
     .line 420
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v8
 
@@ -35147,7 +35147,7 @@
 
     move-result v8
 
-    invoke-virtual {v5, v8}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v5, v8}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v8
 
@@ -35434,7 +35434,7 @@
     if-eq v0, v4, :cond_82
 
     .line 3
-    invoke-virtual {p3}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p3}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v0
 
@@ -35670,7 +35670,7 @@
 
     .line 1
     :cond_14
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->aM()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getModifiers()I
 
     move-result v1
 
@@ -35689,7 +35689,7 @@
     if-nez v1, :cond_35
 
     .line 2
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
@@ -35822,7 +35822,7 @@
 
     if-eqz v2, :cond_26
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->aM()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getModifiers()I
 
     move-result v2
 
@@ -35833,7 +35833,7 @@
     if-nez v2, :cond_26
 
     .line 2
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->aM()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getModifiers()I
 
     move-result v2
 
@@ -36165,7 +36165,7 @@
 
     move-result v2
 
-    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v3, v3, Lcom/aide/codemodel/api/Model;->identifierSpace:Lcom/aide/codemodel/api/IdentifierSpace;
 
@@ -36272,7 +36272,7 @@
 
     .line 1
     :cond_2b
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v1
 
@@ -36319,9 +36319,9 @@
     move-result v2
 
     .line 6
-    iget-object v3, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v3, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v4
 
@@ -36333,7 +36333,7 @@
 
     move-result v6
 
-    invoke-virtual {v3, v4, v7, v6}, Lcom/aide/codemodel/api/EntitySpace;->aq(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I)Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v3, v4, v7, v6}, Lcom/aide/codemodel/api/EntitySpace;->getClasstype(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I)Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v3
 
@@ -36395,7 +36395,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/Namespace;->gn()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/Namespace;->getFullyQualifiedNameString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -36446,9 +36446,9 @@
     move-result v4
 
     .line 21
-    iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v2
 
@@ -36460,7 +36460,7 @@
 
     move-result v6
 
-    invoke-virtual {v1, v2, v3, v6}, Lcom/aide/codemodel/api/EntitySpace;->aq(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I)Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v1, v2, v3, v6}, Lcom/aide/codemodel/api/EntitySpace;->getClasstype(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I)Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
@@ -36491,7 +36491,7 @@
     iput-boolean v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->Mz:Z
 
     .line 26
-    iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v1, v1, Lcom/aide/codemodel/api/Model;->j3:Labcd/m1;
 
@@ -36568,7 +36568,7 @@
     .line 31
     iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual/range {p1 .. p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v3
 
@@ -36796,7 +36796,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/Namespace;->gn()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/Namespace;->getFullyQualifiedNameString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -36906,7 +36906,7 @@
 
     if-eqz v3, :cond_4d
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->aM()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getModifiers()I
 
     move-result v3
 
@@ -36917,7 +36917,7 @@
     if-nez v3, :cond_4d
 
     .line 2
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->aM()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getModifiers()I
 
     move-result v3
 
@@ -36932,7 +36932,7 @@
 
     move-result v3
 
-    iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v4, v4, Lcom/aide/codemodel/api/Model;->identifierSpace:Lcom/aide/codemodel/api/IdentifierSpace;
 
@@ -36958,7 +36958,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/Entity;->gn()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/Entity;->getFullyQualifiedNameString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -37052,7 +37052,7 @@
     .line 5
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->FH:Lcom/aide/codemodel/api/FileSpace;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->VH()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v0
 
@@ -37335,9 +37335,9 @@
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
     .line 20
-    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v2
 
@@ -37349,7 +37349,7 @@
 
     move-result v4
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/aide/codemodel/api/EntitySpace;->aq(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I)Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v1, v2, v3, v4}, Lcom/aide/codemodel/api/EntitySpace;->getClasstype(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I)Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
@@ -37730,7 +37730,7 @@
 
     move-result v1
 
-    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -37824,7 +37824,7 @@
 
     .line 64
     :cond_27f
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -37837,7 +37837,7 @@
     if-eqz v1, :cond_2a4
 
     .line 65
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -37869,7 +37869,7 @@
     if-nez v1, :cond_412
 
     .line 68
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -37882,7 +37882,7 @@
     if-eqz v1, :cond_412
 
     .line 69
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -37954,7 +37954,7 @@
 
     .line 76
     :cond_2f3
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v6
 
@@ -37967,7 +37967,7 @@
     if-eqz v6, :cond_317
 
     .line 77
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v6
 
@@ -37994,7 +37994,7 @@
 
     .line 79
     :cond_317
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v6
 
@@ -38007,7 +38007,7 @@
     if-eqz v6, :cond_33a
 
     .line 80
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v6
 
@@ -38037,7 +38037,7 @@
 
     if-nez v6, :cond_412
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v6
 
@@ -38229,7 +38229,7 @@
 
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v3
 
@@ -38499,7 +38499,7 @@
     check-cast v4, Lcom/aide/codemodel/api/Member;
 
     .line 9
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v6
 
@@ -38507,7 +38507,7 @@
 
     if-eq v6, v8, :cond_40
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->Q6()Z
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->isAbstract()Z
 
     move-result v6
     :try_end_5c
@@ -38608,7 +38608,7 @@
     if-eqz v0, :cond_da
 
     .line 21
-    iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     iget-object v4, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->we:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
@@ -38685,7 +38685,7 @@
     if-eqz v0, :cond_107
 
     .line 27
-    iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     iget-object v4, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->J0:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
@@ -38911,7 +38911,7 @@
     if-ne v1, v2, :cond_31
 
     .line 3
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -38978,12 +38978,12 @@
 
     .line 13
     :cond_5b
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
     .line 14
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v3
 
@@ -39008,7 +39008,7 @@
     if-nez v2, :cond_7e
 
     .line 18
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -39020,12 +39020,12 @@
 
     .line 19
     :cond_7e
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
     .line 20
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->ro(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrInvocationType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v3
 
@@ -39143,7 +39143,7 @@
 
     .line 1
     :cond_21
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v0
 
@@ -39823,7 +39823,7 @@
     :goto_37
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v0
 
@@ -39848,7 +39848,7 @@
     invoke-direct {p0, v0}, Lcom/aide/codemodel/language/java/JavaCompiler;->g3(Lcom/aide/codemodel/api/ClassType;)V
 
     .line 12
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v0
 
@@ -39924,7 +39924,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->lg()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->getNameString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -39942,7 +39942,7 @@
 
     .line 3
     :cond_28
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->lg()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->getNameString()Ljava/lang/String;
 
     move-result-object p1
     :try_end_2c
@@ -39998,7 +39998,7 @@
 
     .line 1
     :cond_1e
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v0
 
@@ -40579,7 +40579,7 @@
     :try_start_1c
     iget-object v8, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v9
 
@@ -40609,7 +40609,7 @@
     :cond_38
     iget-object v7, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v8
 
@@ -40639,7 +40639,7 @@
     :cond_54
     iget-object v6, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v7
 
@@ -40669,7 +40669,7 @@
     :cond_70
     iget-object v5, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v6
 
@@ -40699,7 +40699,7 @@
     :cond_8b
     iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v5
 
@@ -40729,7 +40729,7 @@
     :cond_a6
     iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v4
 
@@ -40759,7 +40759,7 @@
     :cond_c1
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v3
 
@@ -40794,7 +40794,7 @@
     :cond_e1
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->hz()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v2
 
@@ -40883,7 +40883,7 @@
     move-result-wide v0
 
     .line 3
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->sG(I)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrType(I)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -40913,7 +40913,7 @@
 
     .line 4
     :pswitch_34  #0xe
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v2, v0, v1}, Lcom/aide/codemodel/api/EntitySpace;->g3(J)D
 
@@ -40927,7 +40927,7 @@
 
     .line 5
     :pswitch_3f  #0xd
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v2, v0, v1}, Lcom/aide/codemodel/api/EntitySpace;->Mz(J)F
 
@@ -40941,7 +40941,7 @@
 
     .line 6
     :pswitch_4a  #0xc
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v2, v0, v1}, Lcom/aide/codemodel/api/EntitySpace;->I(J)I
 
@@ -40957,7 +40957,7 @@
 
     .line 7
     :pswitch_56  #0xb
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v2, v0, v1}, Lcom/aide/codemodel/api/EntitySpace;->vJ(J)Z
 
@@ -40971,7 +40971,7 @@
 
     .line 8
     :cond_61
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v2, v0, v1}, Lcom/aide/codemodel/api/EntitySpace;->ca(J)J
 
@@ -40983,7 +40983,7 @@
 
     .line 9
     :cond_6b
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Hw:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v2, v0, v1}, Lcom/aide/codemodel/api/EntitySpace;->I(J)I
 
@@ -41316,7 +41316,7 @@
 
     .line 3
     :cond_38
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->dx(I)I
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrTarget(I)I
 
     move-result v0
 
@@ -41700,7 +41700,7 @@
 
     .line 3
     :cond_3a
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->lg()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Entity;->getNameString()Ljava/lang/String;
 
     move-result-object p1
     :try_end_3e
@@ -41809,7 +41809,7 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->v5:Lcom/aide/codemodel/language/java/JavaLanguage;
+    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->javaLanguage:Lcom/aide/codemodel/language/java/JavaLanguage;
 
     if-ne v2, v3, :cond_15
 
@@ -41892,7 +41892,7 @@
 
     check-cast v2, Lcom/aide/codemodel/api/Member;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/Member;->Hw()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/Member;->getEnclosingClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v2
 
@@ -41946,7 +41946,7 @@
 
     .line 1
     :cond_18
-    iget-object v8, v1, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v8, v1, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     instance-of v8, v8, Lcom/aide/codemodel/AIDEModel;
 
@@ -41957,7 +41957,7 @@
     if-eqz v8, :cond_28f
 
     .line 2
-    iget-object v8, v1, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v8, v1, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     check-cast v8, Lcom/aide/codemodel/AIDEModel;
 
@@ -41981,25 +41981,25 @@
     move-result-object v11
 
     .line 6
-    iget-object v12, v11, Lcom/aide/codemodel/api/collections/SetOfFileEntry;->j6:Lcom/aide/codemodel/api/collections/SetOfFileEntry$b;
+    iget-object v12, v11, Lcom/aide/codemodel/api/collections/SetOfFileEntry;->j6:Lcom/aide/codemodel/api/collections/SetOfFileEntry$Iterator;
 
-    invoke-virtual {v12}, Lcom/aide/codemodel/api/collections/SetOfFileEntry$b;->DW()V
+    invoke-virtual {v12}, Lcom/aide/codemodel/api/collections/SetOfFileEntry$Iterator;->init()V
 
     .line 7
     :cond_3d
     :goto_3d
-    iget-object v12, v11, Lcom/aide/codemodel/api/collections/SetOfFileEntry;->j6:Lcom/aide/codemodel/api/collections/SetOfFileEntry$b;
+    iget-object v12, v11, Lcom/aide/codemodel/api/collections/SetOfFileEntry;->j6:Lcom/aide/codemodel/api/collections/SetOfFileEntry$Iterator;
 
-    invoke-virtual {v12}, Lcom/aide/codemodel/api/collections/SetOfFileEntry$b;->j6()Z
+    invoke-virtual {v12}, Lcom/aide/codemodel/api/collections/SetOfFileEntry$Iterator;->hasMoreElements()Z
 
     move-result v12
 
     if-eqz v12, :cond_64
 
     .line 8
-    iget-object v12, v11, Lcom/aide/codemodel/api/collections/SetOfFileEntry;->j6:Lcom/aide/codemodel/api/collections/SetOfFileEntry$b;
+    iget-object v12, v11, Lcom/aide/codemodel/api/collections/SetOfFileEntry;->j6:Lcom/aide/codemodel/api/collections/SetOfFileEntry$Iterator;
 
-    invoke-virtual {v12}, Lcom/aide/codemodel/api/collections/SetOfFileEntry$b;->FH()Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {v12}, Lcom/aide/codemodel/api/collections/SetOfFileEntry$Iterator;->nextKey()Lcom/aide/codemodel/api/FileEntry;
 
     move-result-object v12
 
@@ -42066,7 +42066,7 @@
 
     .line 16
     :try_start_80
-    iget-object v11, v1, Lcom/aide/codemodel/language/java/JavaCompiler;->Zo:Lcom/aide/codemodel/api/Model;
+    iget-object v11, v1, Lcom/aide/codemodel/language/java/JavaCompiler;->model:Lcom/aide/codemodel/api/Model;
 
     iget-object v13, v11, Lcom/aide/codemodel/api/Model;->j3:Labcd/m1;
 

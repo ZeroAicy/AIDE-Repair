@@ -32,7 +32,10 @@ public class ZeroAicyAIDE{
 		//修复分析
 		aide_plus aide_plus = 
 			aide_plus_tools.getAidePlus("2.2");
+
+		System.out.println("重写中...");
 		aide_plus.run();
+		
 		System.out.println("完成");
 	}
 

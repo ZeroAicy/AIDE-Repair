@@ -1,18 +1,27 @@
 
 package io.github.zeroaicy.dexlib.analysis;
 
-import io.github.zeroaicy.dexlib.analysis.*;
-import io.github.zeroaicy.dexlib.rewriter.*;
-import io.github.zeroaicy.dexlib.rewriter2.*;
-import java.io.*;
-import java.util.*;
-import java.util.zip.*;
-import org.jf.dexlib2.*;
-import org.jf.dexlib2.dexbacked.*;
-import org.jf.dexlib2.iface.*;
-import org.jf.dexlib2.rewriter.*;
-import org.jf.dexlib2.writer.io.*;
-import org.jf.dexlib2.writer.pool.*;
+import io.github.zeroaicy.dexlib.rewriter.RevertRewriterModule;
+import io.github.zeroaicy.dexlib.rewriter2.RewriteDexFileContainer;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+import org.jf.dexlib2.DexFileFactory;
+import org.jf.dexlib2.dexbacked.DexBackedDexFile;
+import org.jf.dexlib2.iface.ClassDef;
+import org.jf.dexlib2.iface.DexFile;
+import org.jf.dexlib2.iface.MultiDexContainer;
+import org.jf.dexlib2.rewriter.DexRewriter;
+import org.jf.dexlib2.rewriter.RewriterModule;
+import org.jf.dexlib2.writer.io.MemoryDataStore;
+import org.jf.dexlib2.writer.pool.DexPool;
 
 
 //通过Mapping.txt还原dex

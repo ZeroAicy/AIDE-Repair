@@ -10,15 +10,15 @@ import java.util.List;
 public class MappingData{
 	// /storage/emulated/0/.MyAicy/.aide/android-34.dex
 	// android.dex 不可变的类和方法
-	
-	
+
+
 	private final Map<String, ClassData> classDataMap = new HashMap<>();
 
 	public ClassData addClassData(String classSignature){
 		return addClassData(classSignature, false);
 	}
-	
-	
+
+
 	public ClassData addClassData(String classSignature, boolean finaled){
 		ClassData classData = classDataMap.get(classSignature);
 		if ( classData == null ){
@@ -27,7 +27,7 @@ public class MappingData{
 		}
 		return classData;
 	}
-	
+
 	public ClassData addClassData(String classSignature, String classSignatureRename){
 		ClassData classData = classDataMap.get(classSignature);
 		if ( classData == null ){
@@ -38,29 +38,29 @@ public class MappingData{
 	}
 	SparseArray m;
 	public static MappingData getMappingData(int mappingDataFlag){
-		
+
 		return null;
 	}
-	
-	
+
+
 	String mappingPath;
 	//反转规则
 	private final boolean reverse;
-	
+
 	private MappingData(){
 		this(null, false);
 	}
-	
+
 	private MappingData(String mappingPath){
 		this(mappingPath, false);
 	}
-	
+
 	private MappingData(String mappingPath, boolean reverse){
 		this.mappingPath = mappingPath;
 		this.reverse = reverse;
 		parser();
 	}
-	
+
 	/**
 	 * 解析重命名规则
 	 */
@@ -98,8 +98,8 @@ public class MappingData{
 			int originalStart = separatorPosition + "->".length();
 
 			//使得original没有空格
-			while ( isBlankSpace(line.charAt(originalStart)) 
-				   && originalStart < lineLength ){
+			while ( originalStart < lineLength
+				   && isBlankSpace(line.charAt(originalStart)) ){
 				originalStart++;
 			}
 
@@ -108,8 +108,8 @@ public class MappingData{
 
 			int confusevtEnd = separatorPosition;
 			//去除separatorPosition前的空格
-			while ( isBlankSpace(line.charAt(confusevtEnd - 1)) 
-				   && confusevtEnd < lineLength ){
+			while ( confusevtEnd < lineLength
+				   && isBlankSpace(line.charAt(confusevtEnd - 1)) ){
 				confusevtEnd--;
 			}
 
@@ -149,19 +149,22 @@ public class MappingData{
 				if ( classData != null ){
 					if ( reverse ){
 						classData.addMethodData(original, parameterTypes, confusevt);
-					}else{
+					}
+					else{
 						classData.addMethodData(confusevt, parameterTypes, original);
 					}
 				}
 
-			}else{
+			}
+			else{
 				//字段
 				String confusevt = line.substring(confusevtStart, confusevtEnd);
 				confusevt.toString();
 				if ( classData != null ){
 					if ( reverse ){
 						classData.addField(original, confusevt);
-					}else{
+					}
+					else{
 						classData.addField(confusevt, original);
 					}
 				}
@@ -169,7 +172,7 @@ public class MappingData{
 			}
 		}
 	}
-	
+
 	//解析出ClassData
 	public ClassData parserClassData(String line){
 		int lineLength;
@@ -186,8 +189,8 @@ public class MappingData{
 		//confusevt在line的endIndex
 		int confusevtEnd = separatorPosition;
 		//去除separatorPosition前的空格
-		while ( isBlankSpace(line.charAt(confusevtEnd - 1)) 
-			   && confusevtEnd < lineLength ){
+		while ( confusevtEnd < lineLength 
+			   && isBlankSpace(line.charAt(confusevtEnd - 1)) ){
 			confusevtEnd--;
 		}
 		// 截取confusevt
@@ -202,8 +205,8 @@ public class MappingData{
 		}
 		int originalStart = separatorPosition + "->".length();
 		//使得original没有空格
-		while ( isBlankSpace(line.charAt(originalStart)) 
-			   && originalStart < lineLength ){
+		while ( originalStart < lineLength
+			   && isBlankSpace(line.charAt(originalStart)) ){
 			originalStart++;
 		}
 
@@ -220,10 +223,10 @@ public class MappingData{
 		//使用 contrary反转转换
 		return reverse ? addClassData(original, confusevt) : addClassData(confusevt, original);
 	}
-	
-	
+
+
 	/*********************************utils*********************************/
-	
+
 	//是否是Java基本类型
 	public static boolean hasPrimitiveType(String type){
 		String[] primitiveTypes = new String[]{"boolean","byte",

@@ -1620,7 +1620,7 @@
 
     iget-object v0, v0, Lcom/aide/ui/App;->j6:Lcom/aide/ui/services/EngineService;
 
-    invoke-virtual {v0}, Lcom/aide/ui/services/EngineService;->u7()V
+    invoke-virtual {v0}, Lcom/aide/ui/services/EngineService;->bindCodeAnalysisEngineService()V
     :try_end_20
     .catchall {:try_start_0 .. :try_end_20} :catchall_21
 
