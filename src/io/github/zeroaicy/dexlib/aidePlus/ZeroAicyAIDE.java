@@ -119,7 +119,7 @@ public class ZeroAicyAIDE{
 		String inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/还原/还原.zip";
 		String outputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/还原/还原_out.zip";
 
-		RevertDexFromMappingText.revert(inputDexs, outputDexs, false, true, mappingFilePath);
+		//RevertDexFromMappingText.revert(inputDexs, outputDexs, false, true, mappingFilePath);
 
 	}
 

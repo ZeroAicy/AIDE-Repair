@@ -1,0 +1,6 @@
+
+Lcom/aide/ui/services/ProjectSupport; -> Lcom/aide/ui/services/ProjectSupport;
+	Hw()Z -> verifyResourcesDownload
+	FH(Ljava/lang/String;)Z -> is
+Lcom/aide/ui/project/internal/GradleTools; -> Lcom/aide/ui/project/internal/GradleTools;
+	nw(Ljava/lang/String;)Z -> isAndroidGradleProject

@@ -16,7 +16,7 @@ public class RevertEncodedValueRewriter extends EncodedValueRewriter{
 		super(rewriters);
 		this.revertRewriterModule = revertRewriterModule;
 	}
-	//上一个EncodedValue是不是声明接下来是泛型声明
+	//上一个EncodedValue是不是声明，接下来是泛型声明
 	boolean lastTEncodedValue;
 	
 	@Nonnull

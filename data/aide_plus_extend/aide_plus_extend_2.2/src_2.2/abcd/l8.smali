@@ -244,7 +244,7 @@
     iput-object v2, p0, Labcd/l8;->DW:Ljava/util/List;
 
     .line 3
-    invoke-static {}, Lcom/aide/ui/App;->gn()Landroid/app/Activity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->gn()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -285,7 +285,7 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->getLicenseService()Lcom/aide/ui/services/LicenseService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getLicenseService()Lcom/aide/ui/services/LicenseService;
 
     move-result-object v2
 
@@ -302,7 +302,7 @@
     if-eqz v2, :cond_24
 
     :cond_1c
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v0
     :try_end_20
@@ -458,7 +458,7 @@
     iput-boolean v2, p0, Labcd/l8;->Hw:Z
 
     .line 3
-    invoke-static {}, Lcom/aide/ui/App;->getLicenseService()Lcom/aide/ui/services/LicenseService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getLicenseService()Lcom/aide/ui/services/LicenseService;
 
     move-result-object v3
 

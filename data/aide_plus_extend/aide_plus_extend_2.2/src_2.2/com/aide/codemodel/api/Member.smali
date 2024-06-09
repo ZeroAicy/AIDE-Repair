@@ -14,7 +14,7 @@
     value = {
         Lcom/aide/codemodel/api/Member$a;,
         Lcom/aide/codemodel/api/Member$Data;,
-        Lcom/aide/codemodel/api/Member$c;
+        Lcom/aide/codemodel/api/Member$InferAlgorithm;
     }
 .end annotation
 
@@ -38,39 +38,39 @@
     .end annotation
 .end field
 
-.field private J0:Lcom/aide/codemodel/api/Member$Data;
+.field private data:Lcom/aide/codemodel/api/Member$Data;
     .annotation runtime Labcd/dy;
         field = -0xd17db8b339d3829L
     .end annotation
 .end field
 
-.field private final VH:Lcom/aide/codemodel/api/EntitySpace;
+.field private final entitySpace:Lcom/aide/codemodel/api/EntitySpace;
     .annotation runtime Labcd/dy;
         field = -0x101e79e2c11ce587L
     .end annotation
 .end field
 
-.field private final Zo:Lcom/aide/codemodel/api/FileSpace;
-    .annotation runtime Labcd/dy;
-        field = -0x27eea346fd6dd4fbL
-    .end annotation
-.end field
-
-.field private final gn:Lcom/aide/codemodel/api/IdentifierSpace;
-    .annotation runtime Labcd/dy;
-        field = 0x3f558859ec0e65cfL
-    .end annotation
-.end field
-
-.field private tp:Lcom/aide/codemodel/api/FileEntry;
+.field private file:Lcom/aide/codemodel/api/FileEntry;
     .annotation runtime Labcd/dy;
         field = -0xd11c5e2b1a7f0ddL
     .end annotation
 .end field
 
-.field private u7:I
+.field private final fileSpace:Lcom/aide/codemodel/api/FileSpace;
+    .annotation runtime Labcd/dy;
+        field = -0x27eea346fd6dd4fbL
+    .end annotation
+.end field
+
+.field private id:I
     .annotation runtime Labcd/dy;
         field = 0xd1c848144081668L
+    .end annotation
+.end field
+
+.field private final identifierSpace:Lcom/aide/codemodel/api/IdentifierSpace;
+    .annotation runtime Labcd/dy;
+        field = 0x3f558859ec0e65cfL
     .end annotation
 .end field
 
@@ -120,13 +120,13 @@
     invoke-direct {p0, p3, p1}, Lcom/aide/codemodel/api/Entity;-><init>(Lcom/aide/codemodel/api/FileSpace;Lcom/aide/codemodel/api/EntitySpace;)V
 
     .line 2
-    iput-object p1, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iput-object p1, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     .line 3
-    iput-object p2, p0, Lcom/aide/codemodel/api/Member;->gn:Lcom/aide/codemodel/api/IdentifierSpace;
+    iput-object p2, p0, Lcom/aide/codemodel/api/Member;->identifierSpace:Lcom/aide/codemodel/api/IdentifierSpace;
 
     .line 4
-    iput-object p3, p0, Lcom/aide/codemodel/api/Member;->Zo:Lcom/aide/codemodel/api/FileSpace;
+    iput-object p3, p0, Lcom/aide/codemodel/api/Member;->fileSpace:Lcom/aide/codemodel/api/FileSpace;
     :try_end_19
     .catchall {:try_start_0 .. :try_end_19} :catchall_1a
 
@@ -226,23 +226,23 @@
     invoke-direct {v1, v4, v2}, Lcom/aide/codemodel/api/Entity;-><init>(Lcom/aide/codemodel/api/FileSpace;Lcom/aide/codemodel/api/EntitySpace;)V
 
     .line 7
-    iput-object v2, v1, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iput-object v2, v1, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     .line 8
-    iput-object v3, v1, Lcom/aide/codemodel/api/Member;->gn:Lcom/aide/codemodel/api/IdentifierSpace;
+    iput-object v3, v1, Lcom/aide/codemodel/api/Member;->identifierSpace:Lcom/aide/codemodel/api/IdentifierSpace;
 
     .line 9
-    iput-object v4, v1, Lcom/aide/codemodel/api/Member;->Zo:Lcom/aide/codemodel/api/FileSpace;
+    iput-object v4, v1, Lcom/aide/codemodel/api/Member;->fileSpace:Lcom/aide/codemodel/api/FileSpace;
 
     .line 10
-    invoke-virtual {v2, v1}, Lcom/aide/codemodel/api/EntitySpace;->J8(Lcom/aide/codemodel/api/Entity;)I
+    invoke-virtual {v2, v1}, Lcom/aide/codemodel/api/EntitySpace;->declareEntity(Lcom/aide/codemodel/api/Entity;)I
 
     move-result v0
 
-    iput v0, v1, Lcom/aide/codemodel/api/Member;->u7:I
+    iput v0, v1, Lcom/aide/codemodel/api/Member;->id:I
 
     .line 11
-    iput-object v5, v1, Lcom/aide/codemodel/api/Member;->tp:Lcom/aide/codemodel/api/FileEntry;
+    iput-object v5, v1, Lcom/aide/codemodel/api/Member;->file:Lcom/aide/codemodel/api/FileEntry;
 
     .line 12
     iput v7, v1, Lcom/aide/codemodel/api/Member;->EQ:I
@@ -330,7 +330,7 @@
     iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->FH:Z
 
     .line 4
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -401,7 +401,7 @@
     if-eqz v0, :cond_33
 
     .line 2
-    invoke-virtual {p3, p1, p2, p4}, Lcom/aide/codemodel/api/Type;->XG(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Type;)Z
+    invoke-virtual {p3, p1, p2, p4}, Lcom/aide/codemodel/api/Type;->isImplicitConvertibleTo(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Type;)Z
 
     move-result v0
 
@@ -417,7 +417,7 @@
 
     check-cast v0, Lcom/aide/codemodel/api/ArrayType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ArrayType;->oY()Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ArrayType;->getElementType()Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -481,11 +481,11 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
     if-eqz v2, :cond_13
 
-    iget-object v0, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v0, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
     return-object v0
 
@@ -497,7 +497,7 @@
 
     invoke-direct {v2, v3}, Lcom/aide/codemodel/api/Member$Data;-><init>(Lcom/aide/codemodel/api/Member$a;)V
 
-    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
     :try_end_1b
     .catchall {:try_start_5 .. :try_end_1b} :catchall_1c
 
@@ -682,7 +682,7 @@
     iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->syntaxLoaded:Z
 
     .line 3
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -692,7 +692,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v3, v4}, Lcom/aide/codemodel/api/EntitySpace;->aX(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;)V
+    invoke-virtual {v2, v3, v4}, Lcom/aide/codemodel/api/EntitySpace;->loadSyntax(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;)V
     :try_end_28
     .catchall {:try_start_5 .. :try_end_28} :catchall_29
 
@@ -790,7 +790,7 @@
 
     if-nez v2, :cond_33
 
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->gn:Lcom/aide/codemodel/api/IdentifierSpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->identifierSpace:Lcom/aide/codemodel/api/IdentifierSpace;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -881,29 +881,29 @@
 
     .line 3
     :cond_1b
-    invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->jO()Labcd/v3;
+    invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->jO()Lcom/aide/codemodel/api/collections/SetOf;
 
     move-result-object v2
 
     .line 4
-    iget-object v4, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->DW()V
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 5
     :cond_24
-    iget-object v4, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v4
 
     if-eqz v4, :cond_3b
 
     .line 6
-    iget-object v4, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v4
 
@@ -1178,7 +1178,7 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Lcom/aide/codemodel/api/collections/ListOf;
 
     if-nez v2, :cond_19
 
@@ -1192,9 +1192,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v2}, Labcd/h3;->EQ()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOf;->EQ()I
 
     move-result v0
     :try_end_23
@@ -1232,7 +1232,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -1543,7 +1543,7 @@
 
     move-result-object v0
 
-    iput v3, v0, Lcom/aide/codemodel/api/Member$Data;->BT:I
+    iput v3, v0, Lcom/aide/codemodel/api/Member$Data;->modifierFlags:I
 
     .line 6
     invoke-direct/range {p0 .. p0}, Lcom/aide/codemodel/api/Member;->data()Lcom/aide/codemodel/api/Member$Data;
@@ -1626,7 +1626,7 @@
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
 
     if-nez v0, :cond_113
 
@@ -1637,13 +1637,13 @@
 
     move-result-object v0
 
-    new-instance v15, Labcd/h3;
+    new-instance v15, Lcom/aide/codemodel/api/collections/ListOf;
 
-    iget-object v14, v1, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v14, v1, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v15, v14, v13}, Labcd/h3;-><init>(Lcom/aide/codemodel/api/EntitySpace;I)V
+    invoke-direct {v15, v14, v13}, Lcom/aide/codemodel/api/collections/ListOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;I)V
 
-    iput-object v15, v0, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
+    iput-object v15, v0, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
 
     const/4 v0, 0x0
 
@@ -1655,11 +1655,11 @@
 
     move-result-object v14
 
-    iget-object v14, v14, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
+    iget-object v14, v14, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
 
     const/4 v15, 0x0
 
-    invoke-virtual {v14, v0, v15}, Labcd/h3;->u7(ILcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v14, v0, v15}, Lcom/aide/codemodel/api/collections/ListOf;->u7(ILcom/aide/codemodel/api/Entity;)V
 
     add-int/lit8 v0, v0, 0x1
 
@@ -1671,9 +1671,9 @@
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v0, v13}, Labcd/h3;->tp(I)V
+    invoke-virtual {v0, v13}, Lcom/aide/codemodel/api/collections/ListOf;->setSize(I)V
 
     const/4 v0, 0x0
 
@@ -1685,11 +1685,11 @@
 
     move-result-object v14
 
-    iget-object v14, v14, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
+    iget-object v14, v14, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
 
     const/4 v15, 0x0
 
-    invoke-virtual {v14, v0, v15}, Labcd/h3;->u7(ILcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v14, v0, v15}, Lcom/aide/codemodel/api/collections/ListOf;->u7(ILcom/aide/codemodel/api/Entity;)V
 
     add-int/lit8 v0, v0, 0x1
 
@@ -1847,7 +1847,7 @@
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
     if-nez v0, :cond_1cf
 
@@ -1858,13 +1858,13 @@
 
     move-result-object v0
 
-    new-instance v14, Labcd/h3;
+    new-instance v14, Lcom/aide/codemodel/api/collections/ListOf;
 
-    iget-object v15, v1, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v15, v1, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v14, v15, v5}, Labcd/h3;-><init>(Lcom/aide/codemodel/api/EntitySpace;I)V
+    invoke-direct {v14, v15, v5}, Lcom/aide/codemodel/api/collections/ListOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;I)V
 
-    iput-object v14, v0, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
+    iput-object v14, v0, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
     const/4 v14, 0x0
 
@@ -1876,11 +1876,11 @@
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
     const/4 v15, 0x0
 
-    invoke-virtual {v0, v14, v15}, Labcd/h3;->u7(ILcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v0, v14, v15}, Lcom/aide/codemodel/api/collections/ListOf;->u7(ILcom/aide/codemodel/api/Entity;)V
 
     add-int/lit8 v14, v14, 0x1
 
@@ -1892,9 +1892,9 @@
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v0, v5}, Labcd/h3;->tp(I)V
+    invoke-virtual {v0, v5}, Lcom/aide/codemodel/api/collections/ListOf;->setSize(I)V
 
     const/4 v14, 0x0
 
@@ -1906,11 +1906,11 @@
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
     const/4 v15, 0x0
 
-    invoke-virtual {v0, v14, v15}, Labcd/h3;->u7(ILcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v0, v14, v15}, Lcom/aide/codemodel/api/collections/ListOf;->u7(ILcom/aide/codemodel/api/Entity;)V
 
     add-int/lit8 v14, v14, 0x1
 
@@ -1922,7 +1922,7 @@
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->rN:Labcd/m3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->rN:Lcom/aide/codemodel/api/collections/MapOfInt;
 
     if-nez v0, :cond_1fe
 
@@ -1930,13 +1930,13 @@
 
     move-result-object v0
 
-    new-instance v14, Labcd/m3;
+    new-instance v14, Lcom/aide/codemodel/api/collections/MapOfInt;
 
-    iget-object v15, v1, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v15, v1, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v14, v15}, Labcd/m3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v14, v15}, Lcom/aide/codemodel/api/collections/MapOfInt;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
-    iput-object v14, v0, Lcom/aide/codemodel/api/Member$Data;->rN:Labcd/m3;
+    iput-object v14, v0, Lcom/aide/codemodel/api/Member$Data;->rN:Lcom/aide/codemodel/api/collections/MapOfInt;
 
     goto :goto_207
 
@@ -1946,9 +1946,9 @@
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->rN:Labcd/m3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->rN:Lcom/aide/codemodel/api/collections/MapOfInt;
 
-    invoke-virtual {v0}, Labcd/m3;->Hw()V
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/collections/MapOfInt;->Hw()V
 
     :goto_207
     if-nez v4, :cond_211
@@ -1960,7 +1960,7 @@
 
     const/4 v14, 0x0
 
-    iput-object v14, v0, Lcom/aide/codemodel/api/Member$Data;->er:Labcd/v3;
+    iput-object v14, v0, Lcom/aide/codemodel/api/Member$Data;->er:Lcom/aide/codemodel/api/collections/SetOf;
 
     goto :goto_21e
 
@@ -1970,13 +1970,13 @@
 
     move-result-object v0
 
-    new-instance v14, Labcd/v3;
+    new-instance v14, Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v15, v1, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v15, v1, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v14, v15}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v14, v15}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
-    iput-object v14, v0, Lcom/aide/codemodel/api/Member$Data;->er:Labcd/v3;
+    iput-object v14, v0, Lcom/aide/codemodel/api/Member$Data;->er:Lcom/aide/codemodel/api/collections/SetOf;
 
     :goto_21e
     if-nez v4, :cond_228
@@ -1988,7 +1988,7 @@
 
     const/4 v14, 0x0
 
-    iput-object v14, v0, Lcom/aide/codemodel/api/Member$Data;->yS:Labcd/h3;
+    iput-object v14, v0, Lcom/aide/codemodel/api/Member$Data;->yS:Lcom/aide/codemodel/api/collections/ListOf;
 
     goto :goto_235
 
@@ -1998,13 +1998,13 @@
 
     move-result-object v0
 
-    new-instance v14, Labcd/h3;
+    new-instance v14, Lcom/aide/codemodel/api/collections/ListOf;
 
-    iget-object v15, v1, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v15, v1, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v14, v15, v4}, Labcd/h3;-><init>(Lcom/aide/codemodel/api/EntitySpace;I)V
+    invoke-direct {v14, v15, v4}, Lcom/aide/codemodel/api/collections/ListOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;I)V
 
-    iput-object v14, v0, Lcom/aide/codemodel/api/Member$Data;->yS:Labcd/h3;
+    iput-object v14, v0, Lcom/aide/codemodel/api/Member$Data;->yS:Lcom/aide/codemodel/api/collections/ListOf;
     :try_end_235
     .catchall {:try_start_2d .. :try_end_235} :catchall_236
 
@@ -2147,29 +2147,29 @@
 
     .line 3
     :cond_1b
-    invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->jO()Labcd/v3;
+    invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->jO()Lcom/aide/codemodel/api/collections/SetOf;
 
     move-result-object v2
 
     .line 4
-    iget-object v4, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->DW()V
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 5
     :cond_24
-    iget-object v4, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v4
 
     if-eqz v4, :cond_3b
 
     .line 6
-    iget-object v4, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v4
 
@@ -2210,49 +2210,6 @@
     goto :goto_46
 .end method
 
-.method public J0()I
-    .registers 5
-    .annotation runtime Labcd/ey;
-        method = -0x2de78fad748b1ab1L
-    .end annotation
-
-    const-wide v0, -0x2e27774f08febbf5L  # -1.9064536796801468E86
-
-    :try_start_5
-    sget-boolean v2, Lcom/aide/codemodel/api/Member;->J8:Z
-
-    if-eqz v2, :cond_c
-
-    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
-
-    .line 1
-    :cond_c
-    invoke-direct {p0}, Lcom/aide/codemodel/api/Member;->loadSyntax()V
-
-    .line 2
-    invoke-direct {p0}, Lcom/aide/codemodel/api/Member;->data()Lcom/aide/codemodel/api/Member$Data;
-
-    move-result-object v2
-
-    iget v0, v2, Lcom/aide/codemodel/api/Member$Data;->P8:I
-    :try_end_15
-    .catchall {:try_start_5 .. :try_end_15} :catchall_16
-
-    return v0
-
-    :catchall_16
-    move-exception v2
-
-    sget-boolean v3, Lcom/aide/codemodel/api/Member;->Ws:Z
-
-    if-eqz v3, :cond_1e
-
-    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
-
-    :cond_1e
-    throw v2
-.end method
-
 .method public J8()I
     .registers 6
     .annotation runtime Labcd/ey;
@@ -2270,7 +2227,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -2330,7 +2287,7 @@
 
     move-result-object v2
 
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->BT:I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->modifierFlags:I
 
     and-int/lit16 v2, v2, 0x200
 
@@ -2386,7 +2343,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -2587,7 +2544,7 @@
 
     .line 11
     :cond_52
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->Cz()I
 
@@ -2614,11 +2571,11 @@
     if-eqz v2, :cond_74
 
     .line 13
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v2
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v4
 
@@ -2642,22 +2599,22 @@
 
     .line 15
     :cond_7e
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v2
 
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v5
 
     if-ne v2, v5, :cond_9f
 
     .line 16
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->J0()I
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->getIdentifier()I
 
     move-result v2
 
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->J0()I
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->getIdentifier()I
 
     move-result v5
 
@@ -2708,7 +2665,7 @@
 
     .line 22
     :cond_b3
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->T6()Z
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->isToplevel()Z
 
     move-result v0
 
@@ -2763,7 +2720,7 @@
     goto :goto_d7
 .end method
 
-.method public OW()Labcd/v3;
+.method public OW()Lcom/aide/codemodel/api/collections/SetOf;
     .registers 7
     .annotation runtime Labcd/ey;
         method = -0x528db02d9c4ea24L
@@ -2789,66 +2746,66 @@
 
     .line 1
     :cond_c
-    new-instance v2, Labcd/v3;
+    new-instance v2, Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v3, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v3, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v2, v3}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v2, v3}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
     .line 2
-    new-instance v3, Labcd/v3;
+    new-instance v3, Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v3, v4}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v3, v4}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
     .line 3
-    invoke-virtual {v3, p0}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v3, p0}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     .line 4
     :goto_1d
-    iget-object v4, v3, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v3, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->DW()V
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 5
     :goto_22
-    iget-object v4, v3, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v3, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v4
 
     if-eqz v4, :cond_3d
 
     .line 6
-    iget-object v4, v3, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v3, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v4
 
     check-cast v4, Lcom/aide/codemodel/api/Member;
 
     .line 7
-    invoke-virtual {v2, v4}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v2, v4}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     .line 8
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->jO()Labcd/v3;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->jO()Lcom/aide/codemodel/api/collections/SetOf;
 
     move-result-object v4
 
-    invoke-virtual {v2, v4}, Labcd/v3;->u7(Labcd/v3;)V
+    invoke-virtual {v2, v4}, Lcom/aide/codemodel/api/collections/SetOf;->u7(Lcom/aide/codemodel/api/collections/SetOf;)V
 
     goto :goto_22
 
     .line 9
     :cond_3d
-    invoke-virtual {v3}, Labcd/v3;->J0()I
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf;->J0()I
 
     move-result v4
 
-    invoke-virtual {v2}, Labcd/v3;->J0()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf;->J0()I
 
     move-result v5
 
@@ -2858,10 +2815,10 @@
 
     .line 10
     :cond_48
-    invoke-virtual {v3}, Labcd/v3;->FH()V
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf;->clear()V
 
     .line 11
-    invoke-virtual {v3, v2}, Labcd/v3;->u7(Labcd/v3;)V
+    invoke-virtual {v3, v2}, Lcom/aide/codemodel/api/collections/SetOf;->u7(Lcom/aide/codemodel/api/collections/SetOf;)V
     :try_end_4e
     .catchall {:try_start_5 .. :try_end_4e} :catchall_4f
 
@@ -2904,7 +2861,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -3014,27 +2971,27 @@
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->rN:Labcd/m3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->rN:Lcom/aide/codemodel/api/collections/MapOfInt;
 
-    invoke-virtual {v0, p2, p3}, Labcd/m3;->we(ILcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v0, p2, p3}, Lcom/aide/codemodel/api/collections/MapOfInt;->we(ILcom/aide/codemodel/api/Entity;)V
 
     .line 2
     invoke-direct {p0}, Lcom/aide/codemodel/api/Member;->data()Lcom/aide/codemodel/api/Member$Data;
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->er:Labcd/v3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->er:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v0, p3}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v0, p3}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     .line 3
     invoke-direct {p0}, Lcom/aide/codemodel/api/Member;->data()Lcom/aide/codemodel/api/Member$Data;
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->yS:Labcd/h3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->yS:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v0, p1, p3}, Labcd/h3;->u7(ILcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v0, p1, p3}, Lcom/aide/codemodel/api/collections/ListOf;->u7(ILcom/aide/codemodel/api/Entity;)V
     :try_end_33
     .catchall {:try_start_0 .. :try_end_33} :catchall_34
 
@@ -3087,7 +3044,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -3201,7 +3158,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -3258,7 +3215,7 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
 
     if-nez v2, :cond_16
 
@@ -3272,9 +3229,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v2}, Labcd/h3;->EQ()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOf;->EQ()I
 
     move-result v0
     :try_end_20
@@ -3319,9 +3276,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v2, p1}, Labcd/h3;->v5(I)Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOf;->v5(I)Lcom/aide/codemodel/api/Entity;
 
     move-result-object v2
 
@@ -3332,9 +3289,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v2, p1}, Labcd/h3;->v5(I)Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOf;->v5(I)Lcom/aide/codemodel/api/Entity;
 
     move-result-object v2
 
@@ -3391,9 +3348,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v2, p1}, Labcd/h3;->v5(I)Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOf;->v5(I)Lcom/aide/codemodel/api/Entity;
 
     move-result-object v2
 
@@ -3482,7 +3439,7 @@
     const/4 v2, 0x0
 
     .line 1
-    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
     :try_end_f
     .catchall {:try_start_5 .. :try_end_f} :catchall_10
 
@@ -3519,7 +3476,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -3627,7 +3584,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -3764,7 +3721,7 @@
     throw v2
 .end method
 
-.method public aq()Labcd/v3;
+.method public aq()Lcom/aide/codemodel/api/collections/SetOf;
     .registers 5
     .annotation runtime Labcd/ey;
         method = 0x40f59971a1fc2dbL
@@ -3796,11 +3753,11 @@
 
     if-nez v2, :cond_1a
 
-    new-instance v2, Labcd/v3;
+    new-instance v2, Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v3, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v3, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v2, v3}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v2, v3}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
     return-object v2
 
@@ -3810,7 +3767,7 @@
 
     move-result-object v2
 
-    iget-object v0, v2, Lcom/aide/codemodel/api/Member$Data;->er:Labcd/v3;
+    iget-object v0, v2, Lcom/aide/codemodel/api/Member$Data;->er:Lcom/aide/codemodel/api/collections/SetOf;
     :try_end_20
     .catchall {:try_start_5 .. :try_end_20} :catchall_21
 
@@ -3902,14 +3859,14 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->e3()Labcd/m3;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->e3()Lcom/aide/codemodel/api/collections/MapOfInt;
 
     .line 2
     invoke-direct {p0}, Lcom/aide/codemodel/api/Member;->data()Lcom/aide/codemodel/api/Member$Data;
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
 
     if-eqz v2, :cond_2a
 
@@ -3917,9 +3874,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v2}, Labcd/v3;->J0()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf;->J0()I
 
     move-result v0
     :try_end_25
@@ -4057,7 +4014,7 @@
 
     move-result-object v0
 
-    iput v3, v0, Lcom/aide/codemodel/api/Member$Data;->BT:I
+    iput v3, v0, Lcom/aide/codemodel/api/Member$Data;->modifierFlags:I
 
     .line 4
     invoke-direct/range {p0 .. p0}, Lcom/aide/codemodel/api/Member;->data()Lcom/aide/codemodel/api/Member$Data;
@@ -4190,601 +4147,6 @@
     throw v0
 .end method
 
-.method public cb(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-    .registers 9
-    .annotation runtime Labcd/ey;
-        method = 0x21d7585f34338c90L
-    .end annotation
-
-    const-wide v0, 0x28198d3e4c5b6cd8L  # 1.621220231706095E-115
-
-    :try_start_5
-    sget-boolean v2, Lcom/aide/codemodel/api/Member;->J8:Z
-
-    if-eqz v2, :cond_c
-
-    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
-
-    .line 1
-    :cond_c
-    invoke-super {p0, p1}, Lcom/aide/codemodel/api/Entity;->cb(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 2
-    iget v2, p0, Lcom/aide/codemodel/api/Member;->u7:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 3
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->tp:Lcom/aide/codemodel/api/FileEntry;
-
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/FileEntry;->getID()I
-
-    move-result v2
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 4
-    iget v2, p0, Lcom/aide/codemodel/api/Member;->EQ:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 5
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
-
-    iget-object v3, p0, Lcom/aide/codemodel/api/Member;->we:Lcom/aide/codemodel/api/ClassType;
-
-    invoke-virtual {v2, v3}, Lcom/aide/codemodel/api/EntitySpace;->getID(Lcom/aide/codemodel/api/Entity;)I
-
-    move-result v2
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 6
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
-
-    if-eqz v2, :cond_35
-
-    const/4 v2, 0x1
-
-    goto :goto_36
-
-    :cond_35
-    const/4 v2, 0x0
-
-    :goto_36
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 7
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    if-eqz v2, :cond_1f9
-
-    .line 8
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->gn:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 9
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->tp:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 10
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->u7:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 11
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->EQ:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 12
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->we:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 13
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->J0:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 14
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->J8:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 15
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->Ws:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 16
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->v5:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 17
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->Zo:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 18
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->VH:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 19
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
-
-    iget-object v5, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v5, v5, Lcom/aide/codemodel/api/Member$Data;->gW:Lcom/aide/codemodel/api/Type;
-
-    invoke-virtual {v2, v5}, Lcom/aide/codemodel/api/EntitySpace;->getID(Lcom/aide/codemodel/api/Entity;)I
-
-    move-result v2
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 20
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->BT:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 21
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->vy:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 22
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->FH:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 23
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->syntaxLoaded:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 24
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->P8:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 25
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->KD:Ljava/lang/String;
-
-    if-eqz v2, :cond_c2
-
-    const/4 v2, 0x1
-
-    goto :goto_c3
-
-    :cond_c2
-    const/4 v2, 0x0
-
-    :goto_c3
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 26
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->KD:Ljava/lang/String;
-
-    if-eqz v2, :cond_d3
-
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->KD:Ljava/lang/String;
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
-
-    .line 27
-    :cond_d3
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->ro:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 28
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-wide v5, v2, Lcom/aide/codemodel/api/Member$Data;->nw:J
-
-    invoke-virtual {p1, v5, v6}, Ljava/io/DataOutputStream;->writeLong(J)V
-
-    .line 29
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->SI:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 30
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->Hw:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 31
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->cn:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 32
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Labcd/h3;
-
-    if-eqz v2, :cond_fe
-
-    const/4 v2, 0x1
-
-    goto :goto_ff
-
-    :cond_fe
-    const/4 v2, 0x0
-
-    :goto_ff
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 33
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Labcd/h3;
-
-    if-eqz v2, :cond_116
-
-    .line 34
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Labcd/h3;
-
-    invoke-virtual {v2, p1}, Labcd/h3;->J8(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 35
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->cb:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;->J0(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 36
-    :cond_116
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->ei:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 37
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->QX:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 38
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->XL:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 39
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->aM:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 40
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
-
-    if-eqz v2, :cond_13a
-
-    const/4 v2, 0x1
-
-    goto :goto_13b
-
-    :cond_13a
-    const/4 v2, 0x0
-
-    :goto_13b
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 41
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
-
-    if-eqz v2, :cond_14b
-
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
-
-    invoke-virtual {v2, p1}, Labcd/h3;->J8(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 42
-    :cond_14b
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    if-eqz v2, :cond_153
-
-    const/4 v2, 0x1
-
-    goto :goto_154
-
-    :cond_153
-    const/4 v2, 0x0
-
-    :goto_154
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 43
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    if-eqz v2, :cond_164
-
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;->J0(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 44
-    :cond_164
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    if-eqz v2, :cond_16c
-
-    const/4 v2, 0x1
-
-    goto :goto_16d
-
-    :cond_16c
-    const/4 v2, 0x0
-
-    :goto_16d
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 45
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    if-eqz v2, :cond_17d
-
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;->J0(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 46
-    :cond_17d
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
-
-    if-eqz v2, :cond_185
-
-    const/4 v2, 0x1
-
-    goto :goto_186
-
-    :cond_185
-    const/4 v2, 0x0
-
-    :goto_186
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 47
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
-
-    if-eqz v2, :cond_196
-
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
-
-    invoke-virtual {v2, p1}, Labcd/h3;->J8(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 48
-    :cond_196
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
-
-    if-eqz v2, :cond_19e
-
-    const/4 v2, 0x1
-
-    goto :goto_19f
-
-    :cond_19e
-    const/4 v2, 0x0
-
-    :goto_19f
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 49
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
-
-    if-eqz v2, :cond_1af
-
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
-
-    invoke-virtual {v2, p1}, Labcd/v3;->J8(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 50
-    :cond_1af
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->rN:Labcd/m3;
-
-    if-eqz v2, :cond_1b7
-
-    const/4 v2, 0x1
-
-    goto :goto_1b8
-
-    :cond_1b7
-    const/4 v2, 0x0
-
-    :goto_1b8
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 51
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->rN:Labcd/m3;
-
-    if-eqz v2, :cond_1c8
-
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->rN:Labcd/m3;
-
-    invoke-virtual {v2, p1}, Labcd/m3;->Ws(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 52
-    :cond_1c8
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->er:Labcd/v3;
-
-    if-eqz v2, :cond_1d0
-
-    const/4 v2, 0x1
-
-    goto :goto_1d1
-
-    :cond_1d0
-    const/4 v2, 0x0
-
-    :goto_1d1
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 53
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->er:Labcd/v3;
-
-    if-eqz v2, :cond_1e1
-
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->er:Labcd/v3;
-
-    invoke-virtual {v2, p1}, Labcd/v3;->J8(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 54
-    :cond_1e1
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Labcd/h3;
-
-    if-eqz v2, :cond_1e8
-
-    goto :goto_1e9
-
-    :cond_1e8
-    const/4 v3, 0x0
-
-    :goto_1e9
-    invoke-virtual {p1, v3}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 55
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Labcd/h3;
-
-    if-eqz v2, :cond_1f9
-
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Labcd/h3;
-
-    invoke-virtual {v2, p1}, Labcd/h3;->J8(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-    :try_end_1f9
-    .catchall {:try_start_5 .. :try_end_1f9} :catchall_1fa
-
-    :cond_1f9
-    return-void
-
-    :catchall_1fa
-    move-exception v2
-
-    .line 56
-    sget-boolean v3, Lcom/aide/codemodel/api/Member;->Ws:Z
-
-    if-eqz v3, :cond_202
-
-    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
-
-    :cond_202
-    throw v2
-.end method
-
 .method public e3()Z
     .registers 8
     .annotation runtime Labcd/ey;
@@ -4818,29 +4180,29 @@
     move-result-object v2
 
     .line 3
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->aX()Labcd/v3;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->aX()Lcom/aide/codemodel/api/collections/SetOf;
 
     move-result-object v2
 
     .line 4
-    iget-object v5, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v5, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v5}, Labcd/v3$b;->DW()V
+    invoke-virtual {v5}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 5
     :cond_21
-    iget-object v5, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v5, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v5}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v5}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v5
 
     if-eqz v5, :cond_3a
 
     .line 6
-    iget-object v5, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v5, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v5}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v5}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v5
 
@@ -4877,33 +4239,33 @@
     move-result-object v2
 
     .line 10
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->sM()Labcd/m3;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->sM()Lcom/aide/codemodel/api/collections/MapOfInt;
 
     move-result-object v2
 
     .line 11
-    iget-object v5, v2, Labcd/m3;->j6:Labcd/m3$b;
+    iget-object v5, v2, Lcom/aide/codemodel/api/collections/MapOfInt;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;
 
-    invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->J0()I
+    invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getIdentifier()I
 
     move-result v6
 
-    invoke-virtual {v5, v6}, Labcd/m3$b;->FH(I)V
+    invoke-virtual {v5, v6}, Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;->init(I)V
 
     .line 12
     :cond_53
-    iget-object v5, v2, Labcd/m3;->j6:Labcd/m3$b;
+    iget-object v5, v2, Lcom/aide/codemodel/api/collections/MapOfInt;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;
 
-    invoke-virtual {v5}, Labcd/m3$b;->j6()Z
+    invoke-virtual {v5}, Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;->hasMoreElements()Z
 
     move-result v5
 
     if-eqz v5, :cond_72
 
     .line 13
-    iget-object v5, v2, Labcd/m3;->j6:Labcd/m3$b;
+    iget-object v5, v2, Lcom/aide/codemodel/api/collections/MapOfInt;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;
 
-    invoke-virtual {v5}, Labcd/m3$b;->v5()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v5}, Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;->nextValue()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v5
 
@@ -5039,33 +4401,33 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->QO()Labcd/m3;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->QO()Lcom/aide/codemodel/api/collections/MapOfInt;
 
     move-result-object v2
 
     .line 3
-    iget-object v4, v2, Labcd/m3;->j6:Labcd/m3$b;
+    iget-object v4, v2, Lcom/aide/codemodel/api/collections/MapOfInt;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;
 
-    invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->J0()I
+    invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getIdentifier()I
 
     move-result v5
 
-    invoke-virtual {v4, v5}, Labcd/m3$b;->FH(I)V
+    invoke-virtual {v4, v5}, Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;->init(I)V
 
     .line 4
     :cond_25
-    iget-object v4, v2, Labcd/m3;->j6:Labcd/m3$b;
+    iget-object v4, v2, Lcom/aide/codemodel/api/collections/MapOfInt;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;
 
-    invoke-virtual {v4}, Labcd/m3$b;->j6()Z
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;->hasMoreElements()Z
 
     move-result v4
 
     if-eqz v4, :cond_3f
 
     .line 5
-    iget-object v4, v2, Labcd/m3;->j6:Labcd/m3$b;
+    iget-object v4, v2, Lcom/aide/codemodel/api/collections/MapOfInt;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;
 
-    invoke-virtual {v4}, Labcd/m3$b;->v5()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;->nextValue()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v4
 
@@ -5134,9 +4496,9 @@
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v0, p2, p1}, Labcd/h3;->u7(ILcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v0, p2, p1}, Lcom/aide/codemodel/api/collections/ListOf;->u7(ILcom/aide/codemodel/api/Entity;)V
     :try_end_1a
     .catchall {:try_start_0 .. :try_end_1a} :catchall_1b
 
@@ -5192,9 +4554,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v2, p1}, Labcd/h3;->v5(I)Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOf;->v5(I)Lcom/aide/codemodel/api/Entity;
 
     move-result-object v2
 
@@ -5300,7 +4662,7 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v1, p0}, Lcom/aide/codemodel/api/ClassType;->oy(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, p0}, Lcom/aide/codemodel/api/ClassType;->getContainingTypeOfMember(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -5312,11 +4674,11 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ParameterizedType;->ko()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ParameterizedType;->getClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
-    invoke-virtual {v1, p0}, Lcom/aide/codemodel/api/ClassType;->oy(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, p0}, Lcom/aide/codemodel/api/ClassType;->getContainingTypeOfMember(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -5373,7 +4735,7 @@
 
     check-cast v4, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ParameterizedType;->ko()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ParameterizedType;->getClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v4
 
@@ -5384,7 +4746,7 @@
     check-cast v3, Lcom/aide/codemodel/api/ParameterizedType;
 
     .line 8
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ParameterizedType;->jO()[I
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ParameterizedType;->getAbsoluteArgumentVariances()[I
 
     move-result-object v3
 
@@ -5456,7 +4818,7 @@
 
     check-cast v5, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v5}, Lcom/aide/codemodel/api/ParameterizedType;->ko()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v5}, Lcom/aide/codemodel/api/ParameterizedType;->getClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v5
 
@@ -5467,7 +4829,7 @@
     check-cast v4, Lcom/aide/codemodel/api/ParameterizedType;
 
     .line 14
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ParameterizedType;->jO()[I
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ParameterizedType;->getAbsoluteArgumentVariances()[I
 
     move-result-object v4
 
@@ -5491,7 +4853,7 @@
     check-cast v4, Lcom/aide/codemodel/api/ParameterizedType;
 
     .line 15
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ParameterizedType;->jO()[I
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ParameterizedType;->getAbsoluteArgumentVariances()[I
 
     move-result-object v4
 
@@ -5996,7 +5358,7 @@
 
     move-result-object v2
 
-    iget v0, v2, Lcom/aide/codemodel/api/Member$Data;->BT:I
+    iget v0, v2, Lcom/aide/codemodel/api/Member$Data;->modifierFlags:I
     :try_end_15
     .catchall {:try_start_5 .. :try_end_15} :catchall_1d
 
@@ -6088,7 +5450,7 @@
 
     .line 1
     :cond_c
-    iget-object v0, p0, Lcom/aide/codemodel/api/Member;->tp:Lcom/aide/codemodel/api/FileEntry;
+    iget-object v0, p0, Lcom/aide/codemodel/api/Member;->file:Lcom/aide/codemodel/api/FileEntry;
     :try_end_e
     .catchall {:try_start_5 .. :try_end_e} :catchall_f
 
@@ -6104,6 +5466,85 @@
     invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
 
     :cond_17
+    throw v2
+.end method
+
+.method public getId()I
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0x12cd98b17e319a69L
+    .end annotation
+
+    const-wide v0, -0x1a33b9805aceb085L  # -2.3465830231040635E182
+
+    :try_start_5
+    sget-boolean v2, Lcom/aide/codemodel/api/Member;->J8:Z
+
+    if-eqz v2, :cond_c
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    .line 1
+    :cond_c
+    iget v0, p0, Lcom/aide/codemodel/api/Member;->id:I
+    :try_end_e
+    .catchall {:try_start_5 .. :try_end_e} :catchall_f
+
+    return v0
+
+    :catchall_f
+    move-exception v2
+
+    sget-boolean v3, Lcom/aide/codemodel/api/Member;->Ws:Z
+
+    if-eqz v3, :cond_17
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_17
+    throw v2
+.end method
+
+.method public getIdentifier()I
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0x2de78fad748b1ab1L
+    .end annotation
+
+    const-wide v0, -0x2e27774f08febbf5L  # -1.9064536796801468E86
+
+    :try_start_5
+    sget-boolean v2, Lcom/aide/codemodel/api/Member;->J8:Z
+
+    if-eqz v2, :cond_c
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    .line 1
+    :cond_c
+    invoke-direct {p0}, Lcom/aide/codemodel/api/Member;->loadSyntax()V
+
+    .line 2
+    invoke-direct {p0}, Lcom/aide/codemodel/api/Member;->data()Lcom/aide/codemodel/api/Member$Data;
+
+    move-result-object v2
+
+    iget v0, v2, Lcom/aide/codemodel/api/Member$Data;->P8:I
+    :try_end_15
+    .catchall {:try_start_5 .. :try_end_15} :catchall_16
+
+    return v0
+
+    :catchall_16
+    move-exception v2
+
+    sget-boolean v3, Lcom/aide/codemodel/api/Member;->Ws:Z
+
+    if-eqz v3, :cond_1e
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1e
     throw v2
 .end method
 
@@ -6131,7 +5572,7 @@
 
     move-result-object v2
 
-    iget v0, v2, Lcom/aide/codemodel/api/Member$Data;->BT:I
+    iget v0, v2, Lcom/aide/codemodel/api/Member$Data;->modifierFlags:I
     :try_end_15
     .catchall {:try_start_5 .. :try_end_15} :catchall_16
 
@@ -6147,7 +5588,7 @@
 
     and-int/lit16 v0, v0, -0x4001
 
-    iput v0, v2, Lcom/aide/codemodel/api/Member$Data;->BT:I
+    iput v0, v2, Lcom/aide/codemodel/api/Member$Data;->modifierFlags:I
 
     :cond_1
     return v0
@@ -6186,14 +5627,14 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->e3()Labcd/m3;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->e3()Lcom/aide/codemodel/api/collections/MapOfInt;
 
     .line 2
     invoke-direct {p0}, Lcom/aide/codemodel/api/Member;->data()Lcom/aide/codemodel/api/Member$Data;
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
 
     const/4 v3, 0x0
 
@@ -6207,11 +5648,11 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v2, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v2, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v2}, Labcd/v3$b;->DW()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 4
     :cond_28
@@ -6219,11 +5660,11 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v2, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v2, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v2}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v2
 
@@ -6234,11 +5675,11 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v2, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v2, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v2}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v2
 
@@ -6249,7 +5690,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->jJ()Z
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->isInterfaceType()Z
 
     move-result v2
     :try_end_4c
@@ -6314,7 +5755,7 @@
 
     check-cast v2, Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2, p0}, Lcom/aide/codemodel/api/ClassType;->oy(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v2, p0}, Lcom/aide/codemodel/api/ClassType;->getContainingTypeOfMember(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -6326,11 +5767,11 @@
 
     check-cast v2, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ParameterizedType;->ko()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ParameterizedType;->getClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v2
 
-    invoke-virtual {v2, p0}, Lcom/aide/codemodel/api/ClassType;->oy(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v2, p0}, Lcom/aide/codemodel/api/ClassType;->getContainingTypeOfMember(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -6437,6 +5878,48 @@
     throw v2
 .end method
 
+.method public invalidate()V
+    .registers 5
+    .annotation runtime Labcd/ey;
+        method = -0xa30aab14ac2581dL
+    .end annotation
+
+    const-wide v0, 0x31ad1a1a16e2ff27L  # 2.10830412553502E-69
+
+    :try_start_5
+    sget-boolean v2, Lcom/aide/codemodel/api/Member;->J8:Z
+
+    if-eqz v2, :cond_c
+
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
+
+    :cond_c
+    const/4 v2, 0x0
+
+    .line 1
+    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->we:Lcom/aide/codemodel/api/ClassType;
+
+    .line 2
+    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+    :try_end_11
+    .catchall {:try_start_5 .. :try_end_11} :catchall_12
+
+    return-void
+
+    :catchall_12
+    move-exception v2
+
+    .line 3
+    sget-boolean v3, Lcom/aide/codemodel/api/Member;->Ws:Z
+
+    if-eqz v3, :cond_1a
+
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
+
+    :cond_1a
+    throw v2
+.end method
+
 .method public isAbstract()Z
     .registers 5
     .annotation runtime Labcd/ey;
@@ -6504,7 +5987,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -6564,7 +6047,7 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Lcom/aide/codemodel/api/collections/ListOf;
 
     if-nez v2, :cond_19
 
@@ -6578,9 +6061,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v2}, Labcd/h3;->EQ()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOf;->EQ()I
 
     move-result v0
     :try_end_23
@@ -6601,7 +6084,7 @@
     throw v2
 .end method
 
-.method public jO()Labcd/v3;
+.method public jO()Lcom/aide/codemodel/api/collections/SetOf;
     .registers 5
     .annotation runtime Labcd/ey;
         method = -0x51869b1a6688dfedL
@@ -6631,22 +6114,22 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->e3()Labcd/m3;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->e3()Lcom/aide/codemodel/api/collections/MapOfInt;
 
     .line 2
     invoke-direct {p0}, Lcom/aide/codemodel/api/Member;->data()Lcom/aide/codemodel/api/Member$Data;
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
 
     if-nez v2, :cond_23
 
-    new-instance v2, Labcd/v3;
+    new-instance v2, Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v3, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v3, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v2, v3}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v2, v3}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
     return-object v2
 
@@ -6656,7 +6139,7 @@
 
     move-result-object v2
 
-    iget-object v0, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
+    iget-object v0, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
     :try_end_29
     .catchall {:try_start_5 .. :try_end_29} :catchall_2a
 
@@ -6707,7 +6190,7 @@
 
     check-cast v3, Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v3, p0}, Lcom/aide/codemodel/api/ClassType;->oy(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v3, p0}, Lcom/aide/codemodel/api/ClassType;->getContainingTypeOfMember(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v3
 
@@ -6719,11 +6202,11 @@
 
     check-cast v3, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ParameterizedType;->ko()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ParameterizedType;->getClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v3
 
-    invoke-virtual {v3, p0}, Lcom/aide/codemodel/api/ClassType;->oy(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v3, p0}, Lcom/aide/codemodel/api/ClassType;->getContainingTypeOfMember(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v3
 
@@ -6778,7 +6261,7 @@
 
     check-cast v6, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v6}, Lcom/aide/codemodel/api/ParameterizedType;->ko()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v6}, Lcom/aide/codemodel/api/ParameterizedType;->getClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v6
 
@@ -6789,7 +6272,7 @@
     check-cast v5, Lcom/aide/codemodel/api/ParameterizedType;
 
     .line 8
-    invoke-virtual {v5}, Lcom/aide/codemodel/api/ParameterizedType;->jO()[I
+    invoke-virtual {v5}, Lcom/aide/codemodel/api/ParameterizedType;->getAbsoluteArgumentVariances()[I
 
     move-result-object v5
 
@@ -6856,7 +6339,7 @@
 
     check-cast v3, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v3, v2}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v3, v2}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object p1
 
@@ -6894,7 +6377,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v3, v2}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v3, v2}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object p1
 
@@ -6912,7 +6395,7 @@
 
     check-cast v3, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v3, v2}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v3, v2}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object p1
 
@@ -6926,11 +6409,11 @@
 
     check-cast v3, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v3, v2}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v3, v2}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
-    invoke-virtual {v4, v2}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v4, v2}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object p1
     :try_end_d4
@@ -7096,9 +6579,9 @@
 
     .line 4
     :try_start_78
-    iget-object v0, v13, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, v13, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    iget-object v1, v0, Lcom/aide/codemodel/api/EntitySpace;->rN:Lcom/aide/codemodel/api/Member$c;
+    iget-object v1, v0, Lcom/aide/codemodel/api/EntitySpace;->inferAlgorithm:Lcom/aide/codemodel/api/Member$InferAlgorithm;
     :try_end_7c
     .catchall {:try_start_78 .. :try_end_7c} :catchall_9b
 
@@ -7127,7 +6610,7 @@
     move/from16 v12, p10
 
     :try_start_94
-    invoke-virtual/range {v1 .. v12}, Lcom/aide/codemodel/api/Member$c;->VH(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Member;ILcom/aide/codemodel/api/Type;[Lcom/aide/codemodel/api/Type;II[Lcom/aide/codemodel/api/Type;II)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {v1 .. v12}, Lcom/aide/codemodel/api/Member$InferAlgorithm;->VH(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Member;ILcom/aide/codemodel/api/Type;[Lcom/aide/codemodel/api/Type;II[Lcom/aide/codemodel/api/Type;II)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
     :try_end_98
@@ -7294,7 +6777,7 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v1, p0}, Lcom/aide/codemodel/api/ClassType;->oy(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, p0}, Lcom/aide/codemodel/api/ClassType;->getContainingTypeOfMember(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -7334,7 +6817,7 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object p1
 
@@ -7349,11 +6832,11 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ParameterizedType;->ko()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ParameterizedType;->getClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
-    invoke-virtual {v1, p0}, Lcom/aide/codemodel/api/ClassType;->oy(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, p0}, Lcom/aide/codemodel/api/ClassType;->getContainingTypeOfMember(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -7385,7 +6868,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object p1
 
@@ -7403,7 +6886,7 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object p1
 
@@ -7417,11 +6900,11 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
-    invoke-virtual {v2, v0}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v2, v0}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object p1
     :try_end_8b
@@ -7478,7 +6961,7 @@
 
     move-result-object v2
 
-    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->BT:I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->modifierFlags:I
 
     and-int/lit16 v2, v2, 0x100
 
@@ -7534,7 +7017,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -7567,6 +7050,525 @@
     invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
 
     :cond_28
+    throw v2
+.end method
+
+.method public load(Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+    .registers 7
+    .annotation runtime Labcd/ey;
+        method = 0x34ccbfd66fc9746cL
+    .end annotation
+
+    const-wide v0, 0x2b2fcf550b1b4414L
+
+    :try_start_5
+    sget-boolean v2, Lcom/aide/codemodel/api/Member;->J8:Z
+
+    if-eqz v2, :cond_c
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    .line 1
+    :cond_c
+    invoke-super {p0, p1}, Lcom/aide/codemodel/api/Entity;->load(Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+
+    .line 2
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v2
+
+    iput v2, p0, Lcom/aide/codemodel/api/Member;->id:I
+
+    .line 3
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->fileSpace:Lcom/aide/codemodel/api/FileSpace;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Lcom/aide/codemodel/api/FileSpace;->getFileEntry(I)Lcom/aide/codemodel/api/FileEntry;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->file:Lcom/aide/codemodel/api/FileEntry;
+
+    .line 4
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v2
+
+    iput v2, p0, Lcom/aide/codemodel/api/Member;->EQ:I
+
+    .line 5
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Lcom/aide/codemodel/api/EntitySpace;->getEntity(I)Lcom/aide/codemodel/api/Entity;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/aide/codemodel/api/ClassType;
+
+    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->we:Lcom/aide/codemodel/api/ClassType;
+
+    .line 6
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1c5
+
+    .line 7
+    new-instance v2, Lcom/aide/codemodel/api/Member$Data;
+
+    const/4 v3, 0x0
+
+    invoke-direct {v2, v3}, Lcom/aide/codemodel/api/Member$Data;-><init>(Lcom/aide/codemodel/api/Member$a;)V
+
+    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    .line 8
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->gn:I
+
+    .line 9
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->tp:I
+
+    .line 10
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->u7:I
+
+    .line 11
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->EQ:I
+
+    .line 12
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->we:I
+
+    .line 13
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->J0:I
+
+    .line 14
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->J8:I
+
+    .line 15
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->Ws:I
+
+    .line 16
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->v5:I
+
+    .line 17
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->Zo:I
+
+    .line 18
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->VH:I
+
+    .line 19
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v3, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Lcom/aide/codemodel/api/EntitySpace;->getEntity(I)Lcom/aide/codemodel/api/Entity;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/aide/codemodel/api/Type;
+
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->gW:Lcom/aide/codemodel/api/Type;
+
+    .line 20
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->modifierFlags:I
+
+    .line 21
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v3
+
+    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->vy:Z
+
+    .line 22
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v3
+
+    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->FH:Z
+
+    .line 23
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v3
+
+    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->syntaxLoaded:Z
+
+    .line 24
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->P8:I
+
+    .line 25
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_df
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->KD:Ljava/lang/String;
+
+    .line 26
+    :cond_df
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v3
+
+    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->ro:Z
+
+    .line 27
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readLong()J
+
+    move-result-wide v3
+
+    iput-wide v3, v2, Lcom/aide/codemodel/api/Member$Data;->nw:J
+
+    .line 28
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v3
+
+    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->SI:Z
+
+    .line 29
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v3
+
+    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->Hw:Z
+
+    .line 30
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v3
+
+    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->cn:Z
+
+    .line 31
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_121
+
+    .line 32
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    new-instance v3, Lcom/aide/codemodel/api/collections/ListOf;
+
+    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
+
+    invoke-direct {v3, v4, p1}, Lcom/aide/codemodel/api/collections/ListOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Lcom/aide/codemodel/api/collections/ListOf;
+
+    .line 33
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    new-instance v3, Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    invoke-direct {v3, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;-><init>(Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->cb:Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    .line 34
+    :cond_121
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->ei:I
+
+    .line 35
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->QX:I
+
+    .line 36
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v3
+
+    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->XL:Z
+
+    .line 37
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v3
+
+    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->aM:Z
+
+    .line 38
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_152
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    new-instance v3, Lcom/aide/codemodel/api/collections/ListOf;
+
+    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
+
+    invoke-direct {v3, v4, p1}, Lcom/aide/codemodel/api/collections/ListOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
+
+    .line 39
+    :cond_152
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_161
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    new-instance v3, Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    invoke-direct {v3, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;-><init>(Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    .line 40
+    :cond_161
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_170
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    new-instance v3, Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    invoke-direct {v3, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;-><init>(Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    .line 41
+    :cond_170
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_181
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    new-instance v3, Lcom/aide/codemodel/api/collections/ListOf;
+
+    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
+
+    invoke-direct {v3, v4, p1}, Lcom/aide/codemodel/api/collections/ListOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
+
+    .line 42
+    :cond_181
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_192
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    new-instance v3, Lcom/aide/codemodel/api/collections/SetOf;
+
+    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
+
+    invoke-direct {v3, v4, p1}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
+
+    .line 43
+    :cond_192
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1a3
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    new-instance v3, Lcom/aide/codemodel/api/collections/MapOfInt;
+
+    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
+
+    invoke-direct {v3, v4, p1}, Lcom/aide/codemodel/api/collections/MapOfInt;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->rN:Lcom/aide/codemodel/api/collections/MapOfInt;
+
+    .line 44
+    :cond_1a3
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1b4
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    new-instance v3, Lcom/aide/codemodel/api/collections/SetOf;
+
+    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
+
+    invoke-direct {v3, v4, p1}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->er:Lcom/aide/codemodel/api/collections/SetOf;
+
+    .line 45
+    :cond_1b4
+    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1c5
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    new-instance v3, Lcom/aide/codemodel/api/collections/ListOf;
+
+    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
+
+    invoke-direct {v3, v4, p1}, Lcom/aide/codemodel/api/collections/ListOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Lcom/aide/codemodel/api/collections/ListOf;
+    :try_end_1c5
+    .catchall {:try_start_5 .. :try_end_1c5} :catchall_1c6
+
+    :cond_1c5
+    return-void
+
+    :catchall_1c6
+    move-exception v2
+
+    .line 46
+    sget-boolean v3, Lcom/aide/codemodel/api/Member;->Ws:Z
+
+    if-eqz v3, :cond_1ce
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_1ce
     throw v2
 .end method
 
@@ -7810,9 +7812,9 @@
     .line 7
     :cond_9b
     :try_start_9b
-    iget-object v0, v12, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, v12, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    iget-object v1, v0, Lcom/aide/codemodel/api/EntitySpace;->rN:Lcom/aide/codemodel/api/Member$c;
+    iget-object v1, v0, Lcom/aide/codemodel/api/EntitySpace;->inferAlgorithm:Lcom/aide/codemodel/api/Member$InferAlgorithm;
     :try_end_9f
     .catchall {:try_start_9b .. :try_end_9f} :catchall_bc
 
@@ -7839,7 +7841,7 @@
     move/from16 v11, p9
 
     :try_start_b5
-    invoke-virtual/range {v1 .. v11}, Lcom/aide/codemodel/api/Member$c;->Zo(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Type;[Lcom/aide/codemodel/api/Type;II[Lcom/aide/codemodel/api/Type;II)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {v1 .. v11}, Lcom/aide/codemodel/api/Member$InferAlgorithm;->Zo(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Type;[Lcom/aide/codemodel/api/Type;II[Lcom/aide/codemodel/api/Type;II)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
     :try_end_b9
@@ -7967,48 +7969,6 @@
     goto :goto_114
 .end method
 
-.method public n5()V
-    .registers 5
-    .annotation runtime Labcd/ey;
-        method = -0xa30aab14ac2581dL
-    .end annotation
-
-    const-wide v0, 0x31ad1a1a16e2ff27L  # 2.10830412553502E-69
-
-    :try_start_5
-    sget-boolean v2, Lcom/aide/codemodel/api/Member;->J8:Z
-
-    if-eqz v2, :cond_c
-
-    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
-
-    :cond_c
-    const/4 v2, 0x0
-
-    .line 1
-    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->we:Lcom/aide/codemodel/api/ClassType;
-
-    .line 2
-    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-    :try_end_11
-    .catchall {:try_start_5 .. :try_end_11} :catchall_12
-
-    return-void
-
-    :catchall_12
-    move-exception v2
-
-    .line 3
-    sget-boolean v3, Lcom/aide/codemodel/api/Member;->Ws:Z
-
-    if-eqz v3, :cond_1a
-
-    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
-
-    :cond_1a
-    throw v2
-.end method
-
 .method public oY()I
     .registers 5
     .annotation runtime Labcd/ey;
@@ -8033,7 +7993,7 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
     if-nez v2, :cond_19
 
@@ -8047,9 +8007,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v2}, Labcd/h3;->EQ()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOf;->EQ()I
 
     move-result v0
     :try_end_23
@@ -8153,9 +8113,9 @@
 
     .line 1
     :cond_52
-    iget-object v0, v12, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, v12, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    iget-object v1, v0, Lcom/aide/codemodel/api/EntitySpace;->rN:Lcom/aide/codemodel/api/Member$c;
+    iget-object v1, v0, Lcom/aide/codemodel/api/EntitySpace;->inferAlgorithm:Lcom/aide/codemodel/api/Member$InferAlgorithm;
     :try_end_56
     .catchall {:try_start_23 .. :try_end_56} :catchall_73
 
@@ -8182,7 +8142,7 @@
     move/from16 v11, p9
 
     :try_start_6c
-    invoke-virtual/range {v1 .. v11}, Lcom/aide/codemodel/api/Member$c;->gn(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Type;[Lcom/aide/codemodel/api/Type;II[Lcom/aide/codemodel/api/Type;II)Z
+    invoke-virtual/range {v1 .. v11}, Lcom/aide/codemodel/api/Member$InferAlgorithm;->gn(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Type;[Lcom/aide/codemodel/api/Type;II[Lcom/aide/codemodel/api/Type;II)Z
 
     move-result v0
     :try_end_70
@@ -8403,7 +8363,7 @@
     iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->Hw:Z
 
     .line 4
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v2, p0}, Lcom/aide/codemodel/api/EntitySpace;->sg(Lcom/aide/codemodel/api/Member;)V
 
@@ -8456,9 +8416,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v2, p1}, Labcd/h3;->v5(I)Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOf;->v5(I)Lcom/aide/codemodel/api/Entity;
 
     move-result-object v2
 
@@ -8469,9 +8429,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v2, p1}, Labcd/h3;->v5(I)Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOf;->v5(I)Lcom/aide/codemodel/api/Entity;
 
     move-result-object v2
 
@@ -8628,7 +8588,7 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Lcom/aide/codemodel/api/collections/ListOf;
 
     if-eqz v2, :cond_25
 
@@ -8636,9 +8596,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v2}, Labcd/h3;->EQ()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOf;->EQ()I
 
     move-result v0
     :try_end_21
@@ -8669,13 +8629,13 @@
     throw v2
 .end method
 
-.method public store(Lcom/aide/codemodel/api/collections/StoreInputStream;)V
-    .registers 7
+.method public store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+    .registers 9
     .annotation runtime Labcd/ey;
-        method = 0x34ccbfd66fc9746cL
+        method = 0x21d7585f34338c90L
     .end annotation
 
-    const-wide v0, 0x2b2fcf550b1b4414L
+    const-wide v0, 0x28198d3e4c5b6cd8L  # 1.621220231706095E-115
 
     :try_start_5
     sget-boolean v2, Lcom/aide/codemodel/api/Member;->J8:Z
@@ -8686,505 +8646,581 @@
 
     .line 1
     :cond_c
-    invoke-super {p0, p1}, Lcom/aide/codemodel/api/Entity;->store(Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+    invoke-super {p0, p1}, Lcom/aide/codemodel/api/Entity;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
 
     .line 2
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, p0, Lcom/aide/codemodel/api/Member;->id:I
 
-    move-result v2
-
-    iput v2, p0, Lcom/aide/codemodel/api/Member;->u7:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 3
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->Zo:Lcom/aide/codemodel/api/FileSpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->file:Lcom/aide/codemodel/api/FileEntry;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/FileEntry;->getId()I
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v2, v3}, Lcom/aide/codemodel/api/FileSpace;->getFileEntry(I)Lcom/aide/codemodel/api/FileEntry;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->tp:Lcom/aide/codemodel/api/FileEntry;
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 4
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, p0, Lcom/aide/codemodel/api/Member;->EQ:I
 
-    move-result v2
-
-    iput v2, p0, Lcom/aide/codemodel/api/Member;->EQ:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 5
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget-object v3, p0, Lcom/aide/codemodel/api/Member;->we:Lcom/aide/codemodel/api/ClassType;
 
-    move-result v3
+    invoke-virtual {v2, v3}, Lcom/aide/codemodel/api/EntitySpace;->getId(Lcom/aide/codemodel/api/Entity;)I
 
-    invoke-virtual {v2, v3}, Lcom/aide/codemodel/api/EntitySpace;->getEntity(I)Lcom/aide/codemodel/api/Entity;
+    move-result v2
 
-    move-result-object v2
-
-    check-cast v2, Lcom/aide/codemodel/api/ClassType;
-
-    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->we:Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 6
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    move-result v2
+    const/4 v3, 0x1
 
-    if-eqz v2, :cond_1c5
+    const/4 v4, 0x0
+
+    if-eqz v2, :cond_35
+
+    const/4 v2, 0x1
+
+    goto :goto_36
+
+    :cond_35
+    const/4 v2, 0x0
+
+    :goto_36
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 7
-    new-instance v2, Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    const/4 v3, 0x0
-
-    invoke-direct {v2, v3}, Lcom/aide/codemodel/api/Member$Data;-><init>(Lcom/aide/codemodel/api/Member$a;)V
-
-    iput-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    if-eqz v2, :cond_1f9
 
     .line 8
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    move-result v3
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->gn:I
 
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->gn:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 9
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->tp:I
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->tp:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 10
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->u7:I
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->u7:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 11
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->EQ:I
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->EQ:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 12
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->we:I
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->we:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 13
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->J0:I
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->J0:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 14
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->J8:I
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->J8:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 15
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->Ws:I
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->Ws:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 16
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->v5:I
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->v5:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 17
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->Zo:I
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->Zo:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 18
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->VH:I
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->VH:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 19
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    iget-object v3, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v5, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget-object v5, v5, Lcom/aide/codemodel/api/Member$Data;->gW:Lcom/aide/codemodel/api/Type;
 
-    move-result v4
+    invoke-virtual {v2, v5}, Lcom/aide/codemodel/api/EntitySpace;->getId(Lcom/aide/codemodel/api/Entity;)I
 
-    invoke-virtual {v3, v4}, Lcom/aide/codemodel/api/EntitySpace;->getEntity(I)Lcom/aide/codemodel/api/Entity;
+    move-result v2
 
-    move-result-object v3
-
-    check-cast v3, Lcom/aide/codemodel/api/Type;
-
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->gW:Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 20
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->modifierFlags:I
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->BT:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 21
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->vy:Z
 
-    move-result v3
-
-    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->vy:Z
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 22
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->FH:Z
 
-    move-result v3
-
-    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->FH:Z
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 23
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->syntaxLoaded:Z
 
-    move-result v3
-
-    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->syntaxLoaded:Z
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 24
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->P8:I
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->P8:I
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 25
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    move-result v2
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->KD:Ljava/lang/String;
 
-    if-eqz v2, :cond_df
+    if-eqz v2, :cond_c2
 
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    const/4 v2, 0x1
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
+    goto :goto_c3
 
-    move-result-object v3
+    :cond_c2
+    const/4 v2, 0x0
 
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->KD:Ljava/lang/String;
+    :goto_c3
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 26
-    :cond_df
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->KD:Ljava/lang/String;
 
-    move-result v3
+    if-eqz v2, :cond_d3
 
-    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->ro:Z
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->KD:Ljava/lang/String;
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
     .line 27
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    :cond_d3
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readLong()J
+    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->ro:Z
 
-    move-result-wide v3
-
-    iput-wide v3, v2, Lcom/aide/codemodel/api/Member$Data;->nw:J
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 28
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-wide v5, v2, Lcom/aide/codemodel/api/Member$Data;->nw:J
 
-    move-result v3
-
-    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->SI:Z
+    invoke-virtual {p1, v5, v6}, Ljava/io/DataOutputStream;->writeLong(J)V
 
     .line 29
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->SI:Z
 
-    move-result v3
-
-    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->Hw:Z
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 30
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->Hw:Z
 
-    move-result v3
-
-    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->cn:Z
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 31
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    move-result v2
+    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->cn:Z
 
-    if-eqz v2, :cond_121
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 32
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    new-instance v3, Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Lcom/aide/codemodel/api/collections/ListOf;
 
-    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    if-eqz v2, :cond_fe
 
-    invoke-direct {v3, v4, p1}, Labcd/h3;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+    const/4 v2, 0x1
 
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Labcd/h3;
+    goto :goto_ff
+
+    :cond_fe
+    const/4 v2, 0x0
+
+    :goto_ff
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 33
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    new-instance v3, Lcom/aide/codemodel/api/collections/ListOfInt;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-direct {v3, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;-><init>(Lcom/aide/codemodel/api/collections/StoreInputStream;)V
-
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->cb:Lcom/aide/codemodel/api/collections/ListOfInt;
+    if-eqz v2, :cond_116
 
     .line 34
-    :cond_121
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->sh:Lcom/aide/codemodel/api/collections/ListOf;
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->ei:I
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOf;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
 
     .line 35
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->cb:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    move-result v3
-
-    iput v3, v2, Lcom/aide/codemodel/api/Member$Data;->QX:I
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
 
     .line 36
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    :cond_116
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->ei:I
 
-    move-result v3
-
-    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->XL:Z
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 37
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget v2, v2, Lcom/aide/codemodel/api/Member$Data;->QX:I
 
-    move-result v3
-
-    iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->aM:Z
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 38
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    move-result v2
+    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->XL:Z
 
-    if-eqz v2, :cond_152
-
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    new-instance v3, Labcd/h3;
-
-    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
-
-    invoke-direct {v3, v4, p1}, Labcd/h3;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
-
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 39
-    :cond_152
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    move-result v2
+    iget-boolean v2, v2, Lcom/aide/codemodel/api/Member$Data;->aM:Z
 
-    if-eqz v2, :cond_161
-
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
-
-    new-instance v3, Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    invoke-direct {v3, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;-><init>(Lcom/aide/codemodel/api/collections/StoreInputStream;)V
-
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 40
-    :cond_161
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    move-result v2
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
-    if-eqz v2, :cond_170
+    if-eqz v2, :cond_13a
 
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    const/4 v2, 0x1
 
-    new-instance v3, Lcom/aide/codemodel/api/collections/ListOfInt;
+    goto :goto_13b
 
-    invoke-direct {v3, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;-><init>(Lcom/aide/codemodel/api/collections/StoreInputStream;)V
+    :cond_13a
+    const/4 v2, 0x0
 
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
+    :goto_13b
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 41
-    :cond_170
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    move-result v2
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
-    if-eqz v2, :cond_181
+    if-eqz v2, :cond_14b
 
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    new-instance v3, Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
-    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
-
-    invoke-direct {v3, v4, p1}, Labcd/h3;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
-
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Labcd/h3;
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOf;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
 
     .line 42
-    :cond_181
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    :cond_14b
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    move-result v2
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    if-eqz v2, :cond_192
+    if-eqz v2, :cond_153
 
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    const/4 v2, 0x1
 
-    new-instance v3, Labcd/v3;
+    goto :goto_154
 
-    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    :cond_153
+    const/4 v2, 0x0
 
-    invoke-direct {v3, v4, p1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
-
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
+    :goto_154
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 43
-    :cond_192
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    move-result v2
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    if-eqz v2, :cond_1a3
+    if-eqz v2, :cond_164
 
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    new-instance v3, Labcd/m3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
-
-    invoke-direct {v3, v4, p1}, Labcd/m3;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
-
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->rN:Labcd/m3;
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
 
     .line 44
-    :cond_1a3
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    :cond_164
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    move-result v2
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    if-eqz v2, :cond_1b4
+    if-eqz v2, :cond_16c
 
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    const/4 v2, 0x1
 
-    new-instance v3, Labcd/v3;
+    goto :goto_16d
 
-    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    :cond_16c
+    const/4 v2, 0x0
 
-    invoke-direct {v3, v4, p1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
-
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->er:Labcd/v3;
+    :goto_16d
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 45
-    :cond_1b4
-    invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    move-result v2
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    if-eqz v2, :cond_1c5
+    if-eqz v2, :cond_17d
 
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->J0:Lcom/aide/codemodel/api/Member$Data;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
 
-    new-instance v3, Labcd/h3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
-
-    invoke-direct {v3, v4, p1}, Labcd/h3;-><init>(Lcom/aide/codemodel/api/EntitySpace;Lcom/aide/codemodel/api/collections/StoreInputStream;)V
-
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Labcd/h3;
-    :try_end_1c5
-    .catchall {:try_start_5 .. :try_end_1c5} :catchall_1c6
-
-    :cond_1c5
-    return-void
-
-    :catchall_1c6
-    move-exception v2
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
 
     .line 46
+    :cond_17d
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
+
+    if-eqz v2, :cond_185
+
+    const/4 v2, 0x1
+
+    goto :goto_186
+
+    :cond_185
+    const/4 v2, 0x0
+
+    :goto_186
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 47
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
+
+    if-eqz v2, :cond_196
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->j3:Lcom/aide/codemodel/api/collections/ListOf;
+
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOf;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 48
+    :cond_196
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
+
+    if-eqz v2, :cond_19e
+
+    const/4 v2, 0x1
+
+    goto :goto_19f
+
+    :cond_19e
+    const/4 v2, 0x0
+
+    :goto_19f
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 49
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
+
+    if-eqz v2, :cond_1af
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
+
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/SetOf;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 50
+    :cond_1af
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->rN:Lcom/aide/codemodel/api/collections/MapOfInt;
+
+    if-eqz v2, :cond_1b7
+
+    const/4 v2, 0x1
+
+    goto :goto_1b8
+
+    :cond_1b7
+    const/4 v2, 0x0
+
+    :goto_1b8
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 51
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->rN:Lcom/aide/codemodel/api/collections/MapOfInt;
+
+    if-eqz v2, :cond_1c8
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->rN:Lcom/aide/codemodel/api/collections/MapOfInt;
+
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/MapOfInt;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 52
+    :cond_1c8
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->er:Lcom/aide/codemodel/api/collections/SetOf;
+
+    if-eqz v2, :cond_1d0
+
+    const/4 v2, 0x1
+
+    goto :goto_1d1
+
+    :cond_1d0
+    const/4 v2, 0x0
+
+    :goto_1d1
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 53
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->er:Lcom/aide/codemodel/api/collections/SetOf;
+
+    if-eqz v2, :cond_1e1
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->er:Lcom/aide/codemodel/api/collections/SetOf;
+
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/SetOf;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 54
+    :cond_1e1
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Lcom/aide/codemodel/api/collections/ListOf;
+
+    if-eqz v2, :cond_1e8
+
+    goto :goto_1e9
+
+    :cond_1e8
+    const/4 v3, 0x0
+
+    :goto_1e9
+    invoke-virtual {p1, v3}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 55
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Lcom/aide/codemodel/api/collections/ListOf;
+
+    if-eqz v2, :cond_1f9
+
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->data:Lcom/aide/codemodel/api/Member$Data;
+
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->yS:Lcom/aide/codemodel/api/collections/ListOf;
+
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOf;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+    :try_end_1f9
+    .catchall {:try_start_5 .. :try_end_1f9} :catchall_1fa
+
+    :cond_1f9
+    return-void
+
+    :catchall_1fa
+    move-exception v2
+
+    .line 56
     sget-boolean v3, Lcom/aide/codemodel/api/Member;->Ws:Z
 
-    if-eqz v3, :cond_1ce
+    if-eqz v3, :cond_202
 
     invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
 
-    :cond_1ce
+    :cond_202
     throw v2
 .end method
 
@@ -9213,9 +9249,9 @@
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->Mr:Labcd/h3;
+    iget-object v0, v0, Lcom/aide/codemodel/api/Member$Data;->Mr:Lcom/aide/codemodel/api/collections/ListOf;
 
-    invoke-virtual {v0, p2, p1}, Labcd/h3;->u7(ILcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v0, p2, p1}, Lcom/aide/codemodel/api/collections/ListOf;->u7(ILcom/aide/codemodel/api/Entity;)V
     :try_end_1a
     .catchall {:try_start_0 .. :try_end_1a} :catchall_1b
 
@@ -9302,7 +9338,7 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {p0}, Lcom/aide/codemodel/api/Member;->getFile()Lcom/aide/codemodel/api/FileEntry;
 
@@ -9361,7 +9397,7 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
 
     if-nez v2, :cond_23
 
@@ -9369,13 +9405,13 @@
 
     move-result-object v2
 
-    new-instance v3, Labcd/v3;
+    new-instance v3, Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v4, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v3, v4}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v3, v4}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
-    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
+    iput-object v3, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
 
     .line 2
     :cond_23
@@ -9383,9 +9419,9 @@
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Labcd/v3;
+    iget-object v2, v2, Lcom/aide/codemodel/api/Member$Data;->lg:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v2, p1}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
     :try_end_2c
     .catchall {:try_start_5 .. :try_end_2c} :catchall_2d
 
@@ -9453,7 +9489,7 @@
     iput-boolean v3, v2, Lcom/aide/codemodel/api/Member$Data;->Hw:Z
 
     .line 4
-    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v2, p0, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
     invoke-virtual {v2, p0}, Lcom/aide/codemodel/api/EntitySpace;->sg(Lcom/aide/codemodel/api/Member;)V
 
@@ -9530,42 +9566,6 @@
     invoke-static {v2, v0, v1, p0, v3}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
 
     :cond_27
-    throw v2
-.end method
-
-.method public we()I
-    .registers 5
-    .annotation runtime Labcd/ey;
-        method = -0x12cd98b17e319a69L
-    .end annotation
-
-    const-wide v0, -0x1a33b9805aceb085L  # -2.3465830231040635E182
-
-    :try_start_5
-    sget-boolean v2, Lcom/aide/codemodel/api/Member;->J8:Z
-
-    if-eqz v2, :cond_c
-
-    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
-
-    .line 1
-    :cond_c
-    iget v0, p0, Lcom/aide/codemodel/api/Member;->u7:I
-    :try_end_e
-    .catchall {:try_start_5 .. :try_end_e} :catchall_f
-
-    return v0
-
-    :catchall_f
-    move-exception v2
-
-    sget-boolean v3, Lcom/aide/codemodel/api/Member;->Ws:Z
-
-    if-eqz v3, :cond_17
-
-    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
-
-    :cond_17
     throw v2
 .end method
 
@@ -9783,9 +9783,9 @@
 
     .line 3
     :try_start_6e
-    iget-object v0, v13, Lcom/aide/codemodel/api/Member;->VH:Lcom/aide/codemodel/api/EntitySpace;
+    iget-object v0, v13, Lcom/aide/codemodel/api/Member;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    iget-object v1, v0, Lcom/aide/codemodel/api/EntitySpace;->rN:Lcom/aide/codemodel/api/Member$c;
+    iget-object v1, v0, Lcom/aide/codemodel/api/EntitySpace;->inferAlgorithm:Lcom/aide/codemodel/api/Member$InferAlgorithm;
     :try_end_72
     .catchall {:try_start_6e .. :try_end_72} :catchall_91
 
@@ -9814,7 +9814,7 @@
     move/from16 v12, p10
 
     :try_start_8a
-    invoke-virtual/range {v1 .. v12}, Lcom/aide/codemodel/api/Member$c;->Hw(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Member;ILcom/aide/codemodel/api/Type;[Lcom/aide/codemodel/api/Type;II[Lcom/aide/codemodel/api/Type;II)Lcom/aide/codemodel/api/Type;
+    invoke-virtual/range {v1 .. v12}, Lcom/aide/codemodel/api/Member$InferAlgorithm;->Hw(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Member;ILcom/aide/codemodel/api/Type;[Lcom/aide/codemodel/api/Type;II[Lcom/aide/codemodel/api/Type;II)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
     :try_end_8e
@@ -10000,7 +10000,7 @@
 
     .line 5
     :goto_2b
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->T6()Z
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->isToplevel()Z
 
     move-result v5
 
@@ -10121,7 +10121,7 @@
 
     move-result-object v2
 
-    iget v0, v2, Lcom/aide/codemodel/api/Member$Data;->BT:I
+    iget v0, v2, Lcom/aide/codemodel/api/Member$Data;->modifierFlags:I
     :try_end_12
     .catchall {:try_start_5 .. :try_end_12} :catchall_1a
 
@@ -10204,7 +10204,7 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v1, p0}, Lcom/aide/codemodel/api/ClassType;->oy(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, p0}, Lcom/aide/codemodel/api/ClassType;->getContainingTypeOfMember(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -10244,7 +10244,7 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object p1
 
@@ -10259,11 +10259,11 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ParameterizedType;->ko()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ParameterizedType;->getClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v1
 
-    invoke-virtual {v1, p0}, Lcom/aide/codemodel/api/ClassType;->oy(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, p0}, Lcom/aide/codemodel/api/ClassType;->getContainingTypeOfMember(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v1
 
@@ -10295,7 +10295,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object p1
 
@@ -10313,7 +10313,7 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object p1
 
@@ -10327,11 +10327,11 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
-    invoke-virtual {v2, v0}, Lcom/aide/codemodel/api/ParameterizedType;->WB(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v2, v0}, Lcom/aide/codemodel/api/ParameterizedType;->replaceType(Lcom/aide/codemodel/api/Type;)Lcom/aide/codemodel/api/Type;
 
     move-result-object p1
 

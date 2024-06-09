@@ -3,8 +3,8 @@
 .source "SourceFile"
 
 # interfaces
-.implements Labcd/fg;
-.implements Labcd/bg;
+.implements Lcom/aide/ui/command/MenuCommand;
+.implements Lcom/aide/ui/command/KeyStrokeCommand;
 
 
 # annotations
@@ -84,76 +84,51 @@
 
 
 # virtual methods
-.method public DW(Z)Z
-    .registers 6
+.method public getKeyStroke()Lcom/aide/common/KeyStroke;
+    .registers 7
     .annotation runtime Labcd/ey;
-        method = -0xf359b14e9bb18bbL
+        method = -0x4a166b189bbe6040L
     .end annotation
 
-    const-wide v0, 0xb5e04a1361f629fL
+    const-wide v0, -0x3c58af54cfa44734L  # -8.4001544259740621E17
 
     :try_start_5
     sget-boolean v2, Labcd/zb;->j6:Z
 
     if-eqz v2, :cond_c
 
-    invoke-static {v0, v1, p0, p1}, Labcd/iy;->Ws(JLjava/lang/Object;Z)V
+    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
+    new-instance v2, Lcom/aide/common/KeyStroke;
 
-    move-result-object v2
+    const/16 v3, 0x2e
 
-    invoke-virtual {v2}, Lcom/aide/ui/services/FileBrowserService;->FH()Ljava/lang/String;
+    const/4 v4, 0x1
 
-    move-result-object v2
+    const/4 v5, 0x0
 
-    if-eqz v2, :cond_1e
+    invoke-direct {v2, v3, v5, v4, v5}, Lcom/aide/common/KeyStroke;-><init>(IZZZ)V
+    :try_end_15
+    .catchall {:try_start_5 .. :try_end_15} :catchall_16
 
-    .line 2
+    return-object v2
 
-    const-string v3, "invoke-static {v2}, Lcom/aide/ui/util/FileSystem;->sh(Ljava/lang/String;)Z"
-    new-instance v3, Ljava/io/File;
-
-    invoke-direct {v3, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v3}, Ljava/io/File;->exists()Z
-
-    move-result p1
-    :try_end_1a
-    .catchall {:try_start_5 .. :try_end_1a} :catchall_20
-
-    if-eqz p1, :cond_1e
-
-    const/4 p1, 0x1
-
-    goto :goto_1f
-
-    :cond_1e
-    const/4 p1, 0x0
-
-    :goto_1f
-    return p1
-
-    :catchall_20
+    :catchall_16
     move-exception v2
 
     sget-boolean v3, Labcd/zb;->DW:Z
 
-    if-eqz v3, :cond_2d
+    if-eqz v3, :cond_1e
 
-    new-instance v3, Ljava/lang/Boolean;
+    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
 
-    invoke-direct {v3, p1}, Ljava/lang/Boolean;-><init>(Z)V
-
-    invoke-static {v2, v0, v1, p0, v3}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
-
-    :cond_2d
+    :cond_1e
     throw v2
 .end method
 
-.method public FH()I
+.method public getMenuItemId()I
     .registers 5
     .annotation runtime Labcd/ey;
         method = -0x24b7fcbc63108a03L
@@ -244,7 +219,7 @@
     const/4 v2, 0x0
 
     .line 1
-    invoke-virtual {p0, v2}, Labcd/zb;->DW(Z)Z
+    invoke-virtual {p0, v2}, Labcd/zb;->isVisible(Z)Z
 
     move-result v0
     :try_end_11
@@ -265,6 +240,75 @@
     throw v2
 .end method
 
+.method public isVisible(Z)Z
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = -0xf359b14e9bb18bbL
+    .end annotation
+
+    const-wide v0, 0xb5e04a1361f629fL
+
+    :try_start_5
+    sget-boolean v2, Labcd/zb;->j6:Z
+
+    if-eqz v2, :cond_c
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->Ws(JLjava/lang/Object;Z)V
+
+    .line 1
+    :cond_c
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/aide/ui/services/FileBrowserService;->FH()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1e
+
+    .line 2
+
+    const-string v3, "invoke-static {v2}, Lcom/aide/ui/util/FileSystem;->sh(Ljava/lang/String;)Z"
+    new-instance v3, Ljava/io/File;
+
+    invoke-direct {v3, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+
+    move-result p1
+    :try_end_1a
+    .catchall {:try_start_5 .. :try_end_1a} :catchall_20
+
+    if-eqz p1, :cond_1e
+
+    const/4 p1, 0x1
+
+    goto :goto_1f
+
+    :cond_1e
+    const/4 p1, 0x0
+
+    :goto_1f
+    return p1
+
+    :catchall_20
+    move-exception v2
+
+    sget-boolean v3, Labcd/zb;->DW:Z
+
+    if-eqz v3, :cond_2d
+
+    new-instance v3, Ljava/lang/Boolean;
+
+    invoke-direct {v3, p1}, Ljava/lang/Boolean;-><init>(Z)V
+
+    invoke-static {v2, v0, v1, p0, v3}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_2d
+    throw v2
+.end method
+
 .method public run()Z
     .registers 9
     .annotation runtime Labcd/ey;
@@ -282,7 +326,7 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
 
     move-result-object v2
 
@@ -296,7 +340,7 @@
     move-result-object v3
 
     .line 3
-    invoke-static {}, Lcom/aide/ui/App;->getMainActivity()Lcom/aide/ui/MainActivity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v4
 
@@ -327,49 +371,5 @@
     invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
 
     :cond_34
-    throw v2
-.end method
-
-.method public v5()Lcom/aide/common/KeyStroke;
-    .registers 7
-    .annotation runtime Labcd/ey;
-        method = -0x4a166b189bbe6040L
-    .end annotation
-
-    const-wide v0, -0x3c58af54cfa44734L  # -8.4001544259740621E17
-
-    :try_start_5
-    sget-boolean v2, Labcd/zb;->j6:Z
-
-    if-eqz v2, :cond_c
-
-    invoke-static {v0, v1, p0}, Labcd/iy;->gn(JLjava/lang/Object;)V
-
-    .line 1
-    :cond_c
-    new-instance v2, Lcom/aide/common/KeyStroke;
-
-    const/16 v3, 0x2e
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    invoke-direct {v2, v3, v5, v4, v5}, Lcom/aide/common/KeyStroke;-><init>(IZZZ)V
-    :try_end_15
-    .catchall {:try_start_5 .. :try_end_15} :catchall_16
-
-    return-object v2
-
-    :catchall_16
-    move-exception v2
-
-    sget-boolean v3, Labcd/zb;->DW:Z
-
-    if-eqz v3, :cond_1e
-
-    invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
-
-    :cond_1e
     throw v2
 .end method

@@ -187,7 +187,7 @@
 
     invoke-direct {v2, p0}, Lcom/aide/ui/build/android/n$b;-><init>(Lcom/aide/ui/build/android/n;)V
 
-    invoke-static {v2}, Lcom/aide/ui/App;->aj(Ljava/lang/Runnable;)Z
+    invoke-static {v2}, Lcom/aide/ui/ServiceContainer;->aj(Ljava/lang/Runnable;)Z
     :try_end_14
     .catchall {:try_start_5 .. :try_end_14} :catchall_15
 
@@ -291,13 +291,13 @@
     if-nez v2, :cond_34
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
     new-instance v3, Landroid/content/Intent;
 
-    invoke-static {}, Lcom/aide/ui/App;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getContext()Landroid/content/Context;
 
     move-result-object v4
 

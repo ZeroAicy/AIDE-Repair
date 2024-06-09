@@ -1,0 +1,837 @@
+Labcd/a0; -> Lcom/aide/ui/firebase/FireBaseLogEvent;
+Labcd/a2; -> Labcd/a2;
+	cb(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/b2; -> Labcd/b2;
+	cb(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/c2; -> Labcd/c2;
+	cb(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/d2; -> Labcd/d2;
+	cb(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/f0; -> Labcd/f0;
+	er(Labcd/a4;) -> store
+	lg(Labcd/z3;) -> store
+Labcd/h3; -> Labcd/h3;
+	J8(Labcd/a4;) -> store
+Labcd/j1; -> Labcd/j1;
+	cb(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/k0; -> Labcd/k0;
+	j3(Labcd/a4;) -> store
+	QX(Labcd/z3;) -> store
+Labcd/k1; -> Labcd/k1;
+	cb(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/l3; -> Labcd/l3;
+	U2(Labcd/a4;) -> store
+Labcd/m1; -> Labcd/m1;
+	vJ(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/m3; -> Labcd/m3;
+	Ws(Labcd/a4;) -> store
+Labcd/n1; -> Labcd/n1;
+	cb(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/n3; -> Labcd/n3;
+	u7(Labcd/a4;) -> store
+Labcd/r3; -> Labcd/r3;
+	EQ(Labcd/a4;) -> store
+Labcd/s1; -> Labcd/s1;
+	yS(Labcd/a4;) -> store
+	Mr(Labcd/z3;) -> store
+Labcd/u1; -> Labcd/u1;
+	cb(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/v1; -> Labcd/v1;
+	cb(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/v3; -> Labcd/v3;
+	J8(Labcd/a4;) -> store
+Labcd/w1; -> Labcd/w1;
+	cb(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/z1; -> Labcd/z1;
+	cb(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/ee; -> Lcom/aide/ui/project/internal/MakeJavaEngineSolution;
+Labcd/ae; -> Lcom/aide/ui/project/internal/MakeAndroidEngineSolution;
+Landroid/support/customtabs/a; -> Landroid/support/customtabs/CustomTabsCallback;
+Landroid/support/customtabs/b; -> Landroid/support/customtabs/CustomTabsClient;
+	j6(Landroid/content/Context;Ljava/lang/String;Landroid/support/customtabs/d;) -> bindCustomTabsService
+	DW(Landroid/support/customtabs/a;) -> newSession
+	FH(J) -> warmup
+Landroid/support/customtabs/c$b; -> Landroid/support/customtabs/CustomTabsIntent$Builder;
+	j6() -> build
+Landroid/support/customtabs/c; -> Landroid/support/customtabs/CustomTabsIntent;
+	j6 -> intent
+Landroid/support/customtabs/d; -> Landroid/support/customtabs/CustomTabsServiceConnection;
+Landroid/support/customtabs/e; -> Landroid/support/customtabs/CustomTabsSession;
+	FH(Landroid/net/Uri;Landroid/os/Bundle;Ljava/util/List;) -> mayLaunchUrl
+Landroid/support/v4/app/a; -> Landroid/support/v4/app/ActionBarDrawerToggle;
+	VH(Landroid/content/res/Configuration;) -> onConfigurationChanged
+	gn(Landroid/view/MenuItem;) -> onOptionsItemSelected
+	EQ() -> syncState
+Landroid/support/v4/app/b$b; -> Landroid/support/v4/app/ActivityCompat$OnRequestPermissionsResultCallback;
+Landroid/support/v4/app/b; -> Landroid/support/v4/app/ActivityCompat;
+	u7(Landroid/app/Activity;[Ljava/lang/String;I) -> requestPermissions
+Landroid/support/v4/app/h; -> Landroid/support/v4/app/DialogFragment;
+	Pa(Z) -> setShowsDialog
+	Jm(Landroid/support/v4/app/l;Ljava/lang/String;) -> show
+Landroid/support/v4/app/Fragment; -> Landroid/support/v4/app/Fragment;
+	VH() -> getActivity
+	we() -> getArguments
+	gn() -> getSupportFragmentManager
+	OW() -> onDestroy
+	aX(Landroid/os/Bundle;) -> setArguments
+Landroid/support/v4/app/FragmentActivity; -> Landroid/support/v4/app/FragmentActivity;
+	gn() -> getSupportFragmentManager
+Landroid/support/v4/app/l; -> Landroid/support/v4/app/FragmentManager;
+	j6() -> beginTransaction
+	Zo() -> getFragments
+Landroid/support/v4/app/o; -> Landroid/support/v4/app/FragmentStatePagerAdapter;
+	a8(I) -> getItem
+Landroid/support/v4/app/p; -> Landroid/support/v4/app/FragmentTransaction;
+	EQ(ILandroid/support/v4/app/Fragment;) -> add
+	Zo() -> commit
+Landroid/support/v4/app/NotificationCompat$b; -> Landroid/support/v4/app/NotificationCompat$BigTextStyle;
+	VH(Ljava/lang/CharSequence;) -> bigText
+Landroid/support/v4/app/NotificationCompat$Builder; -> Landroid/support/v4/app/NotificationCompat$Builder;
+	DW(ILjava/lang/CharSequence;Landroid/app/PendingIntent;) -> addAction
+	FH() -> build
+	Zo(Z) -> setAutoCancel
+	VH(Ljava/lang/String;) -> setChannelId
+	gn(Landroid/app/PendingIntent;) -> setContentIntent
+	u7(Ljava/lang/CharSequence;) -> setContentText
+	tp(Ljava/lang/CharSequence;) -> setContentTitle
+	EQ(I) -> setDefaults
+	J0(Z) -> setLocalOnly
+	J8(I) -> setNumber
+	Ws(I) -> setPriority
+	QX(I) -> setSmallIcon
+	XL(Landroid/support/v4/app/NotificationCompat$l;) -> setStyle
+	aM(Ljava/lang/CharSequence;) -> setTicker
+	j3(J) -> setWhen
+Landroid/support/v4/app/NotificationCompat$l; -> Landroid/support/v4/app/NotificationCompat$Style;
+Landroid/support/v4/content/b; -> Landroid/support/v4/content/ContextCompat;
+	j6(Landroid/content/Context;Ljava/lang/String;) -> checkSelfPermission
+	Hw(Landroid/content/Context;I) -> getDrawable
+	VH(Landroid/content/Context;) -> getNoBackupFilesDir
+	gn(Landroid/content/Context;) -> isDeviceProtectedStorage
+Landroid/support/v4/content/FileProvider; -> Landroid/support/v4/content/FileProvider;
+	v5(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;) -> getUriForFile
+Landroid/support/v4/content/d; -> Landroid/support/v4/content/PermissionChecker;
+	DW(Landroid/content/Context;Ljava/lang/String;) -> checkSelfPermission
+Landroid/support/v4/graphics/drawable/DrawableCompat; -> Landroid/support/v4/graphics/drawable/DrawableCompat;
+	FH(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;) -> setTintList
+	Hw(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;) -> setTintList
+	v5(Landroid/graphics/drawable/Drawable;) -> wrap
+Landroid/support/v4/util/SimpleArrayMap; -> Landroid/support/v4/util/SimpleArrayMap;
+	u7(I) -> keyAt
+	we(I) -> valueAt
+Landroid/support/v4/view/j; -> Landroid/support/v4/view/PagerAdapter;
+	j6(Landroid/view/View;ILjava/lang/Object;) -> destroyItem
+	DW(Landroid/view/ViewGroup;ILjava/lang/Object;) -> destroyItem
+	FH(Landroid/view/View;) -> finishUpdate
+	Hw(Landroid/view/ViewGroup;) -> finishUpdate
+	v5() -> getCount
+	Zo(Ljava/lang/Object;) -> getItemPosition
+	VH(I) -> getPageTitle
+	gn(I) -> getPageWidth
+	u7(Landroid/view/View;I) -> instantiateItem
+	tp(Landroid/view/ViewGroup;I) -> instantiateItem
+	EQ(Landroid/view/View;Ljava/lang/Object;) -> isViewFromObject
+	we() -> notifyDataSetChanged
+	J0(Landroid/database/DataSetObserver;) -> registerDataSetObserver
+	J8(Landroid/os/Parcelable;Ljava/lang/ClassLoader;) -> restoreState
+	Ws() -> saveState
+	QX(Landroid/view/View;ILjava/lang/Object;) -> setPrimaryItem
+	XL(Landroid/view/ViewGroup;ILjava/lang/Object;) -> setPrimaryItem
+	aM(Landroid/database/DataSetObserver;) -> setViewPagerObserver
+	j3(Landroid/view/View;) -> startUpdate
+	Mr(Landroid/view/ViewGroup;) -> startUpdate
+	U2(Landroid/database/DataSetObserver;) -> unregisterDataSetObserver
+Landroid/support/v4/view/k; -> Landroid/support/v4/view/ViewCompat;
+	u7(Landroid/view/View;) -> isAttachedToWindow
+Landroid/support/v4/view/ViewPager$LayoutParams; -> Landroid/support/v4/view/ViewPager$LayoutParams;
+	DW -> gravity
+Landroid/support/v4/view/ViewPager$h; -> Landroid/support/v4/view/ViewPager$OnAdapterChangeListener;
+Landroid/support/v4/view/ViewPager$i; -> Landroid/support/v4/view/ViewPager$OnPageChangeListener;
+	j6(IFI) -> onPageScrolled
+Landroid/support/v4/view/ViewPager$l; -> Landroid/support/v4/view/ViewPager$SimpleOnPageChangeListener;
+Landroid/support/v4/view/ViewPager; -> Landroid/support/v4/view/ViewPager;
+	v5(Landroid/support/v4/view/ViewPager$h;) -> addOnAdapterChangeListener
+	Zo(I) -> arrowScroll
+	aM(Landroid/view/KeyEvent;) -> executeKeyEvent
+	sh(Landroid/support/v4/view/ViewPager$h;) -> removeOnAdapterChangeListener
+	ef(IZ) -> setCurrentItem
+Landroid/support/v4/widget/DrawerLayout$d; -> Landroid/support/v4/widget/DrawerLayout$DrawerListener;
+Landroid/support/v4/widget/DrawerLayout$LayoutParams; -> Landroid/support/v4/widget/DrawerLayout$LayoutParams;
+	j6 -> gravity
+Landroid/support/v4/widget/DrawerLayout; -> Landroid/support/v4/widget/DrawerLayout;
+	Hw(I) -> closeDrawer
+	gW(I) -> isDrawerOpen
+	KD(I) -> openDrawer
+Lcom/aide/codemodel/AIDEModel; -> Lcom/aide/codemodel/AIDEModel;
+	rN(Labcd/a4;) -> store
+	j3(Labcd/z3;) -> store
+Labcd/r2; -> Lcom/aide/codemodel/api/BomReaderFactory;
+	j6(Ljava/io/InputStream;Ljava/lang/String;) -> createBomReader
+Lcom/aide/codemodel/api/p1; -> Lcom/aide/codemodel/api/ErrorTable;
+	OW(Labcd/a4;) -> store
+	lp(Labcd/z3;) -> store
+Lcom/aide/codemodel/api/FileEntry; -> Lcom/aide/codemodel/api/FileEntry;
+	gn -> children
+	XL -> diskVersion
+	QX -> exists
+	Zo -> id
+	we -> isArchive
+	EQ -> isArchiveEntry
+	J0 -> isDirectory
+	aM -> lastModified
+	u7 -> parentArchiveFile
+	tp -> relativeArchiveEntryPath
+	J8 -> version
+	j6(Ljava/lang/String;Ljava/lang/String;) -> addCustomEntry
+	DW(Ljava/lang/String;) -> addDirectory
+	FH(Ljava/lang/String;) -> addFile
+	sh() -> canCodeAnalyzer
+	Hw() -> exists
+	v5() -> fetchDiskVersion
+	Zo() -> fetchFileDiskVersion
+	VH() -> getArchiveVersion
+	u7() -> getChildCount
+	tp(I) -> getChildEntry
+	Ws() -> getCodeModel
+	we() -> getDiskVersion
+	J8() -> getExtensionString
+	XL() -> getFullNameString
+	aM() -> getID
+	er() -> getNameIdentifier
+	yS() -> getParentArchive
+	gW() -> getParentDirectory
+	BT() -> getPathString
+	ei() -> getRelativeArchivePath
+	SI() -> getSize
+	KD() -> getSuccessorFile
+	EQ() -> getSyntaxVersion
+	ro() -> getVersion
+	cn() -> init
+	cb() -> isArchive
+	dx() -> isArchiveEntry
+	sG() -> isDirectory
+	ef(Lcom/aide/codemodel/api/FileEntry;) -> isEnclosingDir
+	Sf() -> isOpen
+	Mz() -> isRootDirectory
+	ca() -> isSynchronized
+	aj() -> synchronize
+	sy(Labcd/a4;) -> store
+	Qq(Labcd/z3;) -> store
+Lcom/aide/codemodel/api/FileSpace; -> Lcom/aide/codemodel/api/FileSpace;
+	vy -> languages
+	yS -> assemblyMap
+	j3 -> assemblyReferences
+	Hw -> bomReaderFactory
+	Zo -> bytes
+	we -> changedFiles
+	EQ -> changedIncludeFiles
+	v5 -> chars
+	lg -> checkedFiles
+	gW -> codeModelFilePatterns
+	BT -> codeModels
+	VH -> crc32
+	J8 -> entries
+	Ws -> entryCount
+	XL -> fileAssembles
+	QX -> fileCodeModels
+	j6 -> identifierSpace
+	gn -> includedEntryVersions
+	u7 -> includes
+	DW -> openFileCallback
+	P8 -> packed
+	aM -> references
+	Mr -> registeredCheckedFiles
+	a8 -> registeredResourceFiles
+	U2 -> registeredSolutionFiles
+	er -> resourcePackageNames
+	rN -> solutionFiles
+	FH -> stopCallback
+	tp -> syntaxVersion
+	DW() -> close
+	EQ() -> configure
+	J8(Lcom/aide/codemodel/api/FileEntry;) -> declareEntry
+	yS(Lcom/aide/codemodel/api/FileEntry;) -> getCodeModel
+	BT() -> getCodeModels
+	a8() -> getEncoding
+	rN(I) -> getFileEntry
+	j3(Lcom/aide/codemodel/api/FileEntry;) -> getSyntaxVersion
+	XG(Labcd/a4;) -> storeEntries
+	yO(Labcd/a4;) -> store
+	OW(Labcd/z3;) -> store
+	jJ() -> synchronize
+	Hw(Lcom/aide/codemodel/api/abstraction/CodeModel;Ljava/util/List;) -> configureCodeModelFilePatterns
+	gn([Lcom/aide/codemodel/api/abstraction/CodeModel;) -> configureCodeModels
+	cn() -> getResourceFiles
+	XX() -> pack
+	dx() -> getSolutionFiles
+	x9(Lcom/aide/codemodel/api/FileEntry;) -> isCheckedSolutionFile
+	we(Ljava/io/InputStream;Ljava/lang/String;) -> createBomReader
+	wc(Z) -> update
+	
+	
+	
+Lcom/aide/codemodel/api/IdentifierSpace; -> Lcom/aide/codemodel/api/IdentifierSpace;
+	FH(Ljava/lang/String;) -> get
+	VH(I) -> getString
+	J0(Labcd/a4;) -> store
+	EQ(Labcd/z3;) -> store
+Lcom/aide/codemodel/api/Model; -> Lcom/aide/codemodel/api/Model;
+	gn -> apiSearcherCallback
+	Hw -> codeCompleterCallback
+	VH -> codeMetricsCallback
+	u7 -> debugMetadataCallback
+	aM -> entitySpace
+	QX -> fileSpace
+	DW -> highlighterCallback
+	Ws -> identifierSpace
+	yS -> modelCount
+	we -> openFileCallback
+	v5 -> refactoringCallback
+	EQ -> stopCallback
+	j6 -> structureCallback
+	FH -> symbolSearcherCallback
+	J0 -> templateEvaluatorCallback
+	Zo -> usageSearcherCallback
+	QX() -> getCodeModels
+	
+	rN(Labcd/a4;) -> store
+	j3(Labcd/z3;) -> store
+
+Lcom/aide/codemodel/api/abstraction/Syntax;->Lcom/aide/codemodel/api/abstraction/Syntax;
+	vJ(I) -> isToken
+	a8(I) -> isLiteral
+	P8(I) -> isClassDeclaration
+	dx(I) -> isIdentifier
+	Qq(I) -> hasAttrTarget
+	Hw(I) -> hasAttrDAIndex
+	u7(I) -> hasAttrVariableSlot
+	sy(I) -> hasAttrValue
+	aM(I) -> hasAttrType
+	ei(I) -> isParameters
+	j3(I) -> isArguments
+	cn(Lcom/aide/codemodel/api/SyntaxTree;) -> getImportNodePairs
+	v5(Lcom/aide/codemodel/api/SyntaxTree;) -> getNamespaceNodePairs
+	Mz(I) -> getString
+	
+
+Lcom/aide/codemodel/api/o1; -> Lcom/aide/codemodel/api/EntitySpace;
+	ko(I) -> getEntity
+	
+Labcd/n1; -> Lcom/aide/codemodel/api/Entity;
+	
+Lcom/aide/codemodel/api/SyntaxTree; -> Lcom/aide/codemodel/api/SyntaxTree;
+	DW -> NON_VALUE
+	j6 -> NON_VALUE0
+	EQ -> syntax
+	u7 -> attributepos
+	Zo -> content
+	VH -> contentpos
+	tp -> rootnode
+	gn -> attributes
+	Ws -> decldigest
+	we -> file
+	Mr -> language
+	v5 -> literalpos
+	Hw -> literals
+	FH -> model
+	yO() -> getDeclarationDigest
+	k2() -> getLanguage
+	AE(I) -> getSyntaxTag
+	b() -> memSize
+	gG(I) -> getStartLine
+	wc(I) -> getEndLine
+	zf(I) -> isTokenNode
+	aj(I) -> getChildCount
+	lp(II) -> getChildNode
+	IS(I) -> getStartColumn
+	jJ(I) -> getEndColumn
+	eN(I) -> isSyntheticNode
+	AR(I) -> isFieldDeclarationNode
+	XG(I) -> getDeclarationNumber
+	oy(I) -> getParentNode
+	ys() -> getRootNode
+	vJ(II) -> getAttribute
+	g3(I) -> getAttributeCount
+	EQ(Ljava/lang/StringBuffer;Ljava/lang/String;Labcd/f2;I) -> createString
+	cT(I) -> getLiteralString
+	ye(I) -> getIdentifierString
+	Mz(I) -> getString
+	FN(I) -> getIdentifier
+	AL(I) -> getLiteralChars
+	hK(I) -> getLiteralOff
+	w9(I) -> getLiteralLen
+	DW(II) -> areEqual
+	Ej(I) -> isIdentifierNode
+	gW(I) -> isExpression
+	Eq(IIIII) -> getExpressionNodeAt
+	VH(III) -> containsPositionExt
+	Ev(III) -> getIdentifierNodeAt
+	yS(IZIIIII) -> declareNode
+	Hw() -> clear
+	v5() -> clearAttributes
+	j3 -> clearedAttributes
+	Zo(I) -> clearAttributes
+	we(II) -> declareAttrDAIndex
+	ba(III) -> setAttribute
+	ca(IIIII) -> getNodeAt
+	T6(I) -> isLiteralNode
+	TI(I) -> hasLeftSisterNode
+	Ws(III) -> declareAttrReferenceKind
+	XL(II) -> declareAttrTarget
+	aM(ILcom/aide/codemodel/api/Type;) -> declareAttrType
+	a8(J) -> declareVersion
+	J0 -> version
+	kQ() -> getVersion
+	J0(I) -> declareAttrDAIndexCount
+	J8 -> indexcount
+	KD() -> getAttrDAIndexCount
+	ef(I) -> getAttrValue
+	er(IZIIII) -> declareNode
+	T6(I) -> isLiteralNode
+	b1(I) -> hasAttrValue
+	ef(I) -> getAttrValue
+	cb(I) -> getAttrReferenceNode
+	cn(I) -> getAttrReferenceEntity
+	ct(I) -> hasRightSisterNode
+	dW() -> isEmpty
+	
+
+Labcd/g2; -> Lcom/aide/codemodel/api/SyntaxTreeSpace;
+Lcom/aide/codemodel/api/SyntaxTreeSpace; -> Lcom/aide/codemodel/api/SyntaxTreeSytles;
+	FH -> startLines
+	Hw -> endLines
+	v5 -> startColumns
+	Zo -> endColumns
+	u7 -> size
+	j6 -> syntaxTags
+	
+Labcd/j2; -> Lcom/aide/codemodel/api/Type;
+	VH -> semantic
+	Zo -> space
+	cb(Labcd/a4;) -> store
+	sh(Labcd/z3;) -> store
+Labcd/k2; -> Lcom/aide/codemodel/api/Variable;
+	v5 -> endColumn
+	j6 -> fileEntry
+	Zo -> identifier
+	DW -> language
+	FH -> line
+	Hw -> startColumn
+	type -> type
+	j6() -> getEndColumn
+	DW() -> getFile
+	Hw() -> getIdentifier
+	v5() -> getLanguage
+	Zo() -> getLine
+	VH() -> getStartColumn
+	gn() -> getType
+Lcom/aide/codemodel/api/abstraction/CodeAnalyzer; -> Lcom/aide/codemodel/api/abstraction/CodeAnalyzer;
+	DW(Lcom/aide/codemodel/api/SyntaxTree;IILjava/lang/String;) -> analyzeTypeName
+	
+Lcom/aide/codemodel/api/abstraction/CodeModel; -> Lcom/aide/codemodel/api/abstraction/CodeModel;
+	QX() -> closeArchive
+	tp(Lcom/aide/codemodel/api/FileEntry;Ljava/io/Reader;Ljava/util/Map;) -> fillSyntaxTree
+	v5(Lcom/aide/codemodel/api/FileEntry;Ljava/io/Reader;Ljava/util/Map;Z) -> fillSyntaxTree
+	J8(Ljava/lang/String;) -> getArchiveEntries
+	we(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;) -> getArchiveEntryReader
+	VH(Ljava/lang/String;) -> getArchiveVersion
+	FH() -> getCompiler
+	J0() -> getDebugger
+	gn() -> getDefaultFilePatterns
+	Hw() -> getExtendFilePatterns
+	EQ() -> getLanguages
+	j6() -> getName
+	Zo() -> getPreprocessor
+	XL() -> isSupportArchiveFile
+	Ws(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;) -> processVersion
+	DW() -> update
+Lcom/aide/codemodel/api/abstraction/Compiler; -> Lcom/aide/codemodel/api/abstraction/Compiler;
+	j6(Ljava/util/List;Z) -> compile
+	DW(Lcom/aide/codemodel/api/abstraction/CodeModel;) -> init
+Labcd/k4; -> Lcom/aide/codemodel/api/abstraction/DebuggerResourceProvider;
+	DW() -> getDefProvider
+	j6() -> getHostPackageName
+	FH(Ljava/lang/String;) -> getResourceInputStream
+	Hw(Labcd/k4;) -> setDefProvider
+Lcom/aide/codemodel/api/abstraction/SignatureAnalyzer; -> Lcom/aide/codemodel/api/abstraction/SignatureAnalyzer;
+	we(Lcom/aide/codemodel/api/SyntaxTree;) -> getDeclarationDigest
+	
+Lcom/aide/codemodel/api/callback/OpenFileCallback; -> Lcom/aide/codemodel/api/callback/OpenFileCallback;
+	Ws() -> getCodeModel
+	Hw(Lcom/aide/codemodel/api/FileEntry;) -> getOpenFileSize
+	FH(Lcom/aide/codemodel/api/FileEntry;) -> isOpenFile
+Labcd/b3; -> Lcom/aide/codemodel/api/collections/FunctionOfIntInt;
+	tp(Labcd/a4;) -> store
+	FH() -> clear
+Labcd/c3; -> Lcom/aide/codemodel/api/collections/FunctionOfIntLong;
+	u7 -> SIZES
+	VH -> count
+	DW -> keys
+	Zo -> slots
+	Hw -> values
+	FH() -> clear
+	Zo(IJ) -> put
+	VH(Labcd/c3;) -> put
+	u7(I) -> remove
+	tp(Labcd/a4;) -> store
+Labcd/j3; -> Lcom/aide/codemodel/api/collections/ListOfInt;
+	DW -> size
+	j6 -> values
+	j6(I) -> add
+	DW() -> clear
+	FH(I) -> get
+	Hw() -> peek
+	tp() -> size
+	EQ() -> sort
+	we(II) -> sort
+	J0(Labcd/a4;) -> store
+Lcom/aide/codemodel/api/collections/MapOfIntInt; -> Lcom/aide/codemodel/api/collections/MapOfIntInt;
+	J8(Labcd/a4;) -> store
+Labcd/p3; -> Lcom/aide/codemodel/api/collections/MapOfIntLong;
+	tp(Labcd/a4;) -> store
+	j6 -> default_Iterator
+	u7(I) -> remove
+Labcd/p3$b; -> Lcom/aide/codemodel/api/collections/MapOfIntLong$Iterator;
+	DW() -> init
+	j6() -> hasMoreElements
+	FH() -> nextKey
+	Hw() -> nextValue
+	
+	
+
+Labcd/s3$b; -> Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator;
+	DW() -> init
+	j6() -> hasMoreElements
+	v5() -> nextValue
+	Hw() -> nextKey
+	
+Labcd/s3; -> Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
+	Hw() -> clear
+	tp(I) -> remove
+	j6 -> default_Iterator
+	EQ(Labcd/a4;) -> store
+Labcd/t3; -> Lcom/aide/codemodel/api/collections/RelationOfIntInt;
+	we(Labcd/a4;) -> store
+	DW() -> clear
+Labcd/w3; -> Lcom/aide/codemodel/api/collections/SetOfFileEntry;
+	FH() -> clear
+	v5(Lcom/aide/codemodel/api/FileEntry;) -> contains
+	J0(Labcd/a4;) -> store
+Labcd/x3$b; -> Lcom/aide/codemodel/api/collections/SetOfInt$Iterator;
+	j6 -> index
+	DW -> key
+	FH -> this$0
+	j6() -> hasMoreElements
+	DW() -> init
+	FH() -> nextKey
+Labcd/x3; -> Lcom/aide/codemodel/api/collections/SetOfInt;
+	j6 -> default_Iterator
+	VH -> SIZES
+	v5 -> count
+	DW -> keys
+	FH -> oldkeys
+	Zo -> sizeexp
+	Hw -> slots
+	DW() -> clear
+	Hw() -> empty
+	EQ() -> size
+	Zo(I) -> put
+	FH(I) -> contains
+	we(Labcd/a4;) -> store
+	
+	
+Labcd/z3; -> Lcom/aide/codemodel/api/collections/StoreInputStream;
+Labcd/a4; -> Lcom/aide/codemodel/api/collections/StoreOutputStream;
+Lcom/aide/codemodel/api/o1$a; -> Lcom/aide/codemodel/api/o1$a;
+	vJ(Labcd/a4;) -> store
+Lcom/aide/codemodel/api/p1$a; -> Lcom/aide/codemodel/api/p1$a;
+	j6(Labcd/a4;) -> store
+Lcom/aide/codemodel/api/p1$b; -> Lcom/aide/codemodel/api/p1$b;
+	j6(Labcd/a4;) -> store
+Lcom/aide/codemodel/api/p1$c; -> Lcom/aide/codemodel/api/p1$c;
+	j6(Labcd/a4;) -> store
+Lcom/aide/codemodel/api/p1$d; -> Lcom/aide/codemodel/api/p1$d;
+	j6(Labcd/a4;) -> store
+Lcom/aide/codemodel/language/java/JavaCompiler; -> Lcom/aide/codemodel/language/java/JavaCompiler;
+	XX -> debuggerHostPackageName
+
+Labcd/a7; -> Lcom/aide/codemodel/language/js/a7;
+Labcd/b7; -> Lcom/aide/codemodel/language/js/b7;
+
+
+Lcom/aide/engine/Engine$c$e; -> Lcom/aide/engine/Engine$c$HighlighterCallback;
+	DW -> syntaxStyleTypes
+	FH -> startLines
+	Hw -> startColumns
+	v5 -> endLines
+	Zo -> endColumns
+	j6 -> size
+	we(I) -> ensureExplicitCapacity
+	Hw() -> releaseSyntaxTree
+	DW(Lcom/aide/codemodel/api/FileEntry;) -> fileFinished
+	FH(Lcom/aide/codemodel/api/abstraction/Language;IIII) -> keywordFound
+	gn(Lcom/aide/codemodel/api/abstraction/Language;IIII)V -> identifierFound
+	Zo(Lcom/aide/codemodel/api/FileEntry;I) -> unifedLineFound
+	tp(Lcom/aide/codemodel/api/abstraction/Language;IIII) -> namespaceFound
+	v5(Lcom/aide/codemodel/api/abstraction/Language;IIII) -> typeFound
+	VH(Lcom/aide/codemodel/api/abstraction/Language;IIII) -> delegateFound
+	
+	
+Lcom/aide/engine/FileHighlightings; -> Lcom/aide/engine/FileHighlightings;
+	WB -> filePath
+	mb -> syntaxStyleTypes
+	jw -> startLines
+	fY -> startColumns
+	qp -> endLines
+	k2 -> endColumns
+	zh -> size
+	
+	
+Lcom/aide/engine/f; -> Lcom/aide/engine/SyntaxStyleType;
+	WB -> darkResId
+	mb -> lightResId
+	jw -> typefaceStyle
+	j6(Landroid/content/Context;Z) -> getColor
+	DW() -> getTypefaceStyle
+Lcom/aide/engine/h; -> Lcom/aide/engine/StyleSpan;
+	v5(II) -> getStyle
+	j6 -> spans
+	u7(IIII) -> insertSpan
+	tp(IIII) -> removeSpan
+	
+Lcom/aide/engine/service/CharArray; -> Lcom/aide/engine/service/CharArray;
+	WB -> data
+Lcom/aide/engine/service/CodeAnalysisEngineService$e; -> Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl;
+Lcom/aide/engine/service/CodeAnalysisEngineService; -> Lcom/aide/engine/service/CodeAnalysisEngineService;
+	k2 -> codeAnalysisEngineServiceSub
+	fY -> codeCompletionListener
+	WB -> engine
+	qp -> engineListener
+	jw -> gotoSymbolListener
+Labcd/p8; -> Lcom/aide/ui/project/WearAppProjectSupport;
+Labcd/t8; -> Lcom/aide/ui/util/MavenDependencyVersion;
+	j6(Ljava/lang/String;Ljava/lang/String;) -> compareTo
+	DW(Labcd/t8;) -> compareTo
+	DW -> version
+	
+	
+	
+	
+Lcom/aide/ui/util/Configuration; -> Lcom/aide/ui/util/Configuration;
+	DW -> configurationMap
+	FH -> lastModifiedMap
+	j6 -> configurationPath
+	j6(Ljava/lang/String;) -> getConfiguration
+	DW(Ljava/lang/String;) -> makeConfiguration
+
+Lcom/aide/ui/util/BuildGradle; -> Lcom/aide/ui/util/BuildGradle;
+	XL -> wearAppProject
+	EQ -> allProjectsRepositorys
+	tp -> curProjectsRepositorys
+	we -> subProjectsRepositorys
+	u7 -> productFlavorMap
+	aM -> signingConfigMap
+	Ws -> subProjectsDependencies
+	QX -> allProjectsDependencies
+	J8 -> dependencies
+	gn -> curFlavorsNodeLine
+	J0 -> curDependenciesNodeLine
+	VH -> curAndroidNodeLine
+	Zo -> defaultConfigProductFlavor
+	Zo(Ljava/lang/String;) -> addMavenDependency
+	v5(Ljava/lang/String;) -> addProjectDependency
+	U2(Ljava/lang/String;) -> getSigningConfig
+	j6(Ljava/lang/String;) -> j6
+	VH(Ljava/lang/String;) -> addProductFlavor
+	gn(Ljava/lang/String;) -> getFlavorApplicationId
+	er(Ljava/lang/String;) -> getVersionCode
+	yS(Ljava/lang/String;) -> getVersionName
+	QX(Ljava/lang/String;) -> getMinSdkVersion
+	a8(Ljava/lang/String;) -> getTargetSdkVersion
+	gW(Ljava/lang/String;) -> isMultiDexEnabled
+	
+Lcom/aide/ui/util/BuildGradle$Dependency; -> Lcom/aide/ui/util/BuildGradle$ProjectDependency;
+	j6(Ljava/lang/String;Lcom/aide/ui/util/BuildGradleExt;) -> getProjectDependencyPath
+	Zo -> projectName
+Lcom/aide/ui/util/BuildGradle$a; -> Lcom/aide/ui/util/BuildGradle$ProductFlavor;
+	j6 -> minSdkVersion
+	DW -> targetSdkVersion
+	Hw -> versionCode
+	FH -> versionName
+	v5 -> applicationId
+	Zo -> multiDexEnabled
+Lcom/aide/ui/util/BuildGradle$b; -> Lcom/aide/ui/util/BuildGradle$Dependency;
+Lcom/aide/ui/util/BuildGradle$c; -> Lcom/aide/ui/util/BuildGradle$FilesDependency;
+	Zo -> filesPath
+	j6(Ljava/lang/String;) -> getFilesPath
+	
+Lcom/aide/ui/util/BuildGradle$d; -> Lcom/aide/ui/util/BuildGradle$FileTreeDependency;
+	Zo -> dirPath
+	j6(Ljava/lang/String;) -> getDirPath
+Lcom/aide/ui/util/BuildGradle$e; -> Lcom/aide/ui/util/BuildGradle$FlatLocalRepository;
+	Zo -> flatDir
+	j6(Ljava/lang/String;) -> getFlatDir
+Lcom/aide/ui/util/BuildGradle$f; -> Lcom/aide/ui/util/BuildGradle$LineNumber;
+	j6 -> line
+Lcom/aide/ui/util/BuildGradle$i; -> Lcom/aide/ui/util/BuildGradle$Repository;
+Lcom/aide/ui/util/BuildGradle$m; -> Lcom/aide/ui/util/BuildGradle$RemoteRepository;
+	Zo -> repositorieURL
+Lcom/aide/ui/util/BuildGradle$MavenDependency; -> Lcom/aide/ui/util/BuildGradle$MavenDependency;
+	Zo -> groupId
+	VH -> artifactId
+	gn -> version
+	u7 -> packaging
+	tp -> coords
+	j6() -> getGroupIdArtifactId
+Lcom/aide/ui/util/BuildGradle$Dependency; -> Lcom/aide/ui/util/BuildGradle$ProjectDependency;
+	j6(Ljava/lang/String;Lcom/aide/ui/util/BuildGradleExt;) -> getProjectDepPath
+Lcom/aide/ui/util/BuildGradle$SigningConfig; -> Lcom/aide/ui/util/BuildGradle$SigningConfig;
+	v5 -> buildGradle
+	j6 -> storeFilePath
+	Hw -> storePassword
+	DW -> keyAlias
+	FH -> keyPassword
+	j6() -> getStoreFilePath
+Lcom/aide/ui/build/BuildService$a; -> Lcom/aide/ui/build/BuildService$BuildListenerImpl;
+	nl(Ljava/lang/String;) -> buildFailed
+Lcom/aide/ui/services/OpenFileService$OpenFileSupport; -> Lcom/aide/ui/services/OpenFileService$OpenFileSupport;
+	DW(Ljava/lang/String;) -> closeFile
+	FH(Ljava/lang/String;) -> openFile
+	j6(Ljava/lang/String;) -> visibleFile
+Lcom/aide/ui/services/OpenFileService; -> Lcom/aide/ui/services/OpenFileService;
+	gn(Ljava/lang/String;) -> getOpenFileModel
+Lcom/aide/ui/views/editor/Font; -> Lcom/aide/ui/views/editor/Font;
+	FH -> isFakeBoldText
+	DW -> typeface
+Lcom/aide/ui/views/editor/TextStyle; -> Lcom/aide/ui/views/editor/TextStyle;
+	DW -> color
+	j6 -> typefaceStyle
+	DW() -> getTypefaceStyle
+Lorg/codehaus/groovy/antlr/UnicodeEscapingReader; -> Lorg/codehaus/groovy/antlr/UnicodeEscapingReader;
+	FH(Lgroovyjarjarantlr/CharScanner;) -> setLexer
+Lorg/codehaus/groovy/antlr/parser/GroovyRecognizer; -> Lorg/codehaus/groovy/antlr/parser/GroovyRecognizer;
+	Jm(Lorg/codehaus/groovy/antlr/parser/GroovyLexer;) -> make
+	tE(Lorg/codehaus/groovy/antlr/SourceBuffer;) -> setSourceBuffer
+	Xa() -> compilationUnit
+Lgroovyjarjarantlr/Parser; -> Lgroovyjarjarantlr/Parser;
+	Hw() -> getAST
+Lgroovyjarjarantlr/collections/AST; -> Lgroovyjarjarantlr/collections/AST;
+	FH() -> getLine
+	QX() -> getFirstChild
+	u7() -> getNextSibling
+	OW() -> getText
+	j6() -> getType
+
+
+Labcd/zd; -> Lcom/aide/ui/project/internal/GradleTools;
+	ro(Ljava/lang/String;) -> isGradleProject
+	SI(Ljava/lang/String;) -> isAndroidProject
+	cn(Ljava/lang/String;) -> isInsideGradleProject
+	ei(Ljava/lang/String;) -> getSettingsGradlePath
+	er(Ljava/lang/String;) -> getProjectProperties
+	
+Lcom/aide/ui/util/FileSystem; -> Lcom/aide/ui/util/FileSystem;
+	gW(Ljava/lang/String;) -> getParent
+	er(Ljava/lang/String;) -> getName
+	dx(Ljava/lang/String;) -> isDirectory
+	sG(Ljava/lang/String;) -> isFileAndNotZip
+	ro(Ljava/lang/String;) -> isJarOrZipFile
+	gn(Ljava/lang/String;) -> exists
+Lcom/aide/ui/services/MavenService; -> Lcom/aide/ui/services/MavenService;
+	DW -> dependencyMap
+	j6 -> dependencyPathMap
+Lcom/aide/ui/util/MavenMetadataXml; -> Lcom/aide/ui/util/MavenMetadataXml;
+	FH(Ljava/lang/String;) -> getVersion
+	Hw(Ljava/util/ArrayList;Ljava/lang/String;) -> getVersion
+	v5(Ljava/lang/String;Ljava/lang/String;) -> matchVersion
+Lcom/aide/ui/services/ProjectSupport; -> Lcom/aide/ui/services/ProjectSupport;
+	BT(Ljava/lang/String;) -> getProductFlavors
+	
+Lcom/aide/ui/services/MavenService; -> Lcom/aide/ui/services/MavenService;
+	tp(Lcom/aide/ui/util/BuildGradle$MavenDependency;) -> getMavenDependencyPath
+	U2() -> getRepositoriePaths
+	Mr() -> getDefaulRepositoriePath
+	
+Lcom/aide/ui/AppPreferences; -> Lcom/aide/ui/AppPreferences;
+	lp() -> getUserAndroidJar
+	x9(Ljava/lang/String;) -> saveUserAndroidJar
+Lcom/aide/ui/services/ProjectService; -> Lcom/aide/ui/services/ProjectService;
+	rN() -> getBuildVariant
+	XL() -> getAndroidJarPath
+	gW() -> getCurrentAppHome
+	sh(Ljava/lang/String;) -> getProjectSupport
+	oY(Ljava/lang/String;) -> saveCurrentAppHome
+	
+	
+Lcom/aide/ui/App; -> Lcom/aide/ui/App;
+	BT -> mavenService
+	er() -> getMavenService
+	nw -> app
+	sG() -> getApp
+	P8() -> getProjectService
+	FH()  -> getAssetInstallationService
+	rN() -> getMainActivity
+	Mz() -> isTrainerMode
+	tp() -> getNativeCodeSupportService
+	VH() -> getContext
+	Ws() -> getFileBrowserService
+	v5() -> getProjectSupports
+	er(Ljava/lang/String;) -> match
+	u7() -> getDebugger
+	yS()  -> getOpenFileService
+	
+	
+	
+	
+Lcom/aide/ui/services/AssetInstallationService; -> Lcom/aide/ui/services/AssetInstallationService;
+	v5() -> getAnnotationsJarPath
+	u7() -> getJavaScriptAPIJsPath
+	
+Lcom/aide/ui/util/ClassPath$a; -> Lcom/aide/ui/util/ClassPath$Entry;
+	j6 -> kind
+	DW -> path
+	FH -> exported
+	Hw -> name
+	FH() -> isLibKind
+	Hw() -> isOutputIKind
+	Zo() -> isSrcKind
+	DW() -> isConKind
+Lcom/aide/engine/EngineSolution; -> Lcom/aide/engine/EngineSolution;
+	WB -> engineSolutionProjects
+	jw -> modelPatternsTreeMap
+	mb -> encoding
+	fY -> codeModelNames
+Lcom/aide/engine/EngineSolutionProject; -> Lcom/aide/engine/EngineSolutionProject;
+	WB -> projectName
+	
+	
+Lcom/aide/ui/project/AndroidProjectSupport; -> Lcom/aide/ui/project/AndroidProjectSupport;
+	Xa(Ljava/lang/String;) -> getFlatRepositoryPathMap
+	
+Lcom/aide/ui/build/IBuildService; -> Lcom/aide/ui/build/IBuildService;
+	v5() -> startCompile
+	
+
+Labcd/y8; -> Lcom/aide/ui/htmluidesigner/HtmlCodeBuildService
+Lcom/aide/ui/build/c; -> Lcom/aide/ui/build/BuildServiceCollect;
+Lcom/aide/ui/build/java/a; -> Lcom/aide/ui/build/java/JavaProjectBuildService;
+Lcom/aide/ui/build/android/b; -> Lcom/aide/ui/build/android/AndroidProjectBuildService;
+Lcom/aide/ui/build/nativeexecutable/b; -> Lcom/aide/ui/build/nativeexecutable/NativeProjectBuildService;
+
+Lcom/aide/ui/MainActivity; -> Lcom/aide/ui/MainActivity;
+	vy() -> setHasEmbeddedTabs
+	XX(Ljava/lang/String;) -> checkSelfPermission
+	
+	

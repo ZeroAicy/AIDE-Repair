@@ -13,6 +13,8 @@ import java.util.Collections;
 import io.github.zeroaicy.dexlib.aidePlus.extend.RewriterSmali.LineNumberWrapper;
 import io.github.zeroaicy.dexlib.aidePlus.extend.RewriterSmali.Field;
 import io.github.zeroaicy.dexlib.aidePlus.extend.RewriterSmali.Method;
+import java.util.Set;
+import java.util.Map.Entry;
 
 public class RewriterSmali{
 
@@ -32,81 +34,103 @@ public class RewriterSmali{
 			}
 			smaliLinesMap.put(className, smaliLines);
 		}
-
+		
 		RevertMappingData revertMappingData = new RevertMappingData(mappingFilePath);
 		Map<String, RewriterClassData> rewriterClassDataMap = revertMappingData.getRewriterClassDataMap();
-
-		//遍历规则
-		for ( RewriterClassData rewriterClassData : new HashSet<RewriterClassData>(rewriterClassDataMap.values()) ){
+		
+		//优先修改自身smali
+		Set<Map.Entry<String, List<String>>> entrySet = new HashSet<Map.Entry<String, List<String>>>( smaliLinesMap.entrySet());
+		
+		for ( Map.Entry<String, List<String>> entry : entrySet ){
 			//旧类名
-			String oldClassName = rewriterClassData.getConfusevt();
-			// 两部分，
-			// 1是修改规则指向的smali本身
-			// 2是其它其它规则
-			List<String> curSmaliLines = smaliLinesMap.get(oldClassName);
-			if ( curSmaliLines != null ){
-				//如果规则中有此smali的重命名规则
-				//则修改自身
-				//方法名
-				Map<String, RewriterClassData.MethodData> methodDataMap = rewriterClassData.getMethodDataMap();
-				if ( methodDataMap != null ){
-					for ( RewriterClassData.MethodData methodData : methodDataMap.values() ){
-						String methodSignature = " " + methodData.methodSignature;
-						String newMethodSignature = " " + methodData.getRenamedMethodSignature();
-						for ( int index = 0, size = curSmaliLines.size(); index < size; index++ ){
-							String line = curSmaliLines.get(index);
-							if ( line.startsWith(".method ") ){
-								line = line.replace(methodSignature, newMethodSignature);
-								//更新
-								curSmaliLines.set(index, line);
-							}
+			String oldClassName = entry.getKey();
+			
+			RewriterClassData rewriterClassData = rewriterClassDataMap.get(oldClassName);
+			if ( rewriterClassData == null ){
+				// 没有此smali规则
+				continue;
+			}
+			//如果规则中有此smali的重命名规则
+			//则修改自身 方法名
+			List<String> curSmaliLines = entry.getValue();
+			
+			Map<String, RewriterClassData.MethodData> methodDataMap = rewriterClassData.getMethodDataMap();
+			if ( methodDataMap != null ){
+				for ( RewriterClassData.MethodData methodData : methodDataMap.values() ){
 
+					String methodSignature = " " + methodData.methodSignature;
+					String newMethodSignature = " " + methodData.getRenamedMethodSignature();
+
+					for ( int index = 0, size = curSmaliLines.size(); index < size; index++ ){
+						String line = curSmaliLines.get(index);
+						if ( line.startsWith(".method ") ){
+							String oldLine = line;
+							line = line.replace(methodSignature, newMethodSignature);
+							
+							if( !oldLine.equals(line)){
+								System.out.println("改变前 " + oldLine);
+
+								System.out.println("改变后 " + line);
+								System.out.println();
+
+							}
+							//更新
+							curSmaliLines.set(index, line);
 						}
+
 					}
 				}
-
-				//字段名
-				Map<String, RewriterClassData.FieldData> fieldDatas = rewriterClassData.getFieldDatas();
-				if ( fieldDatas != null ){
-					for ( RewriterClassData.FieldData fieldData : fieldDatas.values() ){
-						String findFieldReference = " " + fieldData.confusevt + ":";
-						String toFieldReference = " " + fieldData.renamed + ":";
-
-						for ( int index = 0, size = curSmaliLines.size(); index < size; index++ ){
-							String line = curSmaliLines.get(index);
-							if ( line.startsWith(".field ") ){
-								line = line.replace(findFieldReference, toFieldReference);
-								//更新
-								curSmaliLines.set(index, line);
-							}
-						}
-					}
-				}
-				//类名[在修改类引用时会替换]
-				String renamed = rewriterClassData.getRenamed();
-				if ( !oldClassName.equals(renamed) ){
-					smaliLinesMap.remove(oldClassName);
-					smaliLinesMap.put(renamed, curSmaliLines);
-					System.out.println("更改类名 " + oldClassName + " -> " + rewriterClassData.getRenamed());					
-				}
-
-				//自身字段名及方法名修改时才需要排序
-				//此时需要对 字段 方法重新排序
-				//字段排序规则 字段名+返回类型[前者相同时考虑后者]
-				//方法排序规则 方法名+返回类型+参数类型[前者相同时考虑后者,参数数量越多者为-1]
-				compareToSmaliFile(curSmaliLines);
 			}
 
+			//字段名
+			Map<String, RewriterClassData.FieldData> fieldDatas = rewriterClassData.getFieldDatas();
+			if ( fieldDatas != null ){
+				for ( RewriterClassData.FieldData fieldData : fieldDatas.values() ){
+					String findFieldReference = " " + fieldData.confusevt + ":";
+					String toFieldReference = " " + fieldData.renamed + ":";
+
+					for ( int index = 0, size = curSmaliLines.size(); index < size; index++ ){
+						String line = curSmaliLines.get(index);
+						if ( line.startsWith(".field ") ){
+							line = line.replace(findFieldReference, toFieldReference);
+							//更新
+							curSmaliLines.set(index, line);
+						}
+					}
+				}
+			}
+			//类名[在修改类引用时会替换]
+			String renamed = rewriterClassData.getRenamed();
+			if ( !oldClassName.equals(renamed) ){
+				smaliLinesMap.remove(oldClassName);
+				smaliLinesMap.put(renamed, curSmaliLines);
+				System.out.println("更改类名 " + oldClassName + " -> " + rewriterClassData.getRenamed());					
+			}
+		}
+		
+		System.out.println("准备写入");
+		//遍历规则
+		for ( RewriterClassData rewriterClassData : new HashSet<RewriterClassData>(rewriterClassDataMap.values()) ){
+			// 两部分，
+			// 1是修改规则指向的smali本身(已修改)
+			
+			// 2是其它其它规则
+			
 			//修改方法引用
 			reMethodReference(rewriterClassData, smaliLinesMap);
 			//修改字段引用
 			reFieldReference(rewriterClassData, smaliLinesMap);
+		}
+		
+		// 类引用的修改必须在最后
+		for ( RewriterClassData rewriterClassData : new HashSet<RewriterClassData>(rewriterClassDataMap.values()) ){
 			//修改类引用
 			reClassReference(rewriterClassData, smaliLinesMap);
 		}
-
+		
 		//写入
 		for ( Map.Entry<String, List<String>> entry : smaliLinesMap.entrySet() ){
+
 			String key = entry.getKey();
 			String className = key.substring(1, key.length() - 1);
 
@@ -116,7 +140,15 @@ public class RewriterSmali{
 			if ( !parentFile.exists() ){
 				parentFile.mkdirs();
 			}
-			OpenFile.open(file).write(entry.getValue());
+			List<String> curSmaliLines = entry.getValue();
+
+			//自身字段名及方法名修改时才需要排序
+			//此时需要对 字段 方法重新排序
+			//字段排序规则 字段名+返回类型[前者相同时考虑后者]
+			//方法排序规则 方法名+返回类型+参数类型[前者相同时考虑后者,参数数量越多者为-1]
+			compareToSmaliFile(curSmaliLines);
+			
+			OpenFile.open(file).write(curSmaliLines);
 
 			System.out.println("写入 " + file);
 		}
@@ -153,6 +185,7 @@ public class RewriterSmali{
 			String findFieldReference = oldClassNameReference + fieldData.confusevt + ":";
 			String toFieldReference = newClassNameReference + fieldData.renamed + ":";
 			for ( List<String> lines : smaliLinesMap.values() ){
+				
 				for ( int index = 0, size = lines.size(); index < size; index++ ){
 					String line = lines.get(index);
 					if ( line.startsWith(".field ")
@@ -178,8 +211,10 @@ public class RewriterSmali{
 		}
 
 		for ( RewriterClassData.MethodData methodData : methodDataMap.values() ){
+			
 			String methodSignature = oldClassNameReference + methodData.methodSignature;
 			String newMethodSignature = newClassNameReference + methodData.getRenamedMethodSignature();
+			
 			for ( List<String> lines : smaliLinesMap.values() ){
 				for ( int index = 0, size = lines.size(); index < size; index++ ){
 					String line = lines.get(index);

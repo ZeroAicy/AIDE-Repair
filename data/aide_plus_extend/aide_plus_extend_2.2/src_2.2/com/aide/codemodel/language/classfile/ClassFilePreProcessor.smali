@@ -3874,249 +3874,6 @@
     throw v2
 .end method
 
-.method public aM(Ljava/lang/String;Ljava/lang/String;Ljava/util/Vector;)V
-    .registers 12
-    .annotation runtime Labcd/ey;
-        method = -0x2487d507d2c7faa5L
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/util/Vector<",
-            "Ljava/lang/String;",
-            ">;)V"
-        }
-    .end annotation
-
-    :try_start_0
-    sget-boolean v0, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->kQ:Z
-
-    if-eqz v0, :cond_10
-
-    const-wide v1, 0x149204a8a4f296e1L
-
-    move-object v3, p0
-
-    move-object v4, p1
-
-    move-object v5, p2
-
-    move-object v6, p3
-
-    invoke-static/range {v1 .. v6}, Labcd/iy;->we(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-
-    .line 1
-    :cond_10
-    invoke-virtual {p2}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    if-lez v0, :cond_27
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    .line 2
-    :cond_27
-    new-instance v0, Ljava/io/File;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-char v2, Ljava/io/File;->separatorChar:C
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Ljava/io/File;->list()[Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_bc
-
-    const/4 v1, 0x0
-
-    .line 3
-    :goto_44
-    array-length v2, v0
-
-    if-ge v1, v2, :cond_bc
-
-    .line 4
-    aget-object v2, v0, v1
-
-    .line 5
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-char v4, Ljava/io/File;->separatorChar:C
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 6
-    new-instance v4, Ljava/io/File;
-
-    invoke-direct {v4, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v4}, Ljava/io/File;->isDirectory()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_7b
-
-    .line 7
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v3, v2, p3}, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->aM(Ljava/lang/String;Ljava/lang/String;Ljava/util/Vector;)V
-
-    goto :goto_b9
-
-    :cond_7b
-    const/16 v3, 0x24
-
-    .line 8
-    invoke-virtual {v2, v3}, Ljava/lang/String;->lastIndexOf(I)I
-
-    move-result v3
-
-    const/4 v4, -0x1
-
-    if-ne v3, v4, :cond_9f
-
-    const-string v3, ".class"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_9f
-
-    .line 9
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p3, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    goto :goto_b9
-
-    :cond_9f
-    const-string v3, ".java"
-
-    .line 10
-    invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_b9
-
-    .line 11
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p3, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-    :try_end_b9
-    .catchall {:try_start_0 .. :try_end_b9} :catchall_bd
-
-    :cond_b9
-    :goto_b9
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_44
-
-    :cond_bc
-    return-void
-
-    :catchall_bd
-    move-exception v0
-
-    move-object v6, p2
-
-    .line 12
-    sget-boolean p2, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->yO:Z
-
-    if-eqz p2, :cond_cf
-
-    const-wide v2, 0x149204a8a4f296e1L
-
-    move-object v1, v0
-
-    move-object v4, p0
-
-    move-object v5, p1
-
-    move-object v7, p3
-
-    invoke-static/range {v1 .. v7}, Labcd/iy;->U2(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-
-    :cond_cf
-    goto :goto_d1
-
-    :goto_d0
-    throw v0
-
-    :goto_d1
-    goto :goto_d0
-.end method
-
 .method private ca(Ljava/util/List;II)V
     .registers 12
     .annotation runtime Labcd/ey;
@@ -10947,92 +10704,6 @@
     goto :goto_93
 .end method
 
-.method public yS(Ljava/lang/String;)Ljava/util/zip/ZipFile;
-    .registers 6
-    .annotation runtime Labcd/ey;
-        method = 0x2419cca1aa347adfL
-    .end annotation
-
-    const-wide v0, 0x2c7e67171b56335dL  # 2.2773693525484283E-94
-
-    :try_start_5
-    sget-boolean v2, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->kQ:Z
-
-    if-eqz v2, :cond_c
-
-    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
-
-    .line 1
-    :cond_c
-    sget-object v2, Ljava/io/File;->separator:Ljava/lang/String;
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1f
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    add-int/lit8 v3, v3, -0x1
-
-    invoke-virtual {p1, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 2
-    :cond_1f
-    iget-object v2, p0, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->DW:Ljava/util/Hashtable;
-
-    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_30
-
-    iget-object v2, p0, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->DW:Ljava/util/Hashtable;
-
-    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/util/zip/ZipFile;
-
-    return-object v2
-
-    .line 3
-    :cond_30
-    new-instance v2, Ljava/util/zip/ZipFile;
-
-    invoke-direct {v2, p1}, Ljava/util/zip/ZipFile;-><init>(Ljava/lang/String;)V
-
-    .line 4
-    iget-object v3, p0, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->DW:Ljava/util/Hashtable;
-
-    invoke-virtual {v3, p1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_3a
-    .catchall {:try_start_5 .. :try_end_3a} :catchall_3b
-
-    return-object v2
-
-    :catchall_3b
-    move-exception v2
-
-    .line 5
-    sget-boolean v3, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->yO:Z
-
-    if-eqz v3, :cond_43
-
-    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
-
-    :cond_43
-    throw v2
-.end method
-
 
 # virtual methods
 .method public J8(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
@@ -12270,6 +11941,249 @@
     goto :goto_71
 .end method
 
+.method public aM(Ljava/lang/String;Ljava/lang/String;Ljava/util/Vector;)V
+    .registers 12
+    .annotation runtime Labcd/ey;
+        method = -0x2487d507d2c7faa5L
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Ljava/util/Vector<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    :try_start_0
+    sget-boolean v0, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->kQ:Z
+
+    if-eqz v0, :cond_10
+
+    const-wide v1, 0x149204a8a4f296e1L
+
+    move-object v3, p0
+
+    move-object v4, p1
+
+    move-object v5, p2
+
+    move-object v6, p3
+
+    invoke-static/range {v1 .. v6}, Labcd/iy;->we(JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    .line 1
+    :cond_10
+    invoke-virtual {p2}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    if-lez v0, :cond_27
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    .line 2
+    :cond_27
+    new-instance v0, Ljava/io/File;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-char v2, Ljava/io/File;->separatorChar:C
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/io/File;->list()[Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_bc
+
+    const/4 v1, 0x0
+
+    .line 3
+    :goto_44
+    array-length v2, v0
+
+    if-ge v1, v2, :cond_bc
+
+    .line 4
+    aget-object v2, v0, v1
+
+    .line 5
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-char v4, Ljava/io/File;->separatorChar:C
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 6
+    new-instance v4, Ljava/io/File;
+
+    invoke-direct {v4, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4}, Ljava/io/File;->isDirectory()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_7b
+
+    .line 7
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v3, v2, p3}, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->aM(Ljava/lang/String;Ljava/lang/String;Ljava/util/Vector;)V
+
+    goto :goto_b9
+
+    :cond_7b
+    const/16 v3, 0x24
+
+    .line 8
+    invoke-virtual {v2, v3}, Ljava/lang/String;->lastIndexOf(I)I
+
+    move-result v3
+
+    const/4 v4, -0x1
+
+    if-ne v3, v4, :cond_9f
+
+    const-string v3, ".class"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_9f
+
+    .line 9
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p3, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    goto :goto_b9
+
+    :cond_9f
+    const-string v3, ".java"
+
+    .line 10
+    invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_b9
+
+    .line 11
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p3, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    :try_end_b9
+    .catchall {:try_start_0 .. :try_end_b9} :catchall_bd
+
+    :cond_b9
+    :goto_b9
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_44
+
+    :cond_bc
+    return-void
+
+    :catchall_bd
+    move-exception v0
+
+    move-object v6, p2
+
+    .line 12
+    sget-boolean p2, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->yO:Z
+
+    if-eqz p2, :cond_cf
+
+    const-wide v2, 0x149204a8a4f296e1L
+
+    move-object v1, v0
+
+    move-object v4, p0
+
+    move-object v5, p1
+
+    move-object v7, p3
+
+    invoke-static/range {v1 .. v7}, Labcd/iy;->U2(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_cf
+    goto :goto_d1
+
+    :goto_d0
+    throw v0
+
+    :goto_d1
+    goto :goto_d0
+.end method
+
 .method public vJ()V
     .registers 5
     .annotation runtime Labcd/ey;
@@ -12309,5 +12223,91 @@
     invoke-static {v2, v0, v1, p0}, Labcd/iy;->aM(Ljava/lang/Throwable;JLjava/lang/Object;)V
 
     :cond_1c
+    throw v2
+.end method
+
+.method public yS(Ljava/lang/String;)Ljava/util/zip/ZipFile;
+    .registers 6
+    .annotation runtime Labcd/ey;
+        method = 0x2419cca1aa347adfL
+    .end annotation
+
+    const-wide v0, 0x2c7e67171b56335dL  # 2.2773693525484283E-94
+
+    :try_start_5
+    sget-boolean v2, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->kQ:Z
+
+    if-eqz v2, :cond_c
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    .line 1
+    :cond_c
+    sget-object v2, Ljava/io/File;->separator:Ljava/lang/String;
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1f
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    add-int/lit8 v3, v3, -0x1
+
+    invoke-virtual {p1, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 2
+    :cond_1f
+    iget-object v2, p0, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->DW:Ljava/util/Hashtable;
+
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_30
+
+    iget-object v2, p0, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->DW:Ljava/util/Hashtable;
+
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/util/zip/ZipFile;
+
+    return-object v2
+
+    .line 3
+    :cond_30
+    new-instance v2, Ljava/util/zip/ZipFile;
+
+    invoke-direct {v2, p1}, Ljava/util/zip/ZipFile;-><init>(Ljava/lang/String;)V
+
+    .line 4
+    iget-object v3, p0, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->DW:Ljava/util/Hashtable;
+
+    invoke-virtual {v3, p1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_3a
+    .catchall {:try_start_5 .. :try_end_3a} :catchall_3b
+
+    return-object v2
+
+    :catchall_3b
+    move-exception v2
+
+    .line 5
+    sget-boolean v3, Lcom/aide/codemodel/language/classfile/ClassFilePreProcessor;->yO:Z
+
+    if-eqz v3, :cond_43
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_43
     throw v2
 .end method

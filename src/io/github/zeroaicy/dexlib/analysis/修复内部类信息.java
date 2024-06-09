@@ -21,6 +21,7 @@ import org.jf.dexlib2.rewriter.DexRewriter;
 import org.jf.dexlib2.rewriter.RewriterModule;
 import org.jf.dexlib2.writer.io.MemoryDataStore;
 import org.jf.dexlib2.writer.pool.DexPool;
+import java.util.HashMap;
 
 public class 修复内部类信息{
 
@@ -32,9 +33,11 @@ public class 修复内部类信息{
 		File dexsZipFile = new File(dexsZipFilePath);
 
 		MultiDexContainer<? extends DexBackedDexFile> loadDexContainer = DexFileFactory.loadDexContainer(dexsZipFile, null);
+		Map<String, String> switchMap = new HashMap<>();
 		//启用修复分析
-		boolean repairAnalysis = false;
-		DexFileAnalyzer dexFileAnalyzer = new DexFileAnalyzer(loadDexContainer, revertMapping, repairAnalysis);
+		switchMap.put(SwitchNameConstants.repairAnalysis, null);
+		
+		DexFileAnalyzer dexFileAnalyzer = new DexFileAnalyzer(loadDexContainer, revertMapping, switchMap);
 		dexFileAnalyzer.analysis();
 
 		RewriterModule ruleRewriterModule = new RevertRewriterModule(dexFileAnalyzer);

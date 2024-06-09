@@ -204,17 +204,17 @@
     const/4 v2, 0x0
 
     .line 12
-    invoke-static {}, Lcom/aide/ui/App;->Hw()Ljava/util/List;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->Hw()Ljava/util/List;
 
     move-result-object v3
 
     .line 13
-    invoke-static {v3}, Lcom/aide/engine/service/l;->j6(Ljava/util/List;)Ljava/util/TreeMap;
+    invoke-static {v3}, Lcom/aide/engine/service/CodeModelFactory;->j6(Ljava/util/List;)Ljava/util/TreeMap;
 
     move-result-object v3
 
     .line 14
-    invoke-static {}, Lcom/aide/ui/App;->Hw()Ljava/util/List;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->Hw()Ljava/util/List;
 
     move-result-object v4
 

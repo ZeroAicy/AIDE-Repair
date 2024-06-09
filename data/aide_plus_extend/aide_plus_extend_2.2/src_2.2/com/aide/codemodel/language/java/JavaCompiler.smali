@@ -39,7 +39,7 @@
     .end annotation
 .end field
 
-.field private EQ:Labcd/v3;
+.field private EQ:Lcom/aide/codemodel/api/collections/SetOf;
     .annotation runtime Labcd/dy;
         field = -0x155e6fd4926f8251L
     .end annotation
@@ -125,7 +125,7 @@
     .end annotation
 .end field
 
-.field private Sf:Labcd/v3;
+.field private Sf:Lcom/aide/codemodel/api/collections/SetOf;
     .annotation runtime Labcd/dy;
         field = -0x1f79cb8a7cf5eab4L
     .end annotation
@@ -193,7 +193,7 @@
     .end annotation
 .end field
 
-.field private cb:Labcd/v3;
+.field private cb:Lcom/aide/codemodel/api/collections/SetOf;
     .annotation runtime Labcd/dy;
         field = 0x60060919f8220099L
     .end annotation
@@ -219,7 +219,7 @@
     .end annotation
 .end field
 
-.field private dx:Labcd/v3;
+.field private dx:Lcom/aide/codemodel/api/collections/SetOf;
     .annotation runtime Labcd/dy;
         field = -0x8e24b981f1e32b7L
     .end annotation
@@ -335,7 +335,7 @@
     .end annotation
 .end field
 
-.field private sh:Labcd/v3;
+.field private sh:Lcom/aide/codemodel/api/collections/SetOf;
     .annotation runtime Labcd/dy;
         field = 0x3b0c9a9423500100L
     .end annotation
@@ -361,7 +361,7 @@
     .end annotation
 .end field
 
-.field private u7:Labcd/v3;
+.field private u7:Lcom/aide/codemodel/api/collections/SetOf;
     .annotation runtime Labcd/dy;
         field = 0x14cc9d4b94b54861L
     .end annotation
@@ -589,65 +589,65 @@
     iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
     .line 26
-    invoke-virtual {p2}, Lcom/aide/codemodel/language/java/JavaLanguage;->J8()Lcom/aide/codemodel/language/java/JavaTypeSystem;
+    invoke-virtual {p2}, Lcom/aide/codemodel/language/java/JavaLanguage;->getTypeSystem()Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->j6:Lcom/aide/codemodel/language/java/JavaTypeSystem;
 
     .line 27
-    new-instance v0, Labcd/v3;
+    new-instance v0, Lcom/aide/codemodel/api/collections/SetOf;
 
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v0, v1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v0, v1}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
-    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Sf:Labcd/v3;
+    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Sf:Lcom/aide/codemodel/api/collections/SetOf;
 
     .line 28
-    new-instance v0, Labcd/v3;
+    new-instance v0, Lcom/aide/codemodel/api/collections/SetOf;
 
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v0, v1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v0, v1}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
-    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->dx:Labcd/v3;
+    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->dx:Lcom/aide/codemodel/api/collections/SetOf;
 
     .line 29
-    new-instance v0, Labcd/v3;
+    new-instance v0, Lcom/aide/codemodel/api/collections/SetOf;
 
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v0, v1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v0, v1}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
-    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->u7:Labcd/v3;
+    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->u7:Lcom/aide/codemodel/api/collections/SetOf;
 
     .line 30
-    new-instance v0, Labcd/v3;
+    new-instance v0, Lcom/aide/codemodel/api/collections/SetOf;
 
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v0, v1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v0, v1}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
-    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Labcd/v3;
+    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Lcom/aide/codemodel/api/collections/SetOf;
 
     .line 31
-    new-instance v0, Labcd/v3;
+    new-instance v0, Lcom/aide/codemodel/api/collections/SetOf;
 
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v0, v1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v0, v1}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
-    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Labcd/v3;
+    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Lcom/aide/codemodel/api/collections/SetOf;
 
     .line 32
-    new-instance v0, Labcd/v3;
+    new-instance v0, Lcom/aide/codemodel/api/collections/SetOf;
 
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-direct {v0, v1}, Labcd/v3;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
+    invoke-direct {v0, v1}, Lcom/aide/codemodel/api/collections/SetOf;-><init>(Lcom/aide/codemodel/api/EntitySpace;)V
 
-    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Labcd/v3;
+    iput-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Lcom/aide/codemodel/api/collections/SetOf;
 
     .line 33
     invoke-static {}, Lcom/aide/codemodel/api/abstraction/DebuggerResourceProvider;->getDefProvider()Lcom/aide/codemodel/api/abstraction/DebuggerResourceProvider;
@@ -916,43 +916,43 @@
     move-result v2
 
     .line 2
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->fN()Labcd/v3;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->fN()Lcom/aide/codemodel/api/collections/SetOf;
 
     move-result-object v3
 
     .line 3
-    iget-object v4, v3, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v3, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->DW()V
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 4
     :cond_1f
-    iget-object v4, v3, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v3, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v4
 
     if-eqz v4, :cond_47
 
     .line 5
-    iget-object v4, v3, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v3, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v4
 
     check-cast v4, Lcom/aide/codemodel/api/ClassType;
 
     .line 6
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->J0()I
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->getIdentifier()I
 
     move-result v5
 
     if-ne v5, v2, :cond_1f
 
     .line 7
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v4
 
@@ -1347,7 +1347,7 @@
     :cond_65
     iget-object v3, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->br()Z
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->isEnumType()Z
 
     move-result v3
 
@@ -1356,30 +1356,30 @@
     .line 6
     iget-object v3, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->e3()Labcd/m3;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->e3()Lcom/aide/codemodel/api/collections/MapOfInt;
 
     move-result-object v3
 
     .line 7
-    iget-object v4, v3, Labcd/m3;->j6:Labcd/m3$b;
+    iget-object v4, v3, Lcom/aide/codemodel/api/collections/MapOfInt;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;
 
-    invoke-virtual {v4}, Labcd/m3$b;->DW()V
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;->DW()V
 
     .line 8
     :cond_78
     :goto_78
-    iget-object v4, v3, Labcd/m3;->j6:Labcd/m3$b;
+    iget-object v4, v3, Lcom/aide/codemodel/api/collections/MapOfInt;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;
 
-    invoke-virtual {v4}, Labcd/m3$b;->j6()Z
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;->hasMoreElements()Z
 
     move-result v4
 
     if-eqz v4, :cond_9d
 
     .line 9
-    iget-object v4, v3, Labcd/m3;->j6:Labcd/m3$b;
+    iget-object v4, v3, Lcom/aide/codemodel/api/collections/MapOfInt;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;
 
-    invoke-virtual {v4}, Labcd/m3$b;->v5()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;->nextValue()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v4
 
@@ -1482,9 +1482,9 @@
 
     .line 20
     :cond_de
-    iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->dx:Labcd/v3;
+    iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->dx:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v1}, Labcd/v3;->FH()V
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/collections/SetOf;->clear()V
 
     .line 21
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
@@ -1497,12 +1497,12 @@
     .line 23
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->vy:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->FH()V
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->clear()V
 
     .line 24
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->BT:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->FH()V
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->clear()V
 
     .line 25
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->P8:Lcom/aide/codemodel/api/collections/ListOfInt;
@@ -1532,7 +1532,7 @@
     .line 30
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->cn:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->FH()V
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->clear()V
 
     .line 31
     invoke-virtual/range {p3 .. p4}, Lcom/aide/codemodel/api/SyntaxTree;->getChildCount(I)I
@@ -2036,25 +2036,25 @@
 
     iget-object v2, v2, Lcom/aide/codemodel/api/Model;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/EntitySpace;->n5(Lcom/aide/codemodel/api/FileEntry;)Labcd/l3;
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/EntitySpace;->getToplevelClasstypesOfFile(Lcom/aide/codemodel/api/FileEntry;)Lcom/aide/codemodel/api/collections/MapOf;
 
     move-result-object v2
 
     .line 2
-    invoke-virtual {v2}, Labcd/l3;->Mr()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOf;->Mr()I
 
     move-result v3
 
     if-lez v3, :cond_49
 
     .line 3
-    invoke-virtual {v2}, Labcd/l3;->tp()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOf;->tp()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v2
 
     check-cast v2, Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v2
 
@@ -2307,7 +2307,7 @@
 
     check-cast v0, Lcom/aide/codemodel/api/Type;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Type;->jJ()Z
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Type;->isInterfaceType()Z
 
     move-result v0
 
@@ -2338,7 +2338,7 @@
 
     check-cast v0, Lcom/aide/codemodel/api/Type;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Type;->br()Z
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Type;->isEnumType()Z
 
     move-result v0
 
@@ -2426,7 +2426,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/FileEntry;->getID()I
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/FileEntry;->getId()I
 
     move-result v1
 
@@ -2637,28 +2637,28 @@
 
     check-cast v0, Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->T6()Z
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->isToplevel()Z
 
     move-result v0
 
     if-nez v0, :cond_6c
 
-    iget-object v0, v1, Lcom/aide/codemodel/language/java/JavaCompiler;->dx:Labcd/v3;
+    iget-object v0, v1, Lcom/aide/codemodel/language/java/JavaCompiler;->dx:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v0, v2}, Labcd/v3;->Hw(Lcom/aide/codemodel/api/Entity;)Z
+    invoke-virtual {v0, v2}, Lcom/aide/codemodel/api/collections/SetOf;->contains(Lcom/aide/codemodel/api/Entity;)Z
 
     move-result v0
 
     if-nez v0, :cond_6c
 
     .line 3
-    iget-object v0, v1, Lcom/aide/codemodel/language/java/JavaCompiler;->dx:Labcd/v3;
+    iget-object v0, v1, Lcom/aide/codemodel/language/java/JavaCompiler;->dx:Lcom/aide/codemodel/api/collections/SetOf;
 
     move-object v5, v2
 
     check-cast v5, Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v0, v5}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v0, v5}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     const/4 v0, 0x0
 
@@ -2673,7 +2673,7 @@
     invoke-direct {v1, v5, v0}, Lcom/aide/codemodel/language/java/JavaCompiler;->qP(Lcom/aide/codemodel/api/Entity;Z)V
 
     .line 6
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/Entity;->J0()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/Entity;->getIdentifier()I
 
     move-result v0
 
@@ -2808,31 +2808,31 @@
 
     .line 1
     :cond_c
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->jO()Labcd/v3;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->jO()Lcom/aide/codemodel/api/collections/SetOf;
 
     move-result-object v2
 
     .line 2
-    iget-object v3, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v3, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v3}, Labcd/v3$b;->DW()V
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 3
     :catch_15
     :cond_15
     :goto_15
-    iget-object v3, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v3, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v3}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v3
 
     if-eqz v3, :cond_3e
 
     .line 4
-    iget-object v3, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v3, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v3}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v3
 
@@ -2849,9 +2849,9 @@
     if-nez v4, :cond_30
 
     .line 6
-    iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Labcd/v3;
+    iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v4, v3}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v4, v3}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     .line 7
     :cond_30
@@ -2859,7 +2859,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->jJ()Z
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->isInterfaceType()Z
 
     move-result v4
 
@@ -2949,7 +2949,7 @@
     iput-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Mr:Lcom/aide/codemodel/api/Type;
 
     .line 3
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v2
 
@@ -2982,7 +2982,7 @@
 
     .line 7
     :cond_4a
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->J0()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getIdentifier()I
 
     move-result v6
 
@@ -3129,9 +3129,9 @@
 
     if-nez v3, :cond_174
 
-    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Sf:Labcd/v3;
+    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Sf:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v3, v0}, Labcd/v3;->Hw(Lcom/aide/codemodel/api/Entity;)Z
+    invoke-virtual {v3, v0}, Lcom/aide/codemodel/api/collections/SetOf;->contains(Lcom/aide/codemodel/api/Entity;)Z
 
     move-result v3
 
@@ -3419,9 +3419,9 @@
 
     if-nez v3, :cond_1c9
 
-    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Sf:Labcd/v3;
+    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->Sf:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v3, v0}, Labcd/v3;->Hw(Lcom/aide/codemodel/api/Entity;)Z
+    invoke-virtual {v3, v0}, Lcom/aide/codemodel/api/collections/SetOf;->contains(Lcom/aide/codemodel/api/Entity;)Z
 
     move-result v3
 
@@ -3472,9 +3472,9 @@
 
     .line 62
     :cond_1e3
-    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Labcd/v3;
+    iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v3, v0}, Labcd/v3;->Hw(Lcom/aide/codemodel/api/Entity;)Z
+    invoke-virtual {v3, v0}, Lcom/aide/codemodel/api/collections/SetOf;->contains(Lcom/aide/codemodel/api/Entity;)Z
 
     move-result v3
 
@@ -3490,11 +3490,11 @@
 
     .line 65
     :cond_1f2
-    invoke-direct {v7, v0}, Lcom/aide/codemodel/language/java/JavaCompiler;->Lz(Lcom/aide/codemodel/api/Member;)Labcd/v3;
+    invoke-direct {v7, v0}, Lcom/aide/codemodel/language/java/JavaCompiler;->Lz(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/collections/SetOf;
 
     move-result-object v2
 
-    invoke-direct {v7, v5, v0, v2}, Lcom/aide/codemodel/language/java/JavaCompiler;->ko(Lcom/aide/codemodel/api/SyntaxTree;Lcom/aide/codemodel/api/Member;Labcd/v3;)V
+    invoke-direct {v7, v5, v0, v2}, Lcom/aide/codemodel/language/java/JavaCompiler;->ko(Lcom/aide/codemodel/api/SyntaxTree;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/collections/SetOf;)V
 
     .line 66
     invoke-virtual {v5, v1, v4}, Lcom/aide/codemodel/api/SyntaxTree;->getChildNode(II)I
@@ -3672,7 +3672,7 @@
 
     check-cast v0, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ParameterizedType;->ko()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ParameterizedType;->getClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v0
 
@@ -3713,7 +3713,7 @@
 
     check-cast p3, Lcom/aide/codemodel/api/ArrayType;
 
-    invoke-virtual {p3}, Lcom/aide/codemodel/api/ArrayType;->oY()Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p3}, Lcom/aide/codemodel/api/ArrayType;->getElementType()Lcom/aide/codemodel/api/Type;
 
     move-result-object p3
 
@@ -3794,7 +3794,7 @@
     .line 16
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/EntitySpace;->q7()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/EntitySpace;->getRootNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v0
 
@@ -3833,7 +3833,7 @@
     :cond_ac
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/EntitySpace;->q7()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/EntitySpace;->getRootNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v1
     :try_end_b2
@@ -3859,7 +3859,7 @@
 
     check-cast v1, Lcom/aide/codemodel/api/Namespace;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/Namespace;->J0()I
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/Namespace;->getIdentifier()I
 
     move-result v1
 
@@ -4151,19 +4151,19 @@
     :cond_167
     :goto_167
     :try_start_167
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->T6()Z
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->isToplevel()Z
 
     move-result v1
 
     if-eqz v1, :cond_19e
 
     .line 39
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v1
 
     .line 40
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->J0()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getIdentifier()I
 
     move-result v0
 
@@ -4334,7 +4334,7 @@
 
     .line 55
     :try_start_1ea
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->J0()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getIdentifier()I
 
     move-result v1
 
@@ -4676,7 +4676,7 @@
 
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->jJ()Z
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->isInterfaceType()Z
 
     move-result v0
 
@@ -4691,11 +4691,11 @@
 
     .line 2
     :goto_22
-    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->u7:Labcd/v3;
+    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->u7:Lcom/aide/codemodel/api/collections/SetOf;
 
     iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v3, v4}, Labcd/v3;->Hw(Lcom/aide/codemodel/api/Entity;)Z
+    invoke-virtual {v3, v4}, Lcom/aide/codemodel/api/collections/SetOf;->contains(Lcom/aide/codemodel/api/Entity;)Z
 
     move-result v3
 
@@ -4868,7 +4868,7 @@
 
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->jJ()Z
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->isInterfaceType()Z
 
     move-result v0
 
@@ -4879,11 +4879,11 @@
 
     .line 20
     :cond_b6
-    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->u7:Labcd/v3;
+    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->u7:Lcom/aide/codemodel/api/collections/SetOf;
 
     iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v0, v3}, Labcd/v3;->Hw(Lcom/aide/codemodel/api/Entity;)Z
+    invoke-virtual {v0, v3}, Lcom/aide/codemodel/api/collections/SetOf;->contains(Lcom/aide/codemodel/api/Entity;)Z
 
     move-result v0
 
@@ -5134,7 +5134,7 @@
 
     .line 8
     :goto_53
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->T6()Z
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->isToplevel()Z
 
     move-result v5
 
@@ -5264,7 +5264,7 @@
 
     .line 1
     :cond_c
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->T6()Z
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->isToplevel()Z
 
     move-result v2
 
@@ -5273,7 +5273,7 @@
     .line 2
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->DW:Lcom/aide/codemodel/api/IdentifierSpace;
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->J0()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->getIdentifier()I
 
     move-result v3
 
@@ -5323,7 +5323,7 @@
     iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->DW:Lcom/aide/codemodel/api/IdentifierSpace;
 
     .line 5
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->J0()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->getIdentifier()I
 
     move-result v4
 
@@ -5364,7 +5364,7 @@
     iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->DW:Lcom/aide/codemodel/api/IdentifierSpace;
 
     .line 7
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->J0()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->getIdentifier()I
 
     move-result v4
 
@@ -5417,9 +5417,9 @@
 
     .line 1
     :cond_c
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Sf:Labcd/v3;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Sf:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v2}, Labcd/v3;->FH()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf;->clear()V
 
     .line 2
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->gn:Lcom/aide/codemodel/api/collections/ListOfInt;
@@ -5427,19 +5427,19 @@
     invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->clear()V
 
     .line 3
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Labcd/v3;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v2}, Labcd/v3;->FH()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf;->clear()V
 
     .line 4
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->we:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->FH()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->clear()V
 
     .line 5
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->J0:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->FH()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->clear()V
 
     .line 6
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
@@ -5449,7 +5449,7 @@
     .line 7
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->tp:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->FH()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->clear()V
 
     const/4 v2, 0x0
 
@@ -5462,9 +5462,9 @@
     invoke-virtual {v2}, Labcd/g3;->j6()V
 
     .line 10
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->u7:Labcd/v3;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->u7:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v2}, Labcd/v3;->FH()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf;->clear()V
 
     .line 11
     invoke-virtual {p1}, Lcom/aide/codemodel/api/SyntaxTree;->getRootNode()I
@@ -6107,7 +6107,7 @@
     :cond_c
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v1
 
@@ -6125,7 +6125,7 @@
 
     iget-object v1, v1, Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;->default_Iterator:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator;
 
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v2
 
@@ -6158,7 +6158,7 @@
     move-result-object v2
 
     .line 7
-    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {p1, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v3
 
@@ -6167,7 +6167,7 @@
 
     iget-object v5, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v5}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v5}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v5
 
@@ -7346,7 +7346,7 @@
     throw v0
 .end method
 
-.method private Lz(Lcom/aide/codemodel/api/Member;)Labcd/v3;
+.method private Lz(Lcom/aide/codemodel/api/Member;)Lcom/aide/codemodel/api/collections/SetOf;
     .registers 7
     .annotation runtime Labcd/ey;
         method = -0x22252eb7c433b98L
@@ -7390,7 +7390,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->jJ()Z
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->isInterfaceType()Z
 
     move-result v2
 
@@ -7400,12 +7400,12 @@
 
     .line 3
     :cond_1f
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->jO()Labcd/v3;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->jO()Lcom/aide/codemodel/api/collections/SetOf;
 
     move-result-object v2
 
     .line 4
-    invoke-virtual {v2}, Labcd/v3;->J0()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf;->J0()I
 
     move-result v4
 
@@ -7415,31 +7415,31 @@
 
     .line 5
     :cond_2a
-    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Labcd/v3;
+    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v3}, Labcd/v3;->FH()V
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf;->clear()V
 
     .line 6
-    iget-object v3, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v3, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v3}, Labcd/v3$b;->DW()V
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 7
     :catch_34
     :cond_34
     :goto_34
-    iget-object v3, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v3, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v3}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v3
 
     if-eqz v3, :cond_5d
 
     .line 8
-    iget-object v3, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v3, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v3}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v3
 
@@ -7456,9 +7456,9 @@
     if-nez v4, :cond_4f
 
     .line 10
-    iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Labcd/v3;
+    iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v4, v3}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v4, v3}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     .line 11
     :cond_4f
@@ -7466,7 +7466,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->jJ()Z
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->isInterfaceType()Z
 
     move-result v4
 
@@ -7483,35 +7483,35 @@
     .line 13
     :cond_5d
     :try_start_5d
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Labcd/v3;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v2}, Labcd/v3;->FH()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf;->clear()V
 
     .line 14
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Labcd/v3;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v2, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v2, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v2}, Labcd/v3$b;->DW()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 15
     :goto_69
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Labcd/v3;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v2, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v2, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v2}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v2
 
     if-eqz v2, :cond_ac
 
     .line 16
-    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Labcd/v3;
+    iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->sh:Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v2, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v2, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v2}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v2
 
@@ -7528,30 +7528,30 @@
 
     .line 18
     :cond_84
-    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Labcd/v3;
+    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v3, v3, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v3, v3, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v3}, Labcd/v3$b;->DW()V
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 19
     :cond_8b
-    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Labcd/v3;
+    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v3, v3, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v3, v3, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v3}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v3
 
     if-eqz v3, :cond_a6
 
     .line 20
-    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Labcd/v3;
+    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Lcom/aide/codemodel/api/collections/SetOf;
 
-    iget-object v3, v3, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v3, v3, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v3}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v3
 
@@ -7568,15 +7568,15 @@
 
     .line 22
     :cond_a6
-    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Labcd/v3;
+    iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v3, v2}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v3, v2}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     goto :goto_69
 
     .line 23
     :cond_ac
-    iget-object p1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Labcd/v3;
+    iget-object p1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->cb:Lcom/aide/codemodel/api/collections/SetOf;
     :try_end_ae
     .catchall {:try_start_5d .. :try_end_ae} :catchall_af
 
@@ -7659,7 +7659,7 @@
     :cond_2a
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v1
 
@@ -7674,7 +7674,7 @@
 
     iget-object v0, v0, Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;->default_Iterator:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator;
 
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v1
 
@@ -8214,7 +8214,7 @@
 
     check-cast v0, Lcom/aide/codemodel/api/ParameterizedType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ParameterizedType;->ko()Lcom/aide/codemodel/api/ClassType;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ParameterizedType;->getClassType()Lcom/aide/codemodel/api/ClassType;
 
     move-result-object v5
 
@@ -8223,7 +8223,7 @@
     check-cast v0, Lcom/aide/codemodel/api/ParameterizedType;
 
     .line 7
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ParameterizedType;->FN()[Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ParameterizedType;->getAbsoluteArgumentTypes()[Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -8281,7 +8281,7 @@
 
     check-cast p3, Lcom/aide/codemodel/api/ArrayType;
 
-    invoke-virtual {p3}, Lcom/aide/codemodel/api/ArrayType;->oY()Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p3}, Lcom/aide/codemodel/api/ArrayType;->getElementType()Lcom/aide/codemodel/api/Type;
 
     move-result-object p3
 
@@ -8338,7 +8338,7 @@
 
     check-cast v1, Lcom/aide/codemodel/api/ParameterType;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ParameterType;->J0()I
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ParameterType;->getIdentifier()I
 
     move-result v1
 
@@ -8406,7 +8406,7 @@
 
     check-cast v1, Lcom/aide/codemodel/api/MethodParameterType;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/MethodParameterType;->J0()I
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/MethodParameterType;->getIdentifier()I
 
     move-result v1
 
@@ -8521,7 +8521,7 @@
     move-result-object v1
 
     .line 32
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/MethodParameterType;->J0()I
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/MethodParameterType;->getIdentifier()I
 
     move-result v4
 
@@ -9522,7 +9522,7 @@
     .line 28
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v4
 
@@ -9616,7 +9616,7 @@
     .line 43
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v3
 
@@ -9988,7 +9988,7 @@
     invoke-virtual {v5, v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->we(I)V
 
     .line 90
-    invoke-virtual {v10, v2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v10, v2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v15
 
@@ -10075,7 +10075,7 @@
 
     move-result v1
 
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v1
 
@@ -10575,7 +10575,7 @@
 
     move-result v1
 
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v1
 
@@ -10750,7 +10750,7 @@
 
     move-result v4
 
-    invoke-virtual {v10, v4}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v10, v4}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v3
 
@@ -10924,7 +10924,7 @@
 
     move-result v2
 
-    invoke-virtual {v10, v2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v10, v2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v2
 
@@ -11317,7 +11317,7 @@
 
     move-result v1
 
-    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v10, v1}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v1
 
@@ -11470,7 +11470,7 @@
 
     .line 281
     :cond_7bb
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v2
 
@@ -11640,7 +11640,7 @@
     .line 303
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v4
 
@@ -11712,7 +11712,7 @@
     .line 315
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {v5}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v5}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v3
 
@@ -12523,7 +12523,7 @@
     :cond_3e
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v3
 
@@ -12541,7 +12541,7 @@
 
     iget-object v1, v1, Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;->default_Iterator:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator;
 
-    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v3
 
@@ -12715,7 +12715,7 @@
     invoke-direct {p0, v0, v3}, Lcom/aide/codemodel/language/java/JavaCompiler;->oa(Lcom/aide/codemodel/api/Entity;Z)V
 
     .line 5
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Type;->jJ()Z
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Type;->isInterfaceType()Z
 
     move-result v0
 
@@ -12757,7 +12757,7 @@
     :cond_4f
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->jJ()Z
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->isInterfaceType()Z
 
     move-result v0
 
@@ -13242,7 +13242,7 @@
 
     iget-object v1, v1, Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;->default_Iterator:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator;
 
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v2
 
@@ -13857,7 +13857,7 @@
     if-eq v2, p1, :cond_4a
 
     .line 10
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->T6()Z
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->isToplevel()Z
 
     move-result v3
 
@@ -14272,7 +14272,7 @@
     move-result v8
 
     .line 6
-    invoke-virtual {v5, v6}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v5, v6}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v15
 
@@ -15020,7 +15020,7 @@
     move-result-object v1
 
     .line 11
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v0
 
@@ -15335,7 +15335,7 @@
     :cond_b6
     iget-object v9, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v12
 
@@ -15560,7 +15560,7 @@
     :cond_164
     iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v4
 
@@ -16971,7 +16971,7 @@
 
     if-eqz v2, :cond_4e
 
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->J0()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getIdentifier()I
 
     move-result v2
 
@@ -16992,7 +16992,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v2
 
@@ -17141,7 +17141,7 @@
 
     check-cast v0, Lcom/aide/codemodel/api/ArrayType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ArrayType;->oY()Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ArrayType;->getElementType()Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -17413,7 +17413,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Type;->br()Z
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Type;->isEnumType()Z
 
     move-result v0
 
@@ -17770,7 +17770,7 @@
 
     check-cast v8, Lcom/aide/codemodel/api/ArrayType;
 
-    invoke-virtual {v8}, Lcom/aide/codemodel/api/ArrayType;->oY()Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v8}, Lcom/aide/codemodel/api/ArrayType;->getElementType()Lcom/aide/codemodel/api/Type;
 
     move-result-object v8
 
@@ -18149,7 +18149,7 @@
     if-ltz v14, :cond_140
 
     .line 27
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->FH()V
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->clear()V
 
     .line 28
     iget-object v10, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
@@ -18265,7 +18265,7 @@
 
     .line 37
     :cond_140
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->FH()V
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->clear()V
 
     .line 38
     iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
@@ -18637,7 +18637,7 @@
     if-ne v3, v0, :cond_33e
 
     .line 70
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v0
 
@@ -18888,7 +18888,7 @@
 
     .line 103
     :cond_33e
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v0
 
@@ -19658,7 +19658,7 @@
     move-result v9
 
     .line 4
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->J0()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getIdentifier()I
 
     move-result v3
 
@@ -19845,9 +19845,9 @@
     .line 19
     :cond_d8
     :goto_d8
-    iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Labcd/v3;
+    iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v2, v0}, Labcd/v3;->Hw(Lcom/aide/codemodel/api/Entity;)Z
+    invoke-virtual {v2, v0}, Lcom/aide/codemodel/api/collections/SetOf;->contains(Lcom/aide/codemodel/api/Entity;)Z
 
     move-result v2
 
@@ -19962,7 +19962,7 @@
     move-result v6
 
     .line 6
-    invoke-virtual {p1, v6}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {p1, v6}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v6
 
@@ -20145,7 +20145,7 @@
     .line 2
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v2
 
@@ -20175,7 +20175,7 @@
 
     iget-object v1, v1, Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;->default_Iterator:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v0
 
@@ -20626,7 +20626,7 @@
     move-result-object v0
 
     .line 2
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v1
 
@@ -20654,7 +20654,7 @@
 
     iget-object v3, v3, Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;->default_Iterator:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v1
 
@@ -22451,12 +22451,12 @@
 
     .line 1
     :goto_2b
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ParameterizedType;->jO()[I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ParameterizedType;->getAbsoluteArgumentVariances()[I
 
     move-result-object v0
 
     .line 2
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ParameterizedType;->FN()[Lcom/aide/codemodel/api/Type;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ParameterizedType;->getAbsoluteArgumentTypes()[Lcom/aide/codemodel/api/Type;
 
     move-result-object v7
 
@@ -22980,7 +22980,7 @@
     move-result v4
 
     .line 6
-    invoke-virtual {v8, v3}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v8, v3}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v5
 
@@ -23186,7 +23186,7 @@
     iput-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Mr:Lcom/aide/codemodel/api/Type;
 
     .line 3
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v1
 
@@ -23460,9 +23460,9 @@
     if-le v1, v2, :cond_12d
 
     .line 40
-    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Sf:Labcd/v3;
+    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Sf:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v1, v0}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     .line 41
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
@@ -23959,7 +23959,7 @@
 
     check-cast v0, Lcom/aide/codemodel/api/ArrayType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ArrayType;->oY()Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ArrayType;->getElementType()Lcom/aide/codemodel/api/Type;
 
     move-result-object v0
 
@@ -24147,7 +24147,7 @@
 
     move-result v0
 
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v0
 
@@ -24472,7 +24472,7 @@
     invoke-direct {v1, v3, v9}, Lcom/aide/codemodel/language/java/JavaCompiler;->qP(Lcom/aide/codemodel/api/Entity;Z)V
 
     .line 3
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->J0()I
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getIdentifier()I
 
     move-result v0
 
@@ -25144,7 +25144,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v10}, Lcom/aide/codemodel/api/Type;->jJ()Z
+    invoke-virtual {v10}, Lcom/aide/codemodel/api/Type;->isInterfaceType()Z
 
     move-result v10
 
@@ -25154,7 +25154,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v10}, Lcom/aide/codemodel/api/ClassType;->jJ()Z
+    invoke-virtual {v10}, Lcom/aide/codemodel/api/ClassType;->isInterfaceType()Z
 
     move-result v10
 
@@ -25215,7 +25215,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v10}, Lcom/aide/codemodel/api/Type;->jJ()Z
+    invoke-virtual {v10}, Lcom/aide/codemodel/api/Type;->isInterfaceType()Z
 
     move-result v10
 
@@ -25559,11 +25559,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v1
 
-    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object p1
     :try_end_2a
@@ -25748,7 +25748,7 @@
     move-result v2
 
     .line 4
-    invoke-virtual {p1, v2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {p1, v2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v3
 
@@ -26480,11 +26480,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v1
 
-    invoke-virtual {p4}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {p4}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v2
 
@@ -27740,7 +27740,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/FileEntry;->getID()I
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/FileEntry;->getId()I
 
     move-result v1
 
@@ -27762,7 +27762,7 @@
     .line 4
     iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
 
-    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v1
 
@@ -28138,7 +28138,7 @@
     throw v0
 .end method
 
-.method private ko(Lcom/aide/codemodel/api/SyntaxTree;Lcom/aide/codemodel/api/Member;Labcd/v3;)V
+.method private ko(Lcom/aide/codemodel/api/SyntaxTree;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/collections/SetOf;)V
     .registers 28
     .annotation runtime Labcd/ey;
         method = -0x1af94a9e1c14aabL
@@ -28184,24 +28184,24 @@
     if-eqz v12, :cond_d3
 
     .line 1
-    iget-object v0, v12, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v0, v12, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v0}, Labcd/v3$b;->DW()V
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 2
     :goto_23
-    iget-object v0, v12, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v0, v12, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v0}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v0
 
     if-eqz v0, :cond_d3
 
     .line 3
-    iget-object v0, v12, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v0, v12, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v0}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v0
 
@@ -28235,7 +28235,7 @@
     move v14, v3
 
     .line 8
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->J0()I
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getIdentifier()I
 
     move-result v3
 
@@ -28489,7 +28489,7 @@
     move-result v6
 
     .line 6
-    invoke-virtual {p1, v6}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {p1, v6}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v6
 
@@ -28769,7 +28769,7 @@
 
     iget-object v0, v0, Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;->default_Iterator:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator;
 
-    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {p2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v1
 
@@ -28922,43 +28922,43 @@
     move-result v2
 
     .line 2
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->fN()Labcd/v3;
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/ClassType;->fN()Lcom/aide/codemodel/api/collections/SetOf;
 
     move-result-object v3
 
     .line 3
-    iget-object v4, v3, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v3, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->DW()V
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 4
     :cond_1f
-    iget-object v4, v3, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v3, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v4
 
     if-eqz v4, :cond_47
 
     .line 5
-    iget-object v4, v3, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v4, v3, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v4}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v4
 
     check-cast v4, Lcom/aide/codemodel/api/ClassType;
 
     .line 6
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->J0()I
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->getIdentifier()I
 
     move-result v5
 
     if-ne v5, v2, :cond_1f
 
     .line 7
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v4
 
@@ -29435,7 +29435,7 @@
 
     check-cast v5, Lcom/aide/codemodel/api/ArrayType;
 
-    invoke-virtual {v5}, Lcom/aide/codemodel/api/ArrayType;->oY()Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v5}, Lcom/aide/codemodel/api/ArrayType;->getElementType()Lcom/aide/codemodel/api/Type;
 
     move-result-object v5
 
@@ -30573,7 +30573,7 @@
 
     check-cast v2, Lcom/aide/codemodel/api/ArrayType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ArrayType;->oY()Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ArrayType;->getElementType()Lcom/aide/codemodel/api/Type;
 
     move-result-object v2
 
@@ -30765,11 +30765,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v1
 
-    invoke-virtual {p4}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {p4}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v2
 
@@ -31457,7 +31457,7 @@
     .line 6
     iget-object v5, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->DW:Lcom/aide/codemodel/api/IdentifierSpace;
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ParameterType;->J0()I
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ParameterType;->getIdentifier()I
 
     move-result v6
 
@@ -31773,7 +31773,7 @@
     move-result v11
 
     .line 12
-    invoke-virtual {v5, v9}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v5, v9}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v15
 
@@ -32033,12 +32033,12 @@
     .line 39
     iget-object v8, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->KD:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v8, v15}, Lcom/aide/codemodel/api/collections/ListOfInt;->Zo(I)V
+    invoke-virtual {v8, v15}, Lcom/aide/codemodel/api/collections/ListOfInt;->push(I)V
 
     .line 40
     iget-object v8, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->ro:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v5, v15}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v5, v15}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v9
 
@@ -32046,7 +32046,7 @@
 
     add-int/2addr v9, v10
 
-    invoke-virtual {v8, v9}, Lcom/aide/codemodel/api/collections/ListOfInt;->Zo(I)V
+    invoke-virtual {v8, v9}, Lcom/aide/codemodel/api/collections/ListOfInt;->push(I)V
 
     .line 41
     :cond_14a
@@ -32078,17 +32078,17 @@
     .line 45
     iget-object v8, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->SI:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v8}, Lcom/aide/codemodel/api/collections/ListOfInt;->v5()I
+    invoke-virtual {v8}, Lcom/aide/codemodel/api/collections/ListOfInt;->pop()I
 
     .line 46
     iget-object v8, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->KD:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v8}, Lcom/aide/codemodel/api/collections/ListOfInt;->v5()I
+    invoke-virtual {v8}, Lcom/aide/codemodel/api/collections/ListOfInt;->pop()I
 
     .line 47
     iget-object v8, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->ro:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v8}, Lcom/aide/codemodel/api/collections/ListOfInt;->v5()I
+    invoke-virtual {v8}, Lcom/aide/codemodel/api/collections/ListOfInt;->pop()I
 
     .line 48
     :cond_172
@@ -32248,7 +32248,7 @@
 
     move-result v12
 
-    invoke-virtual {v5, v12}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v5, v12}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v8
 
@@ -32345,17 +32345,17 @@
     .line 74
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->SI:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v2, v1}, Lcom/aide/codemodel/api/collections/ListOfInt;->Zo(I)V
+    invoke-virtual {v2, v1}, Lcom/aide/codemodel/api/collections/ListOfInt;->push(I)V
 
     .line 75
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->KD:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v2, v15}, Lcom/aide/codemodel/api/collections/ListOfInt;->Zo(I)V
+    invoke-virtual {v2, v15}, Lcom/aide/codemodel/api/collections/ListOfInt;->push(I)V
 
     .line 76
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->ro:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v5, v15}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v5, v15}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v4
 
@@ -32363,7 +32363,7 @@
 
     add-int/2addr v4, v8
 
-    invoke-virtual {v2, v4}, Lcom/aide/codemodel/api/collections/ListOfInt;->Zo(I)V
+    invoke-virtual {v2, v4}, Lcom/aide/codemodel/api/collections/ListOfInt;->push(I)V
 
     .line 77
     :cond_262
@@ -32386,17 +32386,17 @@
     .line 78
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->SI:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->v5()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->pop()I
 
     .line 79
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->KD:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->v5()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->pop()I
 
     .line 80
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->ro:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->v5()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->pop()I
 
     .line 81
     :cond_280
@@ -32464,7 +32464,7 @@
     invoke-virtual {v2, v4, v3}, Labcd/j6;->j3(II)V
 
     .line 86
-    invoke-virtual {v5, v15}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v5, v15}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v2
 
@@ -33228,7 +33228,7 @@
 
     .line 186
     :pswitch_559  #0x8c
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v2
 
@@ -33237,12 +33237,12 @@
     .line 187
     iget-object v4, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->P8:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v4, v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->Zo(I)V
+    invoke-virtual {v4, v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->push(I)V
 
     .line 188
     iget-object v4, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->ei:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v4, v1}, Lcom/aide/codemodel/api/collections/ListOfInt;->Zo(I)V
+    invoke-virtual {v4, v1}, Lcom/aide/codemodel/api/collections/ListOfInt;->push(I)V
 
     .line 189
     iget-object v4, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
@@ -33377,12 +33377,12 @@
     .line 211
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->P8:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->v5()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->pop()I
 
     .line 212
     iget-object v2, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->ei:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->v5()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/ListOfInt;->pop()I
 
     goto/16 :goto_cba
 
@@ -33783,7 +33783,7 @@
     invoke-virtual {v9, v6}, Labcd/j6;->sy(I)V
 
     .line 266
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v9
 
@@ -33855,7 +33855,7 @@
     .line 276
     iget-object v10, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->nw:Lcom/aide/codemodel/api/collections/ListOfInt;
 
-    invoke-virtual {v10}, Lcom/aide/codemodel/api/collections/ListOfInt;->v5()I
+    invoke-virtual {v10}, Lcom/aide/codemodel/api/collections/ListOfInt;->pop()I
 
     .line 277
     invoke-direct/range {p0 .. p2}, Lcom/aide/codemodel/language/java/JavaCompiler;->lg(Lcom/aide/codemodel/api/SyntaxTree;I)V
@@ -34092,7 +34092,7 @@
 
     move-result v13
 
-    invoke-virtual {v5, v13}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {v5, v13}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v13
 
@@ -34111,7 +34111,7 @@
     move-object/from16 v19, v3
 
     .line 319
-    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual/range {p1 .. p2}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v3
 
@@ -34127,7 +34127,7 @@
     .line 321
     check-cast v14, Lcom/aide/codemodel/api/ArrayType;
 
-    invoke-virtual {v14}, Lcom/aide/codemodel/api/ArrayType;->oY()Lcom/aide/codemodel/api/Type;
+    invoke-virtual {v14}, Lcom/aide/codemodel/api/ArrayType;->getElementType()Lcom/aide/codemodel/api/Type;
 
     move-result-object v4
 
@@ -34392,7 +34392,7 @@
     move-result-object v2
 
     .line 354
-    invoke-virtual {v14, v10, v12, v2}, Lcom/aide/codemodel/api/Type;->XG(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Type;)Z
+    invoke-virtual {v14, v10, v12, v2}, Lcom/aide/codemodel/api/Type;->isImplicitConvertibleTo(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Type;)Z
 
     move-result v2
     :try_end_988
@@ -35520,7 +35520,7 @@
     :cond_71
     iget-object v5, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v6
 
@@ -35693,11 +35693,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v1
 
-    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {p3}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object p1
     :try_end_32
@@ -36161,7 +36161,7 @@
 
     .line 1
     :cond_c
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->J0()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getIdentifier()I
 
     move-result v2
 
@@ -36391,7 +36391,7 @@
     :cond_8d
     iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v2
 
@@ -36476,7 +36476,7 @@
     .line 23
     iget-object v1, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->jJ()Z
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->isInterfaceType()Z
 
     move-result v1
 
@@ -36621,19 +36621,19 @@
     invoke-virtual/range {v19 .. v27}, Labcd/j6;->j6(Ljava/lang/String;I[CIILjava/lang/String;II)V
 
     .line 34
-    iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->dx:Labcd/v3;
+    iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->dx:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v2}, Labcd/v3;->FH()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/SetOf;->clear()V
 
     .line 35
     iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->vy:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->FH()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->clear()V
 
     .line 36
     iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->BT:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->FH()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->clear()V
 
     .line 37
     iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->P8:Lcom/aide/codemodel/api/collections/ListOfInt;
@@ -36663,7 +36663,7 @@
     .line 42
     iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->cn:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->FH()V
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/collections/MapOfIntInt;->clear()V
 
     .line 43
     iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->VH:Labcd/j6;
@@ -36792,7 +36792,7 @@
     :cond_1f6
     iget-object v2, v9, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->Za()Lcom/aide/codemodel/api/Namespace;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getNamespace()Lcom/aide/codemodel/api/Namespace;
 
     move-result-object v2
 
@@ -36928,7 +36928,7 @@
     if-nez v3, :cond_4d
 
     .line 3
-    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->J0()I
+    invoke-virtual {p1}, Lcom/aide/codemodel/api/Member;->getIdentifier()I
 
     move-result v3
 
@@ -37210,7 +37210,7 @@
 
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v2
 
@@ -37237,11 +37237,11 @@
 
     .line 8
     :cond_7d
-    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->u7:Labcd/v3;
+    iget-object v0, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->u7:Lcom/aide/codemodel/api/collections/SetOf;
 
     iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v0, v1}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v0, v1}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     .line 9
     invoke-virtual {p1, p2}, Lcom/aide/codemodel/api/SyntaxTree;->getChildCount(I)I
@@ -37275,7 +37275,7 @@
 
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v2
 
@@ -37311,7 +37311,7 @@
 
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v2
 
@@ -37385,29 +37385,29 @@
     .line 24
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->fN()Labcd/v3;
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->fN()Lcom/aide/codemodel/api/collections/SetOf;
 
     move-result-object v2
 
     .line 25
-    iget-object v3, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v3, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v3}, Labcd/v3$b;->DW()V
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->init()V
 
     .line 26
     :cond_106
-    iget-object v3, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v3, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v3}, Labcd/v3$b;->j6()Z
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->hasMoreElements()Z
 
     move-result v3
 
     if-eqz v3, :cond_16a
 
     .line 27
-    iget-object v3, v2, Labcd/v3;->j6:Labcd/v3$b;
+    iget-object v3, v2, Lcom/aide/codemodel/api/collections/SetOf;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/SetOf$Iterator;
 
-    invoke-virtual {v3}, Labcd/v3$b;->FH()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/collections/SetOf$Iterator;->nextKey()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v3
 
@@ -37416,7 +37416,7 @@
     .line 28
     iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v6
 
@@ -37431,7 +37431,7 @@
 
     iget-object v4, v4, Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;->default_Iterator:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator;
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v3
 
@@ -37464,7 +37464,7 @@
 
     iget-object v6, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v6}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v6}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v6
 
@@ -37495,7 +37495,7 @@
 
     iget-object v6, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v6}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v6}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v6
 
@@ -37517,7 +37517,7 @@
 
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v2
 
@@ -37539,7 +37539,7 @@
 
     iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v3}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v3
 
@@ -37570,7 +37570,7 @@
     .line 41
     iget-object v3, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->Ws:Labcd/g3;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v4
 
@@ -37597,7 +37597,7 @@
     .line 44
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->J8:Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v3
 
@@ -37646,7 +37646,7 @@
 
     iget-object v4, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v4
 
@@ -37739,11 +37739,11 @@
     .line 57
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->J0:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v1
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->we()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getId()I
 
     move-result v0
 
@@ -37772,11 +37772,11 @@
 
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v2
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->we()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getId()I
 
     move-result v0
 
@@ -37795,9 +37795,9 @@
     if-eqz v1, :cond_26c
 
     .line 61
-    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Labcd/v3;
+    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v1, v0}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     goto/16 :goto_412
 
@@ -37816,9 +37816,9 @@
     if-eqz v1, :cond_27f
 
     .line 63
-    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Labcd/v3;
+    iget-object v1, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v1, v0}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v1, v0}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     goto/16 :goto_412
 
@@ -37850,11 +37850,11 @@
     .line 66
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->we:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v1
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->we()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getId()I
 
     move-result v0
 
@@ -37895,11 +37895,11 @@
     .line 70
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->we:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v1}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v1
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->we()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getId()I
 
     move-result v0
 
@@ -37925,9 +37925,9 @@
     if-eqz v6, :cond_2e1
 
     .line 73
-    iget-object v6, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Labcd/v3;
+    iget-object v6, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v6, v0}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v6, v0}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     goto :goto_33a
 
@@ -37946,9 +37946,9 @@
     if-eqz v6, :cond_2f3
 
     .line 75
-    iget-object v6, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Labcd/v3;
+    iget-object v6, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->EQ:Lcom/aide/codemodel/api/collections/SetOf;
 
-    invoke-virtual {v6, v0}, Labcd/v3;->gn(Lcom/aide/codemodel/api/Entity;)V
+    invoke-virtual {v6, v0}, Lcom/aide/codemodel/api/collections/SetOf;->put(Lcom/aide/codemodel/api/Entity;)V
 
     goto :goto_33a
 
@@ -37980,11 +37980,11 @@
     .line 78
     iget-object v7, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->we:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v6}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v6}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v6
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->we()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getId()I
 
     move-result v8
 
@@ -38020,11 +38020,11 @@
     .line 81
     iget-object v7, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->we:Lcom/aide/codemodel/api/collections/MapOfIntInt;
 
-    invoke-virtual {v6}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v6}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v6
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->we()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getId()I
 
     move-result v8
 
@@ -38248,11 +38248,11 @@
 
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v2
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->we()I
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/Member;->getId()I
 
     move-result v0
 
@@ -38271,7 +38271,7 @@
 
     iget-object v2, p0, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v2
 
@@ -38468,31 +38468,31 @@
     .line 5
     iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->e3()Labcd/m3;
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->e3()Lcom/aide/codemodel/api/collections/MapOfInt;
 
     move-result-object v0
 
     .line 6
-    iget-object v4, v0, Labcd/m3;->j6:Labcd/m3$b;
+    iget-object v4, v0, Lcom/aide/codemodel/api/collections/MapOfInt;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;
 
-    invoke-virtual {v4}, Labcd/m3$b;->DW()V
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;->DW()V
 
     .line 7
     :catch_40
     :cond_40
     :goto_40
-    iget-object v4, v0, Labcd/m3;->j6:Labcd/m3$b;
+    iget-object v4, v0, Lcom/aide/codemodel/api/collections/MapOfInt;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;
 
-    invoke-virtual {v4}, Labcd/m3$b;->j6()Z
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;->hasMoreElements()Z
 
     move-result v4
 
     if-eqz v4, :cond_89
 
     .line 8
-    iget-object v4, v0, Labcd/m3;->j6:Labcd/m3$b;
+    iget-object v4, v0, Lcom/aide/codemodel/api/collections/MapOfInt;->DEFAULT_ITERATOR:Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;
 
-    invoke-virtual {v4}, Labcd/m3$b;->v5()Lcom/aide/codemodel/api/Entity;
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/collections/MapOfInt$Iterator;->nextValue()Lcom/aide/codemodel/api/Entity;
 
     move-result-object v4
 
@@ -38525,7 +38525,7 @@
     move-result v9
 
     .line 12
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->J0()I
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/Member;->getIdentifier()I
 
     move-result v6
 
@@ -38589,7 +38589,7 @@
 
     iget-object v4, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v4
 
@@ -38666,7 +38666,7 @@
 
     iget-object v4, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->we()I
+    invoke-virtual {v4}, Lcom/aide/codemodel/api/ClassType;->getId()I
 
     move-result v4
 
@@ -38710,11 +38710,11 @@
 
     .line 29
     :cond_107
-    iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->u7:Labcd/v3;
+    iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->u7:Lcom/aide/codemodel/api/collections/SetOf;
 
     iget-object v3, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v0, v3}, Labcd/v3;->Hw(Lcom/aide/codemodel/api/Entity;)Z
+    invoke-virtual {v0, v3}, Lcom/aide/codemodel/api/collections/SetOf;->contains(Lcom/aide/codemodel/api/Entity;)Z
 
     move-result v0
 
@@ -38803,7 +38803,7 @@
 
     iget-object v0, v7, Lcom/aide/codemodel/language/java/JavaCompiler;->XL:Lcom/aide/codemodel/api/ClassType;
 
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->jJ()Z
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->isInterfaceType()Z
 
     move-result v0
 
@@ -38916,7 +38916,7 @@
     move-result-object v1
 
     .line 4
-    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->Sf(I)I
+    invoke-virtual {p1, v0}, Lcom/aide/codemodel/api/SyntaxTree;->getAttrVariableSlot(I)I
 
     move-result v2
 
@@ -39159,7 +39159,7 @@
     invoke-direct {v9, v8, v1}, Lcom/aide/codemodel/language/java/JavaCompiler;->qP(Lcom/aide/codemodel/api/Entity;Z)V
 
     .line 5
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->J0()I
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getIdentifier()I
 
     move-result v2
 
@@ -39838,7 +39838,7 @@
     if-nez v1, :cond_58
 
     .line 10
-    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->T6()Z
+    invoke-virtual {v0}, Lcom/aide/codemodel/api/ClassType;->isToplevel()Z
 
     move-result v1
 
@@ -40014,7 +40014,7 @@
     invoke-direct {v9, v10, v1}, Lcom/aide/codemodel/language/java/JavaCompiler;->qP(Lcom/aide/codemodel/api/Entity;Z)V
 
     .line 5
-    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->J0()I
+    invoke-virtual/range {p2 .. p2}, Lcom/aide/codemodel/api/Member;->getIdentifier()I
 
     move-result v2
 
@@ -41401,7 +41401,7 @@
 
     move-result v5
 
-    invoke-virtual {p1, v5, p2}, Lcom/aide/codemodel/api/SyntaxTree;->Yi(II)Z
+    invoke-virtual {p1, v5, p2}, Lcom/aide/codemodel/api/SyntaxTree;->isEnclosingNode(II)Z
 
     move-result v5
 
@@ -42011,7 +42011,7 @@
     if-ne v13, v2, :cond_3d
 
     .line 10
-    invoke-virtual {v12}, Lcom/aide/codemodel/api/FileEntry;->getID()I
+    invoke-virtual {v12}, Lcom/aide/codemodel/api/FileEntry;->getId()I
 
     move-result v13
 
@@ -42022,7 +42022,7 @@
 
     move-result v13
 
-    invoke-virtual {v12}, Lcom/aide/codemodel/api/FileEntry;->getID()I
+    invoke-virtual {v12}, Lcom/aide/codemodel/api/FileEntry;->getId()I
 
     move-result v12
 

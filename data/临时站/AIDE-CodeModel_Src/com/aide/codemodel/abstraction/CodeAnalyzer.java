@@ -7,11 +7,11 @@ import com.aide.codemodel.api.collections.SetOfInt;
 import com.aide.codemodel.api.excpetions.UnknownEntityException;
 
 public interface CodeAnalyzer {
-   Type analyzeTypeName(SyntaxTree ast, int line, int column, String name) throws UnknownEntityException;
+   //Type analyzeTypeName(SyntaxTree ast, int line, int column, String name) throws UnknownEntityException;
 
    void analyzeImports(SyntaxTree ast);
 
-   void analyzeEveryIdentifiers(SyntaxTree ast, SetOfInt identifiers);
+   //void analyzeEveryIdentifiers(SyntaxTree ast, SetOfInt identifiers);
 
    void analyzeEveryIdentifier(SyntaxTree ast, int identifier);
 

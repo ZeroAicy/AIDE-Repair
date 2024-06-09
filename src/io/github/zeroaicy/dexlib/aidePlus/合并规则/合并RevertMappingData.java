@@ -1,17 +1,35 @@
 package io.github.zeroaicy.dexlib.aidePlus.合并规则;
 import io.github.zeroaicy.dexlib.analysis.RevertDexFromMappingText;
 import io.github.zeroaicy.dexlib.analysis.RevertMappingData;
-import io.github.zeroaicy.dexlib.analysis.RewriterClassData;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class 合并RevertMappingData{
 	public static void main(String[] args){
-		sort();
-		
+		//sort();
+		getZeroAicyBuildGradle();
 		System.out.println("结束");
 	}
+	public static void getZeroAicyBuildGradle(){
+
+		// 不是gradle项目
+		String suffix = "/build/bin";
+		String buildOutDirPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/git/AIDE+/app_flavor/build/bin";
+
+		if ( ! buildOutDirPath.endsWith(suffix) ){
+			return;
+
+		}
+
+		File buildGradleFile = new File(buildOutDirPath.substring(0, buildOutDirPath.length() - suffix.length()), "build.gradle");
+		if ( !buildGradleFile.exists() ){
+			return;				
+		}
+
+		System.out.println(buildGradleFile.getAbsolutePath());
+	}
+
 	/**
 	 * 排序
 	 */
@@ -23,7 +41,7 @@ public class 合并RevertMappingData{
 
 	}
 	public static void main3(String[] args){
-		
+
 		List<String> mappingList = new ArrayList<>();
 		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_2.txt");
 		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_3.txt");
@@ -39,9 +57,9 @@ public class 合并RevertMappingData{
 
 		//主RewriterClassDataMap，所有改变都集中在此
 		mainRevertMappingData.merge(revertMappingDataList);
-		
+
 		RevertDexFromMappingText.writeRevertMappingData("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_合并测试.txt", mainRevertMappingData);
 	}
-	
-	
+
+
 }

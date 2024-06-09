@@ -1,6 +1,10 @@
 package io.github.zeroaicy.dexlib.aidePlus;
 import io.github.zeroaicy.dexlib.analysis.RevertDexFromMappingText;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import io.github.zeroaicy.dexlib.analysis.SwitchNameConstants;
+import java.util.Collections;
 
 public abstract class aide_plus{
 	String rootDataDirPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus";
@@ -15,6 +19,12 @@ public abstract class aide_plus{
 	private String mappingPath;
 
 	private String outputMappingPath;
+
+	private final Map<String, String>  switchMap = new HashMap<>();
+
+	public Map<String, String>  getSwitchMap(){
+		return switchMap;
+	}
 
 	public abstract String getLastVersion();
 
@@ -91,23 +101,37 @@ public abstract class aide_plus{
 	public aide_plus(){}
 
 
-
-	public void run() throws IOException{
-		//重写
+	public void configure(){
+		configure(Collections.<String, String>emptyMap());
+	}
+	
+	public void configure(Map<String, String> configure){
 		String mappingFilePath = getMappingPath();
-
-		String inputDexs = getInputDexsPath();
-
-		String outputDexs = getOutputDexsPath();
 
 		boolean repairAnalysis = getRepairAnalysis();
 		boolean contrary = getContrary();
 		String outputMappingPath = getOutputMappingPath();
 		boolean onlyOutputMapping = getOnlyOutputMapping();
 
-		RevertDexFromMappingText.revert(inputDexs, outputDexs, 
-										repairAnalysis, contrary, 
-										mappingFilePath, outputMappingPath, onlyOutputMapping);
+
+		Map<String, String> switchMap = this.switchMap;
+		if ( repairAnalysis ) switchMap.put(SwitchNameConstants.repairAnalysis, null);
+		if ( contrary ) switchMap.put(SwitchNameConstants.contrary, null);
+
+		switchMap.put(SwitchNameConstants.mappingFilePath, mappingFilePath);
+		switchMap.put(SwitchNameConstants.outputMappingPath, outputMappingPath);
+		if ( onlyOutputMapping ) switchMap.put(SwitchNameConstants.onlyOutputMapping, null);
+		
+		switchMap.putAll(configure);
+	}
+
+
+	public void run() throws IOException{
+		//重写
+		String inputDexs = getInputDexsPath();
+		String outputDexs = getOutputDexsPath();
+
+		RevertDexFromMappingText.revert(inputDexs, outputDexs, getSwitchMap());
 	}
 
 }

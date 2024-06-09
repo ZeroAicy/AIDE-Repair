@@ -4378,601 +4378,6 @@
     throw v0
 .end method
 
-.method public cb(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-    .registers 9
-    .annotation runtime Labcd/ey;
-        method = 0x21d7585f34338c90L
-    .end annotation
-
-    const-wide v0, 0x28198d3e4c5b6cd8L  # 1.621220231706095E-115
-
-    :try_start_5
-    sget-boolean v2, Labcd/u1;->J8:Z
-
-    if-eqz v2, :cond_c
-
-    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
-
-    .line 1
-    :cond_c
-    invoke-super {p0, p1}, Labcd/n1;->cb(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 2
-    iget v2, p0, Labcd/u1;->u7:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 3
-    iget-object v2, p0, Labcd/u1;->tp:Lcom/aide/codemodel/api/FileEntry;
-
-    invoke-virtual {v2}, Lcom/aide/codemodel/api/FileEntry;->getID()I
-
-    move-result v2
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 4
-    iget v2, p0, Labcd/u1;->EQ:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 5
-    iget-object v2, p0, Labcd/u1;->VH:Lcom/aide/codemodel/api/EntitySpace;
-
-    iget-object v3, p0, Labcd/u1;->we:Labcd/k1;
-
-    invoke-virtual {v2, v3}, Lcom/aide/codemodel/api/EntitySpace;->ye(Labcd/n1;)I
-
-    move-result v2
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 6
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
-
-    if-eqz v2, :cond_35
-
-    const/4 v2, 0x1
-
-    goto :goto_36
-
-    :cond_35
-    const/4 v2, 0x0
-
-    :goto_36
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 7
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    if-eqz v2, :cond_1f9
-
-    .line 8
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->gn:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 9
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->tp:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 10
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->u7:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 11
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->EQ:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 12
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->we:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 13
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->J0:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 14
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->J8:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 15
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->Ws:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 16
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->v5:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 17
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->Zo:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 18
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->VH:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 19
-    iget-object v2, p0, Labcd/u1;->VH:Lcom/aide/codemodel/api/EntitySpace;
-
-    iget-object v5, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v5, v5, Labcd/u1$b;->gW:Lcom/aide/codemodel/api/Type;
-
-    invoke-virtual {v2, v5}, Lcom/aide/codemodel/api/EntitySpace;->ye(Labcd/n1;)I
-
-    move-result v2
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 20
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->BT:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 21
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-boolean v2, v2, Labcd/u1$b;->vy:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 22
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-boolean v2, v2, Labcd/u1$b;->FH:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 23
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-boolean v2, v2, Labcd/u1$b;->DW:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 24
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->P8:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 25
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->KD:Ljava/lang/String;
-
-    if-eqz v2, :cond_c2
-
-    const/4 v2, 0x1
-
-    goto :goto_c3
-
-    :cond_c2
-    const/4 v2, 0x0
-
-    :goto_c3
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 26
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->KD:Ljava/lang/String;
-
-    if-eqz v2, :cond_d3
-
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->KD:Ljava/lang/String;
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
-
-    .line 27
-    :cond_d3
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-boolean v2, v2, Labcd/u1$b;->ro:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 28
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-wide v5, v2, Labcd/u1$b;->nw:J
-
-    invoke-virtual {p1, v5, v6}, Ljava/io/DataOutputStream;->writeLong(J)V
-
-    .line 29
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-boolean v2, v2, Labcd/u1$b;->SI:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 30
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-boolean v2, v2, Labcd/u1$b;->Hw:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 31
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-boolean v2, v2, Labcd/u1$b;->cn:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 32
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->sh:Labcd/h3;
-
-    if-eqz v2, :cond_fe
-
-    const/4 v2, 0x1
-
-    goto :goto_ff
-
-    :cond_fe
-    const/4 v2, 0x0
-
-    :goto_ff
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 33
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->sh:Labcd/h3;
-
-    if-eqz v2, :cond_116
-
-    .line 34
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->sh:Labcd/h3;
-
-    invoke-virtual {v2, p1}, Labcd/h3;->J8(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 35
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->cb:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;->J0(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 36
-    :cond_116
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->ei:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 37
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget v2, v2, Labcd/u1$b;->QX:I
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    .line 38
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-boolean v2, v2, Labcd/u1$b;->XL:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 39
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-boolean v2, v2, Labcd/u1$b;->aM:Z
-
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 40
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->Mr:Labcd/h3;
-
-    if-eqz v2, :cond_13a
-
-    const/4 v2, 0x1
-
-    goto :goto_13b
-
-    :cond_13a
-    const/4 v2, 0x0
-
-    :goto_13b
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 41
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->Mr:Labcd/h3;
-
-    if-eqz v2, :cond_14b
-
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->Mr:Labcd/h3;
-
-    invoke-virtual {v2, p1}, Labcd/h3;->J8(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 42
-    :cond_14b
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    if-eqz v2, :cond_153
-
-    const/4 v2, 0x1
-
-    goto :goto_154
-
-    :cond_153
-    const/4 v2, 0x0
-
-    :goto_154
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 43
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    if-eqz v2, :cond_164
-
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;->J0(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 44
-    :cond_164
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    if-eqz v2, :cond_16c
-
-    const/4 v2, 0x1
-
-    goto :goto_16d
-
-    :cond_16c
-    const/4 v2, 0x0
-
-    :goto_16d
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 45
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    if-eqz v2, :cond_17d
-
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
-
-    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;->J0(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 46
-    :cond_17d
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->j3:Labcd/h3;
-
-    if-eqz v2, :cond_185
-
-    const/4 v2, 0x1
-
-    goto :goto_186
-
-    :cond_185
-    const/4 v2, 0x0
-
-    :goto_186
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 47
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->j3:Labcd/h3;
-
-    if-eqz v2, :cond_196
-
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->j3:Labcd/h3;
-
-    invoke-virtual {v2, p1}, Labcd/h3;->J8(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 48
-    :cond_196
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->lg:Labcd/v3;
-
-    if-eqz v2, :cond_19e
-
-    const/4 v2, 0x1
-
-    goto :goto_19f
-
-    :cond_19e
-    const/4 v2, 0x0
-
-    :goto_19f
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 49
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->lg:Labcd/v3;
-
-    if-eqz v2, :cond_1af
-
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->lg:Labcd/v3;
-
-    invoke-virtual {v2, p1}, Labcd/v3;->J8(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 50
-    :cond_1af
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->rN:Labcd/m3;
-
-    if-eqz v2, :cond_1b7
-
-    const/4 v2, 0x1
-
-    goto :goto_1b8
-
-    :cond_1b7
-    const/4 v2, 0x0
-
-    :goto_1b8
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 51
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->rN:Labcd/m3;
-
-    if-eqz v2, :cond_1c8
-
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->rN:Labcd/m3;
-
-    invoke-virtual {v2, p1}, Labcd/m3;->Ws(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 52
-    :cond_1c8
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->er:Labcd/v3;
-
-    if-eqz v2, :cond_1d0
-
-    const/4 v2, 0x1
-
-    goto :goto_1d1
-
-    :cond_1d0
-    const/4 v2, 0x0
-
-    :goto_1d1
-    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 53
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->er:Labcd/v3;
-
-    if-eqz v2, :cond_1e1
-
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->er:Labcd/v3;
-
-    invoke-virtual {v2, p1}, Labcd/v3;->J8(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-
-    .line 54
-    :cond_1e1
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->yS:Labcd/h3;
-
-    if-eqz v2, :cond_1e8
-
-    goto :goto_1e9
-
-    :cond_1e8
-    const/4 v3, 0x0
-
-    :goto_1e9
-    invoke-virtual {p1, v3}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
-
-    .line 55
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->yS:Labcd/h3;
-
-    if-eqz v2, :cond_1f9
-
-    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
-
-    iget-object v2, v2, Labcd/u1$b;->yS:Labcd/h3;
-
-    invoke-virtual {v2, p1}, Labcd/h3;->J8(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
-    :try_end_1f9
-    .catchall {:try_start_5 .. :try_end_1f9} :catchall_1fa
-
-    :cond_1f9
-    return-void
-
-    :catchall_1fa
-    move-exception v2
-
-    .line 56
-    sget-boolean v3, Labcd/u1;->Ws:Z
-
-    if-eqz v3, :cond_202
-
-    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
-
-    :cond_202
-    throw v2
-.end method
-
 .method public e3()Z
     .registers 8
     .annotation runtime Labcd/ey;
@@ -9185,6 +8590,601 @@
     invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
 
     :cond_1ce
+    throw v2
+.end method
+
+.method public store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+    .registers 9
+    .annotation runtime Labcd/ey;
+        method = 0x21d7585f34338c90L
+    .end annotation
+
+    const-wide v0, 0x28198d3e4c5b6cd8L  # 1.621220231706095E-115
+
+    :try_start_5
+    sget-boolean v2, Labcd/u1;->J8:Z
+
+    if-eqz v2, :cond_c
+
+    invoke-static {v0, v1, p0, p1}, Labcd/iy;->tp(JLjava/lang/Object;Ljava/lang/Object;)V
+
+    .line 1
+    :cond_c
+    invoke-super {p0, p1}, Labcd/n1;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 2
+    iget v2, p0, Labcd/u1;->u7:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 3
+    iget-object v2, p0, Labcd/u1;->tp:Lcom/aide/codemodel/api/FileEntry;
+
+    invoke-virtual {v2}, Lcom/aide/codemodel/api/FileEntry;->getID()I
+
+    move-result v2
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 4
+    iget v2, p0, Labcd/u1;->EQ:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 5
+    iget-object v2, p0, Labcd/u1;->VH:Lcom/aide/codemodel/api/EntitySpace;
+
+    iget-object v3, p0, Labcd/u1;->we:Labcd/k1;
+
+    invoke-virtual {v2, v3}, Lcom/aide/codemodel/api/EntitySpace;->ye(Labcd/n1;)I
+
+    move-result v2
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 6
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    if-eqz v2, :cond_35
+
+    const/4 v2, 0x1
+
+    goto :goto_36
+
+    :cond_35
+    const/4 v2, 0x0
+
+    :goto_36
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 7
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    if-eqz v2, :cond_1f9
+
+    .line 8
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->gn:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 9
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->tp:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 10
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->u7:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 11
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->EQ:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 12
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->we:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 13
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->J0:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 14
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->J8:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 15
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->Ws:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 16
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->v5:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 17
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->Zo:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 18
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->VH:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 19
+    iget-object v2, p0, Labcd/u1;->VH:Lcom/aide/codemodel/api/EntitySpace;
+
+    iget-object v5, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v5, v5, Labcd/u1$b;->gW:Lcom/aide/codemodel/api/Type;
+
+    invoke-virtual {v2, v5}, Lcom/aide/codemodel/api/EntitySpace;->ye(Labcd/n1;)I
+
+    move-result v2
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 20
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->BT:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 21
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-boolean v2, v2, Labcd/u1$b;->vy:Z
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 22
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-boolean v2, v2, Labcd/u1$b;->FH:Z
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 23
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-boolean v2, v2, Labcd/u1$b;->DW:Z
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 24
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->P8:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 25
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->KD:Ljava/lang/String;
+
+    if-eqz v2, :cond_c2
+
+    const/4 v2, 0x1
+
+    goto :goto_c3
+
+    :cond_c2
+    const/4 v2, 0x0
+
+    :goto_c3
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 26
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->KD:Ljava/lang/String;
+
+    if-eqz v2, :cond_d3
+
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->KD:Ljava/lang/String;
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
+
+    .line 27
+    :cond_d3
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-boolean v2, v2, Labcd/u1$b;->ro:Z
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 28
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-wide v5, v2, Labcd/u1$b;->nw:J
+
+    invoke-virtual {p1, v5, v6}, Ljava/io/DataOutputStream;->writeLong(J)V
+
+    .line 29
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-boolean v2, v2, Labcd/u1$b;->SI:Z
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 30
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-boolean v2, v2, Labcd/u1$b;->Hw:Z
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 31
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-boolean v2, v2, Labcd/u1$b;->cn:Z
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 32
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->sh:Labcd/h3;
+
+    if-eqz v2, :cond_fe
+
+    const/4 v2, 0x1
+
+    goto :goto_ff
+
+    :cond_fe
+    const/4 v2, 0x0
+
+    :goto_ff
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 33
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->sh:Labcd/h3;
+
+    if-eqz v2, :cond_116
+
+    .line 34
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->sh:Labcd/h3;
+
+    invoke-virtual {v2, p1}, Labcd/h3;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 35
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->cb:Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 36
+    :cond_116
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->ei:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 37
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget v2, v2, Labcd/u1$b;->QX:I
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    .line 38
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-boolean v2, v2, Labcd/u1$b;->XL:Z
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 39
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-boolean v2, v2, Labcd/u1$b;->aM:Z
+
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 40
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->Mr:Labcd/h3;
+
+    if-eqz v2, :cond_13a
+
+    const/4 v2, 0x1
+
+    goto :goto_13b
+
+    :cond_13a
+    const/4 v2, 0x0
+
+    :goto_13b
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 41
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->Mr:Labcd/h3;
+
+    if-eqz v2, :cond_14b
+
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->Mr:Labcd/h3;
+
+    invoke-virtual {v2, p1}, Labcd/h3;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 42
+    :cond_14b
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    if-eqz v2, :cond_153
+
+    const/4 v2, 0x1
+
+    goto :goto_154
+
+    :cond_153
+    const/4 v2, 0x0
+
+    :goto_154
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 43
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    if-eqz v2, :cond_164
+
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->U2:Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 44
+    :cond_164
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    if-eqz v2, :cond_16c
+
+    const/4 v2, 0x1
+
+    goto :goto_16d
+
+    :cond_16c
+    const/4 v2, 0x0
+
+    :goto_16d
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 45
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    if-eqz v2, :cond_17d
+
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->a8:Lcom/aide/codemodel/api/collections/ListOfInt;
+
+    invoke-virtual {v2, p1}, Lcom/aide/codemodel/api/collections/ListOfInt;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 46
+    :cond_17d
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->j3:Labcd/h3;
+
+    if-eqz v2, :cond_185
+
+    const/4 v2, 0x1
+
+    goto :goto_186
+
+    :cond_185
+    const/4 v2, 0x0
+
+    :goto_186
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 47
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->j3:Labcd/h3;
+
+    if-eqz v2, :cond_196
+
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->j3:Labcd/h3;
+
+    invoke-virtual {v2, p1}, Labcd/h3;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 48
+    :cond_196
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->lg:Labcd/v3;
+
+    if-eqz v2, :cond_19e
+
+    const/4 v2, 0x1
+
+    goto :goto_19f
+
+    :cond_19e
+    const/4 v2, 0x0
+
+    :goto_19f
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 49
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->lg:Labcd/v3;
+
+    if-eqz v2, :cond_1af
+
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->lg:Labcd/v3;
+
+    invoke-virtual {v2, p1}, Labcd/v3;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 50
+    :cond_1af
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->rN:Labcd/m3;
+
+    if-eqz v2, :cond_1b7
+
+    const/4 v2, 0x1
+
+    goto :goto_1b8
+
+    :cond_1b7
+    const/4 v2, 0x0
+
+    :goto_1b8
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 51
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->rN:Labcd/m3;
+
+    if-eqz v2, :cond_1c8
+
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->rN:Labcd/m3;
+
+    invoke-virtual {v2, p1}, Labcd/m3;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 52
+    :cond_1c8
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->er:Labcd/v3;
+
+    if-eqz v2, :cond_1d0
+
+    const/4 v2, 0x1
+
+    goto :goto_1d1
+
+    :cond_1d0
+    const/4 v2, 0x0
+
+    :goto_1d1
+    invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 53
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->er:Labcd/v3;
+
+    if-eqz v2, :cond_1e1
+
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->er:Labcd/v3;
+
+    invoke-virtual {v2, p1}, Labcd/v3;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+
+    .line 54
+    :cond_1e1
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->yS:Labcd/h3;
+
+    if-eqz v2, :cond_1e8
+
+    goto :goto_1e9
+
+    :cond_1e8
+    const/4 v3, 0x0
+
+    :goto_1e9
+    invoke-virtual {p1, v3}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+
+    .line 55
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->yS:Labcd/h3;
+
+    if-eqz v2, :cond_1f9
+
+    iget-object v2, p0, Labcd/u1;->J0:Labcd/u1$b;
+
+    iget-object v2, v2, Labcd/u1$b;->yS:Labcd/h3;
+
+    invoke-virtual {v2, p1}, Labcd/h3;->store(Lcom/aide/codemodel/api/collections/StoreOutputStream;)V
+    :try_end_1f9
+    .catchall {:try_start_5 .. :try_end_1f9} :catchall_1fa
+
+    :cond_1f9
+    return-void
+
+    :catchall_1fa
+    move-exception v2
+
+    .line 56
+    sget-boolean v3, Labcd/u1;->Ws:Z
+
+    if-eqz v3, :cond_202
+
+    invoke-static {v2, v0, v1, p0, p1}, Labcd/iy;->j3(Ljava/lang/Throwable;JLjava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_202
     throw v2
 .end method
 

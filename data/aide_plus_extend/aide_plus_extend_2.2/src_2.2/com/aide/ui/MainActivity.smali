@@ -332,7 +332,7 @@
     .line 2
     iget-object v2, p0, Lcom/aide/ui/MainActivity;->cT:Lcom/aide/ui/m;
 
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v3
 
@@ -372,7 +372,7 @@
     if-nez v3, :cond_42
 
     .line 5
-    invoke-static {}, Lcom/aide/ui/App;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -949,7 +949,7 @@
     move-result-object v7
 
     .line 7
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v8
 
@@ -1003,7 +1003,7 @@
 
     .line 11
     :cond_65
-    invoke-static {}, Lcom/aide/ui/App;->getMainActivity()Lcom/aide/ui/MainActivity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v5
 
@@ -1369,7 +1369,7 @@
 
     .line 1
     :cond_d
-    invoke-static {}, Lcom/aide/ui/App;->vJ()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->vJ()Z
 
     move-result v3
     :try_end_11
@@ -1407,7 +1407,7 @@
 
     .line 6
     :cond_29
-    invoke-static {}, Lcom/aide/ui/App;->getMainActivity()Lcom/aide/ui/MainActivity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v3
 
@@ -1442,18 +1442,18 @@
 
     .line 11
     :cond_46
-    invoke-static {}, Lcom/aide/ui/App;->getMainActivity()Lcom/aide/ui/MainActivity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v3
 
     invoke-virtual {v3}, Lcom/aide/ui/MainActivity;->q7()V
 
     .line 12
-    invoke-static {}, Lcom/aide/ui/App;->getMainActivity()Lcom/aide/ui/MainActivity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v3
 
-    invoke-static {}, Lcom/aide/ui/App;->getDebugger()Lcom/aide/ui/debugger/Debugger;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getDebugger()Lcom/aide/ui/debugger/Debugger;
 
     move-result-object v4
 
@@ -1464,7 +1464,7 @@
     invoke-virtual {v3, v4}, Lcom/aide/ui/MainActivity;->aq(Lcom/aide/ui/util/FileSpan;)V
 
     .line 13
-    invoke-static {}, Lcom/aide/ui/App;->getMainActivity()Lcom/aide/ui/MainActivity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v3
 
@@ -1475,7 +1475,7 @@
     invoke-virtual {v3}, Lcom/aide/ui/browsers/DebugBrowser;->Hw()V
 
     .line 14
-    invoke-static {}, Lcom/aide/ui/App;->getMainActivity()Lcom/aide/ui/MainActivity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v3
 
@@ -1536,7 +1536,7 @@
     :cond_c
     new-instance v2, Ljava/io/File;
 
-    invoke-static {}, Lcom/aide/ui/App;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
 
     move-result-object v3
 
@@ -1553,7 +1553,7 @@
     move-result-object v2
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
 
     move-result-object v3
 
@@ -1759,7 +1759,7 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->getDebugger()Lcom/aide/ui/debugger/Debugger;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getDebugger()Lcom/aide/ui/debugger/Debugger;
 
     move-result-object v2
 
@@ -1770,7 +1770,7 @@
     invoke-virtual {p0, v2}, Lcom/aide/ui/MainActivity;->aq(Lcom/aide/ui/util/FileSpan;)V
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->getMainActivity()Lcom/aide/ui/MainActivity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v2
 
@@ -2002,13 +2002,13 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
 
     if-eqz v2, :cond_1c
 
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v2
 
@@ -2149,30 +2149,30 @@
 
     move-result v5
 
-    invoke-static {v5}, Lcom/aide/ui/AppCommands;->u7(I)Labcd/dg;
+    invoke-static {v5}, Lcom/aide/ui/AppCommands;->u7(I)Lcom/aide/ui/command/MenuItemCommand;
 
     move-result-object v5
 
     if-eqz v5, :cond_46
 
     .line 4
-    invoke-interface {v5}, Labcd/dg;->isEnabled()Z
+    invoke-interface {v5}, Lcom/aide/ui/command/MenuItemCommand;->isEnabled()Z
 
     move-result v6
 
     invoke-interface {v4, v6}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
     .line 5
-    instance-of v6, v5, Labcd/fg;
+    instance-of v6, v5, Lcom/aide/ui/command/MenuCommand;
 
     if-eqz v6, :cond_37
 
     .line 6
     move-object v6, v5
 
-    check-cast v6, Labcd/fg;
+    check-cast v6, Lcom/aide/ui/command/MenuCommand;
 
-    invoke-interface {v6, v2}, Labcd/fg;->DW(Z)Z
+    invoke-interface {v6, v2}, Lcom/aide/ui/command/MenuCommand;->isVisible(Z)Z
 
     move-result v6
 
@@ -2454,7 +2454,7 @@
     invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
     .line 5
-    invoke-static {}, Lcom/aide/ui/App;->DW()Labcd/l8;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->DW()Labcd/l8;
 
     move-result-object v0
 
@@ -2559,7 +2559,7 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v2
 
@@ -2784,7 +2784,7 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->getNavigateService()Lcom/aide/ui/services/NavigateService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getNavigateService()Lcom/aide/ui/services/NavigateService;
 
     move-result-object v2
 
@@ -2797,7 +2797,7 @@
     if-eqz v2, :cond_23
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->getNavigateService()Lcom/aide/ui/services/NavigateService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getNavigateService()Lcom/aide/ui/services/NavigateService;
 
     move-result-object v4
 
@@ -2928,7 +2928,7 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->DW()Labcd/l8;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->DW()Labcd/l8;
 
     move-result-object v2
 
@@ -3045,7 +3045,7 @@
     .line 2
     iget-object v0, p1, Lcom/aide/ui/util/FileSpan;->j6:Ljava/lang/String;
 
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v1
 
@@ -3087,7 +3087,7 @@
 
     .line 5
     :cond_44
-    invoke-static {}, Lcom/aide/ui/App;->getNavigateService()Lcom/aide/ui/services/NavigateService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getNavigateService()Lcom/aide/ui/services/NavigateService;
 
     move-result-object v0
 
@@ -3097,7 +3097,7 @@
 
     .line 6
     :cond_4c
-    invoke-static {}, Lcom/aide/ui/App;->getNavigateService()Lcom/aide/ui/services/NavigateService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getNavigateService()Lcom/aide/ui/services/NavigateService;
 
     move-result-object v0
 
@@ -3106,7 +3106,7 @@
     move-result v0
 
     .line 7
-    invoke-static {}, Lcom/aide/ui/App;->getNavigateService()Lcom/aide/ui/services/NavigateService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getNavigateService()Lcom/aide/ui/services/NavigateService;
 
     move-result-object v2
 
@@ -3118,7 +3118,7 @@
 
     .line 8
     :try_start_5c
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v2
 
@@ -3133,7 +3133,7 @@
 
     .line 9
     :try_start_67
-    invoke-static {}, Lcom/aide/ui/App;->getNavigateService()Lcom/aide/ui/services/NavigateService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getNavigateService()Lcom/aide/ui/services/NavigateService;
 
     move-result-object v0
 
@@ -3163,7 +3163,7 @@
     invoke-virtual {v0}, Lcom/aide/ui/AIDEEditorPager;->XG()V
 
     .line 12
-    invoke-static {}, Lcom/aide/ui/App;->getNavigateService()Lcom/aide/ui/services/NavigateService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getNavigateService()Lcom/aide/ui/services/NavigateService;
 
     move-result-object v0
 
@@ -3181,7 +3181,7 @@
     .line 13
     :catch_8e
     :try_start_8e
-    invoke-static {}, Lcom/aide/ui/App;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -3213,7 +3213,7 @@
 
     .line 14
     :try_start_ae
-    invoke-static {}, Lcom/aide/ui/App;->getNavigateService()Lcom/aide/ui/services/NavigateService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getNavigateService()Lcom/aide/ui/services/NavigateService;
 
     move-result-object v0
 
@@ -3225,7 +3225,7 @@
     :goto_b6
     if-eqz v0, :cond_bf
 
-    invoke-static {}, Lcom/aide/ui/App;->getNavigateService()Lcom/aide/ui/services/NavigateService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getNavigateService()Lcom/aide/ui/services/NavigateService;
 
     move-result-object v0
 
@@ -3284,7 +3284,7 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
 
@@ -3681,7 +3681,7 @@
     if-eqz v2, :cond_3b
 
     .line 6
-    invoke-static {}, Lcom/aide/ui/App;->DW()Labcd/l8;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->DW()Labcd/l8;
 
     move-result-object v2
 
@@ -4209,11 +4209,11 @@
 
     .line 1
     :cond_e
-    invoke-static {}, Lcom/aide/ui/App;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getProjectService()Lcom/aide/ui/services/ProjectService;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/aide/ui/services/ProjectService;->I()Z
+    invoke-virtual {v3}, Lcom/aide/ui/services/ProjectService;->isOpenProject()Z
 
     move-result v3
 
@@ -4222,7 +4222,7 @@
     if-eqz v3, :cond_85
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getProjectService()Lcom/aide/ui/services/ProjectService;
 
     move-result-object v3
 
@@ -4233,7 +4233,7 @@
     if-eqz v3, :cond_85
 
     .line 3
-    invoke-static {}, Lcom/aide/ui/App;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getProjectService()Lcom/aide/ui/services/ProjectService;
 
     move-result-object v3
 
@@ -4382,21 +4382,21 @@
     invoke-virtual {p0}, Lcom/aide/ui/MainActivity;->kf()V
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getProjectService()Lcom/aide/ui/services/ProjectService;
 
     move-result-object v2
 
     invoke-virtual {v2}, Lcom/aide/ui/services/ProjectService;->wc()V
 
     .line 3
-    invoke-static {}, Lcom/aide/ui/App;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
 
     move-result-object v2
 
     invoke-virtual {v2}, Lcom/aide/ui/services/FileBrowserService;->v5()V
 
     .line 4
-    invoke-static {}, Lcom/aide/ui/App;->getEngineService()Lcom/aide/ui/services/EngineService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getEngineService()Lcom/aide/ui/services/EngineService;
 
     move-result-object v2
 
@@ -4444,7 +4444,7 @@
     invoke-virtual {v0}, Lcom/aide/ui/AIDEEditorPager;->Eq()V
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->getMainActivity()Lcom/aide/ui/MainActivity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v0
 
@@ -4456,10 +4456,10 @@
 
     const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2, v3}, Lcom/aide/ui/App;->sy(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/Runnable;Ljava/lang/Runnable;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/aide/ui/ServiceContainer;->sy(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/Runnable;Ljava/lang/Runnable;)V
 
     .line 3
-    invoke-static {}, Lcom/aide/ui/App;->J8()Lcom/aide/ui/services/RunService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->J8()Lcom/aide/ui/services/RunService;
 
     move-result-object v0
 
@@ -5029,7 +5029,7 @@
 
     move-result-object v2
 
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v3
 
@@ -5041,7 +5041,7 @@
 
     move-result v3
 
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v4
 
@@ -5058,7 +5058,7 @@
     invoke-static {v2, v3, v4}, Lcom/aide/common/TrainerLogo;->j6(Landroid/app/ActionBar;I[Ljava/lang/String;)V
 
     .line 4
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v2
 
@@ -5167,7 +5167,7 @@
     move-result-object v6
 
     .line 6
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v7
 
@@ -5204,7 +5204,7 @@
 
     .line 9
     :cond_54
-    invoke-static {}, Lcom/aide/ui/App;->getMainActivity()Lcom/aide/ui/MainActivity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v3
 
@@ -5314,7 +5314,7 @@
     move-result-object v6
 
     .line 7
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v7
 
@@ -5675,7 +5675,7 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->getNavigateService()Lcom/aide/ui/services/NavigateService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getNavigateService()Lcom/aide/ui/services/NavigateService;
 
     move-result-object v2
 
@@ -5686,7 +5686,7 @@
     if-eqz v2, :cond_21
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->getNavigateService()Lcom/aide/ui/services/NavigateService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getNavigateService()Lcom/aide/ui/services/NavigateService;
 
     move-result-object v3
 
@@ -5795,7 +5795,7 @@
     invoke-virtual {v2, v5}, Lcom/aide/ui/QuickKeysBar;->Zo(Z)V
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->DW()Labcd/l8;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->DW()Labcd/l8;
 
     move-result-object v2
 
@@ -5932,14 +5932,14 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->gn()Landroid/app/Activity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->gn()Landroid/app/Activity;
 
     move-result-object v2
 
     if-ne v2, p0, :cond_1a
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v2
 
@@ -6048,14 +6048,14 @@
 
     .line 1
     :cond_e
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v3
 
     if-eqz v3, :cond_2e
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->getMainActivity()Lcom/aide/ui/MainActivity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v3
 
@@ -6251,7 +6251,7 @@
     if-ne p1, v0, :cond_35
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->XL()Labcd/xe;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->XL()Labcd/xe;
 
     move-result-object v0
 
@@ -6286,7 +6286,7 @@
     if-eqz v0, :cond_55
 
     .line 5
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v0
 
@@ -6303,7 +6303,7 @@
     if-eqz v0, :cond_c2
 
     .line 7
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v0
 
@@ -6319,7 +6319,7 @@
     if-ne p2, v1, :cond_c2
 
     .line 8
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v0
 
@@ -6346,14 +6346,14 @@
     invoke-virtual {p0}, Lcom/aide/ui/MainActivity;->Gj()V
 
     .line 11
-    invoke-static {}, Lcom/aide/ui/App;->DW()Labcd/l8;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->DW()Labcd/l8;
 
     move-result-object v0
 
     invoke-virtual {v0}, Labcd/l8;->DW()V
 
     .line 12
-    sget-object v0, Lcom/aide/ui/build/BuildServiceCollect;->j6:Lcom/aide/ui/build/android/AndroidProjectBuildService;
+    sget-object v0, Lcom/aide/ui/build/BuildServiceCollect;->androidProjectBuildService:Lcom/aide/ui/build/android/AndroidProjectBuildService;
 
     invoke-virtual {v0}, Lcom/aide/ui/build/android/AndroidProjectBuildService;->Mz()V
 
@@ -6368,14 +6368,14 @@
     invoke-virtual {p0}, Lcom/aide/ui/MainActivity;->Gj()V
 
     .line 14
-    invoke-static {}, Lcom/aide/ui/App;->DW()Labcd/l8;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->DW()Labcd/l8;
 
     move-result-object v0
 
     invoke-virtual {v0}, Labcd/l8;->DW()V
 
     .line 15
-    sget-object v0, Lcom/aide/ui/build/BuildServiceCollect;->DW:Lcom/aide/ui/build/java/JavaProjectBuildService;
+    sget-object v0, Lcom/aide/ui/build/BuildServiceCollect;->javaProjectBuildService:Lcom/aide/ui/build/java/JavaProjectBuildService;
 
     invoke-virtual {v0}, Lcom/aide/ui/build/java/JavaProjectBuildService;->j3()V
 
@@ -6387,14 +6387,14 @@
     if-ne p1, v0, :cond_b2
 
     .line 16
-    invoke-static {}, Lcom/aide/ui/App;->DW()Labcd/l8;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->DW()Labcd/l8;
 
     move-result-object v0
 
     invoke-virtual {v0}, Labcd/l8;->DW()V
 
     .line 17
-    sget-object v0, Lcom/aide/ui/build/BuildServiceCollect;->Hw:Lcom/aide/ui/htmluidesigner/HtmlCodeBuildService;
+    sget-object v0, Lcom/aide/ui/build/BuildServiceCollect;->htmlCodeBuildService:Lcom/aide/ui/htmluidesigner/HtmlCodeBuildService;
 
     invoke-virtual {v0}, Lcom/aide/ui/htmluidesigner/HtmlCodeBuildService;->u7()V
 
@@ -6406,16 +6406,16 @@
     if-ne p1, v0, :cond_c2
 
     .line 18
-    invoke-static {}, Lcom/aide/ui/App;->DW()Labcd/l8;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->DW()Labcd/l8;
 
     move-result-object v0
 
     invoke-virtual {v0}, Labcd/l8;->DW()V
 
     .line 19
-    sget-object v0, Lcom/aide/ui/build/BuildServiceCollect;->v5:Lcom/aide/ui/build/javascript/a;
+    sget-object v0, Lcom/aide/ui/build/BuildServiceCollect;->javaScriptBuildService:Lcom/aide/ui/build/javascript/JavaScriptBuildService;
 
-    invoke-virtual {v0}, Lcom/aide/ui/build/javascript/a;->u7()V
+    invoke-virtual {v0}, Lcom/aide/ui/build/javascript/JavaScriptBuildService;->u7()V
     :try_end_c2
     .catchall {:try_start_0 .. :try_end_c2} :catchall_c3
 
@@ -6506,7 +6506,7 @@
 
     .line 5
     :cond_29
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
 
@@ -6558,7 +6558,7 @@
     iput-wide v7, p0, Lcom/aide/ui/MainActivity;->jw:J
 
     .line 11
-    invoke-static {}, Lcom/aide/ui/App;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -6595,7 +6595,7 @@
     iput-wide v7, p0, Lcom/aide/ui/MainActivity;->jw:J
 
     .line 16
-    invoke-static {}, Lcom/aide/ui/App;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -6739,7 +6739,7 @@
 
     .line 4
     :cond_3c
-    invoke-static/range {p0 .. p0}, Lcom/aide/ui/App;->sh(Landroid/content/Context;)V
+    invoke-static/range {p0 .. p0}, Lcom/aide/ui/ServiceContainer;->sh(Landroid/content/Context;)V
 
     .line 5
     invoke-static/range {p0 .. p0}, Lcom/aide/common/AndroidHelper;->v5(Landroid/app/Activity;)V
@@ -6764,7 +6764,7 @@
     iput-boolean v2, v11, Lcom/aide/ui/MainActivity;->n5:Z
 
     .line 9
-    invoke-static {}, Lcom/aide/ui/App;->U2()Ljava/lang/String;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->U2()Ljava/lang/String;
 
     move-result-object v2
 
@@ -6789,7 +6789,7 @@
     invoke-super/range {p0 .. p1}, Lcom/aide/ui/ThemedActionbarActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 13
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
 
@@ -6845,7 +6845,7 @@
 
     .line 17
     :cond_9c
-    invoke-static {v11, v2}, Lcom/aide/ui/App;->cb(Lcom/aide/ui/MainActivity;Ljava/lang/String;)V
+    invoke-static {v11, v2}, Lcom/aide/ui/ServiceContainer;->cb(Lcom/aide/ui/MainActivity;Ljava/lang/String;)V
 
     .line 18
     new-instance v3, Lcom/aide/ui/QuickActionMenu;
@@ -6882,7 +6882,7 @@
     invoke-static/range {p0 .. p0}, Lcom/aide/common/AndroidHelper;->gW(Landroid/app/Activity;)V
 
     .line 24
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v3
 
@@ -6918,7 +6918,7 @@
     iput-object v3, v11, Lcom/aide/ui/MainActivity;->cT:Lcom/aide/ui/m;
 
     .line 29
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v4
 
@@ -6938,7 +6938,7 @@
 
     move-result-object v3
 
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v4
 
@@ -6987,7 +6987,7 @@
     invoke-virtual {v3, v4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 34
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v3
 
@@ -7040,7 +7040,7 @@
 
     if-nez v3, :cond_16a
 
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v3
 
@@ -7129,14 +7129,14 @@
 
     .line 48
     :goto_1b2
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v3
 
     if-eqz v3, :cond_1c4
 
     .line 49
-    invoke-static {}, Lcom/aide/ui/App;->Zo()Lcom/aide/ui/build/BuildService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->Zo()Lcom/aide/ui/build/BuildService;
 
     move-result-object v3
 
@@ -7148,7 +7148,7 @@
 
     .line 50
     :cond_1c4
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v3
 
@@ -7169,14 +7169,14 @@
 
     .line 52
     :cond_1d7
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v3
 
     invoke-virtual {v3, v2}, Lcom/aide/ui/services/OpenFileService;->yS(Ljava/lang/String;)V
 
     .line 53
-    sget-object v2, Lcom/aide/ui/App;->P8:Ljava/lang/String;
+    sget-object v2, Lcom/aide/ui/ServiceContainer;->P8:Ljava/lang/String;
 
     const-string v3, "com.aide.web"
 
@@ -7202,7 +7202,7 @@
 
     .line 56
     :cond_1f6
-    invoke-static {}, Lcom/aide/ui/App;->getNavigateService()Lcom/aide/ui/services/NavigateService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getNavigateService()Lcom/aide/ui/services/NavigateService;
 
     move-result-object v2
 
@@ -7217,7 +7217,7 @@
     invoke-virtual {v2, v3}, Lcom/aide/ui/services/NavigateService;->VH(Lcom/aide/ui/util/FileSpan;)V
 
     .line 57
-    invoke-static {}, Lcom/aide/ui/App;->J0()Lcom/aide/ui/services/ErrorService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->J0()Lcom/aide/ui/services/ErrorService;
 
     move-result-object v2
 
@@ -7304,30 +7304,30 @@
 
     .line 68
     :cond_253
-    invoke-static {}, Lcom/aide/ui/App;->I()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->I()Z
 
     move-result v2
 
     if-nez v2, :cond_26c
 
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
 
     if-nez v2, :cond_26c
 
-    invoke-static {}, Lcom/aide/ui/App;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getProjectService()Lcom/aide/ui/services/ProjectService;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/aide/ui/services/ProjectService;->I()Z
+    invoke-virtual {v2}, Lcom/aide/ui/services/ProjectService;->isOpenProject()Z
 
     move-result v2
 
     if-eqz v2, :cond_26c
 
     .line 69
-    invoke-static {v5}, Lcom/aide/ui/App;->j6(Z)V
+    invoke-static {v5}, Lcom/aide/ui/ServiceContainer;->j6(Z)V
 
     .line 70
     :cond_26c
@@ -7338,7 +7338,7 @@
     if-eqz v2, :cond_2c5
 
     .line 71
-    invoke-static {}, Lcom/aide/ui/App;->getLicenseService()Lcom/aide/ui/services/LicenseService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getLicenseService()Lcom/aide/ui/services/LicenseService;
 
     move-result-object v2
 
@@ -7349,7 +7349,7 @@
     if-nez v2, :cond_2c5
 
     .line 72
-    invoke-static {}, Lcom/aide/ui/App;->getLicenseService()Lcom/aide/ui/services/LicenseService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getLicenseService()Lcom/aide/ui/services/LicenseService;
 
     move-result-object v2
 
@@ -7360,7 +7360,7 @@
     if-nez v2, :cond_2c5
 
     .line 73
-    invoke-static {}, Lcom/aide/ui/App;->getLicenseService()Lcom/aide/ui/services/LicenseService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getLicenseService()Lcom/aide/ui/services/LicenseService;
 
     move-result-object v2
 
@@ -7371,13 +7371,13 @@
     if-nez v2, :cond_2c5
 
     .line 74
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
 
     if-nez v2, :cond_29c
 
-    invoke-static {}, Lcom/aide/ui/App;->I()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->I()Z
 
     move-result v2
 
@@ -7400,7 +7400,7 @@
     if-eqz v2, :cond_2c5
 
     .line 76
-    invoke-static {}, Lcom/aide/ui/App;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getContext()Landroid/content/Context;
 
     move-result-object v15
 
@@ -7428,7 +7428,7 @@
 
     .line 77
     :cond_2c5
-    invoke-static {}, Lcom/aide/ui/App;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -7476,7 +7476,7 @@
 
     .line 81
     :cond_2f1
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
     :try_end_2f5
@@ -7488,7 +7488,7 @@
 
     .line 82
     :try_start_2f9
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v0
 
@@ -7542,7 +7542,7 @@
     if-nez v1, :cond_40e
 
     .line 88
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v1
 
@@ -7553,11 +7553,11 @@
     if-eqz v1, :cond_340
 
     .line 89
-    invoke-static {}, Lcom/aide/ui/App;->EQ()Lcom/aide/ui/services/DropboxService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->EQ()Lcom/aide/ui/services/DropboxService;
 
     move-result-object v1
 
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v2
 
@@ -7569,22 +7569,22 @@
 
     .line 90
     :cond_340
-    invoke-static {}, Lcom/aide/ui/App;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getProjectService()Lcom/aide/ui/services/ProjectService;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/aide/ui/services/ProjectService;->I()Z
+    invoke-virtual {v1}, Lcom/aide/ui/services/ProjectService;->isOpenProject()Z
 
     move-result v1
 
     if-eqz v1, :cond_359
 
     .line 91
-    invoke-static {}, Lcom/aide/ui/App;->EQ()Lcom/aide/ui/services/DropboxService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->EQ()Lcom/aide/ui/services/DropboxService;
 
     move-result-object v1
 
-    invoke-static {}, Lcom/aide/ui/App;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getProjectService()Lcom/aide/ui/services/ProjectService;
 
     move-result-object v2
 
@@ -7666,7 +7666,7 @@
 
     .line 100
     :cond_399
-    sget-object v1, Lcom/aide/ui/App;->P8:Ljava/lang/String;
+    sget-object v1, Lcom/aide/ui/ServiceContainer;->P8:Ljava/lang/String;
 
     const-string v2, "com.aide.ui"
 
@@ -7694,7 +7694,7 @@
     if-eqz v1, :cond_3bd
 
     .line 102
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v1
 
@@ -7921,7 +7921,7 @@
     invoke-virtual {v2, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 4
-    invoke-static {}, Lcom/aide/ui/App;->J0()Lcom/aide/ui/services/ErrorService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->J0()Lcom/aide/ui/services/ErrorService;
 
     move-result-object v2
 
@@ -7938,7 +7938,7 @@
     invoke-static {p0, p0}, Lcom/aide/ui/AppPreferences;->aj(Landroid/content/Context;Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
     .line 7
-    invoke-static {}, Lcom/aide/ui/App;->OW()V
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->OW()V
     :try_end_42
     .catchall {:try_start_5 .. :try_end_42} :catchall_43
 
@@ -8290,7 +8290,7 @@
     if-eqz v1, :cond_f7
 
     .line 22
-    invoke-static {}, Lcom/aide/ui/App;->J0()Lcom/aide/ui/services/ErrorService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->J0()Lcom/aide/ui/services/ErrorService;
 
     move-result-object v0
 
@@ -8305,7 +8305,7 @@
 
     .line 24
     :cond_c1
-    invoke-static {}, Lcom/aide/ui/App;->Zo()Lcom/aide/ui/build/BuildService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->Zo()Lcom/aide/ui/build/BuildService;
 
     move-result-object v0
 
@@ -8315,7 +8315,7 @@
 
     if-eqz v0, :cond_da
 
-    invoke-static {}, Lcom/aide/ui/App;->Zo()Lcom/aide/ui/build/BuildService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->Zo()Lcom/aide/ui/build/BuildService;
 
     move-result-object v0
 
@@ -8332,7 +8332,7 @@
 
     .line 26
     :cond_da
-    invoke-static {}, Lcom/aide/ui/App;->QX()Lcom/aide/ui/scm/GitService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->QX()Lcom/aide/ui/scm/GitService;
 
     move-result-object v0
 
@@ -8349,7 +8349,7 @@
 
     .line 28
     :cond_e9
-    invoke-static {}, Lcom/aide/ui/App;->EQ()Lcom/aide/ui/services/DropboxService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->EQ()Lcom/aide/ui/services/DropboxService;
 
     move-result-object v0
 
@@ -8527,7 +8527,7 @@
     if-ne v2, v3, :cond_24
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v2
 
@@ -8548,14 +8548,14 @@
 
     move-result v2
 
-    invoke-static {v2}, Lcom/aide/ui/AppCommands;->u7(I)Labcd/dg;
+    invoke-static {v2}, Lcom/aide/ui/AppCommands;->u7(I)Lcom/aide/ui/command/MenuItemCommand;
 
     move-result-object v2
 
     if-eqz v2, :cond_50
 
     .line 4
-    invoke-interface {v2}, Labcd/dg;->isEnabled()Z
+    invoke-interface {v2}, Lcom/aide/ui/command/MenuItemCommand;->isEnabled()Z
 
     move-result v3
 
@@ -8583,7 +8583,7 @@
     invoke-static {v3}, Lcom/aide/ui/firebase/FireBaseLogEvent;->tp(Ljava/lang/String;)V
 
     .line 6
-    invoke-interface {v2}, Labcd/dg;->run()Z
+    invoke-interface {v2}, Lcom/aide/ui/command/MenuItemCommand;->run()Z
 
     return v4
 
@@ -8684,7 +8684,7 @@
     if-lez v2, :cond_1e
 
     .line 3
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v2
 
@@ -8694,14 +8694,14 @@
 
     .line 4
     :cond_1e
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
 
     if-eqz v2, :cond_2b
 
     .line 5
-    invoke-static {}, Lcom/aide/ui/App;->nw()Lcom/aide/ui/trainer/b;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->nw()Lcom/aide/ui/trainer/b;
 
     move-result-object v2
 
@@ -8762,7 +8762,7 @@
     move-result-object v3
 
     .line 4
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v4
 
@@ -8797,7 +8797,7 @@
 
     .line 9
     :goto_38
-    invoke-static {}, Lcom/aide/ui/App;->vJ()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->vJ()Z
 
     move-result v3
 
@@ -8926,7 +8926,7 @@
     if-ne p1, v0, :cond_36
 
     .line 3
-    invoke-static {}, Lcom/aide/ui/App;->getMainActivity()Lcom/aide/ui/MainActivity;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v0
 
@@ -9024,7 +9024,7 @@
     if-eqz v2, :cond_2b
 
     .line 7
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v2
 
@@ -9039,7 +9039,7 @@
 
     .line 9
     :cond_2b
-    invoke-static {}, Lcom/aide/ui/App;->EQ()Lcom/aide/ui/services/DropboxService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->EQ()Lcom/aide/ui/services/DropboxService;
 
     move-result-object v2
 
@@ -9049,7 +9049,7 @@
     invoke-virtual {p0}, Lcom/aide/ui/MainActivity;->kf()V
 
     .line 11
-    invoke-static {}, Lcom/aide/ui/App;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getProjectService()Lcom/aide/ui/services/ProjectService;
 
     move-result-object v2
 
@@ -9060,24 +9060,24 @@
     invoke-virtual {p0}, Lcom/aide/ui/MainActivity;->q7()V
 
     .line 13
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
 
     if-nez v2, :cond_56
 
-    invoke-static {}, Lcom/aide/ui/App;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getProjectService()Lcom/aide/ui/services/ProjectService;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/aide/ui/services/ProjectService;->I()Z
+    invoke-virtual {v2}, Lcom/aide/ui/services/ProjectService;->isOpenProject()Z
 
     move-result v2
 
     if-eqz v2, :cond_56
 
     .line 14
-    invoke-static {}, Lcom/aide/ui/App;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getProjectService()Lcom/aide/ui/services/ProjectService;
 
     move-result-object v2
 
@@ -9221,7 +9221,7 @@
 
     .line 6
     :cond_39
-    invoke-static {}, Lcom/aide/ui/App;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getProjectService()Lcom/aide/ui/services/ProjectService;
 
     move-result-object v1
 
@@ -9229,14 +9229,14 @@
 
     .line 7
     :cond_40
-    invoke-static {}, Lcom/aide/ui/App;->getEngineService()Lcom/aide/ui/services/EngineService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getEngineService()Lcom/aide/ui/services/EngineService;
 
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/aide/ui/services/EngineService;->EQ()V
 
     .line 8
-    sget-object v1, Lcom/aide/ui/App;->P8:Ljava/lang/String;
+    sget-object v1, Lcom/aide/ui/ServiceContainer;->P8:Ljava/lang/String;
 
     const-string v2, "com.aide.web"
 
@@ -9259,7 +9259,7 @@
 
     move-result-object v1
 
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
 
@@ -9401,7 +9401,7 @@
     const-string v3, "isPremiumKeyInstalled"
 
     .line 3
-    invoke-static {}, Lcom/aide/ui/App;->getLicenseService()Lcom/aide/ui/services/LicenseService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getLicenseService()Lcom/aide/ui/services/LicenseService;
 
     move-result-object v4
 
@@ -9418,7 +9418,7 @@
     const-string v3, "isPremium"
 
     .line 4
-    invoke-static {}, Lcom/aide/ui/App;->getLicenseService()Lcom/aide/ui/services/LicenseService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getLicenseService()Lcom/aide/ui/services/LicenseService;
 
     move-result-object v4
 
@@ -9435,7 +9435,7 @@
     const-string v3, "isPremiumHacked"
 
     .line 5
-    invoke-static {}, Lcom/aide/ui/App;->getLicenseService()Lcom/aide/ui/services/LicenseService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getLicenseService()Lcom/aide/ui/services/LicenseService;
 
     move-result-object v4
 
@@ -9447,7 +9447,7 @@
 
     if-nez v4, :cond_4f
 
-    invoke-static {}, Lcom/aide/ui/App;->getLicenseService()Lcom/aide/ui/services/LicenseService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getLicenseService()Lcom/aide/ui/services/LicenseService;
 
     move-result-object v4
 
@@ -9474,7 +9474,7 @@
     const-string v3, "isUiBuilderKeyInstalled"
 
     .line 6
-    invoke-static {}, Lcom/aide/ui/App;->getLicenseService()Lcom/aide/ui/services/LicenseService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getLicenseService()Lcom/aide/ui/services/LicenseService;
 
     move-result-object v4
 
@@ -9491,7 +9491,7 @@
     const-string v3, "isUiBuilderLicensed"
 
     .line 7
-    invoke-static {}, Lcom/aide/ui/App;->getLicenseService()Lcom/aide/ui/services/LicenseService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getLicenseService()Lcom/aide/ui/services/LicenseService;
 
     move-result-object v4
 
@@ -9511,14 +9511,14 @@
     invoke-static {p0, v3, v2}, Lcom/aide/ui/firebase/FireBaseLogEvent;->aM(Landroid/app/Activity;Ljava/lang/String;Ljava/util/Map;)V
 
     .line 9
-    invoke-static {}, Lcom/aide/ui/App;->I()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->I()Z
 
     move-result v2
 
     if-eqz v2, :cond_92
 
     .line 10
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
 
@@ -9562,7 +9562,7 @@
 
     if-nez v3, :cond_b2
 
-    invoke-static {}, Lcom/aide/ui/App;->Sf()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->Sf()Z
 
     move-result v3
 
@@ -10016,7 +10016,7 @@
     .line 9
     :catch_5b
     :try_start_5b
-    invoke-static {}, Lcom/aide/ui/App;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -10073,7 +10073,7 @@
     invoke-virtual {p0, v2}, Lcom/aide/ui/MainActivity;->aq(Lcom/aide/ui/util/FileSpan;)V
 
     .line 12
-    invoke-static {}, Lcom/aide/ui/App;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getProjectService()Lcom/aide/ui/services/ProjectService;
 
     move-result-object v2
 
@@ -10382,7 +10382,7 @@
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     .line 5
-    sget-object v6, Lcom/aide/ui/App;->P8:Ljava/lang/String;
+    sget-object v6, Lcom/aide/ui/ServiceContainer;->P8:Ljava/lang/String;
 
     const-string v7, "rate"
 
@@ -10453,7 +10453,7 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
 
@@ -10885,7 +10885,7 @@
 
     .line 3
     :cond_1d
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v1
 
@@ -10896,7 +10896,7 @@
     if-eqz v1, :cond_33
 
     .line 4
-    invoke-static {}, Lcom/aide/ui/App;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
 
     move-result-object v2
 
@@ -10910,11 +10910,11 @@
 
     .line 5
     :cond_33
-    invoke-static {}, Lcom/aide/ui/App;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
 
     move-result-object v1
 
-    invoke-static {}, Lcom/aide/ui/App;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getFileBrowserService()Lcom/aide/ui/services/FileBrowserService;
 
     move-result-object v2
 
@@ -10926,7 +10926,7 @@
 
     .line 6
     :goto_42
-    invoke-static {}, Lcom/aide/ui/App;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getOpenFileService()Lcom/aide/ui/services/OpenFileService;
 
     move-result-object v1
 
@@ -10935,7 +10935,7 @@
     if-eqz p2, :cond_53
 
     .line 7
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v0
 
@@ -10947,7 +10947,7 @@
     if-eqz p3, :cond_5c
 
     .line 8
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v0
 
@@ -10956,7 +10956,7 @@
     .line 9
     :cond_5c
     :goto_5c
-    invoke-static {p1}, Lcom/aide/ui/App;->j6(Z)V
+    invoke-static {p1}, Lcom/aide/ui/ServiceContainer;->j6(Z)V
 
     .line 10
     invoke-virtual {p0}, Lcom/aide/ui/MainActivity;->recreate()V

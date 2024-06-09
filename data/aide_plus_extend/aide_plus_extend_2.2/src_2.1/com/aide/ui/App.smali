@@ -390,10 +390,9 @@
     iput-object v3, p0, Lcom/aide/ui/App;->Hw:Lcom/aide/ui/build/BuildService;
 
     .line 6
-    new-instance v3, Lcom/aide/ui/services/ProjectService;
-
-    invoke-direct {v3}, Lcom/aide/ui/services/ProjectService;-><init>()V
-
+    invoke-static {}, Lio/github/zeroaicy/aide/extend/ZeroAicyExtensionInterface;->getProjectService()Lcom/aide/ui/services/ProjectService;
+    move-result-object v3
+    
     iput-object v3, p0, Lcom/aide/ui/App;->v5:Lcom/aide/ui/services/ProjectService;
 
     .line 7
@@ -535,9 +534,8 @@
     iput-object v3, p0, Lcom/aide/ui/App;->rN:Labcd/lf;
 
     .line 27
-    new-instance v3, Labcd/mf;
-
-    invoke-direct {v3}, Labcd/mf;-><init>()V
+    invoke-static {}, Lio/github/zeroaicy/aide/extend/ZeroAicyExtensionInterface;->getTrainerService()Labcd/mf;
+    move-result-object v3
 
     iput-object v3, p0, Lcom/aide/ui/App;->er:Labcd/mf;
 

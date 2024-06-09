@@ -338,14 +338,14 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v2
 
     if-eqz v2, :cond_1d
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->nw()Lcom/aide/ui/trainer/b;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->nw()Lcom/aide/ui/trainer/b;
 
     move-result-object v2
 
@@ -385,7 +385,7 @@
     if-lt v3, v4, :cond_4a
 
     .line 7
-    invoke-static {}, Lcom/aide/ui/App;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -423,7 +423,7 @@
     invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 11
-    invoke-static {}, Lcom/aide/ui/App;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -495,7 +495,7 @@
 
     .line 17
     :cond_99
-    invoke-static {}, Lcom/aide/ui/App;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -561,14 +561,14 @@
 
     .line 1
     :cond_c
-    invoke-static {}, Lcom/aide/ui/App;->getDebugger()Lcom/aide/ui/debugger/Debugger;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getDebugger()Lcom/aide/ui/debugger/Debugger;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/aide/ui/debugger/Debugger;->sh()V
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->getLicenseService()Lcom/aide/ui/services/LicenseService;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->getLicenseService()Lcom/aide/ui/services/LicenseService;
 
     move-result-object v0
 

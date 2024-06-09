@@ -10,7 +10,6 @@ import org.jf.dexlib2.rewriter.Rewriter;
 import org.jf.dexlib2.rewriter.RewriterUtils;
 import org.jf.dexlib2.rewriter.Rewriters;
 import java.util.HashSet;
-import android.adservices.topics.GetTopicsRequest;
 
 public class RevertAnnotationRewriter extends AnnotationRewriter{
 

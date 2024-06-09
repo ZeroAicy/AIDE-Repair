@@ -229,7 +229,7 @@
 
     if-eqz v3, :cond_28
 
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v3
 
@@ -240,7 +240,7 @@
     if-nez v3, :cond_28
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v3
 
@@ -250,7 +250,7 @@
 
     .line 3
     :cond_28
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v3
 
@@ -313,21 +313,21 @@
     const-string v0, "EXTRA_LANGUAGE"
 
     .line 2
-    invoke-static {}, Lcom/aide/ui/App;->U2()Ljava/lang/String;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->U2()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {p3, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 3
-    invoke-static {}, Lcom/aide/ui/App;->isTrainerMode()Z
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->isTrainerMode()Z
 
     move-result v0
 
     if-eqz v0, :cond_c3
 
     .line 4
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v0
 
@@ -336,7 +336,7 @@
     move-result-object v0
 
     .line 5
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v1
 
@@ -417,7 +417,7 @@
     const-string v0, "EXTRA_TRAINER_FAIL_BUTTON"
 
     .line 14
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v2
 
@@ -439,7 +439,7 @@
     const-string v0, "EXTRA_TRAINER_FAIL_TITLE"
 
     .line 16
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v1
 
@@ -452,7 +452,7 @@
     const-string v0, "EXTRA_TRAINER_SUCCESS_TITLE"
 
     .line 17
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v1
 
@@ -465,7 +465,7 @@
     const-string v0, "EXTRA_TRAINER_SUCCESS_BUTTON"
 
     .line 18
-    invoke-static {}, Lcom/aide/ui/App;->ro()Labcd/mf;
+    invoke-static {}, Lcom/aide/ui/ServiceContainer;->ro()Labcd/mf;
 
     move-result-object v1
 

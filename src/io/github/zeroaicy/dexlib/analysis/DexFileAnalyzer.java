@@ -49,19 +49,25 @@ public class DexFileAnalyzer{
 
 	//启用修复分析[aidl类和枚举]
 	private final boolean repairAnalysis;
+	private final boolean checkRevertMapping;
+
 	// 类签名 与 方法签名对应关系
 	protected final Map<String, Set<String>> classMethods = new HashMap<>();
 
+	// 开关 Set
+	private final Map<String, String> switchMap = new HashMap<>();
+
+	// 用于纯分析
 	public DexFileAnalyzer(MultiDexContainer<? extends DexFile> dexContainer) throws IOException{
-		this(dexContainer, false);
+		this(dexContainer, Collections.<String, String>emptyMap());
 	}
 
-	private DexFileAnalyzer(MultiDexContainer<? extends DexFile> dexContainer, boolean repairAnalysis) throws IOException{
-		this(dexContainer, new RevertMappingData(), repairAnalysis);
+	private DexFileAnalyzer(MultiDexContainer<? extends DexFile> dexContainer, Map<String, String> switchMap) throws IOException{
+		this(dexContainer, new RevertMappingData(), switchMap);
 	}
 
 	public DexFileAnalyzer(MultiDexContainer<? extends DexFile> dexContainer, RevertMappingData revertMapping) throws IOException{
-		this(dexContainer, revertMapping, false);
+		this(dexContainer, revertMapping, Collections.<String, String>emptyMap());
 	}
 
 	/**
@@ -69,23 +75,31 @@ public class DexFileAnalyzer{
 	 * revertMapping 规则文件
 	 * 启用修复分析repairAnalysis
 	 */
-	public DexFileAnalyzer(MultiDexContainer<? extends DexFile> dexContainer, RevertMappingData revertMapping, boolean repairAnalysis) throws IOException{
+	public DexFileAnalyzer(MultiDexContainer<? extends DexFile> dexContainer, RevertMappingData revertMapping, Map<String, String> switchMap) throws IOException{
+
 		this.dexContainer = dexContainer;
 		this.revertMappingData = revertMapping;
+		this.switchMap.putAll(switchMap);
 
 		if ( this.revertMappingData.isContrary() ){
 			//反转模式不启用修复分析
 			this.repairAnalysis = false;
-		}else{
-			this.repairAnalysis = repairAnalysis;	
 		}
+		else{
+			this.repairAnalysis = hasSwitch(SwitchNameConstants.repairAnalysis);	
+		}
+		this.checkRevertMapping = hasSwitch(SwitchNameConstants.checkRevertMapping);	
 
 		this.dexEntryNames.addAll(dexContainer.getDexEntryNames());
 		//排序
 		Collections.sort(this.dexEntryNames);
-
 		//初始化
 		init();
+	}
+
+	private boolean hasSwitch(String repairAnalysis){
+		boolean contains = this.switchMap.containsKey(repairAnalysis);
+		return contains;
 	}
 
 	public boolean isRepairAnalysis(){
@@ -134,13 +148,23 @@ public class DexFileAnalyzer{
 	}
 
 	private void checkRevertMappingData(){
+		if ( !hasSwitch(SwitchNameConstants.checkRevertMapping) ){
+			return ;
+		}
+
 		Map<String, RewriterClassData> rewriterClassDataMap = getRevertMappingData().getRewriterClassDataMap();
+		Set<String> reClassNamedSet = new HashSet<>();
 		for ( Map.Entry<String, RewriterClassData> entry : rewriterClassDataMap.entrySet() ){
 			RewriterClassData rewriterClassData = entry.getValue();
 
 			String confusevt = rewriterClassData.getConfusevt();
 
 			String renamed = rewriterClassData.getRenamed();
+
+			// 检查参数中，类签名是否使用了，重命名后的类签名
+			if ( !rewriterClassData.notChangeClassName() ){
+				reClassNamedSet.add(renamed);
+			}
 
 			// 有无重名成已有的类
 			if ( this.classMethods.containsKey(renamed) ){
@@ -175,11 +199,30 @@ public class DexFileAnalyzer{
 					RewriterClassData.MethodData methodData2 = methodDataMap.get(renamedMethodSignature);
 					// 不存在冲突方法名的重写规则或规则未改变名称
 					if ( methodData2 == null || renamedMethodSignature.equals(methodData2.getRenamedMethodSignature()) ){
-						System.out.println(String.format("警告⚠️: 类%s方法%s将重命名为%s，但已存在", confusevt, methodData.methodSignature, renamedMethodSignature));					
+						System.out.println(String.format("警告⚠️: 类%s -> 方法 -> %s将重命名为 -> %s，但已存在", confusevt, methodData.methodSignature, renamedMethodSignature));					
 					}
 				}
 			}
+		}
 
+		// 效率非常低
+		for ( RewriterClassData rewriterClassData : rewriterClassDataMap.values() ){
+			String confusevt = rewriterClassData.getConfusevt();
+			Map < String, RewriterClassData.MethodData > methodDataMap = rewriterClassData.getMethodDataMap();
+			if ( methodDataMap == null ) continue;
+
+			for ( MethodData methodData : methodDataMap.values() ){
+				if ( methodData.renamed.indexOf('(') >= 0
+					|| methodData.renamed.indexOf(')') >= 0 ){
+					System.out.println(methodData + " 错误");
+				}
+				String parametersSignature =  methodData.parametersSignature;
+				for ( String reClassNamed : reClassNamedSet ){
+					if ( parametersSignature.contains(reClassNamed) ){
+						System.out.println(String.format("警告⚠️: 类%s -> 方法 -> %s使用修改后的类名%s", confusevt, methodData.methodSignature, reClassNamed));
+					}
+				}
+			}
 		}
 	}
 
@@ -245,6 +288,11 @@ public class DexFileAnalyzer{
 			typeMethodsMap.put(type, methodSignatureSet);
 		}
 		for ( Method virtualMethod : methods ){
+
+			int accessFlags = virtualMethod.getAccessFlags();
+			if ( AccessFlags.BRIDGE.isSet(accessFlags) ){
+				continue;
+			}
 			methodSignatureSet.add(getMethodSignature(virtualMethod));
 		}
 	}
@@ -413,7 +461,8 @@ public class DexFileAnalyzer{
 						putMemberClassesAnnotation(typeEncodedValue.getValue(), classDef.getType());
 					}
 				}
-			}else if ( "Ldalvik/annotation/EnclosingMethod;".equals(annotationType) ){
+			}
+			else if ( "Ldalvik/annotation/EnclosingMethod;".equals(annotationType) ){
 				for ( final AnnotationElement annotationElement : annotation.getElements() ){
 					if ( annotationElement == null ){
 						continue;
@@ -532,7 +581,19 @@ public class DexFileAnalyzer{
 
 				//查找父类中有此方法签名的类
 				fillHasVirtualMethodType(classDefType, methodSignature, virtualMethodSignTypes);
-
+				
+				// 对这些顶层类的子类
+				for( String childType : new HashSet<String>(virtualMethodSignTypes)){
+					
+					Set<String> childTypes = childClassSetMap.get(childType);
+					if( childTypes == null ){
+						continue;
+					}
+					for ( String childType2 : childTypes ){
+						fillHasVirtualMethodType(childType2, methodSignature, virtualMethodSignTypes);
+					}
+				}
+				
 				if ( virtualMethodSignTypes.isEmpty() ){
 					continue;
 				}
@@ -599,12 +660,18 @@ public class DexFileAnalyzer{
 		if ( !isAdded ){
 			//只有自己的父类，和父接口没有找到才判断自己有没有
 			Set<String> virtualMethodSignatureSet = typeVirtualMethodSignatureMap.get(type);
-			if ( virtualMethodSignatureSet != null ){
-				if ( virtualMethodSignatureSet.contains(methodSignature) ){
-					virtualMethodSignTypes.add(type);
-					isAdded = true;
-				}
+			if ( virtualMethodSignatureSet == null ){
+				return isAdded;
 			}
+			if ( virtualMethodSignatureSet.contains(methodSignature) ){
+				if( virtualMethodSignTypes.contains(type)){
+					return true;
+				}
+				virtualMethodSignTypes.add(type);
+				isAdded = true;
+				
+			}
+			
 		}
 
 		return isAdded;

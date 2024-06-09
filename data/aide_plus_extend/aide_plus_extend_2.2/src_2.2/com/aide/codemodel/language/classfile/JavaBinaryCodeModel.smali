@@ -169,7 +169,7 @@
 
     iget-object v8, v2, Lcom/aide/codemodel/api/Model;->identifierSpace:Lcom/aide/codemodel/api/IdentifierSpace;
 
-    iget-object v9, v2, Lcom/aide/codemodel/api/Model;->Mr:Lcom/aide/codemodel/api/ErrorTable;
+    iget-object v9, v2, Lcom/aide/codemodel/api/Model;->errorTable:Lcom/aide/codemodel/api/ErrorTable;
 
     const/4 v10, 0x0
 
@@ -188,7 +188,7 @@
 
     iget-object v14, v2, Lcom/aide/codemodel/api/Model;->identifierSpace:Lcom/aide/codemodel/api/IdentifierSpace;
 
-    iget-object v15, v2, Lcom/aide/codemodel/api/Model;->Mr:Lcom/aide/codemodel/api/ErrorTable;
+    iget-object v15, v2, Lcom/aide/codemodel/api/Model;->errorTable:Lcom/aide/codemodel/api/ErrorTable;
 
     iget-object v6, v2, Lcom/aide/codemodel/api/Model;->entitySpace:Lcom/aide/codemodel/api/EntitySpace;
 
@@ -292,7 +292,7 @@
             "Ljava/io/Reader;",
             "Ljava/util/Map<",
             "Lcom/aide/codemodel/api/abstraction/Language;",
-            "Lcom/aide/codemodel/api/SyntaxTreeSytles;",
+            "Lcom/aide/codemodel/api/SyntaxTreeStyles;",
             ">;)V"
         }
     .end annotation
@@ -334,7 +334,7 @@
 
     move-object v8, v0
 
-    check-cast v8, Lcom/aide/codemodel/api/SyntaxTreeSytles;
+    check-cast v8, Lcom/aide/codemodel/api/SyntaxTreeStyles;
 
     iget-object v0, p0, Lcom/aide/codemodel/language/classfile/JavaBinaryCodeModel;->FH:Lcom/aide/codemodel/language/java/JSharpCommentsLanguage;
 
@@ -344,13 +344,13 @@
 
     move-object v9, v0
 
-    check-cast v9, Lcom/aide/codemodel/api/SyntaxTreeSytles;
+    check-cast v9, Lcom/aide/codemodel/api/SyntaxTreeStyles;
 
     move-object v2, p1
 
     move-object v3, p2
 
-    invoke-virtual/range {v1 .. v9}, Labcd/t6;->Zo(Lcom/aide/codemodel/api/FileEntry;Ljava/io/Reader;ZZZZLcom/aide/codemodel/api/SyntaxTreeSytles;Lcom/aide/codemodel/api/SyntaxTreeSytles;)V
+    invoke-virtual/range {v1 .. v9}, Labcd/t6;->Zo(Lcom/aide/codemodel/api/FileEntry;Ljava/io/Reader;ZZZZLcom/aide/codemodel/api/SyntaxTreeStyles;Lcom/aide/codemodel/api/SyntaxTreeStyles;)V
     :try_end_2d
     .catchall {:try_start_0 .. :try_end_2d} :catchall_2e
 
@@ -427,7 +427,7 @@
 
     iget-object v0, v0, Lcom/aide/codemodel/api/Model;->U2:Labcd/i2;
 
-    invoke-virtual {v0}, Labcd/i2;->j6()Lcom/aide/codemodel/api/SyntaxTreeSytles;
+    invoke-virtual {v0}, Labcd/i2;->makeSyntaxTreeStyles()Lcom/aide/codemodel/api/SyntaxTreeStyles;
 
     move-result-object v0
 
@@ -436,7 +436,7 @@
 
     iget-object v1, v1, Lcom/aide/codemodel/api/Model;->U2:Labcd/i2;
 
-    invoke-virtual {v1}, Labcd/i2;->j6()Lcom/aide/codemodel/api/SyntaxTreeSytles;
+    invoke-virtual {v1}, Labcd/i2;->makeSyntaxTreeStyles()Lcom/aide/codemodel/api/SyntaxTreeStyles;
 
     move-result-object v10
 
@@ -467,7 +467,7 @@
 
     move-object v9, v10
 
-    invoke-virtual/range {v1 .. v9}, Labcd/t6;->Zo(Lcom/aide/codemodel/api/FileEntry;Ljava/io/Reader;ZZZZLcom/aide/codemodel/api/SyntaxTreeSytles;Lcom/aide/codemodel/api/SyntaxTreeSytles;)V
+    invoke-virtual/range {v1 .. v9}, Labcd/t6;->Zo(Lcom/aide/codemodel/api/FileEntry;Ljava/io/Reader;ZZZZLcom/aide/codemodel/api/SyntaxTreeStyles;Lcom/aide/codemodel/api/SyntaxTreeStyles;)V
 
     .line 4
     iget-object v1, p0, Lcom/aide/codemodel/language/classfile/JavaBinaryCodeModel;->DW:Lcom/aide/codemodel/language/classfile/JavaBinaryLanguage;
@@ -489,7 +489,7 @@
 
     check-cast v2, Lcom/aide/codemodel/api/SyntaxTree;
 
-    invoke-virtual {v1, v0, p1, p4, v2}, Lcom/aide/codemodel/language/java/JavaParser;->v5(Lcom/aide/codemodel/api/SyntaxTreeSytles;Lcom/aide/codemodel/api/FileEntry;ZLcom/aide/codemodel/api/SyntaxTree;)V
+    invoke-virtual {v1, v0, p1, p4, v2}, Lcom/aide/codemodel/language/java/JavaParser;->v5(Lcom/aide/codemodel/api/SyntaxTreeStyles;Lcom/aide/codemodel/api/FileEntry;ZLcom/aide/codemodel/api/SyntaxTree;)V
 
     .line 6
     :cond_51
@@ -497,7 +497,7 @@
 
     iget-object v1, v1, Lcom/aide/codemodel/api/Model;->U2:Labcd/i2;
 
-    invoke-virtual {v1, v0}, Labcd/i2;->DW(Lcom/aide/codemodel/api/SyntaxTreeSytles;)V
+    invoke-virtual {v1, v0}, Labcd/i2;->DW(Lcom/aide/codemodel/api/SyntaxTreeStyles;)V
 
     .line 7
     iget-object v0, p0, Lcom/aide/codemodel/language/classfile/JavaBinaryCodeModel;->FH:Lcom/aide/codemodel/language/java/JSharpCommentsLanguage;
@@ -519,7 +519,7 @@
 
     check-cast v1, Lcom/aide/codemodel/api/SyntaxTree;
 
-    invoke-virtual {v0, v10, p1, p4, v1}, Labcd/g6;->j6(Lcom/aide/codemodel/api/SyntaxTreeSytles;Lcom/aide/codemodel/api/FileEntry;ZLcom/aide/codemodel/api/SyntaxTree;)V
+    invoke-virtual {v0, v10, p1, p4, v1}, Labcd/g6;->j6(Lcom/aide/codemodel/api/SyntaxTreeStyles;Lcom/aide/codemodel/api/FileEntry;ZLcom/aide/codemodel/api/SyntaxTree;)V
 
     .line 9
     :cond_6d
@@ -527,7 +527,7 @@
 
     iget-object v0, v0, Lcom/aide/codemodel/api/Model;->U2:Labcd/i2;
 
-    invoke-virtual {v0, v10}, Labcd/i2;->DW(Lcom/aide/codemodel/api/SyntaxTreeSytles;)V
+    invoke-virtual {v0, v10}, Labcd/i2;->DW(Lcom/aide/codemodel/api/SyntaxTreeStyles;)V
     :try_end_74
     .catchall {:try_start_0 .. :try_end_74} :catchall_75
 

@@ -8,6 +8,7 @@
 .field public static j6:Lcom/aide/engine/service/Native;
 
 
+
 # direct methods
 .method static constructor <clinit>()V
     .registers 2

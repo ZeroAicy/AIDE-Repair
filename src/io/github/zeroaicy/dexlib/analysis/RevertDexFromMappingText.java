@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import org.jf.dexlib2.DexFileFactory;
@@ -44,35 +45,34 @@ public class RevertDexFromMappingText{
 	 * mappingFilePath mapping规则文件路径
 	 * contrary 与mapping规则相反，即逆规则文件
 	 */
-	public static void revert(String inputDexs, String outputDexs, 
-							  boolean repairAnalysis, boolean contrary, 
-							  String mappingFilePath) throws IOException{
-		RevertDexFromMappingText.revert(inputDexs, outputDexs, repairAnalysis, contrary,
-			   mappingFilePath, null, false);
-	}
 	
-	public static void revert(String inputDexs, String outputDexs, 
-							  boolean repairAnalysis, boolean contrary, 
-							  String mappingFilePath, String outputMappingPath) throws IOException{
-		RevertDexFromMappingText.revert(inputDexs, outputDexs, repairAnalysis, contrary,
-			   mappingFilePath, outputMappingPath, false);
-	}
 	
-	public static void revert(String inputDexs, String outputDexs, 
-							  boolean repairAnalysis, boolean contrary, 
-							  String mappingFilePath, String outputMappingPath, boolean onlyOutputMapping) throws IOException{
-
-		RevertMappingData revertMapping = new RevertMappingData(mappingFilePath, contrary);
+	public static void revert(String inputDexs, String outputDexs, Map<String, String> switchMap) throws IOException{
+		if( switchMap == null ){
+			switchMap = Collections.<String, String>emptyMap();
+		}
+								  
+		String mappingFilePath = switchMap.get(SwitchNameConstants.mappingFilePath);
+		if( mappingFilePath == null || mappingFilePath.isEmpty() ){
+			throw new Error(SwitchNameConstants.mappingFilePath + " 未设置");
+		}
+		
+		RevertMappingData revertMapping = new RevertMappingData(mappingFilePath, switchMap.containsKey(SwitchNameConstants.contrary));
 
 		File inputDexFiles = new File(inputDexs);
 		MultiDexContainer<? extends DexBackedDexFile> loadDexContainer = DexFileFactory.loadDexContainer(inputDexFiles, null);
 
 		// 启用修复分析[aidl Enum 内部类信息]
-		DexFileAnalyzer dexFileAnalyzer = new DexFileAnalyzer(loadDexContainer, revertMapping, repairAnalysis);
+		DexFileAnalyzer dexFileAnalyzer = new DexFileAnalyzer(loadDexContainer, revertMapping, switchMap);
 		dexFileAnalyzer.analysis();
 		
+		String outputMappingPath = switchMap.get(SwitchNameConstants.outputMappingPath);
+		if( outputMappingPath == null || outputMappingPath.isEmpty() ){
+			throw new Error(SwitchNameConstants.outputMappingPath + " 未设置");
+		}
 		writeRevertMappingData(outputMappingPath, revertMapping);
-		if( onlyOutputMapping){
+		
+		if( switchMap.containsKey(SwitchNameConstants.onlyOutputMapping)){
 			//仅输出Mapping规则文件
 			return;
 		}

@@ -61,7 +61,7 @@ public class RevertMappingData{
 			rewriterClassDataMap.remove(key);
 		}
 	}
-	
+
 	/**
 	 * 合并RevertMappingData
 	 * 需要注意需要按照版本顺序依次调用此函数
@@ -360,48 +360,104 @@ public class RevertMappingData{
 		RewriterClassData rewriterClassData = null;
 
 		for ( int index = 0, size = lines.size(); index < size; index++ ){
-			String line = lines.get(index);
-			int lineLength = line.length();
+			try{
+				String line = lines.get(index);
+				int lineLength = line.length();
 
-			//a->b字符串至少长度为4
-			if ( lineLength <= 3 ){
-				continue;
-			}
-			if ( line.startsWith("package ") ){
-				//包名替换规则
+				//a->b字符串至少长度为4
+				if ( lineLength <= 3 ){
+					continue;
+				}
+				if ( line.startsWith("package ") ){
+					//包名替换规则
 
+					int separatorPosition = line.indexOf("->");
+					if ( separatorPosition <= 0 ){
+						continue;
+					}
+					int renamedStart = separatorPosition + "->".length();
+					//使得original没有空格
+					while ( renamedStart < lineLength
+						   && isBlankSpace(line.charAt(renamedStart)) ){
+						renamedStart++;
+					}
+					//重命名后的包名
+					int renamedEnd = line.length();
+					while ( renamedEnd < lineLength
+						   && isBlankSpace(line.charAt(renamedEnd - 1)) ){
+						renamedEnd--;
+					}
+					String original = line.substring(renamedStart, renamedEnd);
+
+
+					//重命名前的包名
+					int confusevtEnd = separatorPosition;
+					//去除separatorPosition前的空格
+					while ( confusevtEnd < lineLength
+						   && isBlankSpace(line.charAt(confusevtEnd - 1)) ){
+						confusevtEnd--;
+					}
+					boolean isReAll = false;
+					if ( line.charAt(confusevtEnd - 1) == '*' ){
+						confusevtEnd--;
+						if ( line.charAt(confusevtEnd - 1) == '*' ){
+							confusevtEnd --;
+							isReAll = true;
+						}
+					}
+
+					int confusevtStart = confusevtEnd;
+					//向前查询，找到confusevtStart
+					while ( !isBlankSpace(line.charAt(confusevtStart - 1)) 
+						   && confusevtStart > 0 ){
+						confusevtStart--;
+					}
+					String confusevt = line.substring(confusevtStart, confusevtEnd);
+
+					addRewriterPackageNameData(confusevt, original, isReAll);
+
+					continue;
+				}
+				//类
+				if ( !isBlankSpace(line.charAt(0)) ){
+					rewriterClassData = parserRewriterClassData(line);
+					continue;
+				}
+
+				//解析字段或方法
+
+				// ->前后可能有空格
 				int separatorPosition = line.indexOf("->");
 				if ( separatorPosition <= 0 ){
 					continue;
 				}
 				int renamedStart = separatorPosition + "->".length();
+				int renamedEnd = lineLength;
+
 				//使得original没有空格
 				while ( renamedStart < lineLength
 					   && isBlankSpace(line.charAt(renamedStart)) ){
 					renamedStart++;
 				}
-				//重命名后的包名
-				int renamedEnd = line.length();
-				while ( renamedEnd < lineLength
+				while ( renamedEnd > 0
 					   && isBlankSpace(line.charAt(renamedEnd - 1)) ){
 					renamedEnd--;
 				}
-				String original = line.substring(renamedStart, renamedEnd);
 
+				//原来的方法名或者字段名
+				String renamed = line.substring(renamedStart, renamedEnd);
 
-				//重命名前的包名
 				int confusevtEnd = separatorPosition;
 				//去除separatorPosition前的空格
 				while ( confusevtEnd < lineLength
 					   && isBlankSpace(line.charAt(confusevtEnd - 1)) ){
 					confusevtEnd--;
 				}
-				boolean isReAll = false;
-				if ( line.charAt(confusevtEnd - 1) == '*' ){
-					confusevtEnd--;
-					if ( line.charAt(confusevtEnd - 1) == '*' ){
-						confusevtEnd --;
-						isReAll = true;
+				for ( int end = confusevtEnd; end > 0; end-- ){
+					//如果是方法规则，则过滤返回类型
+					if ( line.charAt(end - 1) == ')' ){
+						confusevtEnd = end;
+						break;
 					}
 				}
 
@@ -411,112 +467,62 @@ public class RevertMappingData{
 					   && confusevtStart > 0 ){
 					confusevtStart--;
 				}
-				String confusevt = line.substring(confusevtStart, confusevtEnd);
 
-				addRewriterPackageNameData(confusevt, original, isReAll);
+				//此判断导致方法重命名规则不能有返回类型
+				char confusevtEndChar = line.charAt(confusevtEnd - 1);
+				boolean isMethod = confusevtEndChar == ')';
+				if ( isMethod ){
+					//confusevtStart现在是(
+					String confusevt = line.substring(confusevtStart, line.indexOf('(', confusevtStart));
 
-				continue;
-			}
-			//类
-			if ( !isBlankSpace(line.charAt(0)) ){
-				rewriterClassData = parserRewriterClassData(line);
-				continue;
-			}
+					int parameterTypesStart = confusevtStart + confusevt.length() + 1 ;
+					int parameterTypesEnd = confusevtEnd - 1;
 
-			//解析字段或方法
+					String parameterTypes = parameterTypesStart == parameterTypesEnd ? "" : line.substring(parameterTypesStart, parameterTypesEnd);
 
-			// ->前后可能有空格
-			int separatorPosition = line.indexOf("->");
-			if ( separatorPosition <= 0 ){
-				continue;
-			}
-			int renamedStart = separatorPosition + "->".length();
-			int renamedEnd = lineLength;
-
-			//使得original没有空格
-			while ( renamedStart < lineLength
-				   && isBlankSpace(line.charAt(renamedStart)) ){
-				renamedStart++;
-			}
-			while ( renamedEnd > 0
-				   && isBlankSpace(line.charAt(renamedEnd - 1)) ){
-				renamedEnd--;
-			}
-
-			//原来的方法名或者字段名
-			String renamed = line.substring(renamedStart, renamedEnd);
-
-			int confusevtEnd = separatorPosition;
-			//去除separatorPosition前的空格
-			while ( confusevtEnd < lineLength
-				   && isBlankSpace(line.charAt(confusevtEnd - 1)) ){
-				confusevtEnd--;
-			}
-			for ( int end = confusevtEnd; end > 0; end-- ){
-				//如果是方法规则，则过滤返回类型
-				if ( line.charAt(end - 1) == ')' ){
-					confusevtEnd = end;
-					break;
-				}
-			}
-
-			int confusevtStart = confusevtEnd;
-			//向前查询，找到confusevtStart
-			while ( !isBlankSpace(line.charAt(confusevtStart - 1)) 
-				   && confusevtStart > 0 ){
-				confusevtStart--;
-			}
-
-			//此判断导致方法重命名规则不能有返回类型
-			char confusevtEndChar = line.charAt(confusevtEnd - 1);
-			boolean isMethod = confusevtEndChar == ')';
-			if ( isMethod ){
-				//confusevtStart现在是(
-				String confusevt = line.substring(confusevtStart, line.indexOf('(', confusevtStart));
-
-				int parameterTypesStart = confusevtStart + confusevt.length() + 1 ;
-				int parameterTypesEnd = confusevtEnd - 1;
-
-				String parameterTypes = parameterTypesStart == parameterTypesEnd ? "" : line.substring(parameterTypesStart, parameterTypesEnd);
-
-				//判断parameterTypes是Java样式的包名，还是类签名
-				if ( parameterTypes != null
-					&& parameterTypes.length() > 0
-				//源码样式
-					&& parameterTypes.indexOf(',') < 0
-					&& parameterTypes.indexOf('.') < 0
-					&& parameterTypes.indexOf(']') < 0
-					&& !hasPrimitiveType(parameterTypes)
-				//类签名
-					|| parameterTypes.indexOf(';') > 0 ){
-					//类签名 [a，Z，ZZ]等不表示源码样式
-					parameterTypes = "(" + parameterTypes + ")";
-				}
-
-
-				if ( rewriterClassData != null ){
-					if ( contrary ){
-						rewriterClassData.addMethodData(renamed, parameterTypes, confusevt);
+					//判断parameterTypes是Java样式的包名，还是类签名
+					if ( parameterTypes != null
+						&& parameterTypes.length() > 0
+					//源码样式
+						&& parameterTypes.indexOf(',') < 0
+						&& parameterTypes.indexOf('.') < 0
+						&& parameterTypes.indexOf(']') < 0
+						&& !hasPrimitiveType(parameterTypes)
+					//类签名
+						|| parameterTypes.indexOf(';') > 0 ){
+						//类签名 [a，Z，ZZ]等不表示源码样式
+						parameterTypes = "(" + parameterTypes + ")";
 					}
-					else{
-						rewriterClassData.addMethodData(confusevt, parameterTypes, renamed);
+
+
+					if ( rewriterClassData != null ){
+						if ( contrary ){
+							rewriterClassData.addMethodData(renamed, parameterTypes, confusevt);
+						}
+						else{
+							rewriterClassData.addMethodData(confusevt, parameterTypes, renamed);
+						}
 					}
+
+				}
+				else{
+					//字段
+					String confusevt = line.substring(confusevtStart, confusevtEnd);
+					confusevt.toString();
+					if ( rewriterClassData != null ){
+						if ( contrary ){
+							rewriterClassData.addField(renamed, confusevt);
+						}
+						else{
+							rewriterClassData.addField(confusevt, renamed);
+						}
+					}
+
 				}
 
 			}
-			else{
-				//字段
-				String confusevt = line.substring(confusevtStart, confusevtEnd);
-				confusevt.toString();
-				if ( rewriterClassData != null ){
-					if ( contrary ){
-						rewriterClassData.addField(renamed, confusevt);
-					}
-					else{
-						rewriterClassData.addField(confusevt, renamed);
-					}
-				}
-
+			catch (Throwable e){
+				throw new Error("at " + (index  + 1)+ " line parser error", e);
 			}
 		}
 	}
