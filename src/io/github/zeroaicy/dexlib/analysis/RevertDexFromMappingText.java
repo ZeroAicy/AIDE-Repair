@@ -45,34 +45,37 @@ public class RevertDexFromMappingText{
 	 * mappingFilePath mapping规则文件路径
 	 * contrary 与mapping规则相反，即逆规则文件
 	 */
-	
-	
+
+
 	public static void revert(String inputDexs, String outputDexs, Map<String, String> switchMap) throws IOException{
-		if( switchMap == null ){
+		if ( switchMap == null ){
 			switchMap = Collections.<String, String>emptyMap();
 		}
-								  
+
 		String mappingFilePath = switchMap.get(SwitchNameConstants.mappingFilePath);
-		if( mappingFilePath == null || mappingFilePath.isEmpty() ){
+		if ( mappingFilePath == null || mappingFilePath.isEmpty() ){
 			throw new Error(SwitchNameConstants.mappingFilePath + " 未设置");
 		}
-		
+
 		RevertMappingData revertMapping = new RevertMappingData(mappingFilePath, switchMap.containsKey(SwitchNameConstants.contrary));
 
 		File inputDexFiles = new File(inputDexs);
 		MultiDexContainer<? extends DexBackedDexFile> loadDexContainer = DexFileFactory.loadDexContainer(inputDexFiles, null);
 
 		// 启用修复分析[aidl Enum 内部类信息]
+		System.out.println("分析缺省规则...");
 		DexFileAnalyzer dexFileAnalyzer = new DexFileAnalyzer(loadDexContainer, revertMapping, switchMap);
 		dexFileAnalyzer.analysis();
-		
+
+		// 获取设置的输出路径
 		String outputMappingPath = switchMap.get(SwitchNameConstants.outputMappingPath);
-		if( outputMappingPath == null || outputMappingPath.isEmpty() ){
+		if ( outputMappingPath == null || outputMappingPath.isEmpty() ){
 			throw new Error(SwitchNameConstants.outputMappingPath + " 未设置");
 		}
+		// 写入修补好的规则[全量]
 		writeRevertMappingData(outputMappingPath, revertMapping);
-		
-		if( switchMap.containsKey(SwitchNameConstants.onlyOutputMapping)){
+		// 检查是否only 输出全量规则
+		if ( switchMap.containsKey(SwitchNameConstants.onlyOutputMapping) ){
 			//仅输出Mapping规则文件
 			return;
 		}
@@ -84,7 +87,11 @@ public class RevertDexFromMappingText{
 
 		//重写后的Dex容器
 		RewriteDexFileContainer rewriteDexContainer = new RewriteDexFileContainer();
+
 		for ( String dexEntryName : loadDexContainer.getDexEntryNames() ){
+			
+			System.out.printf("\n重写%s...\n", dexEntryName);
+			
 			DexBackedDexFile loadDexFile = loadDexContainer.getEntry(dexEntryName).getDexFile();
 			//使用重写器重写Dex
 			DexFile rewriteDexFile = rewriter.getDexFileRewriter().rewrite(loadDexFile);

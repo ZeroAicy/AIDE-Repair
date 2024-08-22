@@ -138,7 +138,7 @@ public class DexBackedField extends BaseFieldReference implements Field {
         if (hiddenApiRestrictions == DexBackedClassDef.NO_HIDDEN_API_RESTRICTIONS) {
             return ImmutableSet.of();
         } else {
-            return EnumSet.copyOf(HiddenApiRestriction.getAllFlags(hiddenApiRestrictions));
+			return Set.copyOf(HiddenApiRestriction.getAllFlags(hiddenApiRestrictions));
         }
     }
 

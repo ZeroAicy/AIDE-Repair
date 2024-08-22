@@ -1,5 +1,6 @@
 package io.github.zeroaicy.dexlib.analysis;
 
+import io.github.zeroaicy.dexlib.analysis.RewriterClassData.MethodData;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,7 +28,7 @@ import org.jf.dexlib2.iface.reference.StringReference;
 import org.jf.dexlib2.iface.reference.TypeReference;
 import org.jf.dexlib2.iface.value.MethodEncodedValue;
 import org.jf.dexlib2.iface.value.TypeEncodedValue;
-import io.github.zeroaicy.dexlib.analysis.RewriterClassData.MethodData;
+import org.jf.dexlib2.iface.Field;
 
 //DexFile分析器，用于构造出DexFile一些信息
 
@@ -49,7 +50,10 @@ public class DexFileAnalyzer{
 
 	//启用修复分析[aidl类和枚举]
 	private final boolean repairAnalysis;
+	// 检查规则文件
 	private final boolean checkRevertMapping;
+	// 类签名 与 字段对应关系
+	protected final Map<String, Set<String>> classField = new HashMap<>();
 
 	// 类签名 与 方法签名对应关系
 	protected final Map<String, Set<String>> classMethods = new HashMap<>();
@@ -98,8 +102,7 @@ public class DexFileAnalyzer{
 	}
 
 	private boolean hasSwitch(String repairAnalysis){
-		boolean contains = this.switchMap.containsKey(repairAnalysis);
-		return contains;
+		return this.switchMap.containsKey(repairAnalysis);
 	}
 
 	public boolean isRepairAnalysis(){
@@ -140,7 +143,7 @@ public class DexFileAnalyzer{
 					typeClassDefMap.put(classDefType, classDef);
 				}
 
-				fillClassMethods(classDef);
+				fillClassMembers(classDef);
 			}
 		}
 
@@ -148,25 +151,32 @@ public class DexFileAnalyzer{
 	}
 
 	private void checkRevertMappingData(){
-		if ( !hasSwitch(SwitchNameConstants.checkRevertMapping) ){
+		if ( !isCheckRevertMapping() ){
 			return ;
 		}
 
 		Map<String, RewriterClassData> rewriterClassDataMap = getRevertMappingData().getRewriterClassDataMap();
 		Set<String> reClassNamedSet = new HashSet<>();
 		for ( Map.Entry<String, RewriterClassData> entry : rewriterClassDataMap.entrySet() ){
+
 			RewriterClassData rewriterClassData = entry.getValue();
 
+			// 重命名前
 			String confusevt = rewriterClassData.getConfusevt();
-
+			// 重命名后
 			String renamed = rewriterClassData.getRenamed();
+
+			// 检查规则中声明的类是否在dex集合中
+			if ( !this.classMethods.containsKey(confusevt) ){
+				System.out.println(String.format("警告⚠️:  所有dex中没有规则声明的类 -> %s -> %s", confusevt, renamed));
+			}
 
 			// 检查参数中，类签名是否使用了，重命名后的类签名
 			if ( !rewriterClassData.notChangeClassName() ){
 				reClassNamedSet.add(renamed);
 			}
 
-			// 有无重名成已有的类
+			// 重命名后的类名称是否已存在
 			if ( this.classMethods.containsKey(renamed) ){
 
 				RewriterClassData rewriterClassData2 = rewriterClassDataMap.get(renamed);
@@ -177,33 +187,65 @@ public class DexFileAnalyzer{
 					System.out.println(String.format("警告⚠️:  %s将重命名为%s，但dex中已存在", confusevt, renamed));					
 				}
 			}
+			// 当前类的所有字段签名
+			Set<String> fields = classField.get(confusevt);
+			// 字段规则
+			Map<String, RewriterClassData.FieldData> fieldDataMap = rewriterClassData.getFieldDatas();
+			if ( fields != null ){
+				// 此类规则中没有方法规则
+				if ( fieldDataMap != null ){
+					for ( Map.Entry<String, RewriterClassData.FieldData> entry2 : fieldDataMap.entrySet() ){
+						RewriterClassData.FieldData fieldData = entry2.getValue();
 
+						if ( !fields.contains(fieldData.confusevt) ){
+							// 规则中声明了dex中不存在的方法规则
+							System.out.println(String.format("警告⚠️:  所有dex中类-> %s 没有字段: %s", confusevt, fieldData));
+
+						}
+						// 
+						if ( fields.contains(fieldData.renamed) ){
+							//存在方法名冲突
+							RewriterClassData.FieldData fieldData2 = fieldDataMap.get(fieldData.renamed);
+							// 不存在冲突方法名的重写规则或规则未改变名称
+							if ( fieldData2 == null || fieldData.renamed.equals(fieldData2.renamed) ){
+								System.out.println(String.format("警告⚠️: 类%s -> 方法 -> %s将重命名为 -> %s，但已存在", confusevt, fieldData.renamed, fieldData.renamed));					
+							}
+						}
+					}
+				}
+
+			}
 
 			// 当前类的所有方法签名
 			Set<String> methods = classMethods.get(confusevt);
-			if ( methods == null ){
-				continue;
-			}
-
 			// 方法规则
 			Map<String, RewriterClassData.MethodData> methodDataMap = rewriterClassData.getMethodDataMap();
-			if ( methodDataMap == null ){
-				continue;
-			}
+			if ( methods != null && methodDataMap != null ){
+				// 此类规则中没有方法规则
+				for ( Map.Entry<String, RewriterClassData.MethodData> entry2 : methodDataMap.entrySet() ){
+					RewriterClassData.MethodData methodData = entry2.getValue();
 
-			for ( Map.Entry<String, RewriterClassData.MethodData> entry2 : methodDataMap.entrySet() ){
-				RewriterClassData.MethodData methodData = entry2.getValue();
-				String renamedMethodSignature = methodData.getRenamedMethodSignature();
-				if ( methods.contains(renamedMethodSignature) ){
-					//存在方法名冲突
-					RewriterClassData.MethodData methodData2 = methodDataMap.get(renamedMethodSignature);
-					// 不存在冲突方法名的重写规则或规则未改变名称
-					if ( methodData2 == null || renamedMethodSignature.equals(methodData2.getRenamedMethodSignature()) ){
-						System.out.println(String.format("警告⚠️: 类%s -> 方法 -> %s将重命名为 -> %s，但已存在", confusevt, methodData.methodSignature, renamedMethodSignature));					
+					if ( !methods.contains(methodData.methodSignature) ){
+						// 规则中声明了dex中不存在的方法规则
+						System.out.println(String.format("警告⚠️:  所有dex中类-> %s 没有方法: %s", confusevt, methodData));
+
+					}
+					// 方法重命名后签名
+					String renamedMethodSignature = methodData.getRenamedMethodSignature();
+					// 
+					if ( methods.contains(renamedMethodSignature) ){
+						//存在方法名冲突
+						RewriterClassData.MethodData methodData2 = methodDataMap.get(renamedMethodSignature);
+						// 不存在冲突方法名的重写规则或规则未改变名称
+						if ( methodData2 == null || renamedMethodSignature.equals(methodData2.getRenamedMethodSignature()) ){
+							System.out.println(String.format("警告⚠️: 类%s -> 方法 -> %s将重命名为 -> %s，但已存在", confusevt, methodData.methodSignature, renamedMethodSignature));					
+						}
 					}
 				}
 			}
 		}
+
+		// 检查方法签名中是否使用重命名后的类名
 
 		// 效率非常低
 		for ( RewriterClassData rewriterClassData : rewriterClassDataMap.values() ){
@@ -226,12 +268,20 @@ public class DexFileAnalyzer{
 		}
 	}
 
-	private void fillClassMethods(ClassDef classDef){
+	private boolean isCheckRevertMapping(){
+		return this.checkRevertMapping;
+	}
+
+	private void fillClassMembers(ClassDef classDef){
 		//添加此类的虚方法
 		putMethodSignature(this.classMethods, classDef.getType(), classDef.getVirtualMethods());
 		// 私有方法
 		putMethodSignature(this.classMethods, classDef.getType(), classDef.getDirectMethods());
 		//System.out.println(this.classMethods.get(classDef.getType()));
+
+		// 添加字段
+		putFieldSignature(this.classField, classDef.getType(), classDef.getFields());
+
 	}
 	/**
 	 * 用于查找类的所有子类签名，返回Set，
@@ -297,7 +347,20 @@ public class DexFileAnalyzer{
 		}
 	}
 
+	/*
+	 * 添加类的字段签名
+	 */
+	private static void putFieldSignature(Map<String, Set<String>> classFieldMap, String type, Iterable<? extends Field> fields){
+		Set<String> fieldSignatureSet = classFieldMap.get(type);
 
+		if ( fieldSignatureSet == null ){
+			fieldSignatureSet = new HashSet<>();
+			classFieldMap.put(type, fieldSignatureSet);
+		}
+		for ( Field field : fields ){
+			fieldSignatureSet.add(field.getName());
+		}
+	}
 
 
 
@@ -581,19 +644,19 @@ public class DexFileAnalyzer{
 
 				//查找父类中有此方法签名的类
 				fillHasVirtualMethodType(classDefType, methodSignature, virtualMethodSignTypes);
-				
+
 				// 对这些顶层类的子类
-				for( String childType : new HashSet<String>(virtualMethodSignTypes)){
-					
+				for ( String childType : new HashSet<String>(virtualMethodSignTypes) ){
+
 					Set<String> childTypes = childClassSetMap.get(childType);
-					if( childTypes == null ){
+					if ( childTypes == null ){
 						continue;
 					}
 					for ( String childType2 : childTypes ){
 						fillHasVirtualMethodType(childType2, methodSignature, virtualMethodSignTypes);
 					}
 				}
-				
+
 				if ( virtualMethodSignTypes.isEmpty() ){
 					continue;
 				}
@@ -664,14 +727,14 @@ public class DexFileAnalyzer{
 				return isAdded;
 			}
 			if ( virtualMethodSignatureSet.contains(methodSignature) ){
-				if( virtualMethodSignTypes.contains(type)){
+				if ( virtualMethodSignTypes.contains(type) ){
 					return true;
 				}
 				virtualMethodSignTypes.add(type);
 				isAdded = true;
-				
+
 			}
-			
+
 		}
 
 		return isAdded;

@@ -14,6 +14,8 @@ import org.jf.dexlib2.iface.value.EncodedValue;
 import org.jf.dexlib2.rewriter.Rewriter;
 import org.jf.dexlib2.rewriter.RewriterModule;
 import org.jf.dexlib2.rewriter.Rewriters;
+import org.jf.dexlib2.iface.DexFile;
+import io.github.zeroaicy.dexlib.analysis.RevertDexFileRewriter;
 
 public class RevertRewriterModule extends RewriterModule{
 	DexFileAnalyzer dexFileAnalyzer;
@@ -29,6 +31,11 @@ public class RevertRewriterModule extends RewriterModule{
 		return dexFileAnalyzer.getClassDef(type);
 	}
 
+	@Override
+	public Rewriter<DexFile> getDexFileRewriter(Rewriters rewriters){
+		return new RevertDexFileRewriter(rewriters);
+	}
+	
 	@Override
 	public Rewriter<ClassDef> getClassDefRewriter(Rewriters rewriters){
 		return new RevertClassDefRewriter(rewriters, this);

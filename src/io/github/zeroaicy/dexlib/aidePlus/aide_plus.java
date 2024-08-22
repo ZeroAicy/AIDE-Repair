@@ -20,7 +20,7 @@ public abstract class aide_plus{
 
 	private String outputMappingPath;
 
-	private final Map<String, String>  switchMap = new HashMap<>();
+	private final Map<String, String> switchMap = new HashMap<>();
 
 	public Map<String, String>  getSwitchMap(){
 		return switchMap;

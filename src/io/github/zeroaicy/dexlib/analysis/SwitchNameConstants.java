@@ -1,4 +1,5 @@
 package io.github.zeroaicy.dexlib.analysis;
+import java.util.Map;
 
 public interface SwitchNameConstants{
 
@@ -13,5 +14,5 @@ public interface SwitchNameConstants{
 	public static final String mappingFilePath = "mappingFilePath";
 
 	public static final String contrary = "contrary";
-
+	
 }

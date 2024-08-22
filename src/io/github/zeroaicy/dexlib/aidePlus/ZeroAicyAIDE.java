@@ -1,21 +1,18 @@
 package io.github.zeroaicy.dexlib.aidePlus;
 
-import android.app.Activity;
-import android.view.Window;
-import android.view.WindowManager;
 import io.github.zeroaicy.dexlib.analysis.DexFileAnalyzer;
 import io.github.zeroaicy.dexlib.analysis.RevertDexFromMappingText;
 import io.github.zeroaicy.dexlib.analysis.RevertMappingData;
 import io.github.zeroaicy.dexlib.analysis.RewriterClassData;
+import io.github.zeroaicy.dexlib.analysis.SwitchNameConstants;
 import io.github.zeroaicy.dexlib.rewriter2.RewriteDexFileContainer;
 import io.github.zeroaicy.tools.files.OpenFile;
-import io.github.zeroaicy.util.ContextUtil;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Scanner;
 import java.util.Set;
 import org.jf.dexlib2.DexFileFactory;
 import org.jf.dexlib2.Opcodes;
@@ -31,24 +28,27 @@ public class ZeroAicyAIDE{
 	private static void aide_plus() throws IOException{
 		//修复分析
 		aide_plus aide_plus = 
-			aide_plus_tools.getAidePlus("2.2");
+			aide_plus_tools.getAidePlus("2.3");
 
 		System.out.println("重写中...");
 		aide_plus.run();
-		
+
 		System.out.println("完成");
 	}
 
+
+	//*
+	//*/
+
 	public static void main(String[] args) throws IOException{
-
-		//method2();
-
-		//sort();
+		//*根据规则重命名
+		 aide_plus();
+		/*/
+		 规则排序();
+		 //*/
 		
-		aide_plus();
-
-		//method();
-		//还原();
+		 //重写apk();
+		 
 	}
 
 	/******************************************************************/
@@ -63,11 +63,13 @@ public class ZeroAicyAIDE{
 		Paths.get("");
 	}
 
-	private static void sort(){
+	private static void 规则排序(){
 
-		String v = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2/aide+_mapping_2.txt";
+		String filePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2/aide+_mapping_2.txt";
 		//v = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_1/备份[封存]/aide+_mapping_output_1.txt";
-		RevertDexFromMappingText.writeRevertMappingData(v, new RevertMappingData(v));
+		filePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_2.3.txt";
+
+		RevertDexFromMappingText.writeRevertMappingData(filePath, new RevertMappingData(filePath));
 
 
 	}
@@ -122,12 +124,33 @@ public class ZeroAicyAIDE{
 		//RevertDexFromMappingText.revert(inputDexs, outputDexs, false, true, mappingFilePath);
 
 	}
+	public static void 重写apk() throws IOException{
+		String inputDexs = "/storage/emulated/0/Download/.MT2/apks/测试/AIDE+共存版_2.2.0.3-alpha01-[3.2.210316].apk";
+		inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/git/AIDE+/app_flavor/build/bin/app_flavor.apk";
+		
+		
+		String outputDexs = "/storage/emulated/0/Download/.MT2/apks/测试/AIDE+共存版_2.2.0.3新版.zip";
+		outputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/AIDE+_2.3.zip";
+		
+		HashMap<String, String> switchMap = new HashMap<String, String>();
+		String mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_2.3.txt";
+		String outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_output_2.3.txt";
 
+		switchMap.put(SwitchNameConstants.mappingFilePath, mappingFilePath);
+		switchMap.put(SwitchNameConstants.outputMappingPath, outputMappingPath);
+		switchMap.put(SwitchNameConstants.checkRevertMapping, "");
+		
+		//switchMap.put(SwitchNameConstants.onlyOutputMapping, "");
+		
+		RevertDexFromMappingText.revert(inputDexs, outputDexs, switchMap);
+
+	}
+
+	// 直接对上一版本的apk进行重命名，以便得到使用新版底包dex的版本
 	private static void method() throws IOException{
-		String inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2/AIDE+_1.zip";
+		String inputDexs = "/storage/emulated/0/Download/.MT2/apks/测试/AIDE+共存版_2.2.0.3-alpha01-[3.2.210316]_log.apk";
 		File inputDexFiles = new File(inputDexs);
 		MultiDexContainer<? extends DexBackedDexFile> loadDexContainer = DexFileFactory.loadDexContainer(inputDexFiles, null);
-
 		String mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2/aide+_mapping_2.txt";
 
 		RevertMappingData revertMappingData = new RevertMappingData(mappingFilePath);
@@ -185,18 +208,5 @@ public class ZeroAicyAIDE{
 		RevertDexFromMappingText.writeRevertMappingData("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2/aide+_mapping_2_特征规则生成.txt", revertMappingData);
 	}
 
-	private static void method2(){
-		final Activity activity = ContextUtil.getActivity();
-		activity.runOnUiThread(new Runnable(){
-				@Override
-				public void run(){
-					Window window = activity.getWindow();
-					window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-				}
-			});
-
-		new Scanner(System.in).nextLine();
-		System.out.println("End");
-	}
 }

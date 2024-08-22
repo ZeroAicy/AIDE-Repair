@@ -21,10 +21,10 @@ public final class Namespace extends Entity {
     private Namespace enclosingNamespace;
     private boolean exists;
     private MapOfInt<Namespace> memberNamespaces;
-    private MapOfInt<ClassType> memberClasstypes;
+    private MapOfInt<ClassType> memberClassTypes;
     private SetOfFileEntry memberFiles;
     private SetOfInt assemblies;
-    private MapOfInt<ClassType> memberClasstypesCaseInsensitive;
+    private MapOfInt<ClassType> memberClassTypesCaseInsensitive;
     
     public Namespace(EntitySpace space, IdentifierSpace identifiers, FileSpace filespace) {
         super(filespace, space);
@@ -56,7 +56,7 @@ public final class Namespace extends Entity {
         }
 
         if (stream.readBoolean()) {
-            this.memberClasstypes = new MapOfInt<>(this.space, stream);
+            this.memberClassTypes = new MapOfInt<>(this.space, stream);
         }
 
         if (stream.readBoolean()) {
@@ -80,9 +80,9 @@ public final class Namespace extends Entity {
             this.memberNamespaces.store(stream);
         }
 
-        stream.writeBoolean(this.memberClasstypes != null);
-        if (this.memberClasstypes != null) {
-            this.memberClasstypes.store(stream);
+        stream.writeBoolean(this.memberClassTypes != null);
+        if (this.memberClassTypes != null) {
+            this.memberClassTypes.store(stream);
         }
 
         stream.writeBoolean(this.memberFiles != null);
@@ -101,8 +101,8 @@ public final class Namespace extends Entity {
             this.memberFiles.clear();
         }
 
-        if (this.memberClasstypes != null) {
-            this.memberClasstypes.clear();
+        if (this.memberClassTypes != null) {
+            this.memberClassTypes.clear();
         }
 
         if (this.assemblies != null) {
@@ -110,7 +110,7 @@ public final class Namespace extends Entity {
         }
 
         this.exists = false;
-        this.memberClasstypesCaseInsensitive = null;
+        this.memberClassTypesCaseInsensitive = null;
     }
 
     @Override
@@ -143,12 +143,12 @@ public final class Namespace extends Entity {
         this.exists = true;
     }
     
-    public void declareMemberClasstype(int identifier, ClassType classtype) {
-        if (this.memberClasstypes == null) {
-            this.memberClasstypes = new MapOfInt<>(this.space);
+    public void declareMemberClassType(int identifier, ClassType classtype) {
+        if (this.memberClassTypes == null) {
+            this.memberClassTypes = new MapOfInt<>(this.space);
         }
 
-        this.memberClasstypes.insert(identifier, classtype);
+        this.memberClassTypes.insert(identifier, classtype);
     }
 
     public Namespace getMemberNamespace(int identifier) {
@@ -207,14 +207,14 @@ public final class Namespace extends Entity {
         return pakages;
     }
 
-    public SetOf<ClassType> getAllMemberClasstypes() {
+    public SetOf<ClassType> getAllMemberClassTypes() {
         this.space.loadNamespaces();
         SetOf<ClassType> types = new SetOf<>(this.space);
-        if (this.memberClasstypes != null) {
-            this.memberClasstypes.DEFAULT_ITERATOR.init();
+        if (this.memberClassTypes != null) {
+            this.memberClassTypes.DEFAULT_ITERATOR.init();
 
-            while (this.memberClasstypes.DEFAULT_ITERATOR.hasMoreElements()) {
-                ClassType classtype = this.memberClasstypes.DEFAULT_ITERATOR.nextValue();
+            while (this.memberClassTypes.DEFAULT_ITERATOR.hasMoreElements()) {
+                ClassType classtype = this.memberClassTypes.DEFAULT_ITERATOR.nextValue();
                 types.put(classtype);
             }
         }
@@ -227,14 +227,14 @@ public final class Namespace extends Entity {
         return this.memberFiles == null ? new SetOfFileEntry(this.filespace) : this.memberFiles;
     }
 
-    public SetOf<ClassType> getAllPartialClasstypes(FileEntry file, int identifier) {
+    public SetOf<ClassType> getAllPartialClassTypes(FileEntry file, int identifier) {
         this.space.loadNamespaces();
         SetOf<ClassType> types = null;
-        if (this.memberClasstypes != null) {
-            this.memberClasstypes.DEFAULT_ITERATOR.init(identifier);
+        if (this.memberClassTypes != null) {
+            this.memberClassTypes.DEFAULT_ITERATOR.init(identifier);
 
-            while (this.memberClasstypes.DEFAULT_ITERATOR.hasMoreElements()) {
-                ClassType classtype = this.memberClasstypes.DEFAULT_ITERATOR.nextValue();
+            while (this.memberClassTypes.DEFAULT_ITERATOR.hasMoreElements()) {
+                ClassType classtype = this.memberClassTypes.DEFAULT_ITERATOR.nextValue();
                 if (classtype.isPartial() && classtype.isReferable(file)) {
                     if (types == null) {
                         types = new SetOf<>(this.space);
@@ -254,13 +254,13 @@ public final class Namespace extends Entity {
 
     public Entity accessMember(FileEntry file, int identifier, boolean caseSensitive, int parameterTypeCount, Namespace referingPackage) throws UnknownEntityException {
         this.space.loadNamespaces();
-        ClassType type = this.tryAccessMemberClasstype(file, identifier, caseSensitive, parameterTypeCount, referingPackage);
+        ClassType type = this.tryAccessMemberClassType(file, identifier, caseSensitive, parameterTypeCount, referingPackage);
         return type != null ? type : this.accessMemberNamespace(file, identifier, caseSensitive);
     }
 
-    public ClassType accessMemberClasstype(FileEntry file, int identifier, boolean caseSensitive, int parameterTypeCount, Namespace referingPackage) throws UnknownEntityException {
+    public ClassType accessMemberClassType(FileEntry file, int identifier, boolean caseSensitive, int parameterTypeCount, Namespace referingPackage) throws UnknownEntityException {
         this.space.loadNamespaces();
-        ClassType type = this.tryAccessMemberClasstype(file, identifier, caseSensitive, parameterTypeCount, referingPackage);
+        ClassType type = this.tryAccessMemberClassType(file, identifier, caseSensitive, parameterTypeCount, referingPackage);
         if (type != null) {
             return type;
         } else {
@@ -268,26 +268,26 @@ public final class Namespace extends Entity {
         }
     }
 
-    private ClassType tryAccessMemberClasstype(FileEntry file, int identifier, boolean caseSensitive, int parameterTypeCount, Namespace referingPackage) {
-        if (this.memberClasstypes == null) {
+    private ClassType tryAccessMemberClassType(FileEntry file, int identifier, boolean caseSensitive, int parameterTypeCount, Namespace referingPackage) {
+        if (this.memberClassTypes == null) {
             return null;
         } else {
             int lookupIdentifier = identifier;
-            MapOfInt<ClassType> lookupTypes = this.memberClasstypes;
+            MapOfInt<ClassType> lookupTypes = this.memberClassTypes;
             if (!caseSensitive) {
-                if (this.memberClasstypesCaseInsensitive == null) {
-                    this.memberClasstypesCaseInsensitive = new MapOfInt<>(this.space);
-                    this.memberClasstypes.DEFAULT_ITERATOR.init();
+                if (this.memberClassTypesCaseInsensitive == null) {
+                    this.memberClassTypesCaseInsensitive = new MapOfInt<>(this.space);
+                    this.memberClassTypes.DEFAULT_ITERATOR.init();
 
-                    while (this.memberClasstypes.DEFAULT_ITERATOR.hasMoreElements()) {
-                        int ident = this.identifiers.toUpperCase(this.memberClasstypes.DEFAULT_ITERATOR.nextKey());
-                        ClassType type = this.memberClasstypes.DEFAULT_ITERATOR.nextValue();
-                        this.memberClasstypesCaseInsensitive.insert(ident, type);
+                    while (this.memberClassTypes.DEFAULT_ITERATOR.hasMoreElements()) {
+                        int ident = this.identifiers.toUpperCase(this.memberClassTypes.DEFAULT_ITERATOR.nextKey());
+                        ClassType type = this.memberClassTypes.DEFAULT_ITERATOR.nextValue();
+                        this.memberClassTypesCaseInsensitive.insert(ident, type);
                     }
                 }
 
                 lookupIdentifier = this.identifiers.toUpperCase(identifier);
-                lookupTypes = this.memberClasstypesCaseInsensitive;
+                lookupTypes = this.memberClassTypesCaseInsensitive;
             }
 
             ClassType foundtype = null;
@@ -311,25 +311,25 @@ public final class Namespace extends Entity {
         }
     }
 
-    public boolean existsMemberClasstype(FileEntry file, int identifier, boolean caseSensitive, int parameterTypeCount, Namespace referingPackage) {
+    public boolean existsMemberClassType(FileEntry file, int identifier, boolean caseSensitive, int parameterTypeCount, Namespace referingPackage) {
         this.space.loadNamespaces();
-        if (this.memberClasstypes != null) {
+        if (this.memberClassTypes != null) {
             int lookupIdentifier = identifier;
-            MapOfInt<ClassType> lookupTypes = this.memberClasstypes;
+            MapOfInt<ClassType> lookupTypes = this.memberClassTypes;
             if (!caseSensitive) {
-                if (this.memberClasstypesCaseInsensitive == null) {
-                    this.memberClasstypesCaseInsensitive = new MapOfInt<>(this.space);
-                    this.memberClasstypes.DEFAULT_ITERATOR.init();
+                if (this.memberClassTypesCaseInsensitive == null) {
+                    this.memberClassTypesCaseInsensitive = new MapOfInt<>(this.space);
+                    this.memberClassTypes.DEFAULT_ITERATOR.init();
 
-                    while (this.memberClasstypes.DEFAULT_ITERATOR.hasMoreElements()) {
-                        int ident = this.identifiers.toUpperCase(this.memberClasstypes.DEFAULT_ITERATOR.nextKey());
-                        ClassType type = this.memberClasstypes.DEFAULT_ITERATOR.nextValue();
-                        this.memberClasstypesCaseInsensitive.insert(ident, type);
+                    while (this.memberClassTypes.DEFAULT_ITERATOR.hasMoreElements()) {
+                        int ident = this.identifiers.toUpperCase(this.memberClassTypes.DEFAULT_ITERATOR.nextKey());
+                        ClassType type = this.memberClassTypes.DEFAULT_ITERATOR.nextValue();
+                        this.memberClassTypesCaseInsensitive.insert(ident, type);
                     }
                 }
 
                 lookupIdentifier = this.identifiers.toUpperCase(identifier);
-                lookupTypes = this.memberClasstypesCaseInsensitive;
+                lookupTypes = this.memberClassTypesCaseInsensitive;
             }
 
             if (lookupTypes.contains(lookupIdentifier)) {
@@ -347,27 +347,27 @@ public final class Namespace extends Entity {
         return false;
     }
 
-    public boolean existsMemberClasstype(int identifier, boolean caseSensitive) {
+    public boolean existsMemberClassType(int identifier, boolean caseSensitive) {
         this.space.loadNamespaces();
-        if (this.memberClasstypes == null) {
+        if (this.memberClassTypes == null) {
             return false;
         } else {
             int lookupIdentifier = identifier;
-            MapOfInt<ClassType> lookupTypes = this.memberClasstypes;
+            MapOfInt<ClassType> lookupTypes = this.memberClassTypes;
             if (!caseSensitive) {
-                if (this.memberClasstypesCaseInsensitive == null) {
-                    this.memberClasstypesCaseInsensitive = new MapOfInt<>(this.space);
-                    this.memberClasstypes.DEFAULT_ITERATOR.init();
+                if (this.memberClassTypesCaseInsensitive == null) {
+                    this.memberClassTypesCaseInsensitive = new MapOfInt<>(this.space);
+                    this.memberClassTypes.DEFAULT_ITERATOR.init();
 
-                    while (this.memberClasstypes.DEFAULT_ITERATOR.hasMoreElements()) {
-                        int ident = this.identifiers.toUpperCase(this.memberClasstypes.DEFAULT_ITERATOR.nextKey());
-                        ClassType type = this.memberClasstypes.DEFAULT_ITERATOR.nextValue();
-                        this.memberClasstypesCaseInsensitive.insert(ident, type);
+                    while (this.memberClassTypes.DEFAULT_ITERATOR.hasMoreElements()) {
+                        int ident = this.identifiers.toUpperCase(this.memberClassTypes.DEFAULT_ITERATOR.nextKey());
+                        ClassType type = this.memberClassTypes.DEFAULT_ITERATOR.nextValue();
+                        this.memberClassTypesCaseInsensitive.insert(ident, type);
                     }
                 }
 
                 lookupIdentifier = this.identifiers.toUpperCase(identifier);
-                lookupTypes = this.memberClasstypesCaseInsensitive;
+                lookupTypes = this.memberClassTypesCaseInsensitive;
             }
 
             return lookupTypes.contains(lookupIdentifier);
