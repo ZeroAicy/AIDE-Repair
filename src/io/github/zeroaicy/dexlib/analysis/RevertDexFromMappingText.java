@@ -89,12 +89,10 @@ public class RevertDexFromMappingText{
 		RewriteDexFileContainer rewriteDexContainer = new RewriteDexFileContainer();
 
 		for ( String dexEntryName : loadDexContainer.getDexEntryNames() ){
-			
-			System.out.printf("\n重写%s...\n", dexEntryName);
-			
 			DexBackedDexFile loadDexFile = loadDexContainer.getEntry(dexEntryName).getDexFile();
 			//使用重写器重写Dex
 			DexFile rewriteDexFile = rewriter.getDexFileRewriter().rewrite(loadDexFile);
+			
 			//向容器中添加
 			rewriteDexContainer.putEntry(dexEntryName, rewriteDexFile);
 		}
@@ -143,6 +141,8 @@ public class RevertDexFromMappingText{
 
 		for ( String dexEntryName : rewriteDexContainer.getDexEntryNames() ){
 
+			System.out.printf("\n重写%s...\n", dexEntryName);
+			
 			DexFile inputDexFile = rewriteDexContainer.getEntry(dexEntryName).getDexFile();
 
 			DexPool dexPool = new DexPool(inputDexFile.getOpcodes());

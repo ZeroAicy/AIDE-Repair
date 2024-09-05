@@ -34,11 +34,16 @@ Labcd/s9; -> Labcd/s9;
 Labcd/yc; -> Labcd/yc;
 	VH() -> getIconId
 	j6() -> getNameId
+Lcom/aide/codemodel/AIDEModel; -> Lcom/aide/codemodel/AIDEModel;
+	v5(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZ) -> configureAssembly
 Lcom/aide/codemodel/api/ArrayType; -> Lcom/aide/codemodel/api/ArrayType;
+	sG(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessFields
+	Sf(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessMethods
 	j6(Lcom/aide/codemodel/api/abstraction/Language;) -> configureLanguage
 	FN() -> getComponentType
 	DW() -> getDeclarationNumber
 	jO() -> getDimension
+	v5() -> getEndColumn
 	Zo() -> getEndLine
 	x9() -> getErasedType
 	J8() -> getIdentifierEndColumn
@@ -46,6 +51,7 @@ Lcom/aide/codemodel/api/ArrayType; -> Lcom/aide/codemodel/api/ArrayType;
 	QX() -> getIdentifierStartColumn
 	getNameString() -> getIdentifierString
 	EQ() -> getMemberString
+	j3() -> getModifiersEndColumn
 	Mr() -> getModifiersEndLine
 	U2() -> getModifiersStartColumn
 	a8() -> getModifiersStartLine
@@ -56,17 +62,30 @@ Lcom/aide/codemodel/api/ArrayType; -> Lcom/aide/codemodel/api/ArrayType;
 Lcom/aide/codemodel/api/ClassType$Data; -> Lcom/aide/codemodel/api/ClassType$Data;
 	I_未知 -> allExplicitMemberFields
 	allMemberClasstypes -> allMemberClassTypes
+	XX -> allMemberClassTypesCaseInsensitive
+	aj -> allMemberFieldsCaseInsensitive
+	br -> memberClassTypesCaseInsensitive
 Lcom/aide/codemodel/api/ClassType; -> Lcom/aide/codemodel/api/ClassType;
 	yS -> accessTime
 	tp -> fileSpace
 	we -> identifierSpace
+	sG(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessFields
+	FN(IZILcom/aide/codemodel/api/Entity;Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;) -> accessMemberClassType
+	Sf(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessMethods
 	j6(Lcom/aide/codemodel/api/abstraction/Language;) -> configureLanguage
+	Ev() -> declareCorruptedSuperTypes
 	WB(Lcom/aide/codemodel/api/Type;) -> declareDelegateOrEnumType
+	mb(ILcom/aide/codemodel/api/Member;) -> declareField
+	jw(ILcom/aide/codemodel/api/ClassType;) -> declareMemberClassType
 	fY(ILcom/aide/codemodel/api/Member;) -> declareMethod
 	qp(IILcom/aide/codemodel/api/ParameterType;) -> declareParametertype
+	k2(IIIIIIIIIII) -> declarePositions
+	zh(Lcom/aide/codemodel/api/ClassType;) -> declareSuperClassType
 	hK(Lcom/aide/codemodel/api/Type;) -> declareSuperType
 	cT(IILcom/aide/codemodel/api/Namespace;IILcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/ClassType;ZZZZZZ) -> declareSyntax
 	q7(Lcom/aide/codemodel/api/Namespace;IZI) -> declareSyntax
+	Z1(IZ) -> existsMemberClassType
+	n5(I) -> getAbsoluteParameterType
 	Jl() -> getAllExplicitMemberFields
 	kf() -> getAllExplicitMemberMethods
 	iW() -> getAllMemberClassTypes
@@ -75,10 +94,15 @@ Lcom/aide/codemodel/api/ClassType; -> Lcom/aide/codemodel/api/ClassType;
 	sE() -> getAllMemberTypes
 	sg() -> getAllOperators
 	fN() -> getAllSuperClassTypes
+	Cz() -> getAssembly
 	DW() -> getDeclarationNumber
 	aX() -> getDeclaredConstructors
+	e9() -> getDeclaredMemberClassTypes
+	QO() -> getDeclaredMemberFields
 	sM() -> getDeclaredMemberMethods
 	a5() -> getDelegateOrEnumtype
+	ys() -> getEnclosingTopLevelClassType
+	v5() -> getEndColumn
 	Zo() -> getEndLine
 	IS(Lcom/aide/codemodel/api/FileEntry;) -> getEnumBaseType
 	x9() -> getErasedType
@@ -87,16 +111,24 @@ Lcom/aide/codemodel/api/ClassType; -> Lcom/aide/codemodel/api/ClassType;
 	QX() -> getIdentifierStartColumn
 	gG() -> getIdentifierString
 	getNameString() -> getIdentifierString
+	Nh(I) -> getInheritedMethod1
 	BR(I) -> getInheritedMethod2
 	AE() -> getInheritedMethodPairCount
 	EQ() -> getMemberString
+	j3() -> getModifiersEndColumn
 	Mr() -> getModifiersEndLine
 	U2() -> getModifiersStartColumn
 	a8() -> getModifiersStartLine
 	An(I) -> getParametertype
+	Pa() -> getParametertypeCount
+	ce() -> getStartColumn
+	Jm() -> getStartLine
 	Bx() -> getSuperClassType
+	oa(I) -> getSuperType
 	qP() -> getSupertypeCount
 	MP() -> hasCorruptedSupertypes
+	PH() -> hasDocumentation
+	GT(Lcom/aide/codemodel/api/ClassType;) -> hasExactMatch
 	Of() -> hasInstanceOfEnclosingClassType
 	PT() -> hasTypeparametersOfEnclosingClassType
 	b1(Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Member;) -> haveHidingFieldModifiers
@@ -106,15 +138,19 @@ Lcom/aide/codemodel/api/ClassType; -> Lcom/aide/codemodel/api/ClassType;
 	Ak() -> invalidateSyntaxData
 	Lz() -> isAbstract
 	sT() -> isAnonymous
+	xg() -> isDuplicate
 	XX(Lcom/aide/codemodel/api/Type;) -> isEqualTo
 	kQ(Lcom/aide/codemodel/api/Type;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Member;) -> isEqualTo
 	GK() -> isLocal
+	dW() -> isPackagePrivate
 	Yi() -> isPartial
 	ro() -> isPrivate
 	et() -> isRawType
+	hp(Lcom/aide/codemodel/api/ClassType;) -> isSelfOrEnclosingMatches
 	pl() -> isStatic
 	oh() -> isStructType
 	Ej(Lcom/aide/codemodel/api/Type;) -> isSubClassTypeOf
+	cc(Lcom/aide/codemodel/api/Entity;) -> isVisible
 	Od() -> lastAccessTime
 	om() -> loadNamespacesOrSyntax
 	wE() -> loadSuperClassTypes
@@ -122,17 +158,20 @@ Lcom/aide/codemodel/api/ClassType; -> Lcom/aide/codemodel/api/ClassType;
 	eN() -> loadTypes
 	zf() -> packMembers
 	fP() -> packSuperClassTypes
+	b() -> packSuperTypes
 	ba([Lcom/aide/codemodel/api/Type;[I) -> parameterize
 	u9() -> parameterizeCanonical
 Lcom/aide/codemodel/api/Entity; -> Lcom/aide/codemodel/api/Entity;
 	j6(Lcom/aide/codemodel/api/abstraction/Language;) -> configureLanguage
 	DW() -> getDeclarationNumber
+	v5() -> getEndColumn
 	Zo() -> getEndLine
 	J8() -> getIdentifierEndColumn
 	Ws() -> getIdentifierLine
 	QX() -> getIdentifierStartColumn
 	getNameString() -> getIdentifierString
 	EQ() -> getMemberString
+	j3() -> getModifiersEndColumn
 	Mr() -> getModifiersEndLine
 	U2() -> getModifiersStartColumn
 	a8() -> getModifiersStartLine
@@ -150,6 +189,7 @@ Lcom/aide/codemodel/api/EntitySpace; -> Lcom/aide/codemodel/api/EntitySpace;
 	dx(Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Type;) -> declareExplicitOverridingTypeOfMember
 	j3(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/Entity;) -> declareInheritanceDependence
 	rN(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;ILcom/aide/codemodel/api/ClassType;IIIIZZI) -> declareMethod
+	vJ(J) -> decodeBoolean
 	g3(J) -> decodeDouble
 	Mz(J) -> decodeFloat
 	I(J) -> decodeInt
@@ -164,6 +204,7 @@ Lcom/aide/codemodel/api/EntitySpace; -> Lcom/aide/codemodel/api/EntitySpace;
 	QO() -> getDeclaredMemberFields
 	jw(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I) -> getMember
 	AL(Lcom/aide/codemodel/api/ClassType;[Lcom/aide/codemodel/api/Type;[I) -> getParameterizedtype
+	hK(Lcom/aide/codemodel/api/abstraction/Language;I) -> getPrimitivetype
 	sg(Lcom/aide/codemodel/api/Member;) -> loadConstantValueOfField
 	Cz(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;) -> loadPositions
 	e9(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;) -> loadTypes
@@ -217,6 +258,26 @@ Lcom/aide/codemodel/api/ErrorTable; -> Lcom/aide/codemodel/api/ErrorTable;
 	ef(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I) -> getErrorText
 	vJ(Lcom/aide/codemodel/api/FileEntry;) -> getInspectionCount
 	g3(Lcom/aide/codemodel/api/FileEntry;I) -> getInspectionEndColumn
+Lcom/aide/codemodel/api/FileEntry; -> Lcom/aide/codemodel/api/FileEntry;
+	gn() -> getAssembly
+Lcom/aide/codemodel/api/FileSpace$Assembly; -> Lcom/aide/codemodel/api/FileSpace$Assembly;
+	gn -> isDebug
+	VH -> isExternal
+	u7 -> isRelease
+	tp -> isSubProject
+	j6(Lcom/aide/codemodel/api/FileSpace$Assembly;) -> getConfiguration
+	FH(Lcom/aide/codemodel/api/FileSpace$Assembly;) -> isDebug
+	u7(Lcom/aide/codemodel/api/FileSpace$Assembly;) -> isExternal
+	DW(Lcom/aide/codemodel/api/FileSpace$Assembly;) -> isRelease
+	tp(Lcom/aide/codemodel/api/FileSpace$Assembly;) -> isSubProject
+Lcom/aide/codemodel/api/FileSpace$b; -> Lcom/aide/codemodel/api/FileSpace$ReaderWrap;
+	mb -> filterLineFeed
+	WB -> reader
+Lcom/aide/codemodel/api/FileSpace; -> Lcom/aide/codemodel/api/FileSpace;
+	FH(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZ) -> configureAssembly
+	g3(Lcom/aide/codemodel/api/FileEntry;) -> isRJavaFileEntry
+	vJ(Lcom/aide/codemodel/api/FileEntry;) -> isSubProjectFileEntry
+	I(Lcom/aide/codemodel/api/FileEntry;) -> noOutput
 Lcom/aide/codemodel/api/IdentifierSpace; -> Lcom/aide/codemodel/api/IdentifierSpace;
 	FH -> count
 	j6 -> hashes
@@ -227,6 +288,7 @@ Lcom/aide/codemodel/api/IdentifierSpace; -> Lcom/aide/codemodel/api/IdentifierSp
 	j6() -> clear
 	Hw(Ljava/lang/String;II) -> get
 	v5([CII) -> get
+	Zo(I[CI) -> getChars
 	QX(I) -> toUpperCase
 Lcom/aide/codemodel/api/Member$Data; -> Lcom/aide/codemodel/api/Member$Data;
 	Ws -> endColumn
@@ -276,6 +338,7 @@ Lcom/aide/codemodel/api/Member; -> Lcom/aide/codemodel/api/Member;
 	OW() -> getAllOverriddenMembers
 	br() -> getConstantValue
 	DW() -> getDeclarationNumber
+	v5() -> getEndColumn
 	Zo() -> getEndLine
 	XX(I) -> getException
 	XG() -> getExceptionCount
@@ -288,6 +351,7 @@ Lcom/aide/codemodel/api/Member; -> Lcom/aide/codemodel/api/Member;
 	Xa(I) -> getMethodParameterType
 	Eq() -> getMethodParametertypeCount
 	hz(Lcom/aide/codemodel/api/Type;) -> getMethodParametertypeCount
+	j3() -> getModifiersEndColumn
 	Mr() -> getModifiersEndLine
 	FN(I) -> getModifiersOfParameter
 	U2() -> getModifiersStartColumn
@@ -319,10 +383,13 @@ Lcom/aide/codemodel/api/Member; -> Lcom/aide/codemodel/api/Member;
 	Nh(Lcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/ClassType;) -> isVisible
 	AE() -> loadTypes
 Lcom/aide/codemodel/api/MethodParameterType; -> Lcom/aide/codemodel/api/MethodParameterType;
+	sG(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessFields
+	Sf(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessMethods
 	j6(Lcom/aide/codemodel/api/abstraction/Language;) -> configureLanguage
 	Ev(Lcom/aide/codemodel/api/Type;I) -> getBoundType
 	ye() -> getBoundTypeCount
 	DW() -> getDeclarationNumber
+	v5() -> getEndColumn
 	Zo() -> getEndLine
 	x9() -> getErasedType
 	J8() -> getIdentifierEndColumn
@@ -330,6 +397,7 @@ Lcom/aide/codemodel/api/MethodParameterType; -> Lcom/aide/codemodel/api/MethodPa
 	QX() -> getIdentifierStartColumn
 	getNameString() -> getIdentifierString
 	EQ() -> getMemberString
+	j3() -> getModifiersEndColumn
 	Mr() -> getModifiersEndLine
 	U2() -> getModifiersStartColumn
 	a8() -> getModifiersStartLine
@@ -338,8 +406,11 @@ Lcom/aide/codemodel/api/MethodParameterType; -> Lcom/aide/codemodel/api/MethodPa
 	ro() -> isPrivate
 	et() -> isRawType
 Lcom/aide/codemodel/api/MethodParameterTypeVariable; -> Lcom/aide/codemodel/api/MethodParameterTypeVariable;
+	sG(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessFields
+	Sf(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessMethods
 	j6(Lcom/aide/codemodel/api/abstraction/Language;) -> configureLanguage
 	DW() -> getDeclarationNumber
+	v5() -> getEndColumn
 	Zo() -> getEndLine
 	x9() -> getErasedType
 	J8() -> getIdentifierEndColumn
@@ -347,6 +418,7 @@ Lcom/aide/codemodel/api/MethodParameterTypeVariable; -> Lcom/aide/codemodel/api/
 	QX() -> getIdentifierStartColumn
 	getNameString() -> getIdentifierString
 	EQ() -> getMemberString
+	j3() -> getModifiersEndColumn
 	Mr() -> getModifiersEndLine
 	U2() -> getModifiersStartColumn
 	a8() -> getModifiersStartLine
@@ -354,6 +426,8 @@ Lcom/aide/codemodel/api/MethodParameterTypeVariable; -> Lcom/aide/codemodel/api/
 	kQ(Lcom/aide/codemodel/api/Type;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Member;) -> isEqualTo
 	ro() -> isPrivate
 	et() -> isRawType
+Lcom/aide/codemodel/api/Model; -> Lcom/aide/codemodel/api/Model;
+	v5(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZ) -> configureAssembly
 Labcd/y1; -> Lcom/aide/codemodel/api/Modifiers;
 	j6(I) -> isAbstract
 	Hw(I) -> isConst
@@ -362,6 +436,7 @@ Labcd/y1; -> Lcom/aide/codemodel/api/Modifiers;
 	Zo(I) -> isNative
 	u7(I) -> isNew
 	EQ(I) -> isOverride
+	we(I) -> isPackagePrivate
 	J0(I) -> isProtected
 	J8(I) -> isPublic
 	aM(I) -> isStatic
@@ -385,6 +460,7 @@ Lcom/aide/codemodel/api/Namespace; -> Lcom/aide/codemodel/api/Namespace;
 	sy(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;I) -> getAllPartialClassTypes
 	DW() -> getDeclarationNumber
 	aj() -> getEnclosingNamespace
+	v5() -> getEndColumn
 	Zo() -> getEndLine
 	J8() -> getIdentifierEndColumn
 	Ws() -> getIdentifierLine
@@ -393,6 +469,7 @@ Lcom/aide/codemodel/api/Namespace; -> Lcom/aide/codemodel/api/Namespace;
 	lp() -> getLanguageFromNamespace
 	OW(I) -> getMemberNamespace
 	EQ() -> getMemberString
+	j3() -> getModifiersEndColumn
 	Mr() -> getModifiersEndLine
 	U2() -> getModifiersStartColumn
 	a8() -> getModifiersStartLine
@@ -400,8 +477,11 @@ Lcom/aide/codemodel/api/Namespace; -> Lcom/aide/codemodel/api/Namespace;
 	kQ() -> isRoot
 	yO(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZILcom/aide/codemodel/api/Namespace;) -> tryAccessMemberClassType
 Lcom/aide/codemodel/api/ParameterType; -> Lcom/aide/codemodel/api/ParameterType;
+	sG(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessFields
+	Sf(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessMethods
 	j6(Lcom/aide/codemodel/api/abstraction/Language;) -> configureLanguage
 	DW() -> getDeclarationNumber
+	v5() -> getEndColumn
 	Zo() -> getEndLine
 	x9() -> getErasedType
 	J8() -> getIdentifierEndColumn
@@ -409,6 +489,7 @@ Lcom/aide/codemodel/api/ParameterType; -> Lcom/aide/codemodel/api/ParameterType;
 	QX() -> getIdentifierStartColumn
 	getNameString() -> getIdentifierString
 	EQ() -> getMemberString
+	j3() -> getModifiersEndColumn
 	Mr() -> getModifiersEndLine
 	U2() -> getModifiersStartColumn
 	a8() -> getModifiersStartLine
@@ -417,8 +498,11 @@ Lcom/aide/codemodel/api/ParameterType; -> Lcom/aide/codemodel/api/ParameterType;
 	ro() -> isPrivate
 	et() -> isRawType
 Lcom/aide/codemodel/api/ParameterizedType; -> Lcom/aide/codemodel/api/ParameterizedType;
+	sG(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessFields
+	Sf(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessMethods
 	j6(Lcom/aide/codemodel/api/abstraction/Language;) -> configureLanguage
 	DW() -> getDeclarationNumber
+	v5() -> getEndColumn
 	Zo() -> getEndLine
 	x9() -> getErasedType
 	J8() -> getIdentifierEndColumn
@@ -426,6 +510,7 @@ Lcom/aide/codemodel/api/ParameterizedType; -> Lcom/aide/codemodel/api/Parameteri
 	QX() -> getIdentifierStartColumn
 	getNameString() -> getIdentifierString
 	EQ() -> getMemberString
+	j3() -> getModifiersEndColumn
 	Mr() -> getModifiersEndLine
 	U2() -> getModifiersStartColumn
 	a8() -> getModifiersStartLine
@@ -475,8 +560,11 @@ Lcom/aide/codemodel/api/Parser; -> Lcom/aide/codemodel/api/Parser;
 	J8() -> next
 	j6() -> parser
 Lcom/aide/codemodel/api/PointerType; -> Lcom/aide/codemodel/api/PointerType;
+	sG(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessFields
+	Sf(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessMethods
 	j6(Lcom/aide/codemodel/api/abstraction/Language;) -> configureLanguage
 	DW() -> getDeclarationNumber
+	v5() -> getEndColumn
 	Zo() -> getEndLine
 	x9() -> getErasedType
 	J8() -> getIdentifierEndColumn
@@ -484,6 +572,7 @@ Lcom/aide/codemodel/api/PointerType; -> Lcom/aide/codemodel/api/PointerType;
 	QX() -> getIdentifierStartColumn
 	getNameString() -> getIdentifierString
 	EQ() -> getMemberString
+	j3() -> getModifiersEndColumn
 	Mr() -> getModifiersEndLine
 	U2() -> getModifiersStartColumn
 	a8() -> getModifiersStartLine
@@ -495,8 +584,11 @@ Lcom/aide/codemodel/api/PositionalReader; -> Lcom/aide/codemodel/api/PositionalR
 	mb -> chars
 	Zo(Ljava/io/Reader;) -> init
 Lcom/aide/codemodel/api/PrimitiveType; -> Lcom/aide/codemodel/api/PrimitiveType;
+	sG(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessFields
+	Sf(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessMethods
 	j6(Lcom/aide/codemodel/api/abstraction/Language;) -> configureLanguage
 	DW() -> getDeclarationNumber
+	v5() -> getEndColumn
 	Zo() -> getEndLine
 	x9() -> getErasedType
 	J8() -> getIdentifierEndColumn
@@ -504,6 +596,7 @@ Lcom/aide/codemodel/api/PrimitiveType; -> Lcom/aide/codemodel/api/PrimitiveType;
 	QX() -> getIdentifierStartColumn
 	getNameString() -> getIdentifierString
 	EQ() -> getMemberString
+	j3() -> getModifiersEndColumn
 	Mr() -> getModifiersEndLine
 	U2() -> getModifiersStartColumn
 	a8() -> getModifiersStartLine
@@ -542,8 +635,11 @@ Lcom/aide/codemodel/api/SyntaxTreeStyles; -> Lcom/aide/codemodel/api/SyntaxTreeS
 	Zo(I) -> getStringStartOffset
 	FH([CII) -> putChars
 Lcom/aide/codemodel/api/Type; -> Lcom/aide/codemodel/api/Type;
+	sG(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessFields
+	Sf(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;IZLcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/collections/SetOf;) -> accessMethods
 	j6(Lcom/aide/codemodel/api/abstraction/Language;) -> configureLanguage
 	DW() -> getDeclarationNumber
+	v5() -> getEndColumn
 	Zo() -> getEndLine
 	x9() -> getErasedType
 	J8() -> getIdentifierEndColumn
@@ -551,6 +647,7 @@ Lcom/aide/codemodel/api/Type; -> Lcom/aide/codemodel/api/Type;
 	QX() -> getIdentifierStartColumn
 	getNameString() -> getIdentifierString
 	EQ() -> getMemberString
+	j3() -> getModifiersEndColumn
 	Mr() -> getModifiersEndLine
 	U2() -> getModifiersStartColumn
 	a8() -> getModifiersStartLine
@@ -562,8 +659,13 @@ Lcom/aide/codemodel/api/abstraction/Compiler; -> Lcom/aide/codemodel/api/abstrac
 Lcom/aide/codemodel/api/abstraction/CodeModel; -> Lcom/aide/codemodel/api/abstraction/CodeModel;
 	getCompiler() -> getCodeCompiler
 Lcom/aide/codemodel/api/abstraction/TypeSystem; -> Lcom/aide/codemodel/api/abstraction/TypeSystem;
+	j6(I) -> getTypeSemanticForPrimitiveType
 	DW() -> hasTypeParametersOfEnclosingClassType
 	FH() -> inheritsBoundTypes
+Lcom/aide/codemodel/api/callback/OpenFileCallback; -> Lcom/aide/codemodel/api/callback/OpenFileCallback;
+	j6(Lcom/aide/codemodel/api/FileEntry;) -> getOpenFileReader
+	DW(Lcom/aide/codemodel/api/FileEntry;) -> getOpenFileVersion
+	v5() -> update
 Lcom/aide/codemodel/api/collections/ArrayOf$b; -> Lcom/aide/codemodel/api/collections/ArrayOf$Iterator;
 Lcom/aide/codemodel/api/collections/ArrayOf; -> Lcom/aide/codemodel/api/collections/ArrayOf;
 	j6 -> default_Iterator
@@ -700,6 +802,7 @@ Lcom/aide/codemodel/api/collections/OrderedMapOfIntInt; -> Lcom/aide/codemodel/a
 	u7() -> rehash
 Lcom/aide/codemodel/api/collections/SetOf; -> Lcom/aide/codemodel/api/collections/SetOf;
 	DEFAULT_ITERATOR -> default_Iterator
+	v5() -> empty
 	u7(Lcom/aide/codemodel/api/collections/SetOf;) -> put
 	J0() -> size
 Lcom/aide/codemodel/api/collections/SetOfFileEntry; -> Lcom/aide/codemodel/api/collections/SetOfFileEntry;
@@ -723,6 +826,7 @@ Lcom/aide/codemodel/api/collections/SetOfInt; -> Lcom/aide/codemodel/api/collect
 	VH(Lcom/aide/codemodel/api/collections/SetOfInt;) -> put
 	gn() -> rehash
 	u7(I) -> remove
+Labcd/b4; -> Lcom/aide/codemodel/api/excpetions/AmbiguousEntityException;
 Labcd/e4; -> Lcom/aide/codemodel/api/excpetions/UnknownEntityException;
 Labcd/r4$a; -> Lcom/aide/codemodel/api/util/TimeUtils$TimeGetterThread;
 Labcd/r4; -> Lcom/aide/codemodel/api/util/TimeUtils;
@@ -796,6 +900,7 @@ Labcd/j6; -> Lcom/aide/codemodel/language/java/ClassWriter;
 	EQ -> accessFlags
 	ei -> annotationDefaultNameIndex
 	lp -> argsReturnTypeDescriptorUtf8Index
+	hK -> classTypeIndexs
 	Xa -> codeAttrIndex
 	FH -> constantClassTypes
 	v5 -> constantFieldRefs
@@ -831,6 +936,7 @@ Labcd/j6; -> Lcom/aide/codemodel/language/java/ClassWriter;
 	BT -> lineNumberTableUtf8Index
 	vy -> localVariableTableUtf8Index
 	j3 -> majorVersion
+	q7 -> memberNameIndexs
 	sy -> methodAccessFlags
 	Qq -> methodArgTypeWidth
 	XG -> methodCodeBytes
@@ -852,6 +958,7 @@ Labcd/j6; -> Lcom/aide/codemodel/language/java/ClassWriter;
 	gW -> syntheticUtf8Index
 	J0 -> this_class_name_index
 	er -> varargsNameIndex
+	cT -> variableSlots
 	ca -> vmState
 	v5(I) -> addConstantClassType
 	Zo(D) -> addConstantDouble
@@ -873,106 +980,129 @@ Labcd/j6; -> Lcom/aide/codemodel/language/java/ClassWriter;
 	I(I[CII[CIIZZZ) -> addMethod
 	FH() -> clearMethodAttr
 	Hw(I) -> emit1
-	lp() -> emitAaload
-	OW() -> emitAastore
-	br() -> emitAconst_null
-	XX(I) -> emitAload
-	kQ() -> emitAreturn
-	yO() -> emitArraylength
-	wc() -> emitBaload
-	et() -> emitBastore
 	CU() -> emitCaload
 	Eq(Ljava/lang/String;) -> emitCheckcast
 	hz([CII) -> emitCheckcast
-	aq() -> emitD2f
-	oY() -> emitDadd
-	Ev() -> emitDastore
-	mb(I) -> emitDload
-	qp() -> emitDmod
-	fY() -> emitDneg
-	k2() -> emitDreturn
-	zh(I) -> emitDstore
-	AL() -> emitDsub
-	w9() -> emitDup
-	cT() -> emitDup2_x1
-	q7() -> emitDup2_x2
-	n5() -> emitDup_x2
-	Jl() -> emitF2l
-	eU() -> emitFaload
-	sg() -> emitFdiv
-	Cz() -> emitFmod
-	fN() -> emitFmul
-	Gj() -> emitFneg
-	pN() -> emitFreturn
-	aX() -> emitFsub
-	sM(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;) -> emitGetStaticField
-	ys([CII[CII[CII) -> emitGetStaticField
-	e9([CIILjava/lang/String;[CII) -> emitGetfield
-	IS(I) -> emitGoto_
-	gG() -> emitGoto_Only
-	AE() -> emitI2d
-	An() -> emitI2l
-	ce() -> emitIadd
-	Jm() -> emitIaload
-	Bx() -> emitIand
-	qP(I) -> emitIconst
-	pl(IZ) -> emitIficmpgtOrIficmple
-	oh(IZ) -> emitIficmpleOrIficmpgt
-	Of(IZ) -> emitIfneOrIfeq
-	zf(I) -> emitIload
-	uC() -> emitImod
-	fP() -> emitImul
-	b() -> emitIneg
-	ba([CII) -> emitInstanceof_
-	BR() -> emitInt2char
-	ya() -> emitInt2short
-	u9(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;) -> emitInvokeinterface
-	Ak([CII[CII[CII) -> emitInvokeinterface
-	nl(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;) -> emitInvokespecial
-	ti([CIILjava/lang/String;[CII) -> emitInvokespecial
-	k1([CII[CII[CII) -> emitInvokespecial
-	iK(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;) -> emitInvokestatic
-	fh([CIILjava/lang/String;Ljava/lang/String;) -> emitInvokestatic
-	sv([CIILjava/lang/String;[CII) -> emitInvokestatic
-	HT([CII[CII[CII) -> emitInvokestatic
-	oT(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;) -> emitInvokevirtual
-	hx([CII[CII[CII) -> emitInvokevirtual
-	qU() -> emitIor
-	ep() -> emitIreturn
-	HO() -> emitIshl
-	qI() -> emitIshr
-	tj() -> emitIsub
-	pn() -> emitIushr
-	RW() -> emitL2f
-	cX() -> emitLadd
-	uD() -> emitLastore
-	om(IZ) -> emitLcmp
-	HE(J) -> emitLconst
-	BJ(Ljava/lang/String;) -> emitLdc
-	F3() -> emitLmul
-	S4() -> emitLneg
-	tR() -> emitLor
-	ME() -> emitLreturn
-	C() -> emitLshl
-	dH() -> emitLshr
-	BN(I) -> emitLstore
-	DP() -> emitLushr
-	ee() -> emitLxor
-	K3() -> emitMonitorenter
-	OM() -> emitMonitorexit
-	Qs(Ljava/lang/String;) -> emitNew_
-	g0([CII) -> emitNew_
-	wC() -> emitNop
-	s0() -> emitPop2
-	e3() -> emitPutfield
-	IM() -> emitReturn_
-	eQ() -> emitSastore
+	lp() -> emit_aaload
+	OW() -> emit_aastore
+	br() -> emit_aconst_null
+	XX(I) -> emit_aload
+	kQ() -> emit_areturn
+	yO() -> emit_arraylength
+	jJ() -> emit_athrow
+	wc() -> emit_baload
+	et() -> emit_bastore
+	aq() -> emit_d2f
+	FN() -> emit_d2i
+	jO() -> emit_d2l
+	oY() -> emit_dadd
+	ko() -> emit_daload
+	Ev() -> emit_dastore
+	mb(I) -> emit_dload
+	qp() -> emit_dmod
+	jw() -> emit_dmul
+	fY() -> emit_dneg
+	k2() -> emit_dreturn
+	zh(I) -> emit_dstore
+	AL() -> emit_dsub
+	w9() -> emit_dup
+	hK() -> emit_dup2
+	cT() -> emit_dup2_x1
+	q7() -> emit_dup2_x2
+	n5() -> emit_dup_x2
+	kf() -> emit_f2i
+	Jl() -> emit_f2l
+	iW() -> emit_fadd
+	eU() -> emit_faload
+	sg() -> emit_fdiv
+	Cz() -> emit_fmod
+	fN() -> emit_fmul
+	Gj() -> emit_fneg
+	pN() -> emit_freturn
+	aX() -> emit_fsub
+	sM(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;) -> emit_getStaticField
+	ys([CII[CII[CII) -> emit_getStaticField
+	e9([CIILjava/lang/String;[CII) -> emit_getfield
+	IS(I) -> emit_goto_
+	gG() -> emit_goto_Only
+	AE() -> emit_i2d
+	An() -> emit_i2l
+	ce() -> emit_iadd
+	Jm() -> emit_iaload
+	Bx() -> emit_iand
+	qP(I) -> emit_iconst
+	MP() -> emit_idiv
+	pl(IZ) -> emit_ificmpgtOrIficmple
+	oh(IZ) -> emit_ificmpleOrIficmpgt
+	Of(IZ) -> emit_ifneOrIfeq
+	zf(I) -> emit_iload
+	uC() -> emit_imod
+	fP() -> emit_imul
+	b() -> emit_ineg
+	ba([CII) -> emit_instanceof_
+	Nh() -> emit_int2byte
+	BR() -> emit_int2char
+	ya() -> emit_int2short
+	Pa() -> emit_int2short
+	u9(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;) -> emit_invokeinterface
+	Ak([CII[CII[CII) -> emit_invokeinterface
+	nl(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;) -> emit_invokespecial
+	ti([CIILjava/lang/String;[CII) -> emit_invokespecial
+	k1([CII[CII[CII) -> emit_invokespecial
+	iK(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;) -> emit_invokestatic
+	fh([CIILjava/lang/String;Ljava/lang/String;) -> emit_invokestatic
+	sv([CIILjava/lang/String;[CII) -> emit_invokestatic
+	HT([CII[CII[CII) -> emit_invokestatic
+	oT(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;) -> emit_invokevirtual
+	hx([CII[CII[CII) -> emit_invokevirtual
+	qU() -> emit_ior
+	ep() -> emit_ireturn
+	HO() -> emit_ishl
+	qI() -> emit_ishr
+	tj() -> emit_isub
+	pn() -> emit_iushr
+	x6() -> emit_ixor
+	k4() -> emit_l2d
+	RW() -> emit_l2f
+	cX() -> emit_ladd
+	ir() -> emit_land
+	uD() -> emit_lastore
+	om(IZ) -> emit_lcmp
+	HE(J) -> emit_lconst
+	BJ(Ljava/lang/String;) -> emit_ldc
+	Sc([CII) -> emit_ldc
+	h2() -> emit_ldiv
+	ji() -> emit_lmod
+	F3() -> emit_lmul
+	S4() -> emit_lneg
+	tR() -> emit_lor
+	ME() -> emit_lreturn
+	C() -> emit_lshl
+	dH() -> emit_lshr
+	BN(I) -> emit_lstore
+	jn() -> emit_lsub
+	DP() -> emit_lushr
+	ee() -> emit_lxor
+	K3() -> emit_monitorenter
+	OM() -> emit_monitorexit
+	Qs(Ljava/lang/String;) -> emit_new
+	g0([CII) -> emit_new
+	wC() -> emit_nop
+	hG() -> emit_pop
+	s0() -> emit_pop2
+	e3() -> emit_putfield
+	IM() -> emit_return_
+	jg() -> emit_saload
+	eQ() -> emit_sastore
+	jD() -> emit_swap
 	XL() -> flushLastMethodToMethodsBytes
 	re(Ljava/lang/String;) -> getArgTypeWidth
 	TE([CII) -> getArgTypeWidth
+	Dm() -> getMethodCodeBytesCount
 	df(Ljava/lang/String;) -> getReturnTypeWidth
 	p8([CII) -> getReturnTypeWidth
 	j6(Ljava/lang/String;I[CIILjava/lang/String;II) -> init
+	sy(I) -> instructAddrCodeOffsetBind
 	CN() -> nextInstructionAddress
 	rN(D) -> putDoubleConstantValue
 	zg([CIILjava/lang/String;[CII) -> putField
@@ -981,6 +1111,7 @@ Labcd/j6; -> Lcom/aide/codemodel/language/java/ClassWriter;
 	yS(I) -> putIntConstantValue
 	gW(J) -> putLongConstantValue
 	BT(Ljava/lang/String;) -> putStringConstantValue
+	DW([CII) -> setSignature
 	Z3(Ljava/lang/String;) -> setSuperClassTypeInfo
 	mu([CII) -> setSuperClassTypeInfo
 	oP(Ljava/io/OutputStream;) -> writeClassFile
@@ -1001,14 +1132,14 @@ Lcom/aide/codemodel/language/java/JavaCodeModel; -> Lcom/aide/codemodel/language
 	getCompiler() -> getCodeCompiler
 Lcom/aide/codemodel/language/java/JavaCompiler; -> Lcom/aide/codemodel/language/java/JavaCompiler;
 	gn -> anonymousClassNodeListOfInt
-	lg -> argsReturnTypeDescriptorCharBuffer
-	er -> argsReturnTypeDescriptorCharBufferCount
 	br -> classFileMajorVersion
 	OW -> classFileMinorVersion
-	a8 -> classTypeNameCharBuffer
-	rN -> classTypeNameCharBufferCount
 	VH -> classWriter
+	QX -> curInstructionAddress
+	U2 -> curVariableSlot
 	XL -> currentCompileClassType
+	a8 -> entityNameCharBuffer
+	rN -> entityNameCharBufferCount
 	FH -> fileSpace
 	DW -> identifierSpace
 	j3 -> isExtendsBroadcastReceiver
@@ -1017,31 +1148,55 @@ Lcom/aide/codemodel/language/java/JavaCompiler; -> Lcom/aide/codemodel/language/
 	j6 -> javaTypeSystem
 	yS -> memberNameCharBuffer
 	gW -> memberNameCharBufferCount
+	Mr -> memberType
+	lg -> methodDescriptorCharBuffer
+	er -> methodDescriptorCharBufferCount
 	J8 -> referencevVriableNodes
 	J0 -> superMethodInvocation
 	u7 -> useAssertClassTypes
 	I -> useJavaLangRepairOfADRT
 	EQ -> usePrivateMemberds
+	ba(Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Member;) -> checkOverriddenMember
 	u7(Lcom/aide/codemodel/api/SyntaxTree;ZZZ) -> compileDebug
 	BT(ZZLcom/aide/codemodel/api/SyntaxTree;I) -> compileRelease
 	k4() -> createClassWriter
+	tp(Lcom/aide/codemodel/api/Member;) -> emit_aDRTLogCatReaderOnContext
+	I() -> emit_getFieldOfThis$0
+	oy() -> emit_invokeStringBufferToString
+	Nh(Lcom/aide/codemodel/api/SyntaxTree;IILcom/aide/codemodel/api/Type;) -> emit_invokevirtualOnVariableDeclare
+	pN() -> emit_newStringBuffer
+	hz() -> emit_nop
 	AE(Lcom/aide/codemodel/api/SyntaxTree;IILcom/aide/codemodel/api/Type;) -> emptyMethods$$1
 	AL(Lcom/aide/codemodel/api/SyntaxTree;II) -> emptyMethods$$2
 	Ev(Lcom/aide/codemodel/api/SyntaxTree;ILcom/aide/codemodel/api/Member;) -> emptyMethods$$3
 	Ws(Lcom/aide/codemodel/api/SyntaxTree;I) -> emptyMethods$$4
+	pO(Lcom/aide/codemodel/api/SyntaxTree;I) -> emptyMethods$$5
+	BR(Lcom/aide/codemodel/api/SyntaxTree;I) -> emptyMethods$$6
+	b(Lcom/aide/codemodel/api/Entity;Lcom/aide/codemodel/api/Entity;) -> equalsEntity
+	Bx(Lcom/aide/codemodel/api/ClassType;) -> fillClassTypeName
+	AR(Lcom/aide/codemodel/api/Entity;) -> fillEntityName
+	oa(Lcom/aide/codemodel/api/Entity;Z) -> fillEntityName
+	N0(Lcom/aide/codemodel/api/Entity;[CI) -> fillEntityName
+	GK(Lcom/aide/codemodel/api/Entity;[CIZ) -> fillEntityName
+	b1(I) -> fillMemberNameIdentifier
+	MP(Lcom/aide/codemodel/api/SyntaxTree;Lcom/aide/codemodel/api/ClassType;) -> fillMethodDescriptorCharBuffer
+	d8() -> getAccess$0String
 	PH(Lcom/aide/codemodel/api/Entity;) -> getAdrtEnableFieldName
 	TI() -> getAssertionsDisabledMethodName
 	Fd(I) -> getBlockMethodName
 	GT(Lcom/aide/codemodel/api/ClassType;) -> getClassTypeName
 	E4(Lcom/aide/codemodel/api/Entity;Z) -> getModifiers
+	dW(Lcom/aide/codemodel/api/Entity;) -> getPrimitiveTypeChar
 	Hl(Lcom/aide/codemodel/api/ClassType;) -> getSimpleName
-	d8() -> getStringOfAccess$0
-	wE() -> getStringOfThis$0
+	wE() -> getThis$0String
 	Ak(Lcom/aide/codemodel/api/ClassType;) -> isExtendsBroadcastReceiver
 	nl(Lcom/aide/codemodel/api/ClassType;) -> isExtendsContext
 	ti(Lcom/aide/codemodel/api/Member;) -> isNoStaticOrPrivateContextMember
+	u9(Lcom/aide/codemodel/api/Member;) -> isOnReceiveMethod
+	HO(Lcom/aide/codemodel/api/Entity;) -> isPrivateEntity
 	k1(Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/ClassType;) -> isPrivateMember
 	iK(Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/ClassType;) -> isPrivateMember2
+	uC(Lcom/aide/codemodel/api/SyntaxTree;I) -> isSubProjectFieldAccess
 	oT(Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/ClassType;) -> isUseOtherClassPrivateMember
 	HT(Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/ClassType;) -> isUseOtherClassPrivateMember2
 	kQ(Lcom/aide/codemodel/api/SyntaxTree;I) -> processNonStaticFields
@@ -1058,7 +1213,7 @@ Labcd/t6; -> Lcom/aide/codemodel/language/java/JavaLexer;
 	J8 -> positionalReader
 Lcom/aide/codemodel/language/java/JavaParser; -> Lcom/aide/codemodel/language/java/JavaParser;
 	yS -> anonymousNamePrefix
-	nw -> enumIdentifierId
+	nw -> enum_identifierId
 	lg -> identifierSpace
 	a8 -> javaSyntax
 	rN -> skipCodeParsing
@@ -1090,8 +1245,57 @@ Lcom/aide/codemodel/language/java/JavaParser; -> Lcom/aide/codemodel/language/ja
 	ko() -> parserPackageAnnotation
 	wc() -> searchPackageSyntaxTree
 Lcom/aide/codemodel/language/java/JavaTypeSystem; -> Lcom/aide/codemodel/language/java/JavaTypeSystem;
+	dx -> autoCloseable_identifierId
+	we -> boolean_identifierId
+	Mr -> byte_identifierId
+	aM -> character_identifierId
+	yS -> class_identifierId
+	VH -> clone_identifierId
+	rN -> cloneable_identifierId
+	EQ -> collection_identifierId
+	a8 -> double_identifierId
+	j6 -> entitySpace
+	nw -> enum_identifierId
+	P8 -> error_identifierId
+	gW -> exception_identifierId
+	U2 -> float_identifierId
+	cn -> framework_identifierId
+	ei -> getClass_identifierId
+	DW -> identifierSpace
+	QX -> integer_identifierId
+	KD -> io_identifierId
+	J8 -> iterable_identifierId
+	u7 -> java_identifierId
+	ro -> junit_identifierId
+	gn -> lang_identifierId
+	FH -> language
+	Zo -> length_identifierId
+	Ws -> long_identifierId
+	J0 -> object_identifierId
+	j3 -> override_identifierId
+	cb -> package_info_identifierId
+	vy -> runtimeException_identifierId
+	SI -> serializable_identifierId
+	XL -> short_identifierId
+	er -> string_identifierId
+	sh -> testCase_identifierId
+	BT -> throwable_identifierId
+	tp -> util_identifierId
+	lg -> void_identifierId
+	j6(I) -> getTypeSemanticForPrimitiveType
 	DW() -> hasTypeParametersOfEnclosingClassType
 	FH() -> inheritsBoundTypes
+	gW() -> makeBooleanPrimitiveType
+	BT() -> makeBytePrimitiveType
+	vy() -> makeCharPrimitiveType
+	SI() -> makeDoublePrimitiveType
+	KD() -> makeFloatPrimitiveType
+	ro() -> makeIntPrimitiveType
+	CU() -> makeLongPrimitiveType
+	Xa() -> makeNullPrimitiveType
+	jO() -> makeShortPrimitiveType
+	ko() -> makeUbytePrimitiveType
+	WB() -> makeVoidPrimitiveType
 Lcom/aide/codemodel/language/js/JavaScriptCodeModel; -> Lcom/aide/codemodel/language/js/JavaScriptCodeModel;
 	getCompiler() -> getCodeCompiler
 Lcom/aide/codemodel/language/js/JavaScriptParser; -> Lcom/aide/codemodel/language/js/JavaScriptParser;
@@ -1119,6 +1323,7 @@ Lcom/aide/codemodel/language/js/JavaScriptParser; -> Lcom/aide/codemodel/languag
 	J8() -> next
 	j6() -> parser
 Lcom/aide/codemodel/language/js/JavaScriptTypeSystem; -> Lcom/aide/codemodel/language/js/JavaScriptTypeSystem;
+	j6(I) -> getTypeSemanticForPrimitiveType
 	DW() -> hasTypeParametersOfEnclosingClassType
 	FH() -> inheritsBoundTypes
 Lcom/aide/codemodel/language/xml/XmlCodeModel; -> Lcom/aide/codemodel/language/xml/XmlCodeModel;
@@ -1147,6 +1352,10 @@ Lcom/aide/codemodel/language/xml/XmlParser; -> Lcom/aide/codemodel/language/xml/
 	v5(Lcom/aide/codemodel/api/SyntaxTreeStyles;Lcom/aide/codemodel/api/FileEntry;ZLcom/aide/codemodel/api/SyntaxTree;) -> init
 	J8() -> next
 	j6() -> parser
+Lcom/aide/engine/Engine$c$h; -> Lcom/aide/engine/Engine$c$h;
+	j6(Lcom/aide/codemodel/api/FileEntry;) -> getOpenFileReader
+	DW(Lcom/aide/codemodel/api/FileEntry;) -> getOpenFileVersion
+	v5() -> update
 Lcom/aide/engine/FileHighlightings; -> Lcom/aide/engine/FileHighlightings;
 	AL -> id
 Lcom/aide/ui/AppCommands; -> Lcom/aide/ui/AppCommands;
@@ -1159,10 +1368,25 @@ Lcom/aide/ui/ServiceContainer; -> Lcom/aide/ui/ServiceContainer;
 	Mr() -> getKeyBindingService
 	SI() -> getSearchService
 	Sf() -> isX86
+Lcom/aide/ui/build/d$a; -> Lcom/aide/ui/build/NdkBuildService$RunNdkBuildCallable;
+Lcom/aide/ui/build/d$b; -> Lcom/aide/ui/build/NdkBuildService$RunNdkBuildFutureTask;
+Lcom/aide/ui/build/d; -> Lcom/aide/ui/build/NdkBuildService;
+	j6 -> executorService
 Lcom/aide/ui/build/android/AaptService$b; -> Lcom/aide/ui/build/android/AaptService$ErrorResult;
 	DW -> errorInfo
 	j6 -> hasError
 	FH -> syntaxErrorsMap
+Lcom/aide/ui/build/android/m$a; -> Lcom/aide/ui/build/android/NdkConfiguration$NdkAppInstallType;
+	fY -> values
+Lcom/aide/ui/build/android/m$b; -> Lcom/aide/ui/build/android/NdkConfiguration$NdkInstallType;
+Lcom/aide/ui/build/android/m; -> Lcom/aide/ui/build/android/NdkConfiguration;
+	FH() -> getBinDir
+	v5(Landroid/content/Context;) -> getNdkAppInstallType
+	Zo() -> getNdkAppVersionCode
+	we() -> getNdkInstallDir
+	Hw() -> getNdkInstalledFIle
+	J0() -> getNdkSupportVersionFileName
+	Mr() -> isInstalledNdk
 Labcd/tf; -> Lcom/aide/ui/command/FileBrowserCommand;
 	VH() -> getIconId
 	j6() -> getNameId
