@@ -1023,6 +1023,8 @@ Labcd/tf; -> Lcom/aide/ui/command/FileBrowserCommand;
 	j6() -> getNameId
 Lcom/aide/ui/project/AndroidProjectSupport; -> Lcom/aide/ui/project/AndroidProjectSupport;
 	Gj(Ljava/lang/String;) -> containProjectLib
+	
+	
 Lcom/aide/ui/project/internal/GradleTools; -> Lcom/aide/ui/project/internal/GradleTools;
 	j6(Ljava/lang/String;) -> getAarEexplodedClassesJar
 	a8(Ljava/lang/String;Ljava/lang/String;) -> getAndroidManifestPath
@@ -1047,7 +1049,28 @@ Lcom/aide/ui/services/ProjectSupport; -> Lcom/aide/ui/services/ProjectSupport;
 	J0(Ljava/lang/String;) -> addJarLib
 	FH(Ljava/lang/String;) -> containJarLib
 	Hw() -> verifyResourcesDownload
+	VH() -> getTemplateGroups
+	
 Lcom/aide/ui/util/FileSystem; -> Lcom/aide/ui/util/FileSystem;
 	QX(Ljava/lang/String;) -> getParentOrJarZipFile
 Lcom/aide/ui/views/CodeEditText; -> Lcom/aide/ui/views/CodeEditText;
 	sh() -> createEditorView
+	hK -> isLightTheme
+	sG()Z -> isLightTheme
+	
+Lcom/aide/ui/services/TemplateService$TemplateGroup; -> Lcom/aide/ui/services/TemplateService$TemplateGroup;
+	j6 -> name
+	v5 -> imageResId
+	Zo -> template
+	DW -> templateResourceName
+	FH = openedFileNames
+	Hw = app
+Lcom/aide/ui/services/TemplateService$Template; -> Lcom/aide/ui/services/TemplateService$Template;
+	u7 -> templateId
+	FH -> templateName
+	
+	
+Lcom/aide/ui/MainActivity; -> Lcom/aide/ui/MainActivity;
+	vy() -> setHasEmbeddedTabs
+	checkSelfPermission(Ljava/lang/String;) -> isSelfPermission
+	
