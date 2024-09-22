@@ -95,6 +95,7 @@ public class DexFileAnalyzer{
 		this.checkRevertMapping = hasSwitch(SwitchNameConstants.checkRevertMapping);	
 
 		this.dexEntryNames.addAll(dexContainer.getDexEntryNames());
+		
 		//排序
 		Collections.sort(this.dexEntryNames);
 		//初始化

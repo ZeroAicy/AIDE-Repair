@@ -12,6 +12,7 @@ import android.annotation.Nullable;
 import java.util.LinkedHashMap;
 import io.github.zeroaicy.dexlib.analysis.RewriterClassData.FieldData;
 import java.util.*;
+import io.github.zeroaicy.dexlib.analysis.RewriterClassData.MethodData;
 
 //还原Mapping数据
 public class RevertMappingData{
@@ -67,21 +68,21 @@ public class RevertMappingData{
 	 * 需要注意需要按照版本顺序依次调用此函数
 	 * 并且被传入RevertMappingData会被修改
 	 */
-	public void merge(List<RevertMappingData> nextVerRevMapData){
-		for ( RevertMappingData revertMappingData : nextVerRevMapData ){
+	public void merge(List<RevertMappingData> revertMappingDataMerges){
+		for ( RevertMappingData revertMappingData : revertMappingDataMerges ){
 			merge(revertMappingData);
 		}
 	}
-	public void merge(RevertMappingData nextVerRevMapData){
+	public void merge(RevertMappingData revertMappingDataMerged){
 		//主RewriterClassDataMap，所有改变都集中在此
-		Map<String, RewriterClassData> curClassDataMap = this.getRewriterClassDataMap();
+		Map<String, RewriterClassData> mainRewriterClassDataMap = this.getRewriterClassDataMap();
 
-		Map<String, RewriterClassData> nextVerClassDataMap = nextVerRevMapData.getRewriterClassDataMap();
+		Map<String, RewriterClassData> rewriterClassDataMapMerged = revertMappingDataMerged.getRewriterClassDataMap();
 		{
 			//需要把nextVerRevMapData中方法签名，还原成当前版本的类[参数签名类]
 
 			//遍历当前revertMappingData的类
-			for ( RewriterClassData nextVerClassData : nextVerRevMapData.getRewriterClassDataMap().values() ){
+			for ( RewriterClassData nextVerClassData : revertMappingDataMerged.getRewriterClassDataMap().values() ){
 				if ( !nextVerClassData.hasMethodData() ){
 					//没有方法
 					continue;
@@ -97,7 +98,8 @@ public class RevertMappingData{
 				for ( RewriterClassData.MethodData methodData : methodDatas ){
 					//替换方法签名
 					String paramSignature = methodData.parametersSignature;
-					for ( RewriterClassData curClassData : curClassDataMap.values() ){
+					
+					for ( RewriterClassData curClassData : mainRewriterClassDataMap.values() ){
 						//替换参数签名中的类名为当前版本类名
 						paramSignature = paramSignature.replace(curClassData.getRenamed(), curClassData.getConfusevt());
 					}
@@ -109,29 +111,30 @@ public class RevertMappingData{
 
 		}
 		//更新已有的
-
-		for ( RewriterClassData curClassData : curClassDataMap.values() ){
+		for ( RewriterClassData mainRewriterClassData : mainRewriterClassDataMap.values() ){
 			//从待合并中查询此类规则是否重新修改
-			RewriterClassData nextVerClassData = nextVerRevMapData.getRewriterClassData(curClassData.getRenamed());
-			if ( nextVerClassData == null ){
+			RewriterClassData rewriterClassDataMerged = revertMappingDataMerged.getRewriterClassData(mainRewriterClassData.getRenamed());
+			if ( rewriterClassDataMerged == null ){
 				continue;
 			}
 			//合并后此类名的重命名
-			String nextVerClassRenamed = nextVerClassData.getRenamed();
+			String rewriterClassDataMergedRenamed = rewriterClassDataMerged.getRenamed();
 			//合并并更新
 			// confusevt -> 中间(renamed) -> 最终(renamed)
-			curClassData.setRenamed(nextVerClassRenamed);
+			mainRewriterClassData.setRenamed(rewriterClassDataMergedRenamed);
+			
 			//移除已处理的
-			nextVerClassDataMap.remove(nextVerClassData);
-
+			// 😭 key是字符串啊
+			rewriterClassDataMapMerged.remove(rewriterClassDataMerged.getConfusevt());
+			
 			//添加并合并rewriterClassData字段
-			if ( curClassData.hasFieldData() ){
-				Map<String, RewriterClassData.FieldData> nextVerFieldDatas = nextVerClassData.getFieldDatas();
+			if ( mainRewriterClassData.hasFieldData() ){
+				Map<String, RewriterClassData.FieldData> nextVerFieldDatas = rewriterClassDataMerged.getFieldDatas();
 
 				//遍历curClassData中字段，查询是否有重新修改的
-				for ( RewriterClassData.FieldData curFieldData : curClassData.getFieldDatas().values() ){
+				for ( RewriterClassData.FieldData curFieldData : mainRewriterClassData.getFieldDatas().values() ){
 					String nextVerFieldConfusevt = curFieldData.renamed;
-					RewriterClassData.FieldData nextVerFieldData = nextVerClassData.getFieldData(nextVerFieldConfusevt);
+					RewriterClassData.FieldData nextVerFieldData = rewriterClassDataMerged.getFieldData(nextVerFieldConfusevt);
 					if ( nextVerFieldData != null ){
 						//已被重新修改，更新
 						curFieldData.renamed = nextVerFieldData.renamed;
@@ -140,43 +143,44 @@ public class RevertMappingData{
 					}
 				}
 			}
-			if ( nextVerClassData.hasFieldData() ){
+			if ( rewriterClassDataMerged.hasFieldData() ){
 				//剩下的都是curClassData没有修改的
-				Map<String, RewriterClassData.FieldData> nextVerFieldDatas = nextVerClassData.getFieldDatas();
+				Map<String, RewriterClassData.FieldData> nextVerFieldDatas = rewriterClassDataMerged.getFieldDatas();
 
 				for ( RewriterClassData.FieldData nextVerFieldData :  nextVerFieldDatas.values() ){
-					curClassData.addField(nextVerFieldData.confusevt, nextVerFieldData.renamed);
+					mainRewriterClassData.addField(nextVerFieldData.confusevt, nextVerFieldData.renamed);
 				}					
 			}
 
 			//重新修改的
-			if ( curClassData.hasMethodData() ){
+			if ( mainRewriterClassData.hasMethodData() ){
 				//合并方法
-				for ( RewriterClassData.MethodData mergeMethodData : curClassData.getMethodDataMap().values() ){
+				Map<String, RewriterClassData.MethodData> methodDataMap = mainRewriterClassData.getMethodDataMap();
+					for ( RewriterClassData.MethodData mergeMethodData : methodDataMap.values() ){
 					//查找此版本与下一版本的共同名称
-					RewriterClassData.FieldData otherFieldData = nextVerClassData.getFieldData(mergeMethodData.getRenamedMethodSignature());
+					RewriterClassData.MethodData otherFieldData = rewriterClassDataMerged.getMethodData(mergeMethodData.getRenamedMethodSignature());
 					if ( otherFieldData == null ){
 						//此字段没有再次被重命名
 						continue;
 					}
 					//更新方法重命名
 					mergeMethodData.renamed = otherFieldData.renamed;
-
+					
 				}
 			}
 			//以前版本从未修改
-			if ( nextVerClassData.hasMethodData() ){
+			if ( rewriterClassDataMerged.hasMethodData() ){
 				//不冲突的部分可以直接添加
-				for ( RewriterClassData.MethodData methodData : nextVerClassData.getMethodDataMap().values() ){
-					if ( curClassData.getMethodData(methodData.methodSignature) == null ){
-						curClassData.addMethodData(methodData);
+				for ( RewriterClassData.MethodData methodData : rewriterClassDataMerged.getMethodDataMap().values() ){
+					if ( mainRewriterClassData.getMethodData(methodData.methodSignature) == null ){
+						mainRewriterClassData.addMethodData(methodData);
 					}
 				}
 			}
 		}
 
 		//这是没有修改的
-		for ( RewriterClassData rewriterClassData : nextVerRevMapData.getRewriterClassDataMap().values() ){
+		for ( RewriterClassData rewriterClassData : revertMappingDataMerged.getRewriterClassDataMap().values() ){
 			//冲突的已经处理了
 			this.addRewriterClassData(rewriterClassData);
 		}
@@ -523,6 +527,44 @@ public class RevertMappingData{
 			}
 			catch (Throwable e){
 				throw new Error("at " + (index  + 1)+ " line parser error", e);
+			}
+		}
+		if( isContrary() ){
+			// 逆反混淆，需要修正方法签名
+			
+			//需要把nextVerRevMapData中方法签名，还原成当前版本的类[参数签名类]
+
+			//遍历当前revertMappingData的类
+			Map<String, RewriterClassData> rewriterClassDataMap = getRewriterClassDataMap();
+			
+			Collection<RewriterClassData> rewriterClassDatas = rewriterClassDataMap.values();
+			
+			for ( RewriterClassData nextVerClassData : rewriterClassDatas ){
+				if ( !nextVerClassData.hasMethodData() ){
+					//没有方法
+					continue;
+				}
+
+				//遍历类中的方法
+				Map<String, RewriterClassData.MethodData> nextVerMethodDataMap = nextVerClassData.getMethodDataMap();
+				
+				List<RewriterClassData.MethodData> methodDatas = new ArrayList<RewriterClassData.MethodData>(nextVerMethodDataMap.values());
+				
+				//置空nextVerClassData没的方法规则
+				nextVerMethodDataMap.clear();
+
+				for ( RewriterClassData.MethodData methodData : methodDatas ){
+					//替换方法签名
+					String paramSignature = methodData.parametersSignature;
+					
+					for ( RewriterClassData curClassData : rewriterClassDatas ){
+						//替换参数签名中的类名为当前版本类名
+						paramSignature = paramSignature.replace(curClassData.getRenamed(), curClassData.getConfusevt());
+					}
+					//重新添加
+					nextVerClassData.addMethodData(methodData.confusevt, paramSignature, methodData.renamed);
+				}
+
 			}
 		}
 	}

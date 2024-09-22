@@ -4,31 +4,14 @@ import io.github.zeroaicy.dexlib.analysis.RevertMappingData;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import io.github.zeroaicy.dexlib.analysis.RewriterClassData;
 
 public class 合并RevertMappingData{
-	public static void main(String[] args){
+	public static void main9(String[] args){
 		//sort();
-		getZeroAicyBuildGradle();
 		System.out.println("结束");
 	}
-	public static void getZeroAicyBuildGradle(){
 
-		// 不是gradle项目
-		String suffix = "/build/bin";
-		String buildOutDirPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/git/AIDE+/app_flavor/build/bin";
-
-		if ( ! buildOutDirPath.endsWith(suffix) ){
-			return;
-
-		}
-
-		File buildGradleFile = new File(buildOutDirPath.substring(0, buildOutDirPath.length() - suffix.length()), "build.gradle");
-		if ( !buildGradleFile.exists() ){
-			return;				
-		}
-
-		System.out.println(buildGradleFile.getAbsolutePath());
-	}
 
 	/**
 	 * 排序
@@ -40,11 +23,13 @@ public class 合并RevertMappingData{
 		RevertDexFromMappingText.writeRevertMappingData(v, new RevertMappingData(v));
 
 	}
-	public static void main3(String[] args){
+	public static void main(String[] args){
 
 		List<String> mappingList = new ArrayList<>();
-		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_2.txt");
-		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_3.txt");
+		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_1.txt");
+		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_2.0.txt");
+		// mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_2.1.txt");
+		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_2.2.txt");
 
 
 		List<RevertMappingData> revertMappingDataList = new ArrayList<>();
@@ -52,13 +37,36 @@ public class 合并RevertMappingData{
 			revertMappingDataList.add(new RevertMappingData(mapping));
 		}
 
-		RevertMappingData mainRevertMappingData = revertMappingDataList.get(0);
-		revertMappingDataList.remove(0);
+		RevertMappingData mainRevertMappingData = new RevertMappingData();
 
 		//主RewriterClassDataMap，所有改变都集中在此
 		mainRevertMappingData.merge(revertMappingDataList);
 
-		RevertDexFromMappingText.writeRevertMappingData("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_合并测试.txt", mainRevertMappingData);
+		//移除无效或未修改的RewriterClassData
+		shrink(mainRevertMappingData);
+
+
+		RevertDexFromMappingText.writeRevertMappingData("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_0.txt", mainRevertMappingData);
+	}
+
+	public static void shrink(RevertMappingData revertMappingData){
+		List<RewriterClassData> rewriterClassDataList = new ArrayList<RewriterClassData>(
+			revertMappingData.getRewriterClassDataMap().values());
+
+		for ( RewriterClassData rewriterClassData : rewriterClassDataList ){
+			shrink(revertMappingData, rewriterClassData);
+		}
+	}
+	public static void shrink(RevertMappingData revertMappingData, RewriterClassData rewriterClassData){
+		if ( rewriterClassData != null ){
+			if( rewriterClassData.notChange() ){
+				//空的移除
+				revertMappingData.getRewriterClassDataMap().remove(rewriterClassData.getConfusevt());
+			}else{
+				rewriterClassData.shrink();
+			}
+		}
+			
 	}
 
 

@@ -41,14 +41,14 @@ public class ZeroAicyAIDE{
 	//*/
 
 	public static void main(String[] args) throws IOException{
-		//*根据规则重命名
+		/*根据规则重命名
 		 aide_plus();
+		 /*/
 		/*
-		 规则排序();
+		规则排序();
+		/*/
+		 重写apk(true);
 		 //*/
-		
-		// 重写apk();
-		 
 	}
 
 	/******************************************************************/
@@ -124,28 +124,37 @@ public class ZeroAicyAIDE{
 		//RevertDexFromMappingText.revert(inputDexs, outputDexs, false, true, mappingFilePath);
 
 	}
-	public static void 重写apk() throws IOException{
-		String inputDexs = "/storage/emulated/0/Download/.MT2/apks/测试/AIDE+共存版_2.2.0.3-alpha01-[3.2.210316].apk";
-		
-		
-		String outputDexs = "/storage/emulated/0/Download/.MT2/apks/测试/AIDE+共存版_2.2.0.3新版.zip";
-		
-		
+	public static void 重写apk(boolean contrary) throws IOException{
+		String inputDexs = "/storage/emulated/0/Download/.MT2/apks/2.3/AIDE+_2.2.apk";
+
+
+		String outputDexs = "/storage/emulated/0/Download/.MT2/apks/2.3/2.3.zip";
+
+
 		// inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/git/AIDE+/app_flavor/build/bin/app_flavor.apk";
 		// outputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/AIDE+_2.3.zip";
-		
+
 		HashMap<String, String> switchMap = new HashMap<String, String>();
-		
+
 		// 规则文件
 		String mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_2.3.txt";
 		String outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_output_2.3.txt";
-
+		
+		
+		if( contrary){
+			mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_0.txt";
+			outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_-1.txt";
+			
+			switchMap.put(SwitchNameConstants.contrary, null);	
+		}
+		
+		
 		switchMap.put(SwitchNameConstants.mappingFilePath, mappingFilePath);
 		switchMap.put(SwitchNameConstants.outputMappingPath, outputMappingPath);
 		switchMap.put(SwitchNameConstants.checkRevertMapping, "");
 		
-		//switchMap.put(SwitchNameConstants.onlyOutputMapping, "");
-		
+		// switchMap.put(SwitchNameConstants.onlyOutputMapping, "");
+
 		RevertDexFromMappingText.revert(inputDexs, outputDexs, switchMap);
 
 	}

@@ -27,6 +27,7 @@ public class RevertRewriterModule extends RewriterModule{
 	public RewriterClassData getRewriterClassData(String className){
 		return dexFileAnalyzer.getRewriterClassData(className);
 	}
+	
 	public ClassDef getClassDef(String type){
 		return dexFileAnalyzer.getClassDef(type);
 	}
