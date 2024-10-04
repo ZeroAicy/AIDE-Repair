@@ -16,6 +16,9 @@ import org.jf.dexlib2.rewriter.RewriterModule;
 import org.jf.dexlib2.rewriter.Rewriters;
 import org.jf.dexlib2.iface.DexFile;
 import io.github.zeroaicy.dexlib.analysis.RevertDexFileRewriter;
+import org.jf.dexlib2.iface.Field;
+import org.jf.dexlib2.iface.MethodParameter;
+import org.jf.dexlib2.iface.AnnotationElement;
 
 public class RevertRewriterModule extends RewriterModule{
 	DexFileAnalyzer dexFileAnalyzer;
@@ -43,11 +46,22 @@ public class RevertRewriterModule extends RewriterModule{
 	}
 
 	@Override
+	public Rewriter<Field> getFieldRewriter(Rewriters rewriters) {
+		return new RevertFieldRewriter(rewriters);
+	}
+	
+	
+	@Override
 	public Rewriter<Method> getMethodRewriter(Rewriters rewriters){
 		return new RevertMethodRewriter(rewriters, this);
 	}
 
-	
+	@Override
+	public Rewriter<MethodParameter> getMethodParameterRewriter(Rewriters rewriters) {
+		return new RevertMethodParameterRewriter(rewriters);
+	}
+
+
 	
 	@Override
 	public Rewriter<String> getTypeRewriter(Rewriters rewriters){
@@ -60,6 +74,11 @@ public class RevertRewriterModule extends RewriterModule{
 	public Rewriter<Annotation> getAnnotationRewriter(@Nonnull Rewriters rewriters){
         return new RevertAnnotationRewriter(rewriters, this);
     }
+
+	@Override
+	public Rewriter<AnnotationElement> getAnnotationElementRewriter(Rewriters rewriters) {
+		return new RevertAnnotationElementRewriter(rewriters);
+	}
 	
 	//注解值重写器
 	@Nonnull 

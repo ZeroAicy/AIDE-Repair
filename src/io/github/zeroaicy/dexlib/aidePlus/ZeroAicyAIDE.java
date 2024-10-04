@@ -21,6 +21,7 @@ import org.jf.dexlib2.iface.ClassDef;
 import org.jf.dexlib2.iface.DexFile;
 import org.jf.dexlib2.iface.Method;
 import org.jf.dexlib2.iface.MultiDexContainer;
+import android.content.Context;
 
 public class ZeroAicyAIDE{
 
@@ -34,6 +35,7 @@ public class ZeroAicyAIDE{
 		aide_plus.run();
 
 		System.out.println("完成");
+
 	}
 
 
@@ -41,12 +43,13 @@ public class ZeroAicyAIDE{
 	//*/
 
 	public static void main(String[] args) throws IOException{
-		/*根据规则重命名
-		 aide_plus();
-		 /*/
-		/*
-		规则排序();
+		//*根据规则重命名
+		aide_plus();
 		/*/
+
+		 //*
+		 规则排序();
+		 /*
 		 重写apk(true);
 		 //*/
 	}
@@ -139,20 +142,20 @@ public class ZeroAicyAIDE{
 		// 规则文件
 		String mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_2.3.txt";
 		String outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_output_2.3.txt";
-		
-		
-		if( contrary){
+
+
+		if ( contrary ){
 			mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_0.txt";
 			outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_-1.txt";
-			
+
 			switchMap.put(SwitchNameConstants.contrary, null);	
 		}
-		
-		
+
+
 		switchMap.put(SwitchNameConstants.mappingFilePath, mappingFilePath);
 		switchMap.put(SwitchNameConstants.outputMappingPath, outputMappingPath);
 		switchMap.put(SwitchNameConstants.checkRevertMapping, "");
-		
+
 		// switchMap.put(SwitchNameConstants.onlyOutputMapping, "");
 
 		RevertDexFromMappingText.revert(inputDexs, outputDexs, switchMap);

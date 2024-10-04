@@ -4,6 +4,12 @@ import org.jf.dexlib2.AccessFlags;
 import org.jf.dexlib2.iface.Method;
 import org.jf.dexlib2.rewriter.MethodRewriter;
 import org.jf.dexlib2.rewriter.Rewriters;
+import java.util.Set;
+import org.jf.dexlib2.iface.Annotation;
+import java.util.HashSet;
+import java.util.List;
+import org.jf.dexlib2.iface.MethodParameter;
+import java.util.ArrayList;
 
 public class RevertMethodRewriter extends MethodRewriter{
 	private RevertRewriterModule revertRewriterModule;
@@ -25,11 +31,24 @@ public class RevertMethodRewriter extends MethodRewriter{
 			//不处理private
 			return super.rewrite(value);
 		}
-		return super.rewrite(new RevertRewrittenMethod(value));
+		return new RevertRewrittenMethod(value);
 	}
-	public class RevertRewrittenMethod extends RewrittenMethod{
+	
+	
+	public class RevertRewrittenMethod extends RewrittenMethod {
+
+		private Set<? extends Annotation> rewriteAnnotations;
+
+		private List<? extends MethodParameter> rewriteParameters;
 		public RevertRewrittenMethod(@Nonnull Method method){
             super(method);
+			// 重写 用Annotation容器做key
+			// 如果不提前hashCode 会变
+			getAnnotations().hashCode();
+			for(MethodParameter rewriteParameter :  getParameters()){
+				rewriteParameter.getAnnotations();
+			}
+			
         }
 		
 		//兼容模式
@@ -50,6 +69,25 @@ public class RevertMethodRewriter extends MethodRewriter{
 			return accessFlags;
 		}
 
+		@Override
+		public List<? extends MethodParameter> getParameters() {
+			if( this.rewriteParameters == null ){
+				this.rewriteParameters = new ArrayList<MethodParameter>(super.getParameters());
+			}
+			return this.rewriteParameters;
+		}
+		
+		@Override
+		public Set<? extends Annotation> getAnnotations() {
+			if( this.rewriteAnnotations == null ){
+				// 遍历否则没有重写
+				this.rewriteAnnotations = new HashSet<Annotation>(super.getAnnotations());
+			}
+			return rewriteAnnotations;
+		}
+		
+		
+		
 	}
 
 }
