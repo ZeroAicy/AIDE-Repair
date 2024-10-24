@@ -59,6 +59,15 @@ public class aide_plus_extend_tools extends aide_plus_extend{
 		aide_plus_info = new aide_plus_info("2.1", "2.2", false);
 		aide_plus_info_map.put(aide_plus_info.version, aide_plus_info);
 		
+		//2.3
+		aide_plus_info = new aide_plus_info("2.2", "2.3", false);
+		aide_plus_info_map.put(aide_plus_info.version, aide_plus_info);
+		
+		// test
+		aide_plus_info = new aide_plus_info("2.2", "test", false);
+		aide_plus_info_map.put(aide_plus_info.version, aide_plus_info);
+		
+		
 	}
 
 	public static aide_plus_extend_tools getAidePlusExtend(String version){

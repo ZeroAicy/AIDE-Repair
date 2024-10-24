@@ -364,10 +364,8 @@ Labcd/j1; -> Lcom/aide/codemodel/api/ArrayType;
 	store(Lcom/aide/codemodel/api/collections/StoreInputStream;) -> load
 Labcd/k1$b; -> Lcom/aide/codemodel/api/ClassType$Data;
 	I -> I_未知
-	absoluteTypeParameterCount -> absoluteTypeParameterCount
 	nw -> absoluteTypeParameterCount
 	KD -> absoluteTypeParameters
-	absoluteTypeParameters -> absoluteTypeParameters
 	Sf -> allExplicitMemberMethods
 	BT -> allMemberClasstypes
 	sG -> allMemberFields
@@ -996,12 +994,10 @@ Lcom/aide/codemodel/api/Type; -> Lcom/aide/codemodel/api/Type;
 	P8() -> isNamespace
 	nw() -> isParameterType
 	ei() -> isParameterizedType
-	Yi() -> isPartial
 	SI() -> isPointerType
 	KD() -> isPrimitiveType
 	CU(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;) -> isReferable
 	Xa() -> isSealedType
-	oh() -> isStructType
 	Eq(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Type;) -> isSubTypeOf
 	cn() -> isType
 	store(Lcom/aide/codemodel/api/collections/StoreInputStream;) -> load
@@ -1102,7 +1098,8 @@ Lcom/aide/codemodel/api/collections/SetOfFileEntry$b; -> Lcom/aide/codemodel/api
 	DW() -> init
 	FH() -> nextKey
 Lcom/aide/codemodel/language/classfile/JavaBinaryLanguage; -> Lcom/aide/codemodel/language/classfile/JavaBinaryLanguage;
-	
+	EQ() -> getCodeAnalyzer
+	J0() -> getSignatureAnalyzer
 	J8() -> getTypeSystem
 Lcom/aide/codemodel/language/classfile/JavaBinarySignatureAnalyzer; -> Lcom/aide/codemodel/language/classfile/JavaBinarySignatureAnalyzer;
 	u7(Lcom/aide/codemodel/api/FileEntry;) -> doLoadPositions
@@ -1201,7 +1198,8 @@ Lcom/aide/codemodel/language/java/JavaCompiler; -> Lcom/aide/codemodel/language/
 	Zo -> model
 Labcd/a6; -> Lcom/aide/codemodel/language/java/JavaFormatOption;
 Lcom/aide/codemodel/language/java/JavaLanguage; -> Lcom/aide/codemodel/language/java/JavaLanguage;
-	
+	EQ() -> getCodeAnalyzer
+	J0() -> getSignatureAnalyzer
 	J8() -> getTypeSystem
 Lcom/aide/codemodel/language/java/JavaSignatureAnalyzer; -> Lcom/aide/codemodel/language/java/JavaSignatureAnalyzer;
 	u7(Lcom/aide/codemodel/api/FileEntry;) -> doLoadPositions
@@ -1357,7 +1355,6 @@ Lcom/aide/engine/OpenFile; -> Lcom/aide/engine/OpenFile;
 	j6 -> charArray
 	DW -> length
 Lcom/aide/engine/f0; -> Lcom/aide/engine/UsageSearcherListener;
-Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisE ngineServiceImpl$f; -> Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl$UsageSearcherListener2Impl;
 Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl$d; -> Lcom/aide/engine/service/CodeAnalysisEngineService$CodeAnalysisEngineServiceImpl$d;
 	j6 -> fileHighlightings
 	DW -> mIHighlightingListener
@@ -1620,7 +1617,6 @@ Lcom/aide/ui/services/NativeCodeSupportService; -> Lcom/aide/ui/services/Downloa
 	J0(Lcom/aide/ui/services/NativeCodeSupportService;Ljava/lang/String;) -> setTaskTitle
 Lcom/aide/ui/services/EngineService$a; -> Lcom/aide/ui/services/EngineService$EngineServiceConnection;
 	WB -> engineService
-	j6(Lcom/aide/ui/services/EngineService;Lcom/aide/engine/service/ICodeAnalysisEngineService;) -> setICodeAnalysisEngineService
 Lcom/aide/ui/services/EngineService; -> Lcom/aide/ui/services/EngineService;
 	j6 -> mCodeAnalysisEngineService
 	Hw -> mServiceConnection
@@ -1631,7 +1627,6 @@ Labcd/af$a; -> Lcom/aide/ui/services/LicenseService$a;
 Labcd/af$b; -> Lcom/aide/ui/services/LicenseService$b;
 Labcd/af; -> Lcom/aide/ui/services/LicenseService;
 Lcom/aide/ui/services/MavenService; -> Lcom/aide/ui/services/MavenService;
-	rN(Ljava/lang/String;Ljava/lang/String;Z) -> downloadFile
 	BT(Ljava/util/Map;Lcom/aide/ui/util/BuildGradle$MavenDependency;) -> existsLocalMavenCache
 	XL(Lcom/aide/ui/util/BuildGradle$RemoteRepository;Lcom/aide/ui/util/BuildGradle$MavenDependency;Ljava/lang/String;Ljava/lang/String;) -> getArtifactPath
 	aM(Lcom/aide/ui/util/BuildGradle$RemoteRepository;Lcom/aide/ui/util/BuildGradle$MavenDependency;Ljava/lang/String;Ljava/lang/String;) -> getArtifactUrl
@@ -1795,7 +1790,6 @@ Lcom/aide/ui/views/editor/Graphics; -> Lcom/aide/ui/views/editor/Graphics;
 	u7(FFFF) -> drawRect
 	VH(Ljava/lang/String;FF) -> drawText
 	j6([CIIFF) -> drawText
-	tp() -> getClipBounds
 	EQ() -> getClipBounds
 	J0([CII[F) -> getTextWidths
 	J8() -> restoreCanvas

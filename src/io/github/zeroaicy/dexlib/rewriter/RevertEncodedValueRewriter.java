@@ -20,11 +20,18 @@ import java.util.ArrayList;
 
 public class RevertEncodedValueRewriter extends EncodedValueRewriter {
 
+	@Override
+	public EncodedValue rewrite(EncodedValue encodedValue) {
+		return super.rewrite(encodedValue);
+	}
+
 	private RevertRewriterModule revertRewriterModule;
 	public RevertEncodedValueRewriter(Rewriters rewriters, RevertRewriterModule revertRewriterModule) {
 		super(rewriters);
 		this.revertRewriterModule = revertRewriterModule;
 	}
+	
+	
 	//上一个EncodedValue是不是声明，接下来是泛型声明
 	boolean lastTEncodedValue;
 	// 上一个 StringEncodedValue
@@ -33,10 +40,15 @@ public class RevertEncodedValueRewriter extends EncodedValueRewriter {
 	// 受 lastStringEncodedValue值的影响
 	// 每次计算结果可能不同 必须记录下来
 	Map<EncodedValue, EncodedValue> encodedValueMap = new HashMap<>();
-
+	
+	
+	/**
+	 * 可能是StringEncodedValue，因为也可能是类名，但Signature被分割成数组
+	 * 而且也不知道是不是Signature注解，所以不应该在这处理
+	 */
 	@Nonnull
-	@Override
-	public EncodedValue rewrite(@Nonnull EncodedValue encodedValue) {
+	//@Override
+	public EncodedValue rewrite2(@Nonnull EncodedValue encodedValue) {
 
 		EncodedValue encodedValueCache = encodedValueMap.get(encodedValue);
 		if (encodedValueCache != null) {

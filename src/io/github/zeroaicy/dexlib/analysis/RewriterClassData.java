@@ -179,7 +179,14 @@ public class RewriterClassData implements Comparable<RewriterClassData>{
 			&& !fieldDatas.isEmpty();
 	}
 
-
+	public MethodData removeMethodData(MethodData methodData){
+		if ( methodData == null ) return null;
+		if ( this.methodDataMap == null ){
+			return null;
+		}
+		String methodSignature = methodData.getMethodSignature();
+		return this.methodDataMap.remove(methodSignature);
+	}
 	public MethodData addMethodData(MethodData methodData){
 		if ( methodData == null ) return null;
 
@@ -188,8 +195,8 @@ public class RewriterClassData implements Comparable<RewriterClassData>{
 		}
 
 		//待添加方法签名
-		String methodSignature = methodData.methodSignature;
-		MethodData methodDataCache = methodDataMap.get(methodSignature);
+		String methodSignature = methodData.getMethodSignature();
+		MethodData methodDataCache = this.methodDataMap.get(methodSignature);
 
 		if ( methodDataCache != null ){
 			return methodDataCache;
@@ -317,17 +324,35 @@ public class RewriterClassData implements Comparable<RewriterClassData>{
 		//原始的方法名[重命名后的方法名]
 		public String renamed;
 
-		//方法签名，
-		public final String methodSignature;
+		//方法签名，作为key不能变
+		private final String methodSignature;
 
-		public final String parametersSignature;
+		private final String parametersSignature;
 
 		public MethodData(String confusevt, String parametersSignature, String renamed){
 			this.confusevt = confusevt;
-			this.methodSignature = confusevt + parametersSignature;
-			
 			this.parametersSignature = parametersSignature;
 			this.renamed = renamed;
+			
+			this.methodSignature = updateMethodSignature();
+			
+		}
+
+		private String updateMethodSignature() {
+			return this.confusevt + this.parametersSignature;
+		}
+
+		public String getMethodSignature() {
+			return this.methodSignature;
+		}
+
+		/*public void setParametersSignature(String parametersSignature) {
+			this.parametersSignature = parametersSignature;
+			this.methodSignature = updateMethodSignature();
+		}*/
+
+		public String getParametersSignature() {
+			return this.parametersSignature;
 		}
 
 		public boolean notChange(){
@@ -338,25 +363,25 @@ public class RewriterClassData implements Comparable<RewriterClassData>{
 		public boolean equals(Object obj){
 			if ( obj instanceof MethodData ){
 				MethodData o2 = (MethodData)obj;
-				return o2.equals(methodSignature);
+				return o2.equals(this.methodSignature);
 			}
 			return super.equals(obj);
 		}
 		
 		@Override
 		public String toString(){
-			return methodSignature + " -> " + renamed;
+			return this.methodSignature + " -> " + this.renamed;
 		}
 		/**
 		 * 重命名后的方法签名
 		 */
 		public String getRenamedMethodSignature(){
-			return this.renamed + parametersSignature;
+			return this.renamed + this.parametersSignature;
 		}
 		
 		@Override
 		public int compareTo(MethodData o){
-			return getRenamedMethodSignature().compareTo(o.getRenamedMethodSignature());
+			return this.getRenamedMethodSignature().compareTo(o.getRenamedMethodSignature());
 		}
 	}
 }

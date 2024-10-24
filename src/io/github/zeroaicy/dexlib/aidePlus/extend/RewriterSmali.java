@@ -16,58 +16,58 @@ import io.github.zeroaicy.dexlib.aidePlus.extend.RewriterSmali.Method;
 import java.util.Set;
 import java.util.Map.Entry;
 
-public class RewriterSmali{
+public class RewriterSmali {
 
-	public static void rewriter(String input_src_dir, String output_src_dir, String mappingFilePath){
+	public static void rewriter(String input_src_dir, String output_src_dir, String mappingFilePath) {
 		Map<String, List<String>> smaliLinesMap = new HashMap<>();
 
-		for ( File smaliFile : FileUtil.findFile(new File(input_src_dir), ".smali") ){
+		for (File smaliFile : FileUtil.findFile(new File(input_src_dir), ".smali")) {
 			List<String> smaliLines = OpenFile.open(smaliFile).list();
-			if ( smaliLines.isEmpty() ){
+			if (smaliLines.isEmpty()) {
 				//无效文件
 				continue;
 			}
 			//find class name
 			String className = findClassName(smaliLines);
-			if ( className == null ){
+			if (className == null) {
 				throw new Error("smaliFile: " + smaliFile.getAbsolutePath() + " 不是一个smali文件");
 			}
 			smaliLinesMap.put(className, smaliLines);
 		}
-		
+
 		RevertMappingData revertMappingData = new RevertMappingData(mappingFilePath);
 		Map<String, RewriterClassData> rewriterClassDataMap = revertMappingData.getRewriterClassDataMap();
-		
+
 		//优先修改自身smali
-		Set<Map.Entry<String, List<String>>> entrySet = new HashSet<Map.Entry<String, List<String>>>( smaliLinesMap.entrySet());
-		
-		for ( Map.Entry<String, List<String>> entry : entrySet ){
+		Set<Map.Entry<String, List<String>>> entrySet = new HashSet<Map.Entry<String, List<String>>>(smaliLinesMap.entrySet());
+
+		for (Map.Entry<String, List<String>> entry : entrySet) {
 			//旧类名
 			String oldClassName = entry.getKey();
-			
+
 			RewriterClassData rewriterClassData = rewriterClassDataMap.get(oldClassName);
-			if ( rewriterClassData == null ){
+			if (rewriterClassData == null) {
 				// 没有此smali规则
 				continue;
 			}
 			//如果规则中有此smali的重命名规则
 			//则修改自身 方法名
 			List<String> curSmaliLines = entry.getValue();
-			
-			Map<String, RewriterClassData.MethodData> methodDataMap = rewriterClassData.getMethodDataMap();
-			if ( methodDataMap != null ){
-				for ( RewriterClassData.MethodData methodData : methodDataMap.values() ){
 
-					String methodSignature = " " + methodData.methodSignature;
+			Map<String, RewriterClassData.MethodData> methodDataMap = rewriterClassData.getMethodDataMap();
+			if (methodDataMap != null) {
+				for (RewriterClassData.MethodData methodData : methodDataMap.values()) {
+
+					String methodSignature = " " + methodData.getMethodSignature();
 					String newMethodSignature = " " + methodData.getRenamedMethodSignature();
 
-					for ( int index = 0, size = curSmaliLines.size(); index < size; index++ ){
+					for (int index = 0, size = curSmaliLines.size(); index < size; index++) {
 						String line = curSmaliLines.get(index);
-						if ( line.startsWith(".method ") ){
+						if (line.startsWith(".method ")) {
 							String oldLine = line;
 							line = line.replace(methodSignature, newMethodSignature);
-							
-							if( !oldLine.equals(line)){
+
+							if (!oldLine.equals(line)) {
 								System.out.println("改变前 " + oldLine);
 
 								System.out.println("改变后 " + line);
@@ -84,14 +84,14 @@ public class RewriterSmali{
 
 			//字段名
 			Map<String, RewriterClassData.FieldData> fieldDatas = rewriterClassData.getFieldDatas();
-			if ( fieldDatas != null ){
-				for ( RewriterClassData.FieldData fieldData : fieldDatas.values() ){
+			if (fieldDatas != null) {
+				for (RewriterClassData.FieldData fieldData : fieldDatas.values()) {
 					String findFieldReference = " " + fieldData.confusevt + ":";
 					String toFieldReference = " " + fieldData.renamed + ":";
 
-					for ( int index = 0, size = curSmaliLines.size(); index < size; index++ ){
+					for (int index = 0, size = curSmaliLines.size(); index < size; index++) {
 						String line = curSmaliLines.get(index);
-						if ( line.startsWith(".field ") ){
+						if (line.startsWith(".field ")) {
 							line = line.replace(findFieldReference, toFieldReference);
 							//更新
 							curSmaliLines.set(index, line);
@@ -101,35 +101,35 @@ public class RewriterSmali{
 			}
 			//类名[在修改类引用时会替换]
 			String renamed = rewriterClassData.getRenamed();
-			if ( !oldClassName.equals(renamed) ){
+			if (!oldClassName.equals(renamed)) {
 				smaliLinesMap.remove(oldClassName);
 				smaliLinesMap.put(renamed, curSmaliLines);
 				System.out.println("更改类名 " + oldClassName + " -> " + rewriterClassData.getRenamed());					
 			}
 		}
-		
+
 		System.out.println("准备写入");
 		//遍历规则
-		for ( RewriterClassData rewriterClassData : new HashSet<RewriterClassData>(rewriterClassDataMap.values()) ){
+		for (RewriterClassData rewriterClassData : new HashSet<RewriterClassData>(rewriterClassDataMap.values())) {
 			// 两部分，
 			// 1是修改规则指向的smali本身(已修改)
-			
+
 			// 2是其它其它规则
-			
+
 			//修改方法引用
 			reMethodReference(rewriterClassData, smaliLinesMap);
 			//修改字段引用
 			reFieldReference(rewriterClassData, smaliLinesMap);
 		}
-		
+
 		// 类引用的修改必须在最后
-		for ( RewriterClassData rewriterClassData : new HashSet<RewriterClassData>(rewriterClassDataMap.values()) ){
+		for (RewriterClassData rewriterClassData : new HashSet<RewriterClassData>(rewriterClassDataMap.values())) {
 			//修改类引用
 			reClassReference(rewriterClassData, smaliLinesMap);
 		}
-		
+
 		//写入
-		for ( Map.Entry<String, List<String>> entry : smaliLinesMap.entrySet() ){
+		for (Map.Entry<String, List<String>> entry : smaliLinesMap.entrySet()) {
 
 			String key = entry.getKey();
 			String className = key.substring(1, key.length() - 1);
@@ -137,7 +137,7 @@ public class RewriterSmali{
 			File file = new File(output_src_dir, className + ".smali");
 
 			File parentFile = file.getParentFile();
-			if ( !parentFile.exists() ){
+			if (!parentFile.exists()) {
 				parentFile.mkdirs();
 			}
 			List<String> curSmaliLines = entry.getValue();
@@ -147,7 +147,7 @@ public class RewriterSmali{
 			//字段排序规则 字段名+返回类型[前者相同时考虑后者]
 			//方法排序规则 方法名+返回类型+参数类型[前者相同时考虑后者,参数数量越多者为-1]
 			compareToSmaliFile(curSmaliLines);
-			
+
 			OpenFile.open(file).write(curSmaliLines);
 
 			System.out.println("写入 " + file);
@@ -158,11 +158,11 @@ public class RewriterSmali{
 
 
 
-	private static void reClassReference(RewriterClassData rewriterClassData, Map<String, List<String>> smaliLinesMap){
+	private static void reClassReference(RewriterClassData rewriterClassData, Map<String, List<String>> smaliLinesMap) {
 		String oldClassNameReference = rewriterClassData.getConfusevt();
 		String newClassNameReference = rewriterClassData.getRenamed();
-		for ( List<String> lines : smaliLinesMap.values() ){
-			for ( int index = 0, size = lines.size(); index < size; index++ ){
+		for (List<String> lines : smaliLinesMap.values()) {
+			for (int index = 0, size = lines.size(); index < size; index++) {
 				String line = lines.get(index);
 
 				line = line.replace(oldClassNameReference, newClassNameReference);
@@ -172,24 +172,24 @@ public class RewriterSmali{
 		}
 	}
 
-	private static void reFieldReference(RewriterClassData rewriterClassData, Map<String, List<String>> smaliLinesMap){
+	private static void reFieldReference(RewriterClassData rewriterClassData, Map<String, List<String>> smaliLinesMap) {
 		String oldClassNameReference = " " + rewriterClassData.getConfusevt() + "->";
 		String newClassNameReference = " " + rewriterClassData.getRenamed() + "->";
 
 
 		Map<String, RewriterClassData.FieldData> fieldDatas = rewriterClassData.getFieldDatas();
-		if ( fieldDatas == null ){
+		if (fieldDatas == null) {
 			return;
 		}
-		for ( RewriterClassData.FieldData fieldData : fieldDatas.values() ){
+		for (RewriterClassData.FieldData fieldData : fieldDatas.values()) {
 			String findFieldReference = oldClassNameReference + fieldData.confusevt + ":";
 			String toFieldReference = newClassNameReference + fieldData.renamed + ":";
-			for ( List<String> lines : smaliLinesMap.values() ){
-				
-				for ( int index = 0, size = lines.size(); index < size; index++ ){
+			for (List<String> lines : smaliLinesMap.values()) {
+
+				for (int index = 0, size = lines.size(); index < size; index++) {
 					String line = lines.get(index);
-					if ( line.startsWith(".field ")
-						|| line.startsWith(".method ") ){
+					if (line.startsWith(".field ")
+						|| line.startsWith(".method ")) {
 						continue;
 					}
 					line = line.replace(findFieldReference, toFieldReference);
@@ -201,25 +201,25 @@ public class RewriterSmali{
 	}
 
 	//修改方法引用
-	private static void reMethodReference(RewriterClassData rewriterClassData, Map<String, List<String>> smaliLinesMap){
+	private static void reMethodReference(RewriterClassData rewriterClassData, Map<String, List<String>> smaliLinesMap) {
 		String oldClassNameReference = " " + rewriterClassData.getConfusevt() + "->";
 		String newClassNameReference = " " + rewriterClassData.getRenamed() + "->";
 
 		Map<String, RewriterClassData.MethodData> methodDataMap = rewriterClassData.getMethodDataMap();
-		if ( methodDataMap == null ){
+		if (methodDataMap == null) {
 			return;
 		}
 
-		for ( RewriterClassData.MethodData methodData : methodDataMap.values() ){
-			
-			String methodSignature = oldClassNameReference + methodData.methodSignature;
+		for (RewriterClassData.MethodData methodData : methodDataMap.values()) {
+
+			String methodSignature = oldClassNameReference + methodData.getMethodSignature();
 			String newMethodSignature = newClassNameReference + methodData.getRenamedMethodSignature();
-			
-			for ( List<String> lines : smaliLinesMap.values() ){
-				for ( int index = 0, size = lines.size(); index < size; index++ ){
+
+			for (List<String> lines : smaliLinesMap.values()) {
+				for (int index = 0, size = lines.size(); index < size; index++) {
 					String line = lines.get(index);
-					if ( line.startsWith(".field ")
-						|| line.startsWith(".method ") ){
+					if (line.startsWith(".field ")
+						|| line.startsWith(".method ")) {
 						continue;
 					}
 					line = line.replace(methodSignature, newMethodSignature);
@@ -231,15 +231,15 @@ public class RewriterSmali{
 	}
 
 	private static Map<Integer, Integer> classNameLineNumberMap = new HashMap<>();
-	private static String findClassName(List<String> smaliLines){
+	private static String findClassName(List<String> smaliLines) {
 		int lineNumber = getClassNameLineNumber(smaliLines);
 		String line = smaliLines.get(lineNumber);
 
 		int classNameEnd = line.lastIndexOf(';');
 
-		if ( classNameEnd > 0 ){
+		if (classNameEnd > 0) {
 			int classNameStart = line.lastIndexOf(" L");
-			if ( classNameStart > 0 ){
+			if (classNameStart > 0) {
 				//缓存类名所在行
 				Integer identityHashCode = System.identityHashCode(smaliLines);
 				classNameLineNumberMap.put(identityHashCode, lineNumber);
@@ -252,19 +252,19 @@ public class RewriterSmali{
 		return null;
 	}
 
-	private static int getClassNameLineNumber(List<String> smaliLines){
+	private static int getClassNameLineNumber(List<String> smaliLines) {
 		Integer identityHashCode = System.identityHashCode(smaliLines);
 		Integer lineNumber = classNameLineNumberMap.get(identityHashCode);
 
-		if ( lineNumber != null && lineNumber.intValue() >= 0 ){
+		if (lineNumber != null && lineNumber.intValue() >= 0) {
 			return lineNumber;			
 		}
 
-		for ( int index = 0, size = smaliLines.size(); index < size; index++ ){
+		for (int index = 0, size = smaliLines.size(); index < size; index++) {
 			String line = smaliLines.get(index);
-			if ( line.startsWith("#")
+			if (line.startsWith("#")
 				|| line.length() == 0 
-				|| !line.startsWith(".class ") ){
+				|| !line.startsWith(".class ")) {
 				continue;
 			}
 			lineNumber = index;
@@ -276,23 +276,31 @@ public class RewriterSmali{
 	}
 
 
-	private static void compareToSmaliFile(List<String> curSmaliLines){
+	private static void compareToSmaliFile(List<String> curSmaliLines) {
 		List<String> newLines = new ArrayList<>();
 
 		final int size = curSmaliLines.size();
 		int fieldMethodStart = size;
 
-		for ( int index = 0; index < size; index++ ){
+		for (int index = 0; index < size; index++) {
 			String line = curSmaliLines.get(index);
-			if ( line.startsWith("#") ){
-				if ( !line.startsWith("# annotations")
-					&& !line.startsWith("# interfaces") ){
+			if (line.startsWith("#")
+			//可能是类注解，接口实现
+				&& !line.startsWith("# annotations")
+				&& !line.startsWith("# interfaces")) {
+					// 字段 方法开始标志
+				if (line.startsWith("# direct methods")
+					|| line.startsWith("# virtual methods")
+					|| line.startsWith("# static fields") 
+					|| line.startsWith("# instance fields")) {
 					fieldMethodStart = index;
 					break;
 				}
+
 			}
-			if ( line.startsWith(".field ")
-				|| line.startsWith(".method ") ){
+
+			if (line.startsWith(".field ")
+				|| line.startsWith(".method ")) {
 
 				fieldMethodStart = index;
 				break;
@@ -300,7 +308,7 @@ public class RewriterSmali{
 			newLines.add(line);
 		}
 
-		if ( fieldMethodStart == size || newLines.size() == size ){
+		if (fieldMethodStart == size || newLines.size() == size) {
 			System.out.println("没修改");
 			//不用修改，没有字段及方法
 			return;
@@ -313,41 +321,41 @@ public class RewriterSmali{
 		List<Method> virtualMethods = new ArrayList<>();
 
 		//查找字段
-		for ( int index = fieldMethodStart + 1; index < size; index++ ){
+		for (int index = fieldMethodStart + 1; index < size; index++) {
 			String line = curSmaliLines.get(index);
-			if ( line.startsWith(".field ") ){
+			if (line.startsWith(".field ")) {
 				//字段
 				LineNumberWrapper<Field> lineNumberWrapper = parserField(curSmaliLines, index);
-				if ( lineNumberWrapper == null ){
+				if (lineNumberWrapper == null) {
 					continue;
 				}
 				//跳过已处理的部分
 				index = lineNumberWrapper.getLineNumber();
 				RewriterSmali.Field value = lineNumberWrapper.getValue();
-				if ( value != null ){
-					if ( value.isStatic ){
+				if (value != null) {
+					if (value.isStatic) {
 						staticFields.add(value);
 					}
-					else{
+					else {
 						instanceFields.add(value);
 					}
 				}
 				continue;
 			}
 
-			if ( line.startsWith(".method ") ){
+			if (line.startsWith(".method ")) {
 				LineNumberWrapper<Method> lineNumberWrapper = parserMethod(curSmaliLines, index);
-				if ( lineNumberWrapper == null ){
+				if (lineNumberWrapper == null) {
 					continue;
 				}
 				//跳过已处理的部分
 				index = lineNumberWrapper.getLineNumber();
 				RewriterSmali.Method value = lineNumberWrapper.getValue();
-				if ( value != null ){
-					if ( value.isDirect ){
+				if (value != null) {
+					if (value.isDirect) {
 						directMethods.add(value);
 					}
-					else{
+					else {
 						virtualMethods.add(value);
 					}
 				}
@@ -359,55 +367,55 @@ public class RewriterSmali{
 		Collections.sort(instanceFields);
 		Collections.sort(directMethods);
 		Collections.sort(virtualMethods);
-		if ( !staticFields.isEmpty() ){
+		if (!staticFields.isEmpty()) {
 			newLines.add("# static fields");
 
-			for ( Field field : staticFields ){
+			for (Field field : staticFields) {
 				newLines.addAll(field.lines);
 				newLines.add("");
 			}
-			if ( ! instanceFields.isEmpty()
+			if (! instanceFields.isEmpty()
 				|| ! directMethods.isEmpty()
-				|| ! virtualMethods.isEmpty() ){
+				|| ! virtualMethods.isEmpty()) {
 				newLines.add("");
 			}
-			else{
+			else {
 				newLines.remove(newLines.size() - 1);
 			}
 
 		}
-		if ( !instanceFields.isEmpty() ){
+		if (!instanceFields.isEmpty()) {
 			newLines.add("# instance fields");
-			for ( Field field : instanceFields ){
+			for (Field field : instanceFields) {
 				newLines.addAll(field.lines);
 				newLines.add("");
 			}
-			if ( ! directMethods.isEmpty()
-				|| ! virtualMethods.isEmpty() ){
+			if (! directMethods.isEmpty()
+				|| ! virtualMethods.isEmpty()) {
 				newLines.add("");
 			}
-			else{
+			else {
 				newLines.remove(newLines.size() - 1);
 			}
 		}
 
-		if ( !directMethods.isEmpty() ){
+		if (!directMethods.isEmpty()) {
 			newLines.add("# direct methods");
-			for ( Method method : directMethods ){
+			for (Method method : directMethods) {
 				newLines.addAll(method.lines);
 				newLines.add("");
 			}
-			if ( ! virtualMethods.isEmpty() ){
+			if (! virtualMethods.isEmpty()) {
 				newLines.add("");
 			}
-			else{
+			else {
 				newLines.remove(newLines.size() - 1);
 			}
 		}
 
-		if ( !virtualMethods.isEmpty() ){
+		if (!virtualMethods.isEmpty()) {
 			newLines.add("# virtual methods");
-			for ( Method method : virtualMethods ){
+			for (Method method : virtualMethods) {
 				newLines.addAll(method.lines);
 				newLines.add("");
 			}
@@ -419,7 +427,7 @@ public class RewriterSmali{
 		//System.out.println(newLines);
 	}
 
-	private static RewriterSmali.LineNumberWrapper<RewriterSmali.Method> parserMethod(List<String> curSmaliLines, int index){
+	private static RewriterSmali.LineNumberWrapper<RewriterSmali.Method> parserMethod(List<String> curSmaliLines, int index) {
 		Method method = null;
 		List<String> methodLines = new ArrayList<>();
 
@@ -427,29 +435,29 @@ public class RewriterSmali{
 		index++;
 
 		final int size = curSmaliLines.size();
-		while ( index < size ){
+		while (index < size) {
 			String line = curSmaliLines.get(index);
-			if ( line.startsWith(".method ") ){
+			if (line.startsWith(".method ")) {
 				//新方法，说明方法声明已结束
 				break;
 			}
 			methodLines.add(line);
-			if ( line.startsWith(".end method") ){
+			if (line.startsWith(".end method")) {
 				break;
 			}
 			index++;
 		}
-		if ( !methodLines.isEmpty() ){
+		if (!methodLines.isEmpty()) {
 			String fristLine = methodLines.get(0);
 
 			int methodNameEnd = fristLine.lastIndexOf('(');
 			int parametersEnd = fristLine.lastIndexOf(')');
 
-			if ( methodNameEnd > 0 
-				&& parametersEnd > 0 ){
+			if (methodNameEnd > 0 
+				&& parametersEnd > 0) {
 				int methodNameStart = methodNameEnd;
-				while ( !isBlankSpace(fristLine.charAt(methodNameStart - 1)) 
-					   && methodNameStart > 0 ){
+				while (!isBlankSpace(fristLine.charAt(methodNameStart - 1)) 
+					   && methodNameStart > 0) {
 					methodNameStart--;
 				}
 
@@ -458,8 +466,8 @@ public class RewriterSmali{
 
 				int methodTypeStrat = parametersEnd + 1;
 				int methodTypeEnd = fristLine.length();
-				while ( methodTypeEnd > 0 
-					   && isBlankSpace(fristLine.charAt(methodTypeEnd - 1)) ){
+				while (methodTypeEnd > 0 
+					   && isBlankSpace(fristLine.charAt(methodTypeEnd - 1))) {
 					methodTypeEnd--;
 				}
 				String methodType = fristLine.substring(methodTypeStrat, methodTypeEnd);
@@ -470,7 +478,7 @@ public class RewriterSmali{
 		return new LineNumberWrapper<Method>(index, method);
 	}
 
-	private static RewriterSmali.LineNumberWrapper<Field> parserField(List<String> curSmaliLines, int index){
+	private static RewriterSmali.LineNumberWrapper<Field> parserField(List<String> curSmaliLines, int index) {
 		Field field = null;
 		List<String> fieldLines = new ArrayList<>();
 
@@ -478,38 +486,38 @@ public class RewriterSmali{
 		index++;
 
 		final int size = curSmaliLines.size();
-		while ( index < size ){
+		while (index < size) {
 			String line = curSmaliLines.get(index);
 
-			if ( line.startsWith(".field ") ){
+			if (line.startsWith(".field ")) {
 				break;
 			}
-			if ( line.length() == 0 ){
-				if ( index + 1 >= size ){
+			if (line.length() == 0) {
+				if (index + 1 >= size) {
 					break;
 				}
 				String nextLine = curSmaliLines.get(index + 1);
-				if ( nextLine.startsWith(".field ") 
+				if (nextLine.startsWith(".field ") 
 					|| nextLine.startsWith("# ") 
-					|| nextLine.startsWith(".method ") ){
+					|| nextLine.startsWith(".method ")) {
 					break;
 				}
 			}
 			fieldLines.add(line);
-			if ( line.startsWith(".end field") ){
+			if (line.startsWith(".end field")) {
 				break;
 			}
 			index++;
 		}
 
-		if ( !fieldLines.isEmpty() ){
+		if (!fieldLines.isEmpty()) {
 			String fristLine = fieldLines.get(0);
 
 			int fieldNameEnd = fristLine.lastIndexOf(':');
-			if ( fieldNameEnd > 0 ){
+			if (fieldNameEnd > 0) {
 				int fieldNameStart = fieldNameEnd;
-				while ( fieldNameEnd > 0
-					   && !isBlankSpace(fristLine.charAt(fieldNameStart - 1)) ){
+				while (fieldNameEnd > 0
+					   && !isBlankSpace(fristLine.charAt(fieldNameStart - 1))) {
 					fieldNameStart--;
 				}
 
@@ -517,8 +525,8 @@ public class RewriterSmali{
 
 				int fieldTypeStrat = fieldNameEnd + 1;
 				int fieldTypeEnd = fristLine.length();
-				while ( fieldNameEnd > 0 
-					   && isBlankSpace(fristLine.charAt(fieldTypeEnd - 1)) ){
+				while (fieldNameEnd > 0 
+					   && isBlankSpace(fristLine.charAt(fieldTypeEnd - 1))) {
 					fieldTypeEnd--;
 				}
 				String fieldType = fristLine.substring(fieldTypeStrat, fieldTypeEnd);
@@ -532,10 +540,10 @@ public class RewriterSmali{
 
 		return new LineNumberWrapper<Field>(index, field);
 	}
-	public static  boolean isBlankSpace(char charAt){
+	public static  boolean isBlankSpace(char charAt) {
 		return charAt == ' ' || charAt == '\t';
 	}
-	private static void compareToSmaliFile2(List<String> curSmaliLines){
+	private static void compareToSmaliFile2(List<String> curSmaliLines) {
 		List<String> newLines = new ArrayList<>();
 		//按区段排序，
 		// # static fields
@@ -550,55 +558,55 @@ public class RewriterSmali{
 		group.add("# virtual methods");
 
 		String curGroupName = null;
-		loop: for ( int index = 0, size = curSmaliLines.size(); index < size; index++ ){
+		loop: for (int index = 0, size = curSmaliLines.size(); index < size; index++) {
 			String line = curSmaliLines.get(index);
-			for ( String groupName : group ){
-				if ( line.length() > 8 && line.startsWith(groupName) ){
+			for (String groupName : group) {
+				if (line.length() > 8 && line.startsWith(groupName)) {
 					newLines.add(line);
 					curGroupName = groupName;
 					break loop;
 				}
 			}
 		}
-		if ( curGroupName == null ){
+		if (curGroupName == null) {
 			return;
 		}
 		group.remove(curGroupName);
 
 		//下面的都是排序区域
 		int compareToLine = newLines.size();
-		loop: for ( int index = compareToLine, size = curSmaliLines.size(); index < size; index++ ){
+		loop: for (int index = compareToLine, size = curSmaliLines.size(); index < size; index++) {
 			String line = curSmaliLines.get(index);
 			//检查是否到下个区域
-			for ( String groupName : group ){
-				if ( line.length() > 8 && line.startsWith(groupName) ){
+			for (String groupName : group) {
+				if (line.length() > 8 && line.startsWith(groupName)) {
 					curGroupName = groupName;
 					break loop;
 				}
 			}
 		}
 	}
-	public static class LineNumberWrapper<T>{
+	public static class LineNumberWrapper<T> {
 		final int lineNumber;
 		final T value;
-		public LineNumberWrapper(int lineNumber, T value){
+		public LineNumberWrapper(int lineNumber, T value) {
 			this.lineNumber = lineNumber;
 			this.value = value;
 		}
-		public int getLineNumber(){
+		public int getLineNumber() {
 			return lineNumber;
 		}
-		public T getValue(){
+		public T getValue() {
 			return this.value;
 		}
 	}
-	public static class Field implements Comparable<Field>{
+	public static class Field implements Comparable<Field> {
 		public final String name;
 		public final String type;
 		public final boolean isStatic;
 		public final List<String> lines;
 
-		public Field(String name, String type, boolean isStatic, List<String> lines){
+		public Field(String name, String type, boolean isStatic, List<String> lines) {
 			this.name = name;
 			this.type = type;
 			this.isStatic = isStatic;
@@ -606,16 +614,16 @@ public class RewriterSmali{
 		}
 
 		@Override
-		public int compareTo(RewriterSmali.Field o){
+		public int compareTo(RewriterSmali.Field o) {
 			int res = name.compareTo(o.name);
-			if ( res != 0 ) return res;
+			if (res != 0) return res;
 			res = type.compareTo(o.type);
 			return res;
 		}
 
 
 	}
-	public static class Method implements Comparable<Method>{
+	public static class Method implements Comparable<Method> {
 		public final String name;
 		public final String type;
 		public final String parameters;
@@ -623,7 +631,7 @@ public class RewriterSmali{
 		public final boolean isDirect;
 		public final List<String> lines;
 
-		public Method(String name, String type, String parameters, boolean isDirect, List<String> lines){
+		public Method(String name, String type, String parameters, boolean isDirect, List<String> lines) {
 			this.name = name;
 			this.type = type;
 			this.parameters = parameters;
@@ -632,12 +640,12 @@ public class RewriterSmali{
 		}
 
 		@Override
-		public int compareTo(RewriterSmali.Method o){
+		public int compareTo(RewriterSmali.Method o) {
 			int res = name.compareTo(o.name);
-			if ( res != 0 ) return res;
+			if (res != 0) return res;
 
 			res = type.compareTo(o.type);
-			if ( res != 0 ) return res;
+			if (res != 0) return res;
 
 			res = parameters.compareTo(o.parameters);
 
@@ -645,7 +653,7 @@ public class RewriterSmali{
 		}
 	}
 
-	void test(){
+	void test() {
 
 	}
 }

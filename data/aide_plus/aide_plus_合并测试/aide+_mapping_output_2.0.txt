@@ -1,5 +1,3 @@
-Labcd/y8; -> LLcom/aide/ui/htmluidesigner/HtmlCodeBuildService;
-	v5() -> startCompile
 Labcd/a2; -> Labcd/a2;
 	cb(Labcd/a4;) -> store
 	sh(Labcd/z3;) -> store
@@ -443,7 +441,6 @@ Lcom/aide/codemodel/api/SyntaxTree; -> Lcom/aide/codemodel/api/SyntaxTree;
 	J0(I) -> declareAttrDAIndexCount
 	Ws(III) -> declareAttrReferenceKind
 	XL(II) -> declareAttrTarget
-	aM(ILcom/aide/codemodel/api/Type;) -> declareAttrType
 	er(IZIIII) -> declareNode
 	yS(IZIIIII) -> declareNode
 	a8(J) -> declareVersion
@@ -473,14 +470,12 @@ Lcom/aide/codemodel/api/SyntaxTree; -> Lcom/aide/codemodel/api/SyntaxTree;
 	ys() -> getRootNode
 	IS(I) -> getStartColumn
 	gG(I) -> getStartLine
-	Mz(I) -> getString
 	AE(I) -> getSyntaxTag
 	kQ() -> getVersion
 	b1(I) -> hasAttrValue
 	TI(I) -> hasLeftSisterNode
 	ct(I) -> hasRightSisterNode
 	dW() -> isEmpty
-	gW(I) -> isExpression
 	AR(I) -> isFieldDeclarationNode
 	Ej(I) -> isIdentifierNode
 	T6(I) -> isLiteralNode
@@ -511,7 +506,6 @@ Labcd/k2; -> Lcom/aide/codemodel/api/Variable;
 	DW -> language
 	FH -> line
 	Hw -> startColumn
-	type -> type
 	j6() -> getEndColumn
 	DW() -> getFile
 	Hw() -> getIdentifier
@@ -573,7 +567,6 @@ Lcom/aide/codemodel/api/callback/HighlighterCallback; -> Lcom/aide/codemodel/api
 	v5(Lcom/aide/codemodel/api/abstraction/Language;IIII) -> typeFound
 	Zo(Lcom/aide/codemodel/api/FileEntry;I) -> unifedLineFound
 Lcom/aide/codemodel/api/callback/OpenFileCallback; -> Lcom/aide/codemodel/api/callback/OpenFileCallback;
-	Ws() -> getCodeModel
 	Hw(Lcom/aide/codemodel/api/FileEntry;) -> getOpenFileSize
 	FH(Lcom/aide/codemodel/api/FileEntry;) -> isOpenFile
 Labcd/b3$a; -> Lcom/aide/codemodel/api/collections/FunctionOfIntInt$a;
@@ -1081,7 +1074,6 @@ Lcom/aide/ui/App; -> Lcom/aide/ui/App;
 	P8() -> getProjectService
 	v5() -> getProjectSupports
 	Mz() -> isTrainerMode
-	er(Ljava/lang/String;) -> match
 Lcom/aide/ui/AppPreferences; -> Lcom/aide/ui/AppPreferences;
 	lp() -> getUserAndroidJar
 	x9(Ljava/lang/String;) -> saveUserAndroidJar
@@ -1200,6 +1192,8 @@ Lcom/aide/ui/build/nativeexecutable/b$c; -> Lcom/aide/ui/build/nativeexecutable/
 Lcom/aide/ui/build/nativeexecutable/b; -> Lcom/aide/ui/build/nativeexecutable/NativeProjectBuildService;
 	v5() -> startCompile
 Labcd/a0; -> Lcom/aide/ui/firebase/FireBaseLogEvent;
+Labcd/y8; -> Lcom/aide/ui/htmluidesigner/HtmlCodeBuildService;
+	v5() -> startCompile
 Lcom/aide/ui/project/AndroidProjectSupport; -> Lcom/aide/ui/project/AndroidProjectSupport;
 	Xa(Ljava/lang/String;) -> getFlatRepositoryPathMap
 	BT(Ljava/lang/String;) -> getProductFlavors
@@ -1306,6 +1300,7 @@ Lcom/aide/ui/util/BuildGradle; -> Lcom/aide/ui/util/BuildGradle;
 	Zo(Ljava/lang/String;) -> addMavenDependency
 	VH(Ljava/lang/String;) -> addProductFlavor
 	v5(Ljava/lang/String;) -> addProjectDependency
+	j6(Ljava/lang/String;) -> getConfiguration
 	gn(Ljava/lang/String;) -> getFlavorApplicationId
 	QX(Ljava/lang/String;) -> getMinSdkVersion
 	U2(Ljava/lang/String;) -> getSigningConfig
@@ -1313,7 +1308,6 @@ Lcom/aide/ui/util/BuildGradle; -> Lcom/aide/ui/util/BuildGradle;
 	er(Ljava/lang/String;) -> getVersionCode
 	yS(Ljava/lang/String;) -> getVersionName
 	gW(Ljava/lang/String;) -> isMultiDexEnabled
-	j6(Ljava/lang/String;) -> j6
 	DW(Ljava/lang/String;) -> makeConfiguration
 Lcom/aide/ui/util/BuildGradleExt; -> Lcom/aide/ui/util/BuildGradleExt;
 	j6(Ljava/lang/String;) -> getConfiguration

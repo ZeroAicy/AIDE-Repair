@@ -23,17 +23,15 @@ import org.jf.dexlib2.iface.Method;
 import org.jf.dexlib2.iface.MultiDexContainer;
 import android.content.Context;
 
-public class ZeroAicyAIDE{
+public class ZeroAicyAIDE {
 
 
-	private static void aide_plus() throws IOException{
+	private static void aide_plus() throws IOException {
 		//修复分析
-		aide_plus aide_plus = 
-			aide_plus_tools.getAidePlus("2.3");
 
 		System.out.println("重写中...");
-		aide_plus.run();
-
+		aide_plus_tools.runAidePlus("2.3");
+		//aide_plus_tools.runAidePlus("2.3.1");
 		System.out.println("完成");
 
 	}
@@ -42,20 +40,43 @@ public class ZeroAicyAIDE{
 	//*
 	//*/
 
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException {
 		//*根据规则重命名
 		aide_plus();
-		/*/
+		
+		// 规则排序();
 
-		 //*
-		 规则排序();
-		 /*
-		 重写apk(true);
-		 //*/
+		// 重写apk(true);
+
+		// 重写apk(false);
+		// 重写apk2();
+		
+		//*/
 	}
 
+	private static void 重写apk2() throws IOException {
+		String inputDexs = "/storage/emulated/0/Download/.MT2/apks/AIDE+_2.2.0.3.8.2-alpha03.apk";
+		String outputDexs = "/storage/emulated/0/Download/.MT2/apks/AIDE+_2.2.0.3.8.2-alpha03.apk.2.3.jar";
+
+
+		HashMap<String, String> switchMap = new HashMap<String, String>();
+
+		// 规则文件
+		String mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_2.3.txt";
+		String outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_output_2.3.txt";
+
+
+		switchMap.put(SwitchNameConstants.mappingFilePath, mappingFilePath);
+		switchMap.put(SwitchNameConstants.outputMappingPath, outputMappingPath);
+		switchMap.put(SwitchNameConstants.checkRevertMapping, "");
+
+		// switchMap.put(SwitchNameConstants.onlyOutputMapping, "");
+
+		RevertDexFromMappingText.revert(inputDexs, outputDexs, switchMap);
+
+	}
 	/******************************************************************/
-	public void 清除无用类() throws IOException{
+	public void 清除无用类() throws IOException {
 		/**
 		 aide_plus_2 aide_plus_2 = new aide_plus_2();
 		 AIDERepairAnalysis.analysis(aide_plus_2.getInputDexsPath(), aide_plus_2.getOutputMappingPath() + "_.txt");
@@ -66,7 +87,7 @@ public class ZeroAicyAIDE{
 		Paths.get("");
 	}
 
-	private static void 规则排序(){
+	private static void 规则排序() {
 
 		String filePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2/aide+_mapping_2.txt";
 		//v = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_1/备份[封存]/aide+_mapping_output_1.txt";
@@ -77,7 +98,7 @@ public class ZeroAicyAIDE{
 
 	}
 
-	private static void 删除() throws IOException{
+	private static void 删除() throws IOException {
 		OpenFile open = OpenFile.open("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/test/dx-lib类.txt");
 
 		String inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/test/classes3.zip";
@@ -87,24 +108,24 @@ public class ZeroAicyAIDE{
 		MultiDexContainer<? extends DexBackedDexFile> loadDexContainer = DexFileFactory.loadDexContainer(inputDexFiles, null);
 
 		RewriteDexFileContainer rewriteDexContainer = new RewriteDexFileContainer();
-		for ( String dexName : loadDexContainer.getDexEntryNames() ){
+		for (String dexName : loadDexContainer.getDexEntryNames()) {
 
 			final DexBackedDexFile dexFile = loadDexContainer.getEntry(dexName).getDexFile();
 			rewriteDexContainer.putEntry(dexName, new DexFile(){
 					Set<ClassDef> classes = new HashSet<>();
 					{
-						for ( ClassDef classDef : dexFile.getClasses() ){
-							if ( !hashSet.contains(classDef.getType()) ){
+						for (ClassDef classDef : dexFile.getClasses()) {
+							if (!hashSet.contains(classDef.getType())) {
 								classes.add(classDef);
 							}
 						}
 					}
 					@Override
-					public Set<? extends ClassDef> getClasses(){
+					public Set<? extends ClassDef> getClasses() {
 						return classes;
 					}
 					@Override
-					public Opcodes getOpcodes(){
+					public Opcodes getOpcodes() {
 						return dexFile.getOpcodes();
 					}
 				});
@@ -118,7 +139,7 @@ public class ZeroAicyAIDE{
 	/*
 	 * 还原模式
 	 */
-	public static void 还原() throws IOException{
+	public static void 还原() throws IOException {
 		String mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/还原/aide+_mapping_output_1.txt";
 
 		String inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/还原/还原.zip";
@@ -127,11 +148,11 @@ public class ZeroAicyAIDE{
 		//RevertDexFromMappingText.revert(inputDexs, outputDexs, false, true, mappingFilePath);
 
 	}
-	public static void 重写apk(boolean contrary) throws IOException{
-		String inputDexs = "/storage/emulated/0/Download/.MT2/apks/2.3/AIDE+_2.2.apk";
+	public static void 重写apk(boolean contrary) throws IOException {
+		String inputDexs = "/storage/emulated/0/.MyAicy/源码备份/AIDE-Termux/aide_n_1/aide_n_1.zip";
 
 
-		String outputDexs = "/storage/emulated/0/Download/.MT2/apks/2.3/2.3.zip";
+		String outputDexs = "/storage/emulated/0/.MyAicy/源码备份/AIDE-Termux/aide_n_1/aide_n_2.0.zip";
 
 
 		// inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/git/AIDE+/app_flavor/build/bin/app_flavor.apk";
@@ -140,11 +161,11 @@ public class ZeroAicyAIDE{
 		HashMap<String, String> switchMap = new HashMap<String, String>();
 
 		// 规则文件
-		String mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_2.3.txt";
-		String outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_output_2.3.txt";
+		String mappingFilePath = "/storage/emulated/0/.MyAicy/源码备份/AIDE-Termux/aide_n_1/aide+_mapping_1.txt";
+		String outputMappingPath = "/storage/emulated/0/.MyAicy/源码备份/AIDE-Termux/aide_n_1/aide+_mapping_2.0.txt";
 
 
-		if ( contrary ){
+		if (contrary) {
 			mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_0.txt";
 			outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_-1.txt";
 
@@ -163,7 +184,7 @@ public class ZeroAicyAIDE{
 	}
 
 	// 直接对上一版本的apk进行重命名，以便得到使用新版底包dex的版本
-	private static void method() throws IOException{
+	private static void method() throws IOException {
 		String inputDexs = "/storage/emulated/0/Download/.MT2/apks/测试/AIDE+共存版_2.2.0.3-alpha01-[3.2.210316]_log.apk";
 		File inputDexFiles = new File(inputDexs);
 		MultiDexContainer<? extends DexBackedDexFile> loadDexContainer = DexFileFactory.loadDexContainer(inputDexFiles, null);
@@ -174,20 +195,20 @@ public class ZeroAicyAIDE{
 		new DexFileAnalyzer(loadDexContainer, revertMappingData){
 
 			@Override
-			public void analysis(){
-				for ( ClassDef classDef : typeClassDefMap.values() ){
+			public void analysis() {
+				for (ClassDef classDef : typeClassDefMap.values()) {
 					Method input_store = null;
 					Method output_store = null;
 
 					boolean needAdd = true;
-					loop: for ( Method method : classDef.getVirtualMethods() ){
+					loop: for (Method method : classDef.getVirtualMethods()) {
 						List<? extends CharSequence> parameterTypes = method.getParameterTypes();
-						if ( parameterTypes.size() != 1 ){
+						if (parameterTypes.size() != 1) {
 							continue;
 						}
 						CharSequence parameterType = parameterTypes.get(0);
-						if ( parameterType.equals("Labcd/z3;") ){
-							if ( input_store != null ){
+						if (parameterType.equals("Labcd/z3;")) {
+							if (input_store != null) {
 								needAdd = false;
 								System.out.println(classDef.getType() + "重复");
 								break loop;
@@ -195,8 +216,8 @@ public class ZeroAicyAIDE{
 							input_store = method;
 						}
 
-						if ( parameterType.equals("Labcd/a4;") ){
-							if ( output_store != null ){
+						if (parameterType.equals("Labcd/a4;")) {
+							if (output_store != null) {
 								needAdd = false;
 								System.out.println(classDef.getType() + "[重复]");
 								break loop;
@@ -205,16 +226,16 @@ public class ZeroAicyAIDE{
 						}
 					}
 
-					if ( needAdd && (input_store != null || output_store != null) ){
+					if (needAdd && (input_store != null || output_store != null)) {
 						String type = classDef.getType();
 						RewriterClassData rewriterClassData = revertMappingData.getRewriterClassData(type);
-						if ( rewriterClassData == null ){
+						if (rewriterClassData == null) {
 							rewriterClassData = revertMappingData.addRewriterClassData(type, type);
 						}
-						if ( input_store != null ){
+						if (input_store != null) {
 							rewriterClassData.addMethodData(input_store.getName(), getParameterTypesSignature(input_store), "store");							
 						}
-						if ( output_store != null ){
+						if (output_store != null) {
 							rewriterClassData.addMethodData(output_store.getName(), getParameterTypesSignature(output_store), "store");							
 						}
 					}

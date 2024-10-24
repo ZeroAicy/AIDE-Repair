@@ -5,4 +5,7 @@
 <classpathentry kind="output" path="bin"/>
 <classpathentry kind="lib" path="libs/guava-31.0.1-android.jar"/>
 <classpathentry kind="lib" path="libs/jsr305-3.0.2.jar"/>
+<classpathentry kind="lib" path="libs/asm-9.7.1.jar"/>
+<classpathentry kind="lib" path="libs/asm-commons-9.7.1.jar"/>
+<classpathentry kind="lib" path="libs/asm-tree-9.7.1.jar"/>
 </classpath>

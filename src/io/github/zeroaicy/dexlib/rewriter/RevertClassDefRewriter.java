@@ -38,11 +38,12 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
     }
 
 	public class RevertClassDefRewriter extends RewrittenClassDef {
-        
-		Set<? extends Annotation> rewriteAnnotations;
+        // 重写后的类注解
+		private Set<? extends Annotation> rewriteAnnotations;
+
 		public RevertClassDefRewriter(@Nonnull ClassDef classdef) {
             super(classdef);
-			this.rewriteAnnotations = getRewriteAnnotationSet();
+			this.rewriteAnnotations = rewriteAnnotationSet();
         }
 		//修改兼容模式
 		@Override
@@ -62,42 +63,59 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 			return accessFlags;
 		}
 
+		// 类注解
 		@Override
 		public Set<? extends Annotation> getAnnotations() {
 			return this.rewriteAnnotations;
 		}
-		
-		
-		private Set<? extends Annotation> getRewriteAnnotationSet() {
+
+		/**
+		 * 重写类注解
+		 * 主要功能是填充此类的成员类注解
+		 */
+		private Set<? extends Annotation> rewriteAnnotationSet() {
 			Set<Annotation> annotations =  new LinkedHashSet<>();
+
 			Rewriter<Annotation> annotationRewriter = rewriters.getAnnotationRewriter();
 
 			boolean isRepairAnalysis = revertRewriterModule.dexFileAnalyzer.isRepairAnalysis();
 			for (Annotation annotation : classDef.getAnnotations()) {
 				String annotationType = annotation.getType();
-				if ("Ldalvik/annotation/InnerClass;".equals(annotationType)) {
-					//我需要修改"Ldalvik/annotation/InnerClass;注解的name的值
-					annotations.add(new RewrittenInnerClassAnnotation(annotation));
-				}
-				else if ("Ldalvik/annotation/MemberClasses;".equals(annotationType)) {
-					//不处理
-					if (!isRepairAnalysis) {
-						//修复分析未启用，使用原始子类信息
+				switch (annotationType) {
+					case AnnotationUtils.InnerClass:
+						{
+							//我需要修改"Ldalvik/annotation/InnerClass;注解的name的值
+							annotations.add(new RewrittenInnerClassAnnotation(annotation));
+						}
+						break;
+					case AnnotationUtils.MemberClasses:
+						{
+							//不处理
+							if (!isRepairAnalysis) {
+								//修复分析未启用，使用原始子类信息
+								annotations.add(annotationRewriter.rewrite(annotation));
+							}
+						}
+						break;
+					default:
+						// 只过滤 InnerClass 与 MemberClasses注解
 						annotations.add(annotationRewriter.rewrite(annotation));
-					}
-				}
-				else {
-					annotations.add(annotationRewriter.rewrite(annotation));
+
+						break;
 				}
 			}
 			if (isRepairAnalysis) {
 				//启用修复分析时才重写子类信息
-				addMemberClassesAnnotation(annotations);
+				repairMemberClassesAnnotation(annotations);
 			}
 			return annotations;
 		}
 
-		private void addMemberClassesAnnotation(Set<Annotation> annotations) {
+
+		/**
+		 * 修复类成员类注解
+		 */
+		private void repairMemberClassesAnnotation(Set<Annotation> annotations) {
 
 			String classDefType = classDef.getType();
 			Set<String> memberClassesAnnotationSet = revertRewriterModule.dexFileAnalyzer.getMemberClassesAnnotationSet(classDefType);
@@ -117,7 +135,7 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 			//添加注解的value要素
 			annotationElements.add(new ImmutableAnnotationElement("value", new ImmutableArrayEncodedValue(encodedValues)));
 			//添加注解
-			ImmutableAnnotation immutableAnnotation = new ImmutableAnnotation(AnnotationVisibility.SYSTEM, "Ldalvik/annotation/MemberClasses;", annotationElements);
+			ImmutableAnnotation immutableAnnotation = new ImmutableAnnotation(AnnotationVisibility.SYSTEM, AnnotationUtils.MemberClasses, annotationElements);
 
 			//调用重写器，防止有其它重写
 			annotations.add(annotationRewriter.rewrite(immutableAnnotation));				
@@ -209,7 +227,7 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 			return annotationElement.compareTo(o);
 		}
 	}
-	
+
 	public static class RevertBaseStringEncodedValue extends BaseStringEncodedValue {
 		String value;
 		public RevertBaseStringEncodedValue(String value) {

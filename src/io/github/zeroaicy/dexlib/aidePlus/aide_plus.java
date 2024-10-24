@@ -44,7 +44,11 @@ public abstract class aide_plus{
 	}
 
 	public String getDataDirName(){
-		return "aide_plus_" + getVersion();
+		return "aide_plus_" + getKey();
+	}
+
+	public String getKey() {
+		return getVersion();
 	}
 
 	public String getInputFileName(){
@@ -97,7 +101,7 @@ public abstract class aide_plus{
 		}
 		return this.outputMappingPath;
 	}
-
+	
 	public aide_plus(){}
 
 
