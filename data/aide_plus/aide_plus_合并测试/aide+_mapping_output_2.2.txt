@@ -1424,14 +1424,14 @@ Lcom/aide/ui/AIDEEditor$t; -> Lcom/aide/ui/AIDEEditor$t;
 	ei() -> getLineCount
 	vJ() -> getMaxColumnCount
 	lg() -> getSelectedRegion
-	ca(IIIIZ) -> getSelectedRegionReader
 	aq(IIIIZ) -> getSelectedRegionReader
 	CU(IIIIZLjava/lang/String;) -> getSelectedRegionReader
 	FN(Labcd/mg;) -> getSelectedRegionReader
 	Xa(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
-	VH(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
 	jO(Labcd/mg;Z) -> getSelectedRegionReader
 	Eq(Labcd/mg;ZLjava/lang/String;) -> getSelectedRegionReader
+	ca(IIIIZ) -> getSelectionContentReader
+	VH(Labcd/mg;Ljava/lang/String;) -> getSelectionContentReader
 	J8(I[C) -> readLineText
 	vy(Lcom/aide/ui/views/editor/ModelListener;) -> removeModelListener
 Lcom/aide/ui/LogCatConsole$d; -> Lcom/aide/ui/LogCatConsole$d;
@@ -1443,14 +1443,14 @@ Lcom/aide/ui/LogCatConsole$d; -> Lcom/aide/ui/LogCatConsole$d;
 	ei() -> getLineCount
 	vJ() -> getMaxColumnCount
 	lg() -> getSelectedRegion
-	ca(IIIIZ) -> getSelectedRegionReader
 	aq(IIIIZ) -> getSelectedRegionReader
 	CU(IIIIZLjava/lang/String;) -> getSelectedRegionReader
 	FN(Labcd/mg;) -> getSelectedRegionReader
 	Xa(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
-	VH(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
 	jO(Labcd/mg;Z) -> getSelectedRegionReader
 	Eq(Labcd/mg;ZLjava/lang/String;) -> getSelectedRegionReader
+	ca(IIIIZ) -> getSelectionContentReader
+	VH(Labcd/mg;Ljava/lang/String;) -> getSelectionContentReader
 	J8(I[C) -> readLineText
 	vy(Lcom/aide/ui/views/editor/ModelListener;) -> removeModelListener
 Lcom/aide/ui/App$a; -> Lcom/aide/ui/ServiceContainer$a;
@@ -1481,14 +1481,14 @@ Lcom/aide/ui/build/OutputConsole$i; -> Lcom/aide/ui/build/OutputConsole$i;
 	ei() -> getLineCount
 	vJ() -> getMaxColumnCount
 	lg() -> getSelectedRegion
-	ca(IIIIZ) -> getSelectedRegionReader
 	aq(IIIIZ) -> getSelectedRegionReader
 	CU(IIIIZLjava/lang/String;) -> getSelectedRegionReader
 	FN(Labcd/mg;) -> getSelectedRegionReader
 	Xa(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
-	VH(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
 	jO(Labcd/mg;Z) -> getSelectedRegionReader
 	Eq(Labcd/mg;ZLjava/lang/String;) -> getSelectedRegionReader
+	ca(IIIIZ) -> getSelectionContentReader
+	VH(Labcd/mg;Ljava/lang/String;) -> getSelectionContentReader
 	J8(I[C) -> readLineText
 	vy(Lcom/aide/ui/views/editor/ModelListener;) -> removeModelListener
 Lcom/aide/ui/build/javascript/a; -> Lcom/aide/ui/build/javascript/JavaScriptBuildService;
@@ -1555,14 +1555,14 @@ Lcom/aide/ui/scm/DiffView$b; -> Lcom/aide/ui/scm/DiffView$b;
 	ei() -> getLineCount
 	vJ() -> getMaxColumnCount
 	lg() -> getSelectedRegion
-	ca(IIIIZ) -> getSelectedRegionReader
 	aq(IIIIZ) -> getSelectedRegionReader
 	CU(IIIIZLjava/lang/String;) -> getSelectedRegionReader
 	FN(Labcd/mg;) -> getSelectedRegionReader
 	Xa(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
-	VH(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
 	jO(Labcd/mg;Z) -> getSelectedRegionReader
 	Eq(Labcd/mg;ZLjava/lang/String;) -> getSelectedRegionReader
+	ca(IIIIZ) -> getSelectionContentReader
+	VH(Labcd/mg;Ljava/lang/String;) -> getSelectionContentReader
 	J8(I[C) -> readLineText
 	vy(Lcom/aide/ui/views/editor/ModelListener;) -> removeModelListener
 Lcom/aide/ui/services/NativeCodeSupportService$g; -> Lcom/aide/ui/services/DownloadService$DocsRunnable;
@@ -1683,14 +1683,14 @@ Lcom/aide/ui/views/CodeEditText$CodeEditTextHighlightingModel; -> Lcom/aide/ui/v
 	ei() -> getLineCount
 	vJ() -> getMaxColumnCount
 	lg() -> getSelectedRegion
-	ca(IIIIZ) -> getSelectedRegionReader
 	aq(IIIIZ) -> getSelectedRegionReader
 	CU(IIIIZLjava/lang/String;) -> getSelectedRegionReader
 	FN(Labcd/mg;) -> getSelectedRegionReader
 	Xa(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
-	VH(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
 	jO(Labcd/mg;Z) -> getSelectedRegionReader
 	Eq(Labcd/mg;ZLjava/lang/String;) -> getSelectedRegionReader
+	ca(IIIIZ) -> getSelectionContentReader
+	VH(Labcd/mg;Ljava/lang/String;) -> getSelectionContentReader
 	J8(I[C) -> readLineText
 	vy(Lcom/aide/ui/views/editor/ModelListener;) -> removeModelListener
 Lcom/aide/ui/views/CodeEditText$CodeEditTextModel; -> Lcom/aide/ui/views/CodeEditText$CodeEditTextModel;
@@ -1702,14 +1702,14 @@ Lcom/aide/ui/views/CodeEditText$CodeEditTextModel; -> Lcom/aide/ui/views/CodeEdi
 	ei() -> getLineCount
 	vJ() -> getMaxColumnCount
 	lg() -> getSelectedRegion
-	ca(IIIIZ) -> getSelectedRegionReader
 	aq(IIIIZ) -> getSelectedRegionReader
 	CU(IIIIZLjava/lang/String;) -> getSelectedRegionReader
 	FN(Labcd/mg;) -> getSelectedRegionReader
 	Xa(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
-	VH(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
 	jO(Labcd/mg;Z) -> getSelectedRegionReader
 	Eq(Labcd/mg;ZLjava/lang/String;) -> getSelectedRegionReader
+	ca(IIIIZ) -> getSelectionContentReader
+	VH(Labcd/mg;Ljava/lang/String;) -> getSelectionContentReader
 	J8(I[C) -> readLineText
 	vy(Lcom/aide/ui/views/editor/ModelListener;) -> removeModelListener
 Lcom/aide/ui/views/CodeEditText$EditorView$c; -> Lcom/aide/ui/views/CodeEditText$EditorView$c;
@@ -1734,13 +1734,13 @@ Lcom/aide/ui/views/editor/AbstractModel; -> Lcom/aide/ui/views/editor/AbstractMo
 	vJ() -> getMaxColumnCount
 	lg() -> getSelectedRegion
 	aq(IIIIZ) -> getSelectedRegionReader
-	ca(IIIIZ) -> getSelectedRegionReader
 	CU(IIIIZLjava/lang/String;) -> getSelectedRegionReader
 	FN(Labcd/mg;) -> getSelectedRegionReader
 	Xa(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
-	VH(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
 	jO(Labcd/mg;Z) -> getSelectedRegionReader
 	Eq(Labcd/mg;ZLjava/lang/String;) -> getSelectedRegionReader
+	ca(IIIIZ) -> getSelectionContentReader
+	VH(Labcd/mg;Ljava/lang/String;) -> getSelectionContentReader
 	J8(I[C) -> readLineText
 	vy(Lcom/aide/ui/views/editor/ModelListener;) -> removeModelListener
 Lcom/aide/ui/views/editor/Caret; -> Lcom/aide/ui/views/editor/Caret;
@@ -1769,14 +1769,14 @@ Lcom/aide/ui/views/editor/EditorModel; -> Lcom/aide/ui/views/editor/EditorModel;
 	ei() -> getLineCount
 	vJ() -> getMaxColumnCount
 	lg() -> getSelectedRegion
-	ca(IIIIZ) -> getSelectedRegionReader
 	aq(IIIIZ) -> getSelectedRegionReader
 	CU(IIIIZLjava/lang/String;) -> getSelectedRegionReader
 	FN(Labcd/mg;) -> getSelectedRegionReader
 	Xa(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
-	VH(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
 	jO(Labcd/mg;Z) -> getSelectedRegionReader
 	Eq(Labcd/mg;ZLjava/lang/String;) -> getSelectedRegionReader
+	ca(IIIIZ) -> getSelectionContentReader
+	VH(Labcd/mg;Ljava/lang/String;) -> getSelectionContentReader
 	J8(I[C) -> readLineText
 	vy(Lcom/aide/ui/views/editor/ModelListener;) -> removeModelListener
 Lcom/aide/ui/views/editor/Font; -> Lcom/aide/ui/views/editor/Font;
@@ -1802,8 +1802,8 @@ Lcom/aide/ui/views/editor/Model; -> Lcom/aide/ui/views/editor/Model;
 	ei() -> getLineCount
 	vJ() -> getMaxColumnCount
 	lg() -> getSelectedRegion
-	ca(IIIIZ) -> getSelectedRegionReader
-	VH(Labcd/mg;Ljava/lang/String;) -> getSelectedRegionReader
+	ca(IIIIZ) -> getSelectionContentReader
+	VH(Labcd/mg;Ljava/lang/String;) -> getSelectionContentReader
 	J8(I[C) -> readLineText
 	vy(Lcom/aide/ui/views/editor/ModelListener;) -> removeModelListener
 Lcom/aide/ui/views/editor/OConsole; -> Lcom/aide/ui/views/editor/OConsole;

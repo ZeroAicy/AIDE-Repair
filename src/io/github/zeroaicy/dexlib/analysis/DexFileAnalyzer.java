@@ -50,6 +50,18 @@ public class DexFileAnalyzer {
 
 	//启用修复分析[aidl类和枚举]
 	private final boolean repairAnalysis;
+
+	//启用修复分析[枚举]
+	private final boolean repairEnumAnalysis;
+
+	// followExternalClasses
+	private final boolean repairAIDLAnalysis;
+
+	// 禁用跟随
+	private final boolean disableFollowExternalClasses;
+	// 禁用跟随方法
+	private final boolean disableUnifyVirtualMethodName;
+
 	// 检查规则文件
 	private final boolean checkRevertMapping;
 	// 类签名 与 字段对应关系
@@ -88,10 +100,25 @@ public class DexFileAnalyzer {
 		if (this.revertMappingData.isContrary()) {
 			//反转模式不启用修复分析
 			this.repairAnalysis = false;
+			this.repairEnumAnalysis = false;
+			this.repairAIDLAnalysis = false;
+			this.disableFollowExternalClasses = false;
+			this.disableUnifyVirtualMethodName = false;
+
 		}
 		else {
+			// 修复分析[ 注解 , ... ]
 			this.repairAnalysis = hasSwitch(SwitchNameConstants.repairAnalysis);	
+			// 修复 枚举
+			this.repairEnumAnalysis = hasSwitch(SwitchNameConstants.repairEnumAnalysis);	
+			// 修复 aidl
+			this.repairAIDLAnalysis = hasSwitch(SwitchNameConstants.repairAIDLAnalysis);	
+			
+			this.disableFollowExternalClasses = hasSwitch(SwitchNameConstants.disableFollowExternalClasses);
+			
+			this.disableUnifyVirtualMethodName = hasSwitch(SwitchNameConstants.disableUnifyVirtualMethodName);
 		}
+
 		this.checkRevertMapping = hasSwitch(SwitchNameConstants.checkRevertMapping);	
 
 		this.dexEntryNames.addAll(dexContainer.getDexEntryNames());
@@ -168,8 +195,8 @@ public class DexFileAnalyzer {
 			String renamed = rewriterClassData.getRenamed();
 			// 检查 重命名后名称是否正确
 			if (renamed.charAt(0) != 'L' 
-			|| renamed.charAt(renamed.length() - 1) != ';'
-			|| renamed.startsWith("LL") ) {
+				|| renamed.charAt(renamed.length() - 1) != ';'
+				|| renamed.startsWith("LL")) {
 				System.out.println(String.format("警告⚠️: 重名后的类名可能有误 -> %s -> %s", confusevt, renamed));
 			}
 			// 检查规则中声明的类是否在dex集合中
@@ -288,9 +315,35 @@ public class DexFileAnalyzer {
 					if (methodData == methodData2) {
 						continue;
 					}
+
+					String parametersSignature = methodData.getParametersSignature();
+					String parametersSignature2 = methodData2.getParametersSignature();
+
 					if (methodData.renamed.equals(methodData2.renamed)
-						&& methodData.getParametersSignature().equals(methodData2.getParametersSignature())) {
-						System.out.println(String.format("严重警告⚠️: 重载冲突 %s %s %s", confusevt, methodData, methodData2));
+						&& parametersSignature.equals(parametersSignature2)) {
+						boolean matchBridgeMethod = false;
+
+						Set<String> methodSignatures = classMethods.get(confusevt);
+						if (methodSignatures == null) {
+							continue;
+						}
+						if (!methodSignatures.contains(parametersSignature) && !methodSignatures.contains(parametersSignature2)) {
+							continue;
+						}
+
+						for (Method virtualMethod : typeClassDefMap.get(confusevt).getVirtualMethods()) {
+							// 签名一致
+							if (methodData.getParametersSignature().equals(getMethodSignature(virtualMethod))) {
+								matchBridgeMethod = AccessFlags.BRIDGE.isSet(virtualMethod.getAccessFlags());
+
+								break;
+							}
+						}
+
+						if (matchBridgeMethod) {
+							continue;
+						}
+						System.out.println(String.format("严重警告⚠️: 重载冲突① %s %s %s", confusevt, methodData, methodData2));
 					}
 				}
 			}
@@ -400,32 +453,101 @@ public class DexFileAnalyzer {
 	 * 而决定super.analysis()顺序
 	 */
 	public void analysis() {
-		//缺省规则的实现，统一父类，子类虚方法重命名
-		unifyVirtualMethodName();
 
-		if (repairAnalysis) {
+		//内部类跟随最后处理
+		//实现内部类跟随外部类
+		if ( !this.disableFollowExternalClasses ) {
+			followExternalClasses();
+		}
+		
+		if (this.repairAIDLAnalysis) {
 			//修复aidl类
 			repairAIDL();
 		}
-		//内部类跟随最后处理
-		//实现内部类跟随外部类
-		followExternalClasses();
-
-		//包名重命名必须要所有规则之后且不覆盖之前的规则
-		revertPackageName();
-		//必须在包名后
-		if (repairAnalysis) {
-			//修复枚举类字段
+		
+		
+		if (this.repairAnalysis) {
+			// 修复内部类注解
 			for (ClassDef classDef : typeClassDefMap.values()) {
-				//修改的是字段，不受followExternalClasses影响
-				repairEnum(classDef);
 				//收集classDef这个内部类的外部类信息
 				repairLdalviMemberClassesAnnotation(classDef);
 			}
 		}
+		// 修复字段 必须在包名后
+		if (this.repairEnumAnalysis) {
+			//修复枚举类字段
+			for (ClassDef classDef : typeClassDefMap.values()) {
+				//修改的是字段，不受followExternalClasses影响
+				repairEnum(classDef);
+			}
+		}
+		
+		//缺省规则的实现，统一父类，子类虚方法重命名
+		if (!this.disableUnifyVirtualMethodName) {
+			// 必须等待其它类名不在更改后在执行
+			unifyVirtualMethodName();
+		}
 
+		//包名重命名必须要所有规则之后且不覆盖之前的规则
+		// 重命名包名
+		revertPackageName();
+		
+		
 		//移除无效或未修改的RewriterClassData
 		shrink();
+		// 再次检查规则文件
+		checkRevertMappingData2();
+	}
+
+	private void checkRevertMappingData2() {
+		Map<String, RewriterClassData> rewriterClassDataMap = getRevertMappingData().getRewriterClassDataMap();
+
+		// 检查方法是否重命名相同的名字
+		for (RewriterClassData rewriterClassData : rewriterClassDataMap.values()) {
+
+			Map < String, RewriterClassData.MethodData > methodDataMap = rewriterClassData.getMethodDataMap();
+			if (methodDataMap == null) continue;
+
+			String confusevt = rewriterClassData.getConfusevt();
+
+			Collection<MethodData> values = methodDataMap.values();
+			for (MethodData methodData : values) {
+				for (MethodData methodData2 : values) {
+
+					if (methodData == methodData2) {
+						continue;
+					}
+					String parametersSignature = methodData.getParametersSignature();
+					String parametersSignature2 = methodData2.getParametersSignature();
+
+					if (methodData.renamed.equals(methodData2.renamed)
+						&& parametersSignature.equals(parametersSignature2)) {
+						boolean matchBridgeMethod = false;
+
+						Set<String> methodSignatures = classMethods.get(confusevt);
+						if (methodSignatures == null) {
+							continue;
+						}
+						if (!methodSignatures.contains(parametersSignature) && !methodSignatures.contains(parametersSignature2)) {
+							continue;
+						}
+
+						for (Method virtualMethod : typeClassDefMap.get(confusevt).getVirtualMethods()) {
+							// 签名一致
+							if (methodData.getParametersSignature().equals(getMethodSignature(virtualMethod))) {
+								matchBridgeMethod = AccessFlags.BRIDGE.isSet(virtualMethod.getAccessFlags());
+								break;
+							}
+						}
+
+						if (matchBridgeMethod) {
+							continue;
+						}
+						System.out.println(String.format("严重警告⚠️: 重载冲突② %s %s %s", confusevt, methodData, methodData2));
+					}
+				}
+			}
+		}
 	}
 
 	protected void shrink() {
@@ -454,6 +576,7 @@ public class DexFileAnalyzer {
 	 */
 	private void followExternalClasses(ClassDef classDef) {
 		String classDefType = classDef.getType();
+		
 		//外部类的endIndex
 		int externalClassEnd = classDefType.indexOf('/');
 		if (externalClassEnd < 0) {
@@ -461,8 +584,10 @@ public class DexFileAnalyzer {
 		}
 		//外部类名称
 		String externalClassName = classDefType;
+		
 		RewriterClassData externalRewriterClassData = null;
-
+		
+		// 逆序查找外部类的规则
 		while (externalRewriterClassData == null 
 		//看看有没有$
 			   && (externalClassEnd = externalClassName.lastIndexOf('$')) > 0) {
@@ -472,12 +597,15 @@ public class DexFileAnalyzer {
 		}
 
 		if (externalRewriterClassData != null) {
+			
 			String externalClassNameNow = externalRewriterClassData.getRenamed();
 			//外部类现在的名称
 			externalClassNameNow = externalClassNameNow.substring(0, externalClassNameNow.length() - 1);
 			//此类的现在名称
 			String typeNow = externalClassNameNow + classDefType.substring(externalClassEnd);
+			
 			addRewriterClassData(classDefType, typeNow);
+			
 		}
 	}
 	private void revertPackageName() {

@@ -1,36 +1,29 @@
 package io.github.zeroaicy.dexlib.rewriter;
 
-import java.util.AbstractSet;
-import java.util.Iterator;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.annotation.Nonnull;
+import org.jf.dexlib2.ValueType;
+import org.jf.dexlib2.base.BaseAnnotation;
 import org.jf.dexlib2.iface.Annotation;
 import org.jf.dexlib2.iface.AnnotationElement;
+import org.jf.dexlib2.iface.value.ArrayEncodedValue;
+import org.jf.dexlib2.iface.value.EncodedValue;
+import org.jf.dexlib2.iface.value.StringEncodedValue;
+import org.jf.dexlib2.immutable.ImmutableAnnotationElement;
+import org.jf.dexlib2.immutable.value.ImmutableArrayEncodedValue;
+import org.jf.dexlib2.immutable.value.ImmutableStringEncodedValue;
 import org.jf.dexlib2.rewriter.AnnotationRewriter;
 import org.jf.dexlib2.rewriter.Rewriter;
 import org.jf.dexlib2.rewriter.RewriterUtils;
 import org.jf.dexlib2.rewriter.Rewriters;
-import java.util.HashSet;
-import org.jf.dexlib2.base.BaseAnnotation;
-import org.jf.dexlib2.ValueType;
-import org.jf.dexlib2.iface.value.EncodedValue;
-import org.jf.dexlib2.iface.value.LongEncodedValue;
-import org.jf.dexlib2.iface.value.StringEncodedValue;
-import org.jf.dexlib2.iface.value.ArrayEncodedValue;
-import org.objectweb.asm.signature.SignatureReader;
 import org.objectweb.asm.commons.Remapper;
 import org.objectweb.asm.commons.SignatureRemapper;
+import org.objectweb.asm.signature.SignatureReader;
 import org.objectweb.asm.signature.SignatureWriter;
-import io.github.zeroaicy.dexlib.rewriter.RevertAnnotationRewriter.TypeRemapper;
-import android.text.TextUtils;
-import java.util.Collections;
-import java.util.ArrayList;
-import java.util.List;
-import org.jf.dexlib2.base.value.BaseArrayEncodedValue;
-import org.jf.dexlib2.immutable.value.ImmutableArrayEncodedValue;
-import com.google.common.collect.ImmutableList;
-import org.jf.dexlib2.immutable.value.ImmutableStringEncodedValue;
-import org.jf.dexlib2.immutable.ImmutableAnnotationElement;
 
 public class RevertAnnotationRewriter extends AnnotationRewriter {
 

@@ -666,7 +666,7 @@ Lcom/aide/ui/MainActivity; -> Lcom/aide/ui/MainActivity;
 	XL() -> showCloseFilesDialog
 	n5 -> isPutEditorFontSize
 	kf -> isFirstRunAfterInstall
-	pN() -> isUseEditorTabs
+	
 	
 	
 	

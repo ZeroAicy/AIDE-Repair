@@ -2,7 +2,7 @@
 package io.github.zeroaicy.dexlib.rewriter;
 
 import io.github.zeroaicy.dexlib.analysis.RewriterClassData;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import javax.annotation.Nonnull;
 import org.jf.dexlib2.AccessFlags;
@@ -22,39 +22,39 @@ import org.jf.dexlib2.immutable.value.ImmutableTypeEncodedValue;
 import org.jf.dexlib2.rewriter.ClassDefRewriter;
 import org.jf.dexlib2.rewriter.Rewriter;
 import org.jf.dexlib2.rewriter.Rewriters;
-import java.util.LinkedHashSet;
+import io.github.zeroaicy.dexlib.rewriter.RevertClassDefRewriter.RevertAnnotationStringElement;
 
 public class RevertClassDefRewriter extends ClassDefRewriter {
 
 	private RevertRewriterModule revertRewriterModule;
-	public RevertClassDefRewriter(@Nonnull Rewriters rewriters, RevertRewriterModule revertRewriterModule) {
+	public RevertClassDefRewriter( @Nonnull Rewriters rewriters, RevertRewriterModule revertRewriterModule ) {
         super(rewriters);
 		this.revertRewriterModule = revertRewriterModule;
     }
 	@Nonnull 
 	@Override 
-	public ClassDef rewrite(@Nonnull ClassDef classDef) {
-        return new RevertClassDefRewriter(classDef);
+	public ClassDef rewrite( @Nonnull ClassDef classDef ) {
+        return new RevertRewrittenClassDef(classDef);
     }
 
-	public class RevertClassDefRewriter extends RewrittenClassDef {
+	public class RevertRewrittenClassDef extends ClassDefRewriter.RewrittenClassDef {
         // 重写后的类注解
 		private Set<? extends Annotation> rewriteAnnotations;
 
-		public RevertClassDefRewriter(@Nonnull ClassDef classdef) {
+		public RevertRewrittenClassDef( @Nonnull ClassDef classdef ) {
             super(classdef);
 			this.rewriteAnnotations = rewriteAnnotationSet();
         }
 		//修改兼容模式
 		@Override
-		public int getAccessFlags() {
+		public int getAccessFlags( ) {
 			int  accessFlags = super.getAccessFlags();
-			if (AccessFlags.PRIVATE.isSet(accessFlags)) {
+			if ( AccessFlags.PRIVATE.isSet(accessFlags) ) {
 				//private暂时不修改
 				return accessFlags;
 			}
 			//AccessFlags AccessFlags;
-			if (AccessFlags.PROTECTED.isSet(accessFlags)) {
+			if ( AccessFlags.PROTECTED.isSet(accessFlags) ) {
 				//消除protected修饰符
 				accessFlags = accessFlags & ~AccessFlags.PROTECTED.getValue();
 			}
@@ -65,7 +65,7 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 
 		// 类注解
 		@Override
-		public Set<? extends Annotation> getAnnotations() {
+		public Set<? extends Annotation> getAnnotations( ) {
 			return this.rewriteAnnotations;
 		}
 
@@ -73,15 +73,15 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 		 * 重写类注解
 		 * 主要功能是填充此类的成员类注解
 		 */
-		private Set<? extends Annotation> rewriteAnnotationSet() {
+		private Set<? extends Annotation> rewriteAnnotationSet( ) {
 			Set<Annotation> annotations =  new LinkedHashSet<>();
 
 			Rewriter<Annotation> annotationRewriter = rewriters.getAnnotationRewriter();
 
 			boolean isRepairAnalysis = revertRewriterModule.dexFileAnalyzer.isRepairAnalysis();
-			for (Annotation annotation : classDef.getAnnotations()) {
+			for ( Annotation annotation : classDef.getAnnotations() ) {
 				String annotationType = annotation.getType();
-				switch (annotationType) {
+				switch ( annotationType ) {
 					case AnnotationUtils.InnerClass:
 						{
 							//我需要修改"Ldalvik/annotation/InnerClass;注解的name的值
@@ -91,7 +91,7 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 					case AnnotationUtils.MemberClasses:
 						{
 							//不处理
-							if (!isRepairAnalysis) {
+							if ( !isRepairAnalysis ) {
 								//修复分析未启用，使用原始子类信息
 								annotations.add(annotationRewriter.rewrite(annotation));
 							}
@@ -104,7 +104,7 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 						break;
 				}
 			}
-			if (isRepairAnalysis) {
+			if ( isRepairAnalysis ) {
 				//启用修复分析时才重写子类信息
 				repairMemberClassesAnnotation(annotations);
 			}
@@ -115,20 +115,20 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 		/**
 		 * 修复类成员类注解
 		 */
-		private void repairMemberClassesAnnotation(Set<Annotation> annotations) {
+		private void repairMemberClassesAnnotation( Set<Annotation> annotations ) {
 
 			String classDefType = classDef.getType();
 			Set<String> memberClassesAnnotationSet = revertRewriterModule.dexFileAnalyzer.getMemberClassesAnnotationSet(classDefType);
 
-			if (memberClassesAnnotationSet == null 
-				|| memberClassesAnnotationSet.isEmpty()) {
+			if ( memberClassesAnnotationSet == null 
+				|| memberClassesAnnotationSet.isEmpty() ) {
 				return;
 			}
 			Rewriter<Annotation> annotationRewriter = rewriters.getAnnotationRewriter();
 
 			//注解value的值
 			Set<EncodedValue> encodedValues = new LinkedHashSet<>();
-			for (String innerClassDefType : revertRewriterModule.dexFileAnalyzer.getMemberClassesAnnotationSet(classDefType)) {
+			for ( String innerClassDefType : revertRewriterModule.dexFileAnalyzer.getMemberClassesAnnotationSet(classDefType) ) {
 				encodedValues.add(new ImmutableTypeEncodedValue(innerClassDefType));
 			}
 			Set<ImmutableAnnotationElement> annotationElements = new LinkedHashSet<>();
@@ -146,55 +146,52 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 		protected class RewrittenInnerClassAnnotation extends BaseAnnotation {
 			@Nonnull protected Annotation annotation;
 
-			public RewrittenInnerClassAnnotation(@Nonnull Annotation annotation) {
+			public RewrittenInnerClassAnnotation( @Nonnull Annotation annotation ) {
 				this.annotation = annotation;
 			}
 			@Override
-			public int getVisibility() {
+			public int getVisibility( ) {
 				return annotation.getVisibility();
 			}
 			@Override
 			@Nonnull
-			public String getType() {
+			public String getType( ) {
 				return rewriters.getTypeRewriter().rewrite(annotation.getType());
 			}
 
 			@Override 
 			@Nonnull 
-			public Set<? extends AnnotationElement> getElements() {
+			public Set<? extends AnnotationElement> getElements( ) {
 				Set<AnnotationElement> elements = new LinkedHashSet<>();
-				for (final AnnotationElement annotationElement : annotation.getElements()) {
-					if (annotationElement == null) {
+				for ( final AnnotationElement annotationElement : annotation.getElements() ) {
+					if ( annotationElement == null ) {
 						elements.add(annotationElement);
 						continue;
 					}
 					//"内部类注解与当前类名(最小类名)统一
-					if ("name".equals(annotationElement.getName()) 
-						&& (annotationElement.getValue().getValueType() == ValueType.STRING 
-						|| annotationElement.getValue().getValueType() == ValueType.NULL)) {
+					if ( "name".equals(annotationElement.getName()) 
+						&& ( annotationElement.getValue().getValueType() == ValueType.STRING 
+						|| annotationElement.getValue().getValueType() == ValueType.NULL ) ) {
 						//当前注解所在类
 						String classType = classDef.getType();
 
 						RewriterClassData rewriterClassData = revertRewriterModule.getRewriterClassData(classType);
 						//当前类重重命名后的类名
 						String currentClassType = rewriterClassData == null ? classType : rewriterClassData.getRenamed();
-						annotationElement = getRevertAnnotationElement(currentClassType, annotationElement);
-						elements.add(annotationElement);
-					}
-					else {
+						RevertClassDefRewriter.RevertAnnotationStringElement annotationElement2 = getRevertAnnotationElement(currentClassType, annotationElement);
+						elements.add(annotationElement2);
+					} else {
 						elements.add(annotationElement);
 					}
 				}
 				return elements;
 			}
 		}
-		public RevertAnnotationStringElement getRevertAnnotationElement(String currentClassType, AnnotationElement annotationElement) {
+		public RevertAnnotationStringElement getRevertAnnotationElement( String currentClassType, AnnotationElement annotationElement ) {
 			int valueStart = currentClassType.lastIndexOf('$');
-			if ((valueStart) > 0) {
-			}
-			else if ((valueStart = currentClassType.lastIndexOf('/')) > 0) {
-			}
-			else {
+			if ( ( valueStart ) > 0 ) {
+			} else if ( ( valueStart = currentClassType.lastIndexOf('/') ) > 0 ) {
+			} else {
 				valueStart = 0;
 			}
 			String value = currentClassType.substring(valueStart + 1, currentClassType.length() - 1);
@@ -208,34 +205,34 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 		String value;
 		RevertBaseStringEncodedValue revertBaseStringEncodedValue;
 
-		public RevertAnnotationStringElement(AnnotationElement annotationElement, String value) {
+		public RevertAnnotationStringElement( AnnotationElement annotationElement, String value ) {
 			this.annotationElement = annotationElement;
 			this.value = value;
 			revertBaseStringEncodedValue = new RevertBaseStringEncodedValue(this.value);
 		}
 		@Override
-		public String getName() {
+		public String getName( ) {
 			return annotationElement.getName();
 		}
 		@Override
-		public EncodedValue getValue() {
+		public EncodedValue getValue( ) {
 			return revertBaseStringEncodedValue;
 		}
 
 		@Override
-		public int compareTo(AnnotationElement o) {
+		public int compareTo( AnnotationElement o ) {
 			return annotationElement.compareTo(o);
 		}
 	}
 
 	public static class RevertBaseStringEncodedValue extends BaseStringEncodedValue {
 		String value;
-		public RevertBaseStringEncodedValue(String value) {
+		public RevertBaseStringEncodedValue( String value ) {
 			this.value = value;
 		}
 
 		@Override
-		public String getValue() {
+		public String getValue( ) {
 			return value;
 		}
 	}

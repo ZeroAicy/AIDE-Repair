@@ -119,7 +119,13 @@ public abstract class aide_plus{
 
 
 		Map<String, String> switchMap = this.switchMap;
-		if ( repairAnalysis ) switchMap.put(SwitchNameConstants.repairAnalysis, null);
+		if ( repairAnalysis ){
+			switchMap.put(SwitchNameConstants.repairAnalysis, null);
+			switchMap.put(SwitchNameConstants.repairEnumAnalysis, null);
+			switchMap.put(SwitchNameConstants.repairAIDLAnalysis, null);
+			
+		}
+		
 		if ( contrary ) switchMap.put(SwitchNameConstants.contrary, null);
 
 		switchMap.put(SwitchNameConstants.mappingFilePath, mappingFilePath);

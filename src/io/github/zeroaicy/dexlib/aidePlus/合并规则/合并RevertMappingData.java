@@ -29,20 +29,24 @@ public class 合并RevertMappingData {
 	public static void main(String[] args) {
 
 		List<String> mappingList = new ArrayList<>();
-		
-		
+		String projectDir = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试";
+
 		/*
-		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_1.txt");
-		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_2.0.txt");
-		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_2.1.txt");
-		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_2.2.txt");
-		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_2.3.txt");
+		mappingList.add(projectDir + "/aide+_mapping_output_1.txt");
+		mappingList.add(projectDir + "/aide+_mapping_output_2.0.txt");
+		mappingList.add(projectDir + "/aide+_mapping_output_2.1.txt");
+		mappingList.add(projectDir + "/aide+_mapping_output_2.2.txt");
+		mappingList.add(projectDir + "/aide+_mapping_output_2.3.txt");
 		*/
-		String mergeOutput = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_0.txt";
+		String mergeOutput = projectDir + "/aide+_mapping_output_0.txt";
 		
-		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3.1/合并规则/aide+_mapping_1.txt");
-		mappingList.add("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3.1/合并规则/aide+_mapping_2.0.txt");
-		mergeOutput = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3.1/合并规则/aide+_mapping_merge.txt";
+		mappingList.add(projectDir + "/aide+_mapping_output_1.txt");
+		mappingList.add(projectDir + "/aide+_mapping_output_2.0.txt");
+		mappingList.add(projectDir + "/aide+_mapping_output_2.1.txt");
+		mappingList.add(projectDir + "/aide+_mapping_output_2.2.txt");
+		mappingList.add(projectDir + "/aide+_mapping_output_2.3.txt");
+		
+		// mergeOutput = projectDir + "/aide+_mapping_merge.txt";
 		// 必须顺序合并
 		// Collections.reverse(mappingList);
 
@@ -115,7 +119,7 @@ public class 合并RevertMappingData {
 					}
 					if (methodData.renamed.equals(methodData2.renamed)
 						&& methodData.getParametersSignature().equals(methodData2.getParametersSignature())) {
-						System.out.println(String.format("严重警告⚠️: 重载冲突 %s %s %s", confusevt, methodData, methodData2));
+						System.out.println(String.format("严重警告⚠️: 重载冲突(缺少dex可能是bridge方法 ) %s %s %s", confusevt, methodData, methodData2));
 					}
 				}
 			}

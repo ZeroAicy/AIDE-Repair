@@ -1,18 +1,14 @@
 package io.github.zeroaicy.dexlib.analysis;
 
-import android.os.Build;
+import io.github.zeroaicy.tools.files.OpenFile;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
-import java.util.ArrayList;
-import io.github.zeroaicy.tools.files.OpenFile;
-import android.widget.Space;
-import java.util.Arrays;
-import android.annotation.Nullable;
-import java.util.LinkedHashMap;
-import io.github.zeroaicy.dexlib.analysis.RewriterClassData.FieldData;
-import java.util.*;
-import io.github.zeroaicy.dexlib.analysis.RewriterClassData.MethodData;
+import java.util.Set;
 
 //还原Mapping数据
 public class RevertMappingData {
@@ -23,7 +19,6 @@ public class RevertMappingData {
 	private final boolean contrary;
 
 	//通过confusevt查找RewriterClassData
-	@Nullable
 	private final Map<String, RewriterClassData> confusevtClassDataMap = new HashMap<>();
 
 	//空实现，不返回任何数据
@@ -74,7 +69,9 @@ public class RevertMappingData {
 		}
 	}
 
-	// 将要合并的规则集合
+	/**
+	 * 合并此规则[RevertMappingData] 到当前规则[RevertMappingData]
+	 */
 	public void merge(RevertMappingData revertMappingDataMerged) {
 		//主RewriterClassDataMap，所有改变都集中在此
 		Map<String, RewriterClassData> mainRewriterClassDataMap = this.getRewriterClassDataMap();
@@ -86,43 +83,52 @@ public class RevertMappingData {
 			//需要把nextVerRevMapData中方法签名，还原成当前版本的类[参数签名类]
 
 			//遍历当前revertMappingData的类
-			for (RewriterClassData nextVerClassData : rewriterClassDataMapMerged.values()) {
-				if (!nextVerClassData.hasMethodData()) {
+
+			// 遍历此重命名规则的类重命名规则
+			// 主要用于替换Merged规则方法签名中的类签名
+			for (RewriterClassData nextRewriterClassData : rewriterClassDataMapMerged.values()) {
+				// 没有方法则跳过
+				if (!nextRewriterClassData.hasMethodData()) {
 					//没有方法
 					continue;
 				}
 
 				//遍历类中的方法
 				//合并方法
-				Map<String, RewriterClassData.MethodData> nextVerMethodDataMap = nextVerClassData.getMethodDataMap();
+				Map<String, RewriterClassData.MethodData> nextVerMethodDataMap = nextRewriterClassData.getMethodDataMap();
+
+				// 重命名类规则中的方法重命名规则
 				List<RewriterClassData.MethodData> methodDatas = new ArrayList<RewriterClassData.MethodData>(nextVerMethodDataMap.values());
-				//置空
+				// 置空重命名类规则中的方法重命名规则
 				nextVerMethodDataMap.clear();
 
+				// 处理此方法重命名规则
 				for (RewriterClassData.MethodData methodData : methodDatas) {
+
 					//替换方法签名
 					String paramSignature = methodData.getParametersSignature();
 					// 修改前移除
-					nextVerClassData.removeMethodData(methodData);
+					nextRewriterClassData.removeMethodData(methodData);
+
 					for (RewriterClassData curClassData : mainRewriterClassDataMap.values()) {
 						//替换参数签名中的类名为当前版本类名
 						paramSignature = paramSignature.replace(curClassData.getRenamed(), curClassData.getConfusevt());
 					}
 					//重新添加
-					nextVerClassData.addMethodData(methodData.confusevt, paramSignature, methodData.renamed);
+					nextRewriterClassData.addMethodData(methodData.confusevt, paramSignature, methodData.renamed);
 				}
 			}
 
 			// 需要替换参数没有遍历在主RevertMappingData中的类
-			for (RewriterClassData nextVerClassData : mainRewriterClassDataMap.values()) {
-				if (!nextVerClassData.hasMethodData()) {
+			for (RewriterClassData nextRewriterClassData : mainRewriterClassDataMap.values()) {
+				if (!nextRewriterClassData.hasMethodData()) {
 					//没有方法
 					continue;
 				}
 
 				//遍历类中的方法
 				//合并方法
-				Map<String, RewriterClassData.MethodData> nextVerMethodDataMap = nextVerClassData.getMethodDataMap();
+				Map<String, RewriterClassData.MethodData> nextVerMethodDataMap = nextRewriterClassData.getMethodDataMap();
 				List<RewriterClassData.MethodData> methodDatas = new ArrayList<RewriterClassData.MethodData>(nextVerMethodDataMap.values());
 				//置空
 				nextVerMethodDataMap.clear();
@@ -131,20 +137,21 @@ public class RevertMappingData {
 					//替换方法签名
 					String paramSignature = methodData.getParametersSignature();
 					// 修改前移除
-					nextVerClassData.removeMethodData(methodData);
+					nextRewriterClassData.removeMethodData(methodData);
+
 					for (RewriterClassData curClassData : mainRewriterClassDataMap.values()) {
 						//替换参数签名中的类名为当前版本类名
 						paramSignature = paramSignature.replace(curClassData.getRenamed(), curClassData.getConfusevt());
 					}
 					//重新添加
-					RewriterClassData.MethodData oldMethodData = nextVerClassData.addMethodData(methodData.confusevt, paramSignature, methodData.renamed);
-					
+					// RewriterClassData.MethodData oldMethodData = 
+					nextRewriterClassData.addMethodData(methodData.confusevt, paramSignature, methodData.renamed);
+
 				}
 			}
-
-
 		}
-		//更新已有的
+
+		// 合并类重命名规则
 		for (RewriterClassData mainRewriterClassData : mainRewriterClassDataMap.values()) {
 			//从待合并中查询此类规则是否重新修改
 			RewriterClassData rewriterClassDataMerged = revertMappingDataMerged.getRewriterClassData(mainRewriterClassData.getRenamed());
@@ -186,20 +193,24 @@ public class RevertMappingData {
 				}					
 			}
 
-			//重新修改的
+			// 合并方法的重命名规则
 			if (mainRewriterClassData.hasMethodData()) {
 				//合并方法
 				Map<String, RewriterClassData.MethodData> methodDataMap = mainRewriterClassData.getMethodDataMap();
-				for (RewriterClassData.MethodData mergeMethodData : methodDataMap.values()) {
+
+				for (RewriterClassData.MethodData mainMethodData : methodDataMap.values()) {
 					//查找此版本与下一版本的共同名称
-					RewriterClassData.MethodData otherFieldData = rewriterClassDataMerged.getMethodData(mergeMethodData.getRenamedMethodSignature());
-					if (otherFieldData == null) {
+					RewriterClassData.MethodData mergeMethodData = rewriterClassDataMerged.getMethodData(mainMethodData.getRenamedMethodSignature());
+
+
+					if (mergeMethodData == null) {
 						//此字段没有再次被重命名
 						continue;
 					}
 					//更新方法重命名
-					mergeMethodData.renamed = otherFieldData.renamed;
-
+					mainMethodData.renamed = mergeMethodData.renamed;
+					// 已添加 移除
+					rewriterClassDataMerged.removeMethodData(mergeMethodData);
 				}
 			}
 			//以前版本从未修改
@@ -231,7 +242,6 @@ public class RevertMappingData {
 	/**
 	 * @return 返回类名重命名数据集合
 	 */
-	@Nullable
 	public Map<String, RewriterClassData> getRewriterClassDataMap() {
 		return confusevtClassDataMap;
 	}

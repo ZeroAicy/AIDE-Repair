@@ -224,7 +224,7 @@ public class RevertEncodedValueRewriter extends EncodedValueRewriter {
         @Nonnull protected ArrayEncodedValue arrayEncodedValue;
 
 		private List<? extends EncodedValue> oldValue;
-		private List<? extends EncodedValue> rewrite = new ArrayList<>();
+		private List<EncodedValue> rewrite = new ArrayList<>();
 
         public RewrittenArrayEncodedValue(@Nonnull ArrayEncodedValue arrayEncodedValue) {
             this.arrayEncodedValue = arrayEncodedValue;

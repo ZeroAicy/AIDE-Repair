@@ -2,7 +2,6 @@ package io.github.zeroaicy.dexlib.aidePlus;
 import io.github.zeroaicy.dexlib.analysis.SwitchNameConstants;
 import java.util.HashMap;
 import java.util.Map;
-import io.github.zeroaicy.dexlib.aidePlus.aide_plus_tools.aide_plus_info;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -69,7 +68,12 @@ public class aide_plus_tools extends aide_plus{
 	public void run() throws IOException {
 		super.run();
 	}
-
+	
+	@Override
+	public String toString() {
+		return String.format("lastVersion %s -> version %s ", lastVersion, version);
+	}
+	
 	public static class aide_plus_info{
 		
 		public final String key;
@@ -112,18 +116,16 @@ public class aide_plus_tools extends aide_plus{
 
 		@Override
 		public String toString() {
-			return "lastVersion " + lastVersion + " versions: " + Arrays.toString( versions );
+			return String.format("lastVersion %s -> versions %s ", lastVersion, Arrays.toString( versions ));
 		}
 		
 	}
 
 	static Map<String, aide_plus_info> aide_plus_info_map;
-	static{
+		static{
 		aide_plus_info_map = new HashMap<>();
 		init();
 	}
-
-
 	private static void init(){
 		aide_plus_info aide_plus_info = new aide_plus_info("0", "1", true);
 		put(aide_plus_info);
@@ -151,20 +153,33 @@ public class aide_plus_tools extends aide_plus{
 		
 		put(aide_plus_info);
 		
-		//2.3.1
+		//* 2.3.1
 		aide_plus_info = new aide_plus_info("2.3.1", true, "0", "1", "2.0", "2.1", "2.2", "2.3");
+		aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
+		aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
+
+		put(aide_plus_info);
+		//*/
+		
+		// 2.4 
+		aide_plus_info = new aide_plus_info("2.3", "2.4", false);
+		//aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
+		aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
+		put(aide_plus_info);
+		
+		//2.5
+		aide_plus_info = new aide_plus_info("2.4", "2.5", false);
+		//aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
+		aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
+		put(aide_plus_info);
+		
+		/* 2.3.1
+		aide_plus_info = new aide_plus_info("2.3.1", false, "2.1", "2.2", "2.3");
 		//aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
 		aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
 
 		put(aide_plus_info);
-		
-		//2.3.1
-		//aide_plus_info = new aide_plus_info("2.3.1", false, "2.2", "2.3");
-		//aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
-		//aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
-
-		//put(aide_plus_info);
-		
+		//*/
 		
 	}
 
@@ -173,7 +188,9 @@ public class aide_plus_tools extends aide_plus{
 	}
 
 	public static void runAidePlus(String key) throws IOException{
+		
 		aide_plus_info info = aide_plus_info_map.get(key);
+		
 		if ( info == null ){
 			throw new Error("没有找到版本 " + key);
 		}
@@ -182,10 +199,13 @@ public class aide_plus_tools extends aide_plus{
 		boolean repairAnalysis = info.repairAnalysis;
 		
 		System.out.println( info );
+		
 		for(String version : info.versions){
 			
 			aide_plus_tools aide_plus_tools = new aide_plus_tools(info.key, lastVersion, version, repairAnalysis);
 			aide_plus_tools.configure(info.getSwitchMap());
+			
+			System.out.println(aide_plus_tools);
 			aide_plus_tools.run();
 			
 			if( repairAnalysis ){

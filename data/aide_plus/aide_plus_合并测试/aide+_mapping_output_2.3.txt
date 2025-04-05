@@ -1350,6 +1350,7 @@ Lcom/aide/codemodel/api/ClassType; -> Lcom/aide/codemodel/api/ClassType;
 	sg() -> getAllOperators
 	fN() -> getAllSuperClassTypes
 	Cz() -> getAssembly
+	gG() -> getClassTypeIdentifierString
 	DW() -> getDeclarationNumber
 	aX() -> getDeclaredConstructors
 	e9() -> getDeclaredMemberClassTypes
@@ -1364,7 +1365,6 @@ Lcom/aide/codemodel/api/ClassType; -> Lcom/aide/codemodel/api/ClassType;
 	J8() -> getIdentifierEndColumn
 	Ws() -> getIdentifierLine
 	QX() -> getIdentifierStartColumn
-	gG() -> getIdentifierString
 	getNameString() -> getIdentifierString
 	Nh(I) -> getInheritedMethod1
 	BR(I) -> getInheritedMethod2
@@ -3963,7 +3963,7 @@ Lcom/aide/ui/AIDEEditor$t; -> Lcom/aide/ui/AIDEEditor$t;
 	An() -> Redo
 	AR(Ljava/lang/Object;) -> Undo
 	g3() -> getOpenFilePath
-	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader
+	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader2
 	Ws(I) -> makeTextStyle
 Lcom/aide/ui/AIDEEditor; -> Lcom/aide/ui/AIDEEditor;
 	Gj -> exceptionEnabled
@@ -4125,7 +4125,7 @@ Lcom/aide/ui/LogCatConsole$d; -> Lcom/aide/ui/LogCatConsole$d;
 	gW -> parametersEnabled
 	An() -> Redo
 	AR(Ljava/lang/Object;) -> Undo
-	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader
+	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader2
 	Ws(I) -> makeTextStyle
 Lcom/aide/ui/LogCatConsole; -> Lcom/aide/ui/LogCatConsole;
 	iW -> exceptionEnabled
@@ -4794,7 +4794,7 @@ Lcom/aide/ui/build/OutputConsole$i; -> Lcom/aide/ui/build/OutputConsole$i;
 	U2 -> parametersEnabled
 	An() -> Redo
 	AR(Ljava/lang/Object;) -> Undo
-	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader
+	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader2
 	Ws(I) -> makeTextStyle
 Lcom/aide/ui/build/OutputConsole; -> Lcom/aide/ui/build/OutputConsole;
 	sg -> exceptionEnabled
@@ -5621,7 +5621,7 @@ Lcom/aide/ui/scm/DiffView$b; -> Lcom/aide/ui/scm/DiffView$b;
 	cb -> parametersEnabled
 	An() -> Redo
 	AR(Ljava/lang/Object;) -> Undo
-	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader
+	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader2
 	Ws(I) -> makeTextStyle
 Lcom/aide/ui/scm/DiffView$c; -> Lcom/aide/ui/scm/DiffView$c;
 	qp -> exceptionEnabled
@@ -6603,14 +6603,14 @@ Lcom/aide/ui/views/CodeEditText$CodeEditTextHighlightingModel; -> Lcom/aide/ui/v
 	vy -> parametersEnabled
 	An() -> Redo
 	AR(Ljava/lang/Object;) -> Undo
-	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader
+	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader2
 	Ws(I) -> makeTextStyle
 Lcom/aide/ui/views/CodeEditText$CodeEditTextModel; -> Lcom/aide/ui/views/CodeEditText$CodeEditTextModel;
 	U2 -> exceptionEnabled
 	Mr -> parametersEnabled
 	An() -> Redo
 	AR(Ljava/lang/Object;) -> Undo
-	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader
+	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader2
 	Ws(I) -> makeTextStyle
 Lcom/aide/ui/views/CodeEditText$EditorView$a; -> Lcom/aide/ui/views/CodeEditText$EditorView$a;
 	FH -> exceptionEnabled
@@ -6764,7 +6764,7 @@ Lcom/aide/ui/views/editor/EditorModel; -> Lcom/aide/ui/views/editor/EditorModel;
 	VH -> textBuffers
 	An() -> Redo
 	AR(Ljava/lang/Object;) -> Undo
-	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader
+	Gj(Lcom/aide/ui/views/editor/SelectedRegion;) -> getSelectedRegionReader2
 	ko(Lcom/aide/ui/views/editor/EditorModel;) -> getTextBuffers
 	aX() -> init
 	Ws(I) -> makeTextStyle

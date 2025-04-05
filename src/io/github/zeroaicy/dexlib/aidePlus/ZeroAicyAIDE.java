@@ -21,17 +21,17 @@ import org.jf.dexlib2.iface.ClassDef;
 import org.jf.dexlib2.iface.DexFile;
 import org.jf.dexlib2.iface.Method;
 import org.jf.dexlib2.iface.MultiDexContainer;
-import android.content.Context;
 
 public class ZeroAicyAIDE {
 
-
 	private static void aide_plus() throws IOException {
 		//修复分析
-
+		var a = aide_plus_tools.aide_plus_info_map;
+		System.out.println(a);
 		System.out.println("重写中...");
-		aide_plus_tools.runAidePlus("2.3");
-		//aide_plus_tools.runAidePlus("2.3.1");
+		
+		// aide_plus_tools.runAidePlus("2.3");
+		aide_plus_tools.runAidePlus("2.4");
 		System.out.println("完成");
 
 	}
@@ -55,15 +55,16 @@ public class ZeroAicyAIDE {
 	}
 
 	private static void 重写apk2() throws IOException {
-		String inputDexs = "/storage/emulated/0/Download/.MT2/apks/AIDE+_2.2.0.3.8.2-alpha03.apk";
-		String outputDexs = "/storage/emulated/0/Download/.MT2/apks/AIDE+_2.2.0.3.8.2-alpha03.apk.2.3.jar";
+		String inputDexs = "/storage/emulated/0/Download/.MT2/apks/AIDE+_2.3.0.2.1-beta06.apk";
+		
+		String outputDexs = "/storage/emulated/0/Download/.MT2/apks/AIDE+_2.3.0.2.1-beta06-2.3.5预览.apk";
 
 
 		HashMap<String, String> switchMap = new HashMap<String, String>();
 
 		// 规则文件
-		String mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_2.3.txt";
-		String outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_output_2.3.txt";
+		String mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3.5/aide+_mapping_output_2.3.5.txt";
+		String outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3.5/aide+_mapping_output_apk_2.3.5.txt";
 
 
 		switchMap.put(SwitchNameConstants.mappingFilePath, mappingFilePath);
@@ -97,19 +98,21 @@ public class ZeroAicyAIDE {
 
 
 	}
-
+	
+	public static void 分析依赖(){
+		
+	}
 	private static void 删除() throws IOException {
 		OpenFile open = OpenFile.open("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/test/dx-lib类.txt");
 
+
+		final Set<String> hashSet = new HashSet<String>(open.list());
+		
 		String inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/test/classes3.zip";
-
 		File inputDexFiles = new File(inputDexs);
-		final HashSet<String> hashSet = new HashSet<String>(open.list());
 		MultiDexContainer<? extends DexBackedDexFile> loadDexContainer = DexFileFactory.loadDexContainer(inputDexFiles, null);
-
 		RewriteDexFileContainer rewriteDexContainer = new RewriteDexFileContainer();
 		for (String dexName : loadDexContainer.getDexEntryNames()) {
-
 			final DexBackedDexFile dexFile = loadDexContainer.getEntry(dexName).getDexFile();
 			rewriteDexContainer.putEntry(dexName, new DexFile(){
 					Set<ClassDef> classes = new HashSet<>();
@@ -171,11 +174,20 @@ public class ZeroAicyAIDE {
 
 			switchMap.put(SwitchNameConstants.contrary, null);	
 		}
-
-
+		
+		// 规则文件
 		switchMap.put(SwitchNameConstants.mappingFilePath, mappingFilePath);
+		// 规则输出路径
 		switchMap.put(SwitchNameConstants.outputMappingPath, outputMappingPath);
+		// 检查规则
 		switchMap.put(SwitchNameConstants.checkRevertMapping, "");
+		// 修复分析
+		switchMap.put(SwitchNameConstants.repairAnalysis, "");
+		// 禁用 跟随外部类
+		switchMap.put(SwitchNameConstants.disableFollowExternalClasses, "");
+		// 禁用修补缺省虚方法规则
+		switchMap.put(SwitchNameConstants.disableUnifyVirtualMethodName, "");
+		
 
 		// switchMap.put(SwitchNameConstants.onlyOutputMapping, "");
 
