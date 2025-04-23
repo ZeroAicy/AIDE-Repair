@@ -151,7 +151,7 @@ Lcom/aide/codemodel/api/EntitySpace; -> Lcom/aide/codemodel/api/EntitySpace;
 	
 	
 Labcd/g6; -> Lcom/aide/codemodel/language/java/JSharpCommentsParser;
-Lcom/aide/codemodel/language/java/JavaCodeModel;
+Lcom/aide/codemodel/language/java/JavaCodeModel; -> Lcom/aide/codemodel/language/java/JavaCodeModel;
 	FH -> jSharpCommentsLanguage
 	Zo -> javaLexer
 	
@@ -306,7 +306,8 @@ Lcom/aide/engine/EngineSolutionProject; -> Lcom/aide/engine/EngineSolutionProjec
 Lcom/aide/codemodel/api/FileSpace$Assembly; -> Lcom/aide/codemodel/api/FileSpace$Assembly;
 	rootNamespace -> projectFilePath
 	projectFilePath -> assemblyName
-
+Lcom/aide/codemodel/api/ErrorTable; -> Lcom/aide/codemodel/api/ErrorTable;
+	BT(Lcom/aide/codemodel/api/FileEntry;) -> hasCompileErrors
 
 Lorg/eclipse/jgit/JGitText; -> Lorg/eclipse/jgit/JGitText;
 	DW() -> get
@@ -614,6 +615,7 @@ Lcom/aide/ui/AIDEEditor; -> Lcom/aide/ui/AIDEEditor;
 	pO -> isAnimationRunning
 	Eq(Lcom/aide/ui/AIDEEditor;) -> getActivity
 	AE() -> handleEditorFocusRequest
+	P8(Lcom/aide/ui/command/KeyStrokeCommand;) -> getUpdatedKeyStrokeConfigList
 	
 	
 Lcom/aide/ui/views/CodeEditText; -> Lcom/aide/ui/views/CodeEditText;
@@ -625,6 +627,8 @@ Lcom/aide/ui/views/CodeEditText; -> Lcom/aide/ui/views/CodeEditText;
 Lcom/aide/ui/views/editor/OConsole; -> Lcom/aide/ui/views/editor/OConsole;
 	getSelectionVisibility() -> isSelectionVisibility
 	getOverwriteMode() -> isOverwriteMode
+	PH -> consoleMaxWidthLine
+	x9() -> updateConsoleMaxWidth
 	
 	
 Lcom/aide/ui/views/editor/OEditor; -> Lcom/aide/ui/views/editor/OEditor;
@@ -702,6 +706,8 @@ Lcom/aide/common/MessageBox; -> Lcom/aide/common/MessageBox;
 Lcom/aide/ui/services/OpenFileService; -> Lcom/aide/ui/services/OpenFileService;
 	U2() -> hasUnsavedFiles
 	Mr() -> hasPremiumAndUnsavedFiles
+	FH(Lcom/aide/ui/services/OpenFileService$FileHighlightingsCallback;) -> addFileHighlightingsCallback
+	
 Lcom/aide/ui/services/ProjectService; -> Lcom/aide/ui/services/ProjectService;
 	br() -> saveProjectAllFiles
 	isXmlResourceFiles(Ljava/lang/String;) -> addLibrary
@@ -747,13 +753,88 @@ Lcom/aide/ui/firebase/FireBaseLogEvent; -> Lcom/aide/ui/firebase/FireBaseLogEven
 	FH -> initialize
 	gn() -> isInitialize
 
+Labcd/bb; -> Lcom/aide/ui/command/GoToPreviousErrorCommand;
+
+Lcom/aide/common/KeyStrokeDetector$KeyStrokeHandler; -> Lcom/aide/common/KeyStrokeDetector$KeyStrokeHandler;
+	j6(Lcom/aide/common/KeyStroke;) -> handleKeyStroke
 
 
+Lcom/aide/ui/AppCommands; -> Lcom/aide/ui/AppCommands;
+	EQ -> customEditorCommands
+	v5() -> getCustomEditorCommands
 
+Lcom/aide/ui/preferences/KeyBindingsView; -> Lcom/aide/ui/preferences/KeyBindingsView;
+	DW() -> initKeyBindingsListView
 
+Lcom/aide/ui/preferences/KeyBindingsView$b$a; -> Lcom/aide/ui/preferences/KeyBindingsView$b$a;
+	DW(Lcom/aide/common/KeyStroke;)V -> acceptValue
 
+Lcom/aide/ui/services/KeyBindingService; -> Lcom/aide/ui/services/KeyBindingService;
+	j6 -> updatedKeyStrokeConfig
+	v5(Lcom/aide/ui/command/KeyStrokeCommand;Lcom/aide/common/KeyStroke;) -> updateKeyStrokeConfig
+	DW(Lcom/aide/ui/command/KeyStrokeCommand;) -> getKeyStrokeConfigKey
+	j6(Lcom/aide/ui/command/KeyStrokeCommand;) -> getKeyStrokeList
 
+Lcom/aide/ui/views/CodeEditText$EditorView$a; -> Lcom/aide/ui/views/CodeEditText$EditorView$a;
+	DW(Lcom/aide/common/KeyStroke;) -> isCustomCommandOrBasicCommand
+	j6(Lcom/aide/common/KeyStroke;) -> handleKeyStroke
 
+Lcom/aide/codemodel/language/xml/XmlCodeModel; -> Lcom/aide/codemodel/language/xml/XmlCodeModel;
+	FH -> lexerHelper
+	Hw -> xmlParser
+	j6 -> model
+	DW -> xmlLanguage
+	
+	
+Lcom/aide/codemodel/api/SyntaxTreeStyles; -> Lcom/aide/codemodel/api/SyntaxToken;
+Lcom/aide/codemodel/api/LexerHelper; -> Lcom/aide/codemodel/api/LexerHelper;
+	DW -> identifierSpace
+	FH -> errorTable
+	Hw -> lexer
+	VH -> fileEntry
+	j6 -> language
+	v5 -> positionalReader
+	Zo -> checkError
+	DW(Lcom/aide/codemodel/api/FileEntry;Ljava/io/Reader;ZZLcom/aide/codemodel/api/SyntaxTreeStyles;) -> init
+	FH(Lcom/aide/codemodel/api/FileEntry;Ljava/io/Reader;ZZLcom/aide/codemodel/api/SyntaxTreeStyles;ZI) -> init
+	
+	
+	
+	
+	
+Lcom/aide/codemodel/api/Lexer; -> Lcom/aide/codemodel/api/Lexer;
+	Hw(Ljava/io/Reader;) -> init
+	j6() -> getPos
+	
+Lcom/aide/codemodel/language/xml/XmlLexer; -> Lcom/aide/codemodel/language/xml/XmlLexer;
+	Hw -> charBuffer
+	DW() -> getCharBuffer
+	VH -> bufCount
+	j6 -> reader
+	gn -> markedChar
+	u7 -> nextChar
+	tp() -> fill
+	v5() -> nextToken
+	EQ -> eof
+	v5 -> currentPosition
+	tp -> pos
+	Zo() -> getTokenLength
+	VH() -> getMarked
+	
+	
+Lcom/aide/codemodel/api/PositionalReader; -> Lcom/aide/codemodel/api/PositionalReader;
+	WB -> reader
+	Z1 -> eof
+	qp -> markedChar
+	jw -> nextChar
+	AL -> curColumn
+	zh -> curLine
+	gn() -> restLineColumn
+	DW() -> fill
+	Hw(IZ) -> getLine
+	FH(IZ) -> getColumn
+	
+	
 
 
 Labcd/m50; -> Lcom/aide/ui/scm/UnsupportedCredentialItemException;
