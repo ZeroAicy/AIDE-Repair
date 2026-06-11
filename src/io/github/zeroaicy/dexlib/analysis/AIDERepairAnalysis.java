@@ -76,7 +76,7 @@ public class AIDERepairAnalysis extends DexFileAnalyzer{
 		//super.analysis();
 
 		// 类依赖分析
-		Set<String> keySet = typeClassDefMap.keySet();
+		Set<String> keySet = getClassDefMap().keySet();
 		List<String> allClassTypes = new ArrayList<String>(keySet);
 
 		//需要查找的搜索类
@@ -151,7 +151,7 @@ public class AIDERepairAnalysis extends DexFileAnalyzer{
 		loop: for ( String classType : hashSet ){
 			classTypeRefSet.removeAll(filter);
 
-			ClassDef classDef = typeClassDefMap.get(classType);
+			ClassDef classDef = getClassDefMap().get(classType);
 
 			if ( classTypeRefSet.contains(classType) ){
 				allClassTypes.remove(classType);

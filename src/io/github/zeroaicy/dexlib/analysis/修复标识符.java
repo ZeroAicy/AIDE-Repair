@@ -92,7 +92,7 @@ public class 修复标识符 extends DexFileAnalyzer{
 
 	@Override
 	public void analysis(){
-		for ( ClassDef classDef : typeClassDefMap.values() ){
+		for ( ClassDef classDef : getClassDefMap().values() ){
 			String type = classDef.getType();
 			String replace;
 			/*if( type.startsWith("Lj$/")){
@@ -101,7 +101,7 @@ public class 修复标识符 extends DexFileAnalyzer{
 				replace = type.replace('-', '_');
 			}*/
 			replace = type.replace('-', '_');
-			RewriterClassData addRewriterClassData = addRewriterClassData(type, replace);
+			RewriterClassData addRewriterClassData = getAndAddRewriterClassData(type, replace);
 			for( Method method : classDef.getMethods()){
 				String name = method.getName();
 				addRewriterClassData.addMethodData(name, getParameterTypesSignature(method), name.replace('-', '_'));

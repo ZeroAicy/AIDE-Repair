@@ -25,7 +25,7 @@ import org.jf.dexlib2.iface.Field;
 import org.jf.dexlib2.iface.Annotation;
 
 public class Analysis{
-	public static void main(String[] args) throws IOException{
+	public static void main_1(String[] args) throws IOException{
 		String dexsZipFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/AIDE+_2.2.zip";
 		testDexRewriter(dexsZipFilePath, new RevertMappingData(), "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/AIDE+_2.2.zip");
 	}
@@ -39,7 +39,7 @@ public class Analysis{
 
 		DexFileAnalyzer dexFileAnalyzer = new DexFileAnalyzer(loadDexContainer, revertMapping, switchMap){
 			public void analysis(){
-				for ( ClassDef classDef : typeClassDefMap.values() ){
+				for ( ClassDef classDef : getClassDefMap().values() ){
 					String type = classDef.getType();
 					for ( Field field : classDef.getStaticFields() ){
 						//我需要修改"Ldalvik/annotation/InnerClass;注解的name的值
@@ -48,12 +48,12 @@ public class Analysis{
 							String annotationType = annotation.getType();
 
 							if ( "Labcd/gy;".equals(annotationType) ){
-								RewriterClassData rewriterClassData = addRewriterClassData(type, type);
+								RewriterClassData rewriterClassData = getAndAddRewriterClassData(type, type);
 								rewriterClassData.addField(field.getName(), "exceptionEnabled");
 								continue;
 							}
 							if ( "Labcd/fy;".equals(annotationType) ){
-								RewriterClassData rewriterClassData = addRewriterClassData(type, type);
+								RewriterClassData rewriterClassData = getAndAddRewriterClassData(type, type);
 								rewriterClassData.addField(field.getName(), "parametersEnabled");
 								continue;
 							}

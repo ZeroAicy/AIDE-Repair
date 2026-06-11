@@ -106,17 +106,4 @@ public class RevertRewriterModule extends RewriterModule{
 	public Rewriter<Instruction> getInstructionRewriter(Rewriters rewriters){
 		return new RevertInstructionRewriter(rewriters, this);
 	}
-	
-	public static String getMethodSignature(MethodReference methodReference){
-		StringBuilder parameterTypeSb = new StringBuilder();
-		parameterTypeSb.append('(');
-		for ( CharSequence parameterType : methodReference.getParameterTypes() ){
-			parameterTypeSb.append(parameterType);
-		}
-		parameterTypeSb.append(')');
-
-		String methodSignature = methodReference.getName() + parameterTypeSb.toString();
-		return methodSignature;
-	}
-
 }

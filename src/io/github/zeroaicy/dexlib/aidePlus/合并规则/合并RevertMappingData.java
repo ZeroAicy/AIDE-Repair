@@ -10,11 +10,6 @@ import java.util.Map;
 import java.util.Set;
 
 public class 合并RevertMappingData {
-	public static void main9(String[] args) {
-		//sort();
-		System.out.println("结束");
-	}
-
 
 	/**
 	 * 排序
@@ -26,7 +21,41 @@ public class 合并RevertMappingData {
 		RevertDexFromMappingText.writeRevertMappingData(v, new RevertMappingData(v));
 
 	}
+	
 	public static void main(String[] args) {
+
+		List<String> mappingList = new ArrayList<>();
+		String projectDir = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.4/v7.0/规则文件";
+
+		// mappingList.add(projectDir + "/aide+_mapping_2.4.txt");
+		// mappingList.add(projectDir + "/aide+_mapping_output_2.4.txt");
+		// mappingList.add(projectDir + "/aide+_mapping_output_2.5.txt");
+		
+		mappingList.add(projectDir + "/aide+_mapping_2.4.txt");
+		mappingList.add(projectDir + "/aide+_mapping_2.5.txt");
+		
+		String mergeOutput = projectDir + "/aide+_mapping_output_2.4_v7.0.txt";
+		// mergeOutput = projectDir + "/aide+_mapping_merge.txt";
+		// 必须顺序合并
+		// Collections.reverse(mappingList);
+
+		List<RevertMappingData> revertMappingDataList = new ArrayList<>();
+		for (String mapping : mappingList) {
+			revertMappingDataList.add(new RevertMappingData(mapping));
+		}
+
+		RevertMappingData mainRevertMappingData = new RevertMappingData();
+
+		//主RewriterClassDataMap，所有改变都集中在此
+		mainRevertMappingData.merge(revertMappingDataList);
+		//移除无效或未修改的RewriterClassData
+		shrink(mainRevertMappingData);
+		checkRevertMappingData(mainRevertMappingData);
+		RevertDexFromMappingText.writeRevertMappingData(mergeOutput, mainRevertMappingData);
+		
+	}
+	
+	public static void main2(String[] args) {
 
 		List<String> mappingList = new ArrayList<>();
 		String projectDir = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试";
@@ -45,6 +74,7 @@ public class 合并RevertMappingData {
 		mappingList.add(projectDir + "/aide+_mapping_output_2.1.txt");
 		mappingList.add(projectDir + "/aide+_mapping_output_2.2.txt");
 		mappingList.add(projectDir + "/aide+_mapping_output_2.3.txt");
+		mappingList.add(projectDir + "/aide+_mapping_output_2.4.txt");
 		
 		// mergeOutput = projectDir + "/aide+_mapping_merge.txt";
 		// 必须顺序合并

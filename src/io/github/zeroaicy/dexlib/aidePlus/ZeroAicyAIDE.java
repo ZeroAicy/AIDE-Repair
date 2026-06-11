@@ -21,6 +21,10 @@ import org.jf.dexlib2.iface.ClassDef;
 import org.jf.dexlib2.iface.DexFile;
 import org.jf.dexlib2.iface.Method;
 import org.jf.dexlib2.iface.MultiDexContainer;
+import io.github.zeroaicy.util.DebugUtil;
+import io.github.zeroaicy.util.FileUtil;
+import io.github.zeroaicy.util.Log;
+import java.io.PrintStream;
 
 public class ZeroAicyAIDE {
 
@@ -31,9 +35,10 @@ public class ZeroAicyAIDE {
 		System.out.println("重写中...");
 		
 		// aide_plus_tools.runAidePlus("2.3");
-		aide_plus_tools.runAidePlus("2.4");
+		// aide_plus_tools.runAidePlus("2.4");
+		aide_plus_tools.runAidePlus("2.5");
 		System.out.println("完成");
-
+		
 	}
 
 
@@ -41,9 +46,21 @@ public class ZeroAicyAIDE {
 	//*/
 
 	public static void main(String[] args) throws IOException {
-		//*根据规则重命名
-		aide_plus();
+		System.out.println(FileUtil.LogCatPath);
+		// DebugUtil.debug();
+		PrintStream out = System.out;
+		Log.SetSystemOut(true);
+		Log.enable("/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.5/log.txt");
 		
+		
+		//*根据规则重命名
+		try {
+			aide_plus();
+		}
+		catch (Throwable e) {
+			e.printStackTrace(out);
+		}
+
 		// 规则排序();
 
 		// 重写apk(true);
@@ -52,19 +69,22 @@ public class ZeroAicyAIDE {
 		// 重写apk2();
 		
 		//*/
+		
+		out.println("任务结束");
+		
 	}
 
 	private static void 重写apk2() throws IOException {
-		String inputDexs = "/storage/emulated/0/Download/.MT2/apks/AIDE+_2.3.0.2.1-beta06.apk";
+		String inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.5/apk/AIDE+测试_2.3.3.10.2-2026-03-16.apk";
 		
-		String outputDexs = "/storage/emulated/0/Download/.MT2/apks/AIDE+_2.3.0.2.1-beta06-2.3.5预览.apk";
+		String outputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.5/apk/AIDE+测试_2.3.3.10.2-2026-03-16-2.4底包.apk";
 
 
 		HashMap<String, String> switchMap = new HashMap<String, String>();
 
 		// 规则文件
-		String mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3.5/aide+_mapping_output_2.3.5.txt";
-		String outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3.5/aide+_mapping_output_apk_2.3.5.txt";
+		String mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.5/apk/aide+_mapping_output_2.4.txt";
+		String outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.5/apk/aide+_mapping_output_2.4-apk.txt";
 
 
 		switchMap.put(SwitchNameConstants.mappingFilePath, mappingFilePath);
@@ -93,10 +113,11 @@ public class ZeroAicyAIDE {
 		String filePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2/aide+_mapping_2.txt";
 		//v = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_1/备份[封存]/aide+_mapping_output_1.txt";
 		filePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/aide+_mapping_2.3.txt";
-
+		filePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.4/aide+_mapping_2.4.txt";
+		
+		System.out.println("排序规则文件内容");
 		RevertDexFromMappingText.writeRevertMappingData(filePath, new RevertMappingData(filePath));
-
-
+		
 	}
 	
 	public static void 分析依赖(){
@@ -152,15 +173,51 @@ public class ZeroAicyAIDE {
 
 	}
 	public static void 重写apk(boolean contrary) throws IOException {
-		String inputDexs = "/storage/emulated/0/.MyAicy/源码备份/AIDE-Termux/aide_n_1/aide_n_1.zip";
 
-
-		String outputDexs = "/storage/emulated/0/.MyAicy/源码备份/AIDE-Termux/aide_n_1/aide_n_2.0.zip";
-
-
+		String inputDexs = "/storage/emulated/0/.MyAicy/源码备份/AIDE-Termux/aide_n_3/aide_n_1.zip";
+		String outputDexs = "/storage/emulated/0/.MyAicy/源码备份/AIDE-Termux/aide_n_3/aide_n_2.0.zip";
 		// inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/git/AIDE+/app_flavor/build/bin/app_flavor.apk";
 		// outputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/AIDE+_2.3.zip";
+		HashMap<String, String> switchMap = new HashMap<String, String>();
 
+		// 规则文件
+		String mappingFilePath = "/storage/emulated/0/.MyAicy/源码备份/AIDE-Termux/aide_n_3/aide+_mapping_1.txt";
+		String outputMappingPath = "/storage/emulated/0/.MyAicy/源码备份/AIDE-Termux/aide_n_3/aide+_mapping_2.0.txt";
+
+
+		if (contrary) {
+			mappingFilePath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_0.txt";
+			outputMappingPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_合并测试/aide+_mapping_output_-1.txt";
+
+			switchMap.put(SwitchNameConstants.contrary, null);	
+		}
+
+		// 规则文件
+		switchMap.put(SwitchNameConstants.mappingFilePath, mappingFilePath);
+		// 规则输出路径
+		switchMap.put(SwitchNameConstants.outputMappingPath, outputMappingPath);
+		// 检查规则
+		switchMap.put(SwitchNameConstants.checkRevertMapping, "");
+		// 修复分析
+		switchMap.put(SwitchNameConstants.repairAnalysis, "");
+		// 禁用 跟随外部类
+		switchMap.put(SwitchNameConstants.disableFollowExternalClasses, "");
+		// 禁用修补缺省虚方法规则
+		// switchMap.put(SwitchNameConstants.disableUnifyVirtualMethodName, "");
+
+
+		// switchMap.put(SwitchNameConstants.onlyOutputMapping, "");
+
+		RevertDexFromMappingText.revert(inputDexs, outputDexs, switchMap);
+
+	}
+	
+	public static void 重写apk2(boolean contrary) throws IOException {
+		
+		String inputDexs = "/storage/emulated/0/.MyAicy/源码备份/AIDE-Termux/aide_n_1/aide_n_1.zip";
+		String outputDexs = "/storage/emulated/0/.MyAicy/源码备份/AIDE-Termux/aide_n_1/aide_n_2.0.zip";
+		// inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/git/AIDE+/app_flavor/build/bin/app_flavor.apk";
+		// outputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.3/AIDE+_2.3.zip";
 		HashMap<String, String> switchMap = new HashMap<String, String>();
 
 		// 规则文件
@@ -208,7 +265,7 @@ public class ZeroAicyAIDE {
 
 			@Override
 			public void analysis() {
-				for (ClassDef classDef : typeClassDefMap.values()) {
+				for (ClassDef classDef : getClassDefMap().values()) {
 					Method input_store = null;
 					Method output_store = null;
 
@@ -242,7 +299,7 @@ public class ZeroAicyAIDE {
 						String type = classDef.getType();
 						RewriterClassData rewriterClassData = revertMappingData.getRewriterClassData(type);
 						if (rewriterClassData == null) {
-							rewriterClassData = revertMappingData.addRewriterClassData(type, type);
+							rewriterClassData = revertMappingData.getAndAddRewriterClassData(type, type);
 						}
 						if (input_store != null) {
 							rewriterClassData.addMethodData(input_store.getName(), getParameterTypesSignature(input_store), "store");							

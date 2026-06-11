@@ -11,6 +11,7 @@ import org.jf.dexlib2.rewriter.RewriterUtils;
 import org.jf.dexlib2.rewriter.Rewriters;
 import org.jf.dexlib2.iface.Annotation;
 import java.util.HashSet;
+import org.jf.dexlib2.rewriter.Rewriter;
 
 public class RevertMethodParameterRewriter extends MethodParameterRewriter {
 	@Nonnull protected final Rewriters rewriters;
@@ -43,7 +44,13 @@ public class RevertMethodParameterRewriter extends MethodParameterRewriter {
         }
 
 		private Set<Annotation> getRewriteAnnotationSet() {
-			return new HashSet<Annotation>(RewriterUtils.rewriteSet(rewriters.getAnnotationRewriter(), methodParameter.getAnnotations()));
+			Rewriter<Annotation> annotationRewriter = rewriters.getAnnotationRewriter();
+			Set<? extends Annotation> annotations = methodParameter.getAnnotations();
+			Set<Annotation> rewriteSet = RewriterUtils.rewriteSet(annotationRewriter, annotations);
+			
+			HashSet<Annotation> rewriteAnnotations = new HashSet<Annotation>(rewriteSet);
+			rewriteAnnotations.remove(null);
+			return rewriteAnnotations;
 		}
 
         @Override @Nullable public String getName() {

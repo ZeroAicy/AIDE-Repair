@@ -9,6 +9,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import io.github.zeroaicy.dexlib.analysis.RewriterClassData.MethodData;
+import java.util.Objects;
 
 //还原Mapping数据
 public class RevertMappingData {
@@ -247,13 +249,30 @@ public class RevertMappingData {
 	}
 
 	/**
-	 * 通过类签名添加RewriterClassData，并返回，若已存在则返回已存在的
+	 * 通过类签名添加RewriterClassData，并返回，
+	 * 若已存在则返回已存在的(若不一致则警告⚠️)
 	 */
-	public RewriterClassData addRewriterClassData(String confusevt) {
-		return addRewriterClassData(confusevt, confusevt);
+	private RewriterClassData addRewriterClassData(String confusevt, String renamed) {
+		RewriterClassData rewriterClassData = this.confusevtClassDataMap.get(confusevt);
+		if (rewriterClassData != null) {
+			// 已存在的 重命名
+			String renamedAlreadyExists = rewriterClassData.getRenamed();
+			// 缓存中存在的 将要重命名的 与 后添加的 不一致
+			// 即 a -> b， a -> c，有两个 a -> 但是 b,c 不同
+			if( !Objects.equals(renamed, renamedAlreadyExists)){
+				System.out.println(String.format("严重警告⚠️: 类名规则重复， %s -> %s -> %s", confusevt, renamedAlreadyExists, renamed));
+			}
+			return rewriterClassData;
+		}
+		rewriterClassData = new RewriterClassData(confusevt, renamed);
+		this.confusevtClassDataMap.put(confusevt, rewriterClassData);
+		return rewriterClassData;
 	}
-
-	public RewriterClassData addRewriterClassData(String confusevt, String renamed) {
+	
+	/**
+	 * 获取已有的 RewriterClassData，如果没有 则添加 renamed
+	 */
+	public RewriterClassData getAndAddRewriterClassData(String confusevt, String renamed) {
 		RewriterClassData rewriterClassData = this.confusevtClassDataMap.get(confusevt);
 		if (rewriterClassData != null) {
 			return rewriterClassData;
@@ -398,6 +417,9 @@ public class RevertMappingData {
 
 	/**
 	 * 解析重命名规则
+	 * 因为 bridge synthetic 函数存在 会有 两个目标相同的函数名
+	 * bridge synthetic 方法导致 还原模式错误 所以 都不添加
+	 
 	 */
 	private void parser() {
 		if (this.mappingFilePath == null) {
@@ -415,6 +437,10 @@ public class RevertMappingData {
 
 				//a->b字符串至少长度为4
 				if (lineLength <= 3) {
+					continue;
+				}
+				if(line.startsWith("#")){
+					// 忽略注释
 					continue;
 				}
 				if (line.startsWith("package ")) {
@@ -546,7 +572,14 @@ public class RevertMappingData {
 
 					if (rewriterClassData != null) {
 						if (contrary) {
-							rewriterClassData.addMethodData(renamed, parameterTypes, confusevt);
+							// String methodParametersSignature = RewriterClassData.getMethodParametersSignature(parameterTypes);
+							// RewriterClassData.MethodData methodData = new RewriterClassData.MethodData(renamed, methodParametersSignature, confusevt);
+							// RewriterClassData.MethodData curMethodDataCache = rewriterClassData.addMethodData(methodData);
+							RewriterClassData.MethodData curMethodDataCache = rewriterClassData.addMethodData(renamed, parameterTypes, confusevt);
+							if( !confusevt.equals(curMethodDataCache.renamed)){
+								// 还原模式 无法解决 bridge synthetic 的问题
+								rewriterClassData.removeMethodData(curMethodDataCache);
+							}
 						}
 						else {
 							rewriterClassData.addMethodData(confusevt, parameterTypes, renamed);

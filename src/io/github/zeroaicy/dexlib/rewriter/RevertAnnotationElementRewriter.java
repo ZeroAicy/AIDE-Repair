@@ -1,13 +1,10 @@
 package io.github.zeroaicy.dexlib.rewriter;
-import org.jf.dexlib2.iface.value.*;
-
 import javax.annotation.Nonnull;
-import org.jf.dexlib2.ValueType;
 import org.jf.dexlib2.base.BaseAnnotationElement;
 import org.jf.dexlib2.iface.AnnotationElement;
+import org.jf.dexlib2.iface.value.EncodedValue;
 import org.jf.dexlib2.rewriter.AnnotationElementRewriter;
 import org.jf.dexlib2.rewriter.Rewriters;
-import org.jf.util.ExceptionWithContext;
 
 public class RevertAnnotationElementRewriter extends AnnotationElementRewriter {@Nonnull protected final Rewriters rewriters;
 

@@ -26,6 +26,15 @@ import org.jf.dexlib2.iface.reference.StringReference;
 import org.jf.dexlib2.iface.reference.TypeReference;
 
 public class 分析依赖引用 {
+	
+	static String inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.4/AIDE+_2.4.zip";
+	public static void main_1( String[] args ) throws Exception {
+		
+	}
+	
+	
+	
+	
 
 	public static interface ClassDefTypeFilter {
 		public boolean accept( String classDefType );
@@ -34,11 +43,9 @@ public class 分析依赖引用 {
 	 * 在dex中，从不满足filter包名条件的类中 ->  搜索是否引用了 非filter2包名条件下的类
 	 * 遍历A包下的类 有无引用 B包下的类
 	 */
-	public static void main33( String[] args ) throws Exception {
+	public static void main_33( String[] args ) throws Exception {
 		final Set<String> references = new HashSet<>();
-
 		args = new String[]{};
-
 		for ( String type : args ) {
 			references.add(type);
 		}
@@ -123,20 +130,49 @@ public class 分析依赖引用 {
 	// Dx.jar
 	public static void main( String[] args ) throws Exception {
 		String inputDexs = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus/aide_plus_2.4/AIDE+_2.4.zip";
-
 		// findDx(inputDexs);
-		findJGit(inputDexs);
-
+		// findJGit(inputDexs);
 		// findGsch(inputDexs);
 		// findZipsignerLib(inputDexs); // OK
-
 		// findBouncyCastleLib(inputDexs); // 完成 -> spongycastle
-
 		// findProbelytics(inputDexs);
-
+		find(inputDexs);
+		
 		System.out.println("完成");
 	}
+	private static void find( String inputDexs ) throws IOException {
+		// 从 "Lcom/jcraft/jsch/" 查找 "Labcd/"
+		final String[] filterAPrefixs = new String[]{
+			// "Lcom/google/",
+			// "Lcom/google/android/gms/ads/"
+			// "Lcom/dropbox/client2/android/"
+			// "Lcom/android/billingclient/api/"
+			// "Lcom/google/",
+			// "Lcom/aide/licensing/",
+			// "Lcom/aide/codemodel/api/",
+			// "Lcom/aide/codemodel/AIDEModel",
+			// "Lcom/aide/codemodel/language/java/",
+			"Lcom/aide/codemodel/language/xml/",
+			// "L",
+			// "L",
+			// "L",
+			
+		};
 
+		final String[] filterBPrefixs = new String[]{"Labcd/"};
+
+		List<String> arrayList = findTypeReferences(inputDexs, filterAPrefixs, filterBPrefixs, false, 20);
+		System.out.println();
+		System.out.printf("references size %s\n", arrayList.size());
+
+		for ( String type : arrayList ) {
+			if ( !type.startsWith(filterBPrefixs[0]) ) {
+				continue;
+			}
+			System.out.printf("%s -> %s\n", type, type.replace(filterBPrefixs[0], filterAPrefixs[0]));
+		}
+
+	}
 	private static void findProbelytics( String inputDexs ) throws IOException {
 		// 从 "Lcom/jcraft/jsch/" 查找 "Labcd/"
 		final String[] filterAPrefixs = new String[]{
@@ -237,7 +273,10 @@ public class 分析依赖引用 {
 			System.out.printf("%s -> %s\n", type, type.replace(filterBPrefixs[0], filterAPrefixs[0]));
 		}
 	}
-
+	
+	/**
+	 * 查找 dx 
+	 */
 	private static void findDx( String inputDexs ) throws IOException {
 		final String[] filterAPrefixs = new String[]{"Labcd/"};
 		final String[] filterBPrefixs = new String[]{"Lcom/android/dx/"};
@@ -532,8 +571,6 @@ public class 分析依赖引用 {
 	/**
 	 * 搜索 从filter中使用 filter2的类
 	 */
-
-
 	public static interface PrefixFilter {
 		public boolean filter( String classType );
 	}

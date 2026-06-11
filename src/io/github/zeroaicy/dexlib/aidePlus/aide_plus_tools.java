@@ -5,62 +5,62 @@ import java.util.Map;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class aide_plus_tools extends aide_plus{
-	
+public class aide_plus_tools extends aide_plus {
+
 	private final String key;
 	private String lastVersion;
 	private String version;
 
 	private boolean repairAnalysis;
 	private boolean onlyOutputMapping;
-	
-	public aide_plus_tools(String lastVersion, String version){
+
+	public aide_plus_tools(String lastVersion, String version) {
 		this.key = lastVersion;
 		this.lastVersion = lastVersion;
 		this.version = version;
 	}
-	public aide_plus_tools(String lastVersion, String version, boolean repairAnalysis){
+	public aide_plus_tools(String lastVersion, String version, boolean repairAnalysis) {
 		this.key = lastVersion;
 		this.lastVersion = lastVersion;
-		
+
 		this.version = version;
 		this.repairAnalysis = repairAnalysis;
 	}
-	
-	public aide_plus_tools(String key, String lastVersion, String version, boolean repairAnalysis){
+
+	public aide_plus_tools(String key, String lastVersion, String version, boolean repairAnalysis) {
 		this.key = key;
 		this.lastVersion = lastVersion;
-		
+
 		this.version = version;
 		this.repairAnalysis = repairAnalysis;
 	}
-	
-	public void setRepairAnalysis(boolean repairAnalysis){
+
+	public void setRepairAnalysis(boolean repairAnalysis) {
 		this.repairAnalysis = repairAnalysis;
 	}
 	@Override
-	public boolean getRepairAnalysis(){
+	public boolean getRepairAnalysis() {
 		return this.repairAnalysis;
 	}
-	public void setOnlyOutputMapping(boolean onlyOutputMapping){
+	public void setOnlyOutputMapping(boolean onlyOutputMapping) {
 		this.onlyOutputMapping = onlyOutputMapping;
 	}
 	@Override
-	protected boolean getOnlyOutputMapping(){
+	protected boolean getOnlyOutputMapping() {
 		return this.onlyOutputMapping;
 	}
-	
+
 	@Override
 	public String getKey() {
 		return this.key;
 	}
 	@Override
-	public String getLastVersion(){
+	public String getLastVersion() {
 		return this.lastVersion;
 	}
 
 	@Override
-	public String getVersion(){
+	public String getVersion() {
 		return this.version;
 	}
 
@@ -68,65 +68,67 @@ public class aide_plus_tools extends aide_plus{
 	public void run() throws IOException {
 		super.run();
 	}
-	
+
 	@Override
 	public String toString() {
 		return String.format("lastVersion %s -> version %s ", lastVersion, version);
 	}
 	
-	public static class aide_plus_info{
-		
+	public static class aide_plus_info {
+
 		public final String key;
 		public final String lastVersion;
 		public final String[] versions;
 		public final boolean repairAnalysis;
-		final Map<String, String>  switchMap = new HashMap<>();
-		
-		public aide_plus_info(String lastVersion, String version, boolean repairAnalysis){
+		final Map<String, String> switchMap = new HashMap<>();
+
+		public aide_plus_info(String lastVersion, String version, boolean repairAnalysis) {
 			this.lastVersion = lastVersion;
-			
+
 			this.versions = new String[1];
 			this.versions[0] = version;
 			this.key = this.versions[0];
-			
+
 			this.repairAnalysis = repairAnalysis;
 		}
-		public aide_plus_info(String key, boolean repairAnalysis, String lastVersion, String version){
+		public aide_plus_info(String key, boolean repairAnalysis, String lastVersion, String version) {
 			this.key = key;
 			this.repairAnalysis = repairAnalysis;
-			
+
 			this.lastVersion = lastVersion;
-			
+
 			this.versions = new String[1];
 			this.versions[0] = version;
 		}
-		
-		public aide_plus_info(String key, boolean repairAnalysis, String lastVersion, String... versions){
+
+		public aide_plus_info(String key, boolean repairAnalysis, String lastVersion, String... versions) {
 			this.key = key;
 			this.repairAnalysis = repairAnalysis;
-			
+
 			this.lastVersion = lastVersion;
 			this.versions = versions;
 
 		}
-		
-		public Map<String, String> getSwitchMap(){
+
+		public Map<String, String> getSwitchMap() {
 			return switchMap;
 		}
 
 		@Override
 		public String toString() {
-			return String.format("lastVersion %s -> versions %s ", lastVersion, Arrays.toString( versions ));
+			return String.format("lastVersion %s -> versions %s ", lastVersion, Arrays.toString(versions));
 		}
+		
 		
 	}
 
 	static Map<String, aide_plus_info> aide_plus_info_map;
-		static{
+	static {
 		aide_plus_info_map = new HashMap<>();
 		init();
 	}
-	private static void init(){
+
+	private static void init() {
 		aide_plus_info aide_plus_info = new aide_plus_info("0", "1", true);
 		put(aide_plus_info);
 
@@ -134,84 +136,108 @@ public class aide_plus_tools extends aide_plus{
 		put(aide_plus_info);
 		//aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
 		//aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
-		
+
 		//2.1
 		aide_plus_info = new aide_plus_info("2.0", "2.1", false);
 		put(aide_plus_info);
-		
+
 		//2.2
 		aide_plus_info = new aide_plus_info("2.1", "2.2", false);
 		//aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
 		aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
-		
+
 		put(aide_plus_info);
-		
+
 		//2.3
 		aide_plus_info = new aide_plus_info("2.2", "2.3", false);
 		//aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
 		aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
-		
+
 		put(aide_plus_info);
-		
+
 		//* 2.3.1
 		aide_plus_info = new aide_plus_info("2.3.1", true, "0", "1", "2.0", "2.1", "2.2", "2.3");
-		aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
+		// aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
 		aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
 
 		put(aide_plus_info);
 		//*/
-		
+
 		// 2.4 
 		aide_plus_info = new aide_plus_info("2.3", "2.4", false);
-		//aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
-		aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
-		put(aide_plus_info);
 		
+		// aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
+		aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
+		aide_plus_info.getSwitchMap().put(SwitchNameConstants.androidSdkDexPath, "android_sdk/android-36.dex");
+		
+		put(aide_plus_info);
+
 		//2.5
 		aide_plus_info = new aide_plus_info("2.4", "2.5", false);
-		//aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
+		// aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
 		aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
-		put(aide_plus_info);
+		aide_plus_info.getSwitchMap().put(SwitchNameConstants.androidSdkDexPath, "android_sdk/android-36.dex");
 		
+		put(aide_plus_info);
+
 		/* 2.3.1
 		aide_plus_info = new aide_plus_info("2.3.1", false, "2.1", "2.2", "2.3");
 		//aide_plus_info.getSwitchMap().put(SwitchNameConstants.onlyOutputMapping, null);
 		aide_plus_info.getSwitchMap().put(SwitchNameConstants.checkRevertMapping, null);
-
+		
 		put(aide_plus_info);
 		//*/
-		
 	}
 
-	private static void put(aide_plus_tools.aide_plus_info aide_plus_info){
+	private static void put(aide_plus_tools.aide_plus_info aide_plus_info) {
 		aide_plus_info_map.put(aide_plus_info.key, aide_plus_info);
 	}
+	
 
-	public static void runAidePlus(String key) throws IOException{
-		
+	private static String rootDataDir;
+	
+	public static  void setRootDataDir(String rootDataDirPath) {
+		aide_plus_tools.rootDataDir = rootDataDirPath;
+	}
+	public static  String getRootDataDir() {
+		return aide_plus_tools.rootDataDir;
+	}
+	
+	public static void runAidePlus(String key) throws IOException {
+
 		aide_plus_info info = aide_plus_info_map.get(key);
-		
-		if ( info == null ){
+
+		if (info == null) {
 			throw new Error("没有找到版本 " + key);
 		}
 		String lastVersion = info.lastVersion;
-		
+
 		boolean repairAnalysis = info.repairAnalysis;
-		
-		System.out.println( info );
-		
-		for(String version : info.versions){
-			
+
+		System.out.println(info);
+
+		for (String version : info.versions) {
+
 			aide_plus_tools aide_plus_tools = new aide_plus_tools(info.key, lastVersion, version, repairAnalysis);
-			aide_plus_tools.configure(info.getSwitchMap());
-			
+			if( rootDataDir != null ){
+				aide_plus_tools.setRootDataDirPath(rootDataDir);
+			}
+			Map<String, String> switchMap = info.getSwitchMap();
+			if( switchMap.containsKey(SwitchNameConstants.androidSdkDexPath)){
+				String androidSdkDexPath = switchMap.get(SwitchNameConstants.androidSdkDexPath);
+				if( androidSdkDexPath != null && !androidSdkDexPath.startsWith("/")){
+					switchMap.put(SwitchNameConstants.androidSdkDexPath, aide_plus_tools.getRootDataDirPath() + "/" + androidSdkDexPath);
+				}
+			}
+			aide_plus_tools.configure(switchMap);
 			System.out.println(aide_plus_tools);
 			aide_plus_tools.run();
-			
-			if( repairAnalysis ){
+
+			if (repairAnalysis) {
 				repairAnalysis = false;
 			}
 			lastVersion = version;
 		}
 	}
 }
+

@@ -1,20 +1,9 @@
 package io.github.zeroaicy.dexlib.aidePlus.extend;
-import io.github.zeroaicy.dexlib.analysis.RevertMappingData;
-import io.github.zeroaicy.dexlib.analysis.RewriterClassData;
-import io.github.zeroaicy.tools.files.OpenFile;
-import io.github.zeroaicy.util.FileUtil;
-import java.io.File;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.ArrayList;
-import java.util.Collections;
-import io.github.zeroaicy.dexlib.aidePlus.extend.RewriterSmali.LineNumberWrapper;
-import io.github.zeroaicy.dexlib.aidePlus.extend.RewriterSmali.Field;
-import io.github.zeroaicy.dexlib.aidePlus.extend.RewriterSmali.Method;
-import java.util.Set;
-import java.util.Map.Entry;
+import io.github.zeroaicy.dexlib.analysis.*;
+import io.github.zeroaicy.tools.files.*;
+import io.github.zeroaicy.util.*;
+import java.io.*;
+import java.util.*;
 
 public class RewriterSmali {
 

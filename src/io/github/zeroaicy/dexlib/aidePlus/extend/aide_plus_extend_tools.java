@@ -68,7 +68,7 @@ public class aide_plus_extend_tools extends aide_plus_extend{
 		aide_plus_info_map.put(aide_plus_info.version, aide_plus_info);
 		
 		//2.3
-		aide_plus_info = new aide_plus_info("2.3", "2.3.5", false);
+		aide_plus_info = new aide_plus_info("2.3", "2.4", false);
 		aide_plus_info_map.put(aide_plus_info.version, aide_plus_info);
 		
 	}

@@ -22,7 +22,7 @@ import org.jf.dexlib2.immutable.value.ImmutableTypeEncodedValue;
 import org.jf.dexlib2.rewriter.ClassDefRewriter;
 import org.jf.dexlib2.rewriter.Rewriter;
 import org.jf.dexlib2.rewriter.Rewriters;
-import io.github.zeroaicy.dexlib.rewriter.RevertClassDefRewriter.RevertAnnotationStringElement;
+import org.jf.dexlib2.iface.Method;
 
 public class RevertClassDefRewriter extends ClassDefRewriter {
 
@@ -63,6 +63,11 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 			return accessFlags;
 		}
 
+		@Override
+		public Iterable<? extends Method> getMethods() {
+			return super.getMethods();
+		}
+
 		// 类注解
 		@Override
 		public Set<? extends Annotation> getAnnotations( ) {
@@ -100,10 +105,12 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 					default:
 						// 只过滤 InnerClass 与 MemberClasses注解
 						annotations.add(annotationRewriter.rewrite(annotation));
-
 						break;
 				}
 			}
+			// 防止null
+			annotations.remove(null);
+
 			if ( isRepairAnalysis ) {
 				//启用修复分析时才重写子类信息
 				repairMemberClassesAnnotation(annotations);
@@ -180,7 +187,8 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 						String currentClassType = rewriterClassData == null ? classType : rewriterClassData.getRenamed();
 						RevertClassDefRewriter.RevertAnnotationStringElement annotationElement2 = getRevertAnnotationElement(currentClassType, annotationElement);
 						elements.add(annotationElement2);
-					} else {
+					}
+					else {
 						elements.add(annotationElement);
 					}
 				}
@@ -190,8 +198,10 @@ public class RevertClassDefRewriter extends ClassDefRewriter {
 		public RevertAnnotationStringElement getRevertAnnotationElement( String currentClassType, AnnotationElement annotationElement ) {
 			int valueStart = currentClassType.lastIndexOf('$');
 			if ( ( valueStart ) > 0 ) {
-			} else if ( ( valueStart = currentClassType.lastIndexOf('/') ) > 0 ) {
-			} else {
+			}
+			else if ( ( valueStart = currentClassType.lastIndexOf('/') ) > 0 ) {
+			}
+			else {
 				valueStart = 0;
 			}
 			String value = currentClassType.substring(valueStart + 1, currentClassType.length() - 1);

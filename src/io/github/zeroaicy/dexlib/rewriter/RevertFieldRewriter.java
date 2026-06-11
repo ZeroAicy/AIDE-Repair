@@ -12,6 +12,7 @@ import org.jf.dexlib2.rewriter.FieldRewriter;
 import org.jf.dexlib2.rewriter.RewriterUtils;
 import org.jf.dexlib2.rewriter.Rewriters;
 import java.util.HashSet;
+import org.jf.dexlib2.rewriter.Rewriter;
 
 public class RevertFieldRewriter extends FieldRewriter {
 
@@ -33,8 +34,11 @@ public class RevertFieldRewriter extends FieldRewriter {
 
         public RewrittenField(@Nonnull Field field) {
             this.field = field;
-			this.rewriteAnnotations = new HashSet<Annotation>( RewriterUtils.rewriteSet(rewriters.getAnnotationRewriter(), field.getAnnotations()) );
-        }
+			Rewriter<Annotation> annotationRewriter = rewriters.getAnnotationRewriter();
+			Set<? extends Annotation> annotations = field.getAnnotations();
+			this.rewriteAnnotations = new HashSet<Annotation>( RewriterUtils.rewriteSet(annotationRewriter, annotations) );
+			this.rewriteAnnotations.remove(null);
+		}
 
         @Override @Nonnull public String getDefiningClass() {
             return rewriters.getFieldReferenceRewriter().rewrite(field).getDefiningClass();

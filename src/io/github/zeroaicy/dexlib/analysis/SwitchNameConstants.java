@@ -17,4 +17,7 @@ public interface SwitchNameConstants{
 
 	public static final String contrary = "contrary";
 	
+	public static final String androidSdkDexPath = "androidSdkDexPath";
+	
+	
 }

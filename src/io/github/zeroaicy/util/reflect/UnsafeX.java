@@ -69,11 +69,11 @@ public class UnsafeX{
 	}
 
 	public long getLong(long address) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{
-		return (int)getLong.invoke(this.unsafe, address);
+		return (Long)getLong.invoke(this.unsafe, address);
 	}
 
 	public long getLong(Object obj, long offset) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{
-		return (int)getLong1.invoke(this.unsafe, obj, offset);
+		return (Long)getLong1.invoke(this.unsafe, obj, offset);
 	}
 
 	public static UnsafeX getUnsafe() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{

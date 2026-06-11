@@ -6,39 +6,53 @@ import org.jf.dexlib2.iface.reference.MethodReference;
 import org.jf.dexlib2.rewriter.MethodReferenceRewriter;
 import org.jf.dexlib2.rewriter.Rewriters;
 
-public class RevertMethodReferenceRewriter extends MethodReferenceRewriter{
+public class RevertMethodReferenceRewriter extends MethodReferenceRewriter {
 	private RevertRewriterModule revertRewriterModule;
 
-	public RevertMethodReferenceRewriter(Rewriters rewriters, RevertRewriterModule revertRewriterModule){
+	public RevertMethodReferenceRewriter(Rewriters rewriters, RevertRewriterModule revertRewriterModule) {
 		super(rewriters);
 		this.revertRewriterModule = revertRewriterModule;
 	}
 
 	@Override
-	public MethodReference rewrite(MethodReference methodReference){
+	public MethodReference rewrite(MethodReference methodReference) {
 		return new RevertMethodReference(methodReference);
 	}
-	
-	public class RevertMethodReference extends RewrittenMethodReference{
 
-		public RevertMethodReference(MethodReference methodReference){
+	public class RevertMethodReference extends RewrittenMethodReference {
+
+		public RevertMethodReference(MethodReference methodReference) {
 			super(methodReference);
 		}
 		@Override
 		@Nonnull
-		public String getName(){
+		public String getName() {
 			String definingClass = methodReference.getDefiningClass();
 			//根据定义引用方法的类的类型来查找重命名规则
 			//因此严格的遵守RewriterClassData中存在规则才修改
 			RewriterClassData rewriterClassData = revertRewriterModule.getRewriterClassData(definingClass);
-			if ( rewriterClassData != null ){
-				String methodSignature = RevertRewriterModule.getMethodSignature(methodReference);
+			if (rewriterClassData != null) {
+				String methodSignature = getMethodSignature(methodReference);
 				RewriterClassData.MethodData methodData = rewriterClassData.getMethodData(methodSignature);
-				if ( methodData != null ){
+				if (methodData != null) {
 					return methodData.renamed;
 				}
 			}
 			return methodReference.getName();
 		}
 	}
+
+	public static String getMethodSignature(MethodReference methodReference) {
+		StringBuilder parameterTypeSb = new StringBuilder();
+		parameterTypeSb.append('(');
+		for (CharSequence parameterType : methodReference.getParameterTypes()) {
+			parameterTypeSb.append(parameterType);
+		}
+		parameterTypeSb.append(')');
+
+		String methodSignature = methodReference.getName() + parameterTypeSb.toString();
+		return methodSignature;
+	}
+
 }
+

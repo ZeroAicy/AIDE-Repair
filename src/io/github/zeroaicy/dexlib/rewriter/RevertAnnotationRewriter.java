@@ -39,6 +39,13 @@ public class RevertAnnotationRewriter extends AnnotationRewriter {
 	@Nonnull
 	@Override
 	public Annotation rewrite(@Nonnull Annotation value) {
+		
+		/*
+		if( value.getType().contains("com/probelytics")){
+			// new Throwable().printStackTrace();
+			return null;
+		}
+		//*/
 		return new RewrittenAnnotation(value);
 	}
 

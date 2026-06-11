@@ -7,8 +7,17 @@ import io.github.zeroaicy.dexlib.analysis.SwitchNameConstants;
 import java.util.Collections;
 
 public abstract class aide_plus{
-	String rootDataDirPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus";
+	
+	protected String rootDataDirPath = "/storage/emulated/0/AppProjects1/.ZeroAicy/AIDE工具/AIDE底包混淆修复/data/aide_plus";
+	
+	public void setRootDataDirPath(String rootDataDirPath) {
+		this.rootDataDirPath = rootDataDirPath;
+	}
+	public String getRootDataDirPath(){
+		return this.rootDataDirPath;
+	}
 
+	
 	//当前版本数据路径
 	private String dataDirPath;
 	//输入dexs路径
