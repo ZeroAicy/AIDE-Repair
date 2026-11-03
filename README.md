@@ -16,16 +16,25 @@ java -Xmx6g -cp "out;libs/*" io.github.zeroaicy.dexlib.aidePlus.DesktopMain data
 版本 2.4 登记了 `android_sdk/android-36.dex`（数据目录下）；电脑上可用 SDK build-tools 的 d8 转换
 `platforms/android-36/android.jar` 得到（`d8 --release --min-api 26 --no-desugaring --output <目录> android.jar`，把生成的 classes.dex 改名放入）。
 
-## 2.4 规则中的代码模型改名
+## 2.4 规则中的还原改名
 
-`data/aide_plus/aide_plus_2.4/aide+_mapping_2.4.txt` 在原有规则上并入了代码模型的改名（输入仍是 `AIDE+_2.3.zip`）：
+`data/aide_plus/aide_plus_2.4/aide+_mapping_2.4.txt` 在原有规则上并入了还原代码模型时得到的改名（输入仍是 `AIDE+_2.3.zip`）：
 
 - 代码模型范围（`com.aide.codemodel`、`com.aide.engine` 及其引用的 `abcd` 类，共 431 个类）内的类名、字段、方法采用依据还原的代码模型源码确定的名字；
-  原规则对这些类的 236 条改名不再生效（其中与新命名不同的有 12 个类名、45 个字段、79 个方法）。
-- 范围外（界面、JGit、spongycastle 等）保留原规则。实现代码模型接口的 10 个界面监听类（如 `EngineService$b`、`OpenFileService$a`），
-  其方法随接口改名，以保证重写关系不断。
+  原规则对这些类的 236 条改名不再生效（其中与新命名不同的有 12 个类名、45 个字段、79 个方法）。实现代码模型接口的 10 个界面监听类
+  （如 `EngineService$b`、`OpenFileService$a`），其方法随接口改名，以保证重写关系不断。
+- 范围外（界面、JGit、spongycastle 等）以原规则为准，原规则没有命名的部分补上还原时得到的名字（内置库按上游原名推断）：
+  - 原规则只移了包、类名仍是混淆名的 554 个类，改为“原规则的包 + 还原的类名”，如 `org/eclipse/jgit/a30` → `org/eclipse/jgit/DiffConfig`；
+    包不拆分，不影响包内访问。原规则给了外部类名、内部类仍是混淆名的 49 个内部类补上名字，如 `DxTools$a` → `DxTools$FieldIdMapper`。
+  - 补上约 6000 条成员改名（作者原有的 480 条成员改名全部保留）；与原规则命名不同的 5 处（JGit 的 `Repository`、`RevCommit`、`SystemReader` 方法）保留原规则。
+  - 原规则中 4 个内部类没有跟随外部类（如 `org/eclipse/jgit/f70$a` 而外部类是 `org/eclipse/jgit/lib/ObjectLoader`，本工具会报“内部类-新名未跟随外部类”），
+    改为跟随外部类（`ObjectLoader$SmallObject`）。
 - 原规则里同一个类或成员重复给出不同新名时，与本工具一样取先出现的那条（如 `abcd/lo0`、`abcd/bp0`），合并后只保留生效的规则。
-- 合并时校验：类名唯一、每个类的字段与方法不重名、同一重写链同名、改名后不与原本无关的父类方法（含 android.jar）意外构成重写。
+- 合并时校验：类名唯一、每个类的字段与方法不重名、同一重写链同名、改名后不与原本无关的父类方法（含 android.jar）意外构成重写；
+  本工具输出的完整规则同样通过校验。
+- 运行时多出 22 条“严重警告⚠️:存在从类…重写为父类… -> clone()/next()”：这些是还原协变返回的重写（如 JGit 的抽象类声明
+  `public abstract X clone()`，桥接方法 `Object clone()` 在父类中，带 BRIDGE|SYNTHETIC），本工具只在当前类中找桥接方法所以报严重；
+  dex 中两者描述符不同，运行时分派不变。
 
 原来的 `AIDE+_2.4.zip`、`aide+_mapping_2.4.txt`、`aide+_mapping_output_2.4.txt` 原样存于 `aide_plus_2.4/备份[封存]/aide_plus_2.4-备份[封存].zip`。
 原来的 `AIDE+_2.4.zip` 比当时的规则旧，用当时的规则重跑会多出 `SyntaxTreeStyles → SyntaxToken` 等后加的改名；现在的输出由本规则重新生成。
