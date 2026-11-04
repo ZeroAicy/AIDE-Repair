@@ -29,10 +29,16 @@ java -Xmx6g -cp "out;libs/*" io.github.zeroaicy.dexlib.aidePlus.DesktopMain data
   - 补上约 6000 条成员改名（作者原有的 480 条成员改名全部保留）；与原规则命名不同的 5 处（JGit 的 `Repository`、`RevCommit`、`SystemReader` 方法）保留原规则。
   - 原规则中 4 个内部类没有跟随外部类（如 `org/eclipse/jgit/f70$a` 而外部类是 `org/eclipse/jgit/lib/ObjectLoader`，本工具会报“内部类-新名未跟随外部类”），
     改为跟随外部类（`ObjectLoader$SmallObject`）。
+- 范围外其余仍是混淆名的部分（界面、编辑器、构建、Git 界面、probelytics，内置库中未命名的类与成员，以及 kellinwood zipsigner、OUYA、
+  Dropbox v1、结算/授权/安装来源 AIDL 等小库）也补上了名字：开源库与上游原版 jar 逐类、逐成员匹配取原名；枚举常量与 `$VALUES`
+  按静态初始化中传给枚举构造器的字符串精确还原；库中带字符串常量初始化的字段（OID 常量、JGit 目录字段等）按常量与上游核对；
+  AIDE 自有代码按实现命名；javac 生成的静态访问器补成 `access$000`、`access$100`…。合并后共 4803 个类有规则，范围外新增 28359 条，
+  与原规则冲突时保留原规则 175 处。谷歌闭源库（play-services、firebase、ads 等，上游发布的 jar 本身就是混淆名）不处理；
+  其余仍是混淆名的约 180 个类、620 个字段、480 个方法（没有可靠依据的少量成员）。
 - 原规则里同一个类或成员重复给出不同新名时，与本工具一样取先出现的那条（如 `abcd/lo0`、`abcd/bp0`），合并后只保留生效的规则。
 - 合并时校验：类名唯一、每个类的字段与方法不重名、同一重写链同名、改名后不与原本无关的父类方法（含 android.jar）意外构成重写；
   本工具输出的完整规则同样通过校验。
-- 运行时多出 22 条“严重警告⚠️:存在从类…重写为父类… -> clone()/next()”：这些是还原协变返回的重写（如 JGit 的抽象类声明
+- 运行时多出 23 条“严重警告⚠️:存在从类…重写为父类… -> clone()/next()”：这些是还原协变返回的重写（如 JGit 的抽象类声明
   `public abstract X clone()`，桥接方法 `Object clone()` 在父类中，带 BRIDGE|SYNTHETIC），本工具只在当前类中找桥接方法所以报严重；
   dex 中两者描述符不同，运行时分派不变。
 
