@@ -8158,6 +8158,8 @@ Lcom/aide/codemodel/api/ArrayType; -> Lcom/aide/codemodel/api/ArrayType;
 Lcom/aide/codemodel/api/ClassType$a; -> Lcom/aide/codemodel/api/ClassType$AccessTag;
 Lcom/aide/codemodel/api/ClassType$Data; -> Lcom/aide/codemodel/api/ClassType$Data;
 	dx_未知 -> allConstructors
+	allMemberOperators -> allExplicitMemberFields
+	allExplicitMemberFields -> allMemberOperators
 	Qq -> extraIds1
 	sy -> extraIds2
 	x9_未知 -> extraTypes
@@ -8204,6 +8206,7 @@ Lcom/aide/codemodel/api/EntitySpace$FileInfo; -> Lcom/aide/codemodel/api/EntityS
 	yS() -> getToplevelClassTypes
 	nw() -> loadPackage
 	sG(J) -> setDeclDigest
+	getVersion(J) -> setVersion
 	sh(I) -> subtractMemoryUsage
 	Sf() -> unload
 Lcom/aide/codemodel/api/EntitySpace; -> Lcom/aide/codemodel/api/EntitySpace;
@@ -8272,6 +8275,7 @@ Lcom/aide/codemodel/api/EntitySpace; -> Lcom/aide/codemodel/api/EntitySpace;
 	v5(II) -> isFriendAssembly
 	iW(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/abstraction/Language;Lcom/aide/codemodel/api/Type;Lcom/aide/codemodel/api/Type;) -> isImplicitConvertibleTo
 	sE(Lcom/aide/codemodel/api/ClassType;) -> loadClassType
+	getDeclaredMemberFields() -> loadNamespaceIndex
 	pN(Lcom/aide/codemodel/api/ClassType;) -> loadSuperClassTypes
 	oy(Lcom/aide/codemodel/api/ClassType;) -> loadSupertypes
 	kf() -> reloadNamespaces
@@ -8702,6 +8706,7 @@ Lcom/aide/codemodel/api/SyntaxTree; -> Lcom/aide/codemodel/api/SyntaxTree;
 	pN(III) -> findNodeNear
 	CU(IIIII) -> findSmallestNodeAt
 	ce(III) -> findTokenNodeNear
+	getAttribute(I) -> getAttrDAIndex
 	sy(IIII) -> getClassBodyNodeAt
 	x9(IIII) -> getExpressionStatementNodeAt
 	ko(II) -> getIdentifierNodeAt
@@ -8719,6 +8724,8 @@ Lcom/aide/codemodel/api/SyntaxTree; -> Lcom/aide/codemodel/api/SyntaxTree;
 	Qq(IIII) -> getStatementsInRange
 	Pa(II) -> getTokenNodeNear
 	oa(I) -> getTypeArgumentCount
+	getAttrDAIndex(I) -> hasAttrDAIndex
+	declareAttrTarget(I) -> hasAttrTarget
 	jO(II) -> identifierNodeAt
 	sT(I) -> isAssignmentTarget
 	GK(I) -> isDeclarationIdentifier
@@ -8948,24 +8955,23 @@ Lcom/aide/codemodel/api/callback/CodeMetricsCallback; -> Lcom/aide/codemodel/api
 	j6(JIIIIII) -> totalMetrics
 Lcom/aide/codemodel/api/callback/DebugMetadataCallback; -> Lcom/aide/codemodel/api/callback/DebugMetadataCallback;
 	Hw() -> pushArrayElement
+	u7() -> pushArrayLength
 	v5(Ljava/lang/String;) -> pushBinary
 	Zo(Ljava/lang/Class;Ljava/lang/Class;) -> pushCast
 	FH(Ljava/lang/Object;) -> pushConstant
-	gn(Ljava/lang/String;) -> pushField
 	VH(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;I) -> pushInvocation
 	DW(ZZLjava/lang/String;Ljava/lang/String;) -> pushMember
 	j6(Ljava/lang/String;) -> pushName
-	u7() -> pushUnary
+	gn(Ljava/lang/String;) -> pushPrefixOperator
 Lcom/aide/codemodel/api/callback/HighlighterCallback; -> Lcom/aide/codemodel/api/callback/HighlighterCallback;
 	j6() -> clearLexicalStyles
 Lcom/aide/codemodel/api/callback/RefactoringCallback; -> Lcom/aide/codemodel/api/callback/RefactoringCallback;
-	vy(Lcom/aide/codemodel/api/FileEntry;IIIIII) -> addLinkedRange
 	Ws(Lcom/aide/codemodel/api/FileEntry;IIII) -> addSelection
-	U2(Lcom/aide/codemodel/api/FileEntry;IIIIII) -> addSelectionWithCaret
 	v5(Ljava/lang/String;Ljava/util/Hashtable;) -> ambiguousImports
 	g3() -> begin
 	KD() -> changeSignatureFinished
 	j6(Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;III) -> checkRenameResult
+	vy(Lcom/aide/codemodel/api/FileEntry;IIIIII) -> copyText
 	dx(Lcom/aide/codemodel/api/FileEntry;Ljava/lang/String;) -> createFile
 	ca() -> createMemberFinished
 	Mz() -> createPropertyFinished
@@ -8975,6 +8981,7 @@ Lcom/aide/codemodel/api/callback/RefactoringCallback; -> Lcom/aide/codemodel/api
 	BT() -> finishBatch
 	cb() -> finishFileModifications
 	Hw() -> finished
+	Sf(Lcom/aide/codemodel/api/FileEntry;II) -> formatLines
 	EQ(Lcom/aide/codemodel/api/abstraction/Language;Ljava/util/Set;) -> formatOptionsLearned
 	I(Lcom/aide/codemodel/api/FileEntry;IIII) -> highlightRange
 	j3() -> implementFinished
@@ -8985,12 +8992,13 @@ Lcom/aide/codemodel/api/callback/RefactoringCallback; -> Lcom/aide/codemodel/api
 	J0() -> introduceVariableFinished
 	sh(Lcom/aide/codemodel/api/FileEntry;IIII) -> markRange
 	rN() -> moveFinished
+	U2(Lcom/aide/codemodel/api/FileEntry;IIIIII) -> moveText
 	Mr() -> organizeImportsFinished
 	lg(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/FileEntry;) -> renameFile
 	sG(Lcom/aide/codemodel/api/FileEntry;Ljava/lang/String;) -> renameFileTo
 	cn() -> renameFinished
 	nw(Lcom/aide/codemodel/api/FileEntry;IIIILjava/lang/String;) -> replace
-	a8(Lcom/aide/codemodel/api/FileEntry;IIIILjava/lang/String;) -> replaceTextNoFormat
+	a8(Lcom/aide/codemodel/api/FileEntry;IIIILjava/lang/String;) -> replaceKeepingCaret
 	ef(Ljava/lang/String;) -> reportChangeSignatureError
 	Zo(Ljava/lang/String;) -> reportCreatePropertyError
 	P8(Ljava/lang/String;) -> reportDocumentizeError
@@ -9003,7 +9011,6 @@ Lcom/aide/codemodel/api/callback/RefactoringCallback; -> Lcom/aide/codemodel/api
 	gn(Ljava/lang/String;) -> reportRenameError
 	tp(Ljava/lang/String;) -> reportSurroundError
 	QX(Ljava/lang/String;) -> reportVariableError
-	Sf(Lcom/aide/codemodel/api/FileEntry;II) -> setCaret
 	we(Lcom/aide/codemodel/api/FileEntry;II) -> setCaretAt
 	gW(Lcom/aide/codemodel/api/FileEntry;III) -> setIndentation
 	aM() -> surroundFinished
@@ -9075,9 +9082,9 @@ Lcom/aide/codemodel/api/collections/ArrayOf; -> Lcom/aide/codemodel/api/collecti
 Lcom/aide/codemodel/api/collections/FunctionOfIntInt$a; -> Lcom/aide/codemodel/api/collections/FunctionOfIntInt$AccessTag;
 Lcom/aide/codemodel/api/collections/FunctionOfIntInt$Iterator; -> Lcom/aide/codemodel/api/collections/FunctionOfIntInt$Iterator;
 	j6 -> index
-	FH -> key
-	DW -> step
+	DW -> key
 	Hw -> this$0
+	FH -> value
 Lcom/aide/codemodel/api/collections/FunctionOfIntInt; -> Lcom/aide/codemodel/api/collections/FunctionOfIntInt;
 	u7 -> SIZES
 	FH -> oldkeys
@@ -10795,11 +10802,11 @@ Lcom/aide/codemodel/language/java/JavaSyntax; -> Lcom/aide/codemodel/language/ja
 	VH(I) -> isStatementTag
 	yS(I) -> isStructureNode
 Lcom/aide/codemodel/language/java/JavaTools; -> Lcom/aide/codemodel/language/java/JavaTools;
+	VH -> javaChangeSignature
 	DW -> javaCodeCompleter
 	FH -> javaCodeFormatter
 	Zo -> javaCodeGenerator
 	v5 -> javaExtractMethod
-	VH -> javaInlineMethod
 	gn -> javaLanguage
 	Hw -> javaTemplateEvaluator
 	u7 -> javaToCSharpConverter
@@ -10931,13 +10938,13 @@ Lcom/aide/codemodel/language/java/JavaTypeSystem; -> Lcom/aide/codemodel/languag
 	VH(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/Type;Lcom/aide/codemodel/api/Type;) -> isImplicitConvertible
 	eU(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Type;I) -> isMoreSpecific
 	n5(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Type;I) -> isMoreSpecificThan
-	iW(Lcom/aide/codemodel/api/Type;) -> isNullType
 	hK(Lcom/aide/codemodel/api/Member;) -> isObjectClone
 	Ws(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Member;) -> isOverrideCompatible
 	j3(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/Member;Lcom/aide/codemodel/api/Member;) -> isOverrideReturnCompatible
+	Jl(Lcom/aide/codemodel/api/Type;) -> isPrimitiveType
 	kf(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/Type;Lcom/aide/codemodel/api/Type;) -> isPrimitiveWidening
 	pO(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/Type;Lcom/aide/codemodel/api/Type;) -> isRawConversion
-	Jl(Lcom/aide/codemodel/api/Type;) -> isReferenceType
+	iW(Lcom/aide/codemodel/api/Type;) -> isReferenceType
 	fY(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/ClassType;Lcom/aide/codemodel/api/ClassType;) -> isSubclassOrSame
 	zh(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/Type;) -> isSwitchableBoxedType
 	e3(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/Type;) -> isThrowable
@@ -11216,8 +11223,8 @@ Lcom/aide/codemodel/language/js/JavaScriptSyntax; -> Lcom/aide/codemodel/languag
 	VH(I) -> isStatementTag
 	yS(I) -> isStructureNode
 Lcom/aide/codemodel/language/js/JavaScriptTools; -> Lcom/aide/codemodel/language/js/JavaScriptTools;
-	FH -> a7
-	DW -> b7
+	FH -> javaScriptCodeCompleter
+	DW -> javaScriptCodeFormatter
 	v5 -> javaScriptLanguage
 	Hw -> javaScriptTemplateEvaluator
 	j6 -> model
@@ -12039,12 +12046,14 @@ Lcom/aide/common/UndoManager; -> Lcom/aide/common/UndoManager;
 Lcom/aide/engine/m; -> Lcom/aide/engine/ArrayAccessExpression;
 	j6 -> array
 	DW -> index
+Lcom/aide/engine/n; -> Lcom/aide/engine/ArrayLengthExpression;
+	j6 -> array
 Lcom/aide/engine/o; -> Lcom/aide/engine/BinaryExpression;
 	j6 -> left
 	FH -> operator
 	DW -> right
 Lcom/aide/engine/s; -> Lcom/aide/engine/CastExpression;
-	j6 -> l
+	j6 -> expression
 	DW -> type
 Lcom/aide/engine/x; -> Lcom/aide/engine/ChangeSignatureData;
 	Hw -> parameterDefaults
@@ -12139,14 +12148,14 @@ Lcom/aide/engine/Engine$DaemonTask$CodeMetricsCallback; -> Lcom/aide/engine/Engi
 Lcom/aide/engine/Engine$DaemonTask$DebugMetadataCallback; -> Lcom/aide/engine/Engine$DaemonTask$DebugMetadataCallback;
 	j6 -> this$0
 	Hw() -> pushArrayElement
+	u7() -> pushArrayLength
 	v5(Ljava/lang/String;) -> pushBinary
 	Zo(Ljava/lang/Class;Ljava/lang/Class;) -> pushCast
 	FH(Ljava/lang/Object;) -> pushConstant
-	gn(Ljava/lang/String;) -> pushField
 	VH(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;I) -> pushInvocation
 	DW(ZZLjava/lang/String;Ljava/lang/String;) -> pushMember
 	j6(Ljava/lang/String;) -> pushName
-	u7() -> pushUnary
+	gn(Ljava/lang/String;) -> pushPrefixOperator
 Lcom/aide/engine/Engine$DaemonTask$HighlighterCallback; -> Lcom/aide/engine/Engine$DaemonTask$HighlighterCallback;
 	VH -> this$0
 	EQ(Lcom/aide/engine/SyntaxStyleType;IIII) -> addStyle
@@ -12168,17 +12177,16 @@ Lcom/aide/engine/Engine$DaemonTask$OpenFileCallback; -> Lcom/aide/engine/Engine$
 	gn() -> refresh
 	u7(Ljava/util/Hashtable;) -> setOpenFiles
 Lcom/aide/engine/Engine$DaemonTask$RefactoringCallback; -> Lcom/aide/engine/Engine$DaemonTask$RefactoringCallback;
+	j6 -> changeSignatureData
 	FH -> messages
 	DW -> modifications
 	Hw -> this$0
-	j6 -> x
-	vy(Lcom/aide/codemodel/api/FileEntry;IIIIII) -> addLinkedRange
 	Ws(Lcom/aide/codemodel/api/FileEntry;IIII) -> addSelection
-	U2(Lcom/aide/codemodel/api/FileEntry;IIIIII) -> addSelectionWithCaret
 	v5(Ljava/lang/String;Ljava/util/Hashtable;) -> ambiguousImports
 	g3() -> begin
 	KD() -> changeSignatureFinished
 	j6(Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;III) -> checkRenameResult
+	vy(Lcom/aide/codemodel/api/FileEntry;IIIIII) -> copyText
 	dx(Lcom/aide/codemodel/api/FileEntry;Ljava/lang/String;) -> createFile
 	ca() -> createMemberFinished
 	Mz() -> createPropertyFinished
@@ -12188,6 +12196,7 @@ Lcom/aide/engine/Engine$DaemonTask$RefactoringCallback; -> Lcom/aide/engine/Engi
 	BT() -> finishBatch
 	cb() -> finishFileModifications
 	Hw() -> finished
+	Sf(Lcom/aide/codemodel/api/FileEntry;II) -> formatLines
 	EQ(Lcom/aide/codemodel/api/abstraction/Language;Ljava/util/Set;) -> formatOptionsLearned
 	I(Lcom/aide/codemodel/api/FileEntry;IIII) -> highlightRange
 	j3() -> implementFinished
@@ -12198,12 +12207,13 @@ Lcom/aide/engine/Engine$DaemonTask$RefactoringCallback; -> Lcom/aide/engine/Engi
 	J0() -> introduceVariableFinished
 	sh(Lcom/aide/codemodel/api/FileEntry;IIII) -> markRange
 	rN() -> moveFinished
+	U2(Lcom/aide/codemodel/api/FileEntry;IIIIII) -> moveText
 	Mr() -> organizeImportsFinished
 	lg(Lcom/aide/codemodel/api/FileEntry;Lcom/aide/codemodel/api/FileEntry;) -> renameFile
 	sG(Lcom/aide/codemodel/api/FileEntry;Ljava/lang/String;) -> renameFileTo
 	cn() -> renameFinished
 	nw(Lcom/aide/codemodel/api/FileEntry;IIIILjava/lang/String;) -> replace
-	a8(Lcom/aide/codemodel/api/FileEntry;IIIILjava/lang/String;) -> replaceTextNoFormat
+	a8(Lcom/aide/codemodel/api/FileEntry;IIIILjava/lang/String;) -> replaceKeepingCaret
 	ef(Ljava/lang/String;) -> reportChangeSignatureError
 	Zo(Ljava/lang/String;) -> reportCreatePropertyError
 	P8(Ljava/lang/String;) -> reportDocumentizeError
@@ -12216,7 +12226,6 @@ Lcom/aide/engine/Engine$DaemonTask$RefactoringCallback; -> Lcom/aide/engine/Engi
 	gn(Ljava/lang/String;) -> reportRenameError
 	tp(Ljava/lang/String;) -> reportSurroundError
 	QX(Ljava/lang/String;) -> reportVariableError
-	Sf(Lcom/aide/codemodel/api/FileEntry;II) -> setCaret
 	we(Lcom/aide/codemodel/api/FileEntry;II) -> setCaretAt
 	gW(Lcom/aide/codemodel/api/FileEntry;III) -> setIndentation
 	aM() -> surroundFinished
@@ -12337,7 +12346,6 @@ Lcom/aide/engine/Engine$RefactoringAction; -> Lcom/aide/engine/Engine$Refactorin
 	IS -> $VALUES
 Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	iK -> $assertionsDisabled
-	VH -> a
 	e3 -> actionsEndColumn
 	eU -> actionsEndLine
 	kf -> actionsFile
@@ -12346,12 +12354,13 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	Jl -> actionsStartLine
 	P8 -> analysisRequested
 	vy -> applyFixRequested
-	DW -> b0
-	FH -> c
 	we -> cacheEnabled
 	J8 -> cacheKey
 	ct -> cachedResults
+	Pa -> changeSignatureData
 	MP -> closedFilePaths
+	Zo -> codeMetricsListener
+	VH -> compileListener
 	nw -> compileRequested
 	zh -> completionChar
 	jw -> completionColumn
@@ -12361,8 +12370,7 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	mb -> completionLine
 	KD -> completionRequested
 	k2 -> completionTriggerKind
-	Hw -> d
-	v5 -> d0
+	FH -> crashListener
 	sT -> debugClassEntries
 	Lz -> debugFieldEntries
 	Qq -> debugInfoRequested
@@ -12381,7 +12389,6 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	Z1 -> declarationFile
 	n5 -> declarationLine
 	sh -> declarationRequested
-	gn -> e0
 	om -> editorFile
 	fP -> engineId
 	zf -> engineVersion
@@ -12412,11 +12419,10 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	Ej -> formatOptionNames
 	oh -> formatOptionSetCache
 	T6 -> formatOptionValues
-	u7 -> g
-	tp -> i
+	u7 -> highlightingListener
+	tp -> htmlPreviewListener
 	yS -> idleRequested
 	oa -> importEntity
-	EQ -> j
 	a8 -> metricsCancelled
 	Cz -> metricsFiles
 	ef -> metricsRequested
@@ -12432,12 +12438,15 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	Of -> pendingFilePaths
 	b1 -> pendingFileReaders
 	PT -> pendingFileVersions
+	Hw -> progressListener
+	EQ -> readerFactory
 	ca -> rebuildRequested
 	ce -> refactoringArgs
 	ys -> refactoringEndColumn
 	a5 -> refactoringEndLine
 	oy -> refactoringFile
 	gG -> refactoringFileName
+	DW -> refactoringListener
 	wE -> refactoringOldName
 	cn -> refactoringRequested
 	qP -> refactoringResult
@@ -12450,6 +12459,7 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	U2 -> renameCancelled
 	e9 -> replaceFindText
 	q7 -> requestedEntity
+	v5 -> resultListener
 	Sf -> searchClassesRequested
 	vJ -> searchSymbolsRequested
 	Ev -> searchTextQuery
@@ -12478,16 +12488,14 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	Od -> templateColumn
 	XX -> templateFileRequested
 	cc -> templateLine
+	gn -> templateListener
 	br -> templateRequested
 	N0 -> templateResults
 	Xa -> usageColumn
 	jJ -> usageFile
 	Eq -> usageIncludeOverrides
 	CU -> usageLine
-	Pa -> x
-	Zo -> y
 	Z1() -> access$$assertionsDisabled
-	ep(Lcom/aide/engine/Engine;) -> access$a
 	J0(Lcom/aide/engine/Engine;) -> access$actionsEndColumn
 	we(Lcom/aide/engine/Engine;) -> access$actionsEndLine
 	J8(Lcom/aide/engine/Engine;) -> access$actionsFile
@@ -12496,12 +12504,13 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	tp(Lcom/aide/engine/Engine;) -> access$actionsStartLine
 	pN(Lcom/aide/engine/Engine;) -> access$analysisRequested
 	ba(Lcom/aide/engine/Engine;) -> access$applyFixRequested
-	AL(Lcom/aide/engine/Engine;) -> access$b0
-	HO(Lcom/aide/engine/Engine;) -> access$c
 	j6(Lcom/aide/engine/Engine;) -> access$cacheEnabled
 	n5(Lcom/aide/engine/Engine;) -> access$cacheKey
 	pl(Lcom/aide/engine/Engine;) -> access$cachedResults
+	Ev(Lcom/aide/engine/Engine;) -> access$changeSignatureData
 	cn(Lcom/aide/engine/Engine;) -> access$closedFilePaths
+	k2(Lcom/aide/engine/Engine;) -> access$codeMetricsListener
+	ep(Lcom/aide/engine/Engine;) -> access$compileListener
 	MP(Lcom/aide/engine/Engine;) -> access$compileRequested
 	hG(Lcom/aide/engine/Engine;) -> access$completionChar
 	wC(Lcom/aide/engine/Engine;) -> access$completionColumn
@@ -12511,8 +12520,7 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	Lx(Lcom/aide/engine/Engine;) -> access$completionLine
 	AE(Lcom/aide/engine/Engine;) -> access$completionRequested
 	FH(Lcom/aide/engine/Engine;) -> access$completionTriggerKind
-	qP(Lcom/aide/engine/Engine;) -> access$d
-	u7(Lcom/aide/engine/Engine;) -> access$d0
+	HO(Lcom/aide/engine/Engine;) -> access$crashListener
 	sh(Lcom/aide/engine/Engine;) -> access$debugClassEntries
 	dx(Lcom/aide/engine/Engine;) -> access$debugFieldEntries
 	oh(Lcom/aide/engine/Engine;) -> access$debugInfoRequested
@@ -12529,7 +12537,6 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	Zo(Lcom/aide/engine/Engine;) -> access$declarationFile
 	VH(Lcom/aide/engine/Engine;) -> access$declarationLine
 	d8(Lcom/aide/engine/Engine;) -> access$declarationRequested
-	gM(Lcom/aide/engine/Engine;) -> access$e0
 	uD(Lcom/aide/engine/Engine;) -> access$editorFile
 	gy(Lcom/aide/engine/Engine;) -> access$engineId
 	h2(Lcom/aide/engine/Engine;) -> access$engineVersion
@@ -12560,11 +12567,10 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	kf(Lcom/aide/engine/Engine;) -> access$formatOptionNames
 	Q6(Lcom/aide/engine/Engine;) -> access$formatOptionSetCache
 	Jl(Lcom/aide/engine/Engine;) -> access$formatOptionValues
-	w9(Lcom/aide/engine/Engine;) -> access$g
-	cT(Lcom/aide/engine/Engine;) -> access$i
+	w9(Lcom/aide/engine/Engine;) -> access$highlightingListener
+	cT(Lcom/aide/engine/Engine;) -> access$htmlPreviewListener
 	ti(Lcom/aide/engine/Engine;) -> access$idleRequested
 	WB(Lcom/aide/engine/Engine;) -> access$importEntity
-	q7(Lcom/aide/engine/Engine;) -> access$j
 	oT(Lcom/aide/engine/Engine;) -> access$metricsCancelled
 	aM(Lcom/aide/engine/Engine;) -> access$metricsFiles
 	Ak(Lcom/aide/engine/Engine;) -> access$metricsRequested
@@ -12580,6 +12586,8 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	SI(Lcom/aide/engine/Engine;) -> access$pendingFilePaths
 	ro(Lcom/aide/engine/Engine;) -> access$pendingFileReaders
 	KD(Lcom/aide/engine/Engine;) -> access$pendingFileVersions
+	qP(Lcom/aide/engine/Engine;) -> access$progressListener
+	q7(Lcom/aide/engine/Engine;) -> access$readerFactory
 	IS(Lcom/aide/engine/Engine;) -> access$rebuildRequested
 	br(Lcom/aide/engine/Engine;) -> access$refactoringAction
 	FN(Lcom/aide/engine/Engine;) -> access$refactoringArgs
@@ -12587,6 +12595,7 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	XG(Lcom/aide/engine/Engine;) -> access$refactoringEndLine
 	Eq(Lcom/aide/engine/Engine;) -> access$refactoringFile
 	oY(Lcom/aide/engine/Engine;) -> access$refactoringFileName
+	AL(Lcom/aide/engine/Engine;) -> access$refactoringListener
 	BN(Lcom/aide/engine/Engine;) -> access$refactoringOldName
 	sg(Lcom/aide/engine/Engine;) -> access$refactoringRequested
 	wc(Lcom/aide/engine/Engine;) -> access$refactoringStartColumn
@@ -12598,6 +12607,7 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	sv(Lcom/aide/engine/Engine;) -> access$renameCancelled
 	mb(Lcom/aide/engine/Engine;) -> access$replaceFindText
 	Ws(Lcom/aide/engine/Engine;) -> access$requestedEntity
+	u7(Lcom/aide/engine/Engine;) -> access$resultListener
 	ce(Lcom/aide/engine/Engine;) -> access$searchClassesRequested
 	Bx(Lcom/aide/engine/Engine;) -> access$searchSymbolsRequested
 	vJ(Lcom/aide/engine/Engine;) -> access$searchTextQuery
@@ -12675,13 +12685,12 @@ Lcom/aide/engine/Engine; -> Lcom/aide/engine/Engine;
 	tv(Lcom/aide/engine/Engine;) -> access$templateColumn
 	Fd(Lcom/aide/engine/Engine;) -> access$templateFileRequested
 	S4(Lcom/aide/engine/Engine;) -> access$templateLine
+	gM(Lcom/aide/engine/Engine;) -> access$templateListener
 	TI(Lcom/aide/engine/Engine;) -> access$templateRequested
 	Qq(Lcom/aide/engine/Engine;) -> access$usageColumn
 	g3(Lcom/aide/engine/Engine;) -> access$usageFile
 	I(Lcom/aide/engine/Engine;) -> access$usageIncludeOverrides
 	x9(Lcom/aide/engine/Engine;) -> access$usageLine
-	Ev(Lcom/aide/engine/Engine;) -> access$x
-	k2(Lcom/aide/engine/Engine;) -> access$y
 	zg(Ljava/lang/String;Lcom/aide/engine/SourceEntity;) -> addImport
 	Dm(Lcom/aide/engine/SyntaxError;I) -> applyFix
 	jg(Ljava/lang/String;III) -> autoIndentAfterPaste
@@ -12812,41 +12821,41 @@ Lcom/aide/engine/r; -> Lcom/aide/engine/InvocationExpression;
 	Hw -> arguments
 	FH -> className
 	j6 -> implicitReceiver
-	v5 -> l
 	DW -> name
+	v5 -> receiver
 Lcom/aide/engine/q; -> Lcom/aide/engine/MemberAccessExpression;
 	FH -> className
 	j6 -> implicitReceiver
-	Hw -> l
 	DW -> name
+	Hw -> receiver
 Lcom/aide/engine/Modification$a; -> Lcom/aide/engine/Modification$Creator;
 	j6(Landroid/os/Parcel;) -> createFromParcel
 	DW(I) -> newArray
 Lcom/aide/engine/Modification; -> Lcom/aide/engine/Modification;
-	k2 -> caretColumn
-	qp -> caretLine
-	fY -> endColumn
-	jw -> endLine
+	zh -> caretColumn
+	k2 -> caretLine
+	qp -> endColumn
+	fY -> endLine
 	AL -> filePath
-	zh -> indent
-	Z1 -> kind
-	q7 -> linkLength
+	q7 -> indent
+	WB -> kind
+	cT -> moveCaret
 	hK -> newFilePath
-	cT -> selectionOnly
-	mb -> startColumn
-	WB -> startLine
+	jw -> startColumn
+	mb -> startLine
+	Z1 -> tabSize
 	w9 -> text
-	DW() -> getCaretColumn
-	FH() -> getCaretLine
-	Hw() -> getEndColumn
-	gn() -> getEndLine
+	j6() -> getCaretColumn
+	DW() -> getCaretLine
+	FH() -> getEndColumn
+	Hw() -> getEndLine
 	v5() -> getFilePath
-	j6() -> getIndent
-	Zo() -> getLinkLength
-	u7() -> getStartColumn
-	tp() -> getStartLine
+	Zo() -> getIndent
+	tp() -> getKind
+	gn() -> getStartColumn
+	u7() -> getStartLine
 	VH() -> getText
-	EQ() -> isSelectionOnly
+	EQ() -> isMoveCaret
 Lcom/aide/engine/u; -> Lcom/aide/engine/NameExpression;
 	j6 -> text
 Lcom/aide/engine/OpenFile; -> Lcom/aide/engine/OpenFile;
@@ -12856,7 +12865,7 @@ Lcom/aide/engine/z; -> Lcom/aide/engine/OpenFileProvider;
 	J0(Lcom/aide/engine/OpenFile;) -> readContent
 	J8(J) -> setDiskVersion
 Lcom/aide/engine/t; -> Lcom/aide/engine/PrefixExpression;
-	j6 -> l
+	j6 -> operand
 	DW -> operator
 Lcom/aide/engine/d; -> Lcom/aide/engine/ProgressListener;
 	Of() -> analysisFinished
@@ -13030,8 +13039,6 @@ Lcom/aide/engine/SyntaxStyleType; -> Lcom/aide/engine/SyntaxStyleType;
 	iW -> $VALUES
 Lcom/aide/engine/e0; -> Lcom/aide/engine/TemplateListener;
 	j6(Ljava/util/Map;I) -> templateEvaluated
-Lcom/aide/engine/n; -> Lcom/aide/engine/UnaryExpression;
-	j6 -> l
 Lcom/aide/engine/UsageSearcherListener; -> Lcom/aide/engine/UsageSearcherListener;
 	Cz() -> begin
 	ce(Ljava/util/List;) -> finish
@@ -13808,7 +13815,6 @@ Lcom/aide/ui/AIDEEditor$t; -> Lcom/aide/ui/AIDEEditor$AIDEEditorModel;
 	fh() -> loadTrainerHints
 	PT() -> markUnmodified
 	BT(IIIIII) -> moveText
-	Hw(II) -> navigateTo
 	E4(CII) -> onCharacterInserted
 	Lz(CII) -> onCharacterTyped
 	Ej() -> publishSyntaxHighlighting
@@ -13828,6 +13834,7 @@ Lcom/aide/ui/AIDEEditor$t; -> Lcom/aide/ui/AIDEEditor$AIDEEditorModel;
 	nw(Ljava/lang/String;) -> setFilePath
 	qU(Ljava/lang/String;[Ljava/lang/String;) -> setLearnText
 	Mr(Lcom/aide/engine/FileHighlightings;) -> setLexicalHighlightings
+	Hw(II) -> setLineIndent
 	nl(II) -> setLineIndentation
 	MP(Ljava/util/List;) -> setLinkedEditRegions
 	Of(Z) -> setLinkedEditUpdating
@@ -18319,7 +18326,7 @@ Lcom/aide/ui/services/LogcatService$a; -> Lcom/aide/ui/services/LogcatService$Re
 Lcom/aide/ui/services/LogcatService; -> Lcom/aide/ui/services/LogcatService;
 	tp -> bufferedLines
 	VH -> canReadLogs
-	gn -> hasAdrtOutput
+	gn -> hasLogcatOutput
 	j6 -> listener
 	Hw -> pauseLock
 	v5 -> paused
@@ -18332,15 +18339,15 @@ Lcom/aide/ui/services/LogcatService; -> Lcom/aide/ui/services/LogcatService;
 	Hw(Lcom/aide/ui/services/LogcatService;) -> access$200
 	j6() -> access$300
 	v5(Lcom/aide/ui/services/LogcatService;Ljava/lang/String;) -> access$400
-	J8(Ljava/lang/String;) -> addAdrtLine
+	J8(Ljava/lang/String;) -> addLogcatLine
 	EQ() -> canReadLogs
 	VH() -> checkReadLogsPermission
 	u7(Ljava/lang/String;) -> exec
 	tp(IZ) -> getProcessName
-	Zo() -> isAdrtMode
+	Zo() -> isSystemLogAvailable
 	XL(Ljava/lang/String;) -> parseLine
 	Ws(Ljava/lang/String;) -> postLine
-	QX(Ljava/lang/String;) -> processLine
+	QX(Ljava/lang/String;) -> processAdrtLine
 	gn(Z) -> setActive
 	aM(Lcom/aide/ui/services/LogcatService$LogcatListener;) -> setListener
 	J0(Ljava/lang/String;I) -> skipField
@@ -18401,12 +18408,12 @@ Lcom/aide/ui/services/OpenFileService$OpenFileModel; -> Lcom/aide/ui/services/Op
 	sG() -> hasUnsavedChanges
 	cn() -> isModifiedOnDisk
 	BT(IIIIII) -> moveText
-	Hw(II) -> navigateTo
 	J0(Lcom/aide/engine/OpenFile;) -> readContents
 	j6() -> reload
 	aM() -> save
 	nw(Ljava/lang/String;) -> setFilePath
 	Mr(Lcom/aide/engine/FileHighlightings;) -> setLexicalHighlightings
+	Hw(II) -> setLineIndent
 	IS(Lcom/aide/engine/FileHighlightings;) -> setSemanticHighlightings
 Lcom/aide/ui/services/OpenFileService; -> Lcom/aide/ui/services/OpenFileService;
 	j6(Lcom/aide/ui/services/OpenFileService;) -> access$000
