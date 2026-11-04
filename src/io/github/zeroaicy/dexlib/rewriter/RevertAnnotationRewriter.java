@@ -1,6 +1,5 @@
 package io.github.zeroaicy.dexlib.rewriter;
 
-import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -113,7 +112,8 @@ public class RevertAnnotationRewriter extends AnnotationRewriter {
 				sb.append(((StringEncodedValue)signatureValue).getValue());
 			}
 			String signature = sb.toString();
-			if (TextUtils.isEmpty(signature)) {
+			// 与 TextUtils.isEmpty 等价；不依赖 android.jar，便于在电脑上运行
+			if (signature.length() == 0) {
 				// 没有签名
 				return null;
 			}
