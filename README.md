@@ -41,6 +41,12 @@ java -Xmx6g -cp "out;libs/*" io.github.zeroaicy.dexlib.aidePlus.DesktopMain data
 - 运行时多出 23 条“严重警告⚠️:存在从类…重写为父类… -> clone()/next()”：这些是还原协变返回的重写（如 JGit 的抽象类声明
   `public abstract X clone()`，桥接方法 `Object clone()` 在父类中，带 BRIDGE|SYNTHETIC），本工具只在当前类中找桥接方法所以报严重；
   dex 中两者描述符不同，运行时分派不变。
+- 按实现重新核对后，改正了上一版中与实际含义不符的名字（约 80 条）：`Modification` 的字段与 getter 整体错位一位（`getStartLine` 实为种类等），
+  按实际含义重排；`RefactoringCallback` 的四个编辑方法改为 `formatLines` / `moveText` / `copyText` / `replaceKeepingCaret`；
+  `DebugMetadataCallback.pushField` / `pushUnary` 改为 `pushPrefixOperator` / `pushArrayLength`（`UnaryExpression` 改名 `ArrayLengthExpression`）；
+  `JavaTypeSystem` 的两个类型判断原先对调，改为 `isPrimitiveType` / `isReferenceType`；`LogcatService` 中 logcat 与 ADRT 两路的方法名
+  原先相反，改为 `addLogcatLine` / `processAdrtLine` / `hasLogcatOutput` / `isSystemLogAvailable`；`OpenFileModel.navigateTo(int,int)`
+  实为设置行缩进，改为 `setLineIndent`；另有 `SyntaxTree`、`EntitySpace` 等几处成员改名，`Engine` 剩余的短名字段补上名字。
 
 原来的 `AIDE+_2.4.zip`、`aide+_mapping_2.4.txt`、`aide+_mapping_output_2.4.txt` 原样存于 `aide_plus_2.4/备份[封存]/aide_plus_2.4-备份[封存].zip`。
 原来的 `AIDE+_2.4.zip` 比当时的规则旧，用当时的规则重跑会多出 `SyntaxTreeStyles → SyntaxToken` 等后加的改名；现在的输出由本规则重新生成。
